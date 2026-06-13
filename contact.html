@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Contact Mini OpenStax Support — Get help, report issues, or register for a class." />
+  <meta name="theme-color" content="#006b3d" />
+  <title>Mini OpenStax — Contact & Support</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <style>
+    /* === MINI OPENSTAX DESIGN TOKENS === */
+    :root {
+      --green: #006b3d;
+      --green-dark: #00502e;
+      --gold: #cead00;
+      --red: #ce1126;
+      --light: #f9f9f9;
+      --dark: #2d2d2d;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --focus-ring: 0 0 0 3px rgb(0 107 61 / 0.4);
+      --radius-sm: 0.375rem;
+      --radius-md: 0.75rem;
+      --radius-lg: 1rem;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      --space-xs: clamp(0.5rem, 0.8vw, 0.75rem);
+      --space-sm: clamp(0.75rem, 1.2vw, 1rem);
+      --space-md: clamp(1rem, 2vw, 1.5rem);
+      --space-lg: clamp(1.5rem, 3vw, 2.5rem);
+      --space-xl: clamp(2rem, 5vw, 4rem);
+      --max-w: 900px;
+      --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* === RESET & BASE === */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+      background: var(--surface);
+      color: var(--dark);
+      line-height: 1.6;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+    }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+    .skip-link {
+      position: absolute; top: -40px; left: 0; background: var(--green); color: white;
+      padding: var(--space-xs) var(--space-sm); z-index: 1000; border-radius: var(--radius-sm);
+      transition: top var(--transition); font-weight: 500; text-decoration: none;
+    }
+    .skip-link:focus { top: var(--space-xs); outline: 2px solid white; outline-offset: 2px; }
+
+    /* === CONTAINER === */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: var(--space-md);
+      padding-top: calc(var(--space-md) + 72px);
+      flex: 1;
+    }
+
+    /* === PROFESSIONAL HEADER === */
+    .header {
+      position: sticky; top: 0; z-index: 100;
+      background: color-mix(in srgb, var(--surface) 95%, transparent);
+      backdrop-filter: blur(12px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: var(--space-sm) var(--space-md);
+      max-width: var(--max-w); margin: 0 auto; width: 100%;
+    }
+    .nav__brand {
+      font-size: 1.25rem; font-weight: 700; color: var(--green);
+      display: flex; align-items: center; gap: var(--space-xs); text-decoration: none;
+    }
+    .nav__brand svg { width: 1.5rem; height: 1.5rem; stroke: var(--green); flex-shrink: 0; }
+    .nav__list {
+      display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0;
+      background: var(--surface); padding: var(--space-sm); border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-md); gap: var(--space-xs);
+    }
+    .nav__list.is-open { display: flex; }
+    .nav__link {
+      padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm);
+      font-weight: 500; color: var(--dark); transition: background var(--transition), color var(--transition);
+      text-decoration: none;
+    }
+    .nav__link:hover, .nav__link:focus-visible { background: var(--light); color: var(--green); outline: none; }
+    .nav__link[aria-current="page"] { color: var(--green); font-weight: 700; background: var(--light); }
+    .nav__toggle {
+      display: grid; place-items: center; width: 2.5rem; height: 2.5rem;
+      border-radius: var(--radius-sm); background: none; border: none; cursor: pointer;
+    }
+    .nav__toggle:hover, .nav__toggle:focus-visible { background: var(--light); outline: none; }
+    .nav__toggle svg { width: 1.5rem; height: 1.5rem; stroke: var(--dark); }
+    @media (min-width: 768px) {
+      .nav__toggle { display: none; }
+      .nav__list {
+        position: static; flex-direction: row; box-shadow: none; border: none; padding: 0;
+        background: transparent; display: flex; align-items: center; gap: var(--space-sm);
+      }
+    }
+
+    /* === PAGE HEADER === */
+    .page-header { text-align: center; margin-bottom: var(--space-xl); }
+    .page-header h1 { font-size: clamp(1.75rem, 4vw, 2.25rem); color: var(--green); margin-bottom: var(--space-xs); }
+    .page-header p { font-size: 1.1rem; color: #475569; max-width: 50ch; margin: 0 auto; }
+
+    /* === CONTACT GRID === */
+    .contact-grid {
+      display: grid; gap: var(--space-lg); grid-template-columns: 1fr;
+      margin-bottom: var(--space-xl);
+    }
+    @media (min-width: 768px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
+
+    /* === INFO CARD === */
+    .info-card {
+      background: var(--green); color: white; padding: var(--space-lg);
+      border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: var(--space-md);
+    }
+    .info-item { display: flex; gap: var(--space-sm); align-items: flex-start; }
+    .info-icon {
+      background: rgba(255,255,255,0.2); width: 2.5rem; height: 2.5rem;
+      border-radius: 50%; display: grid; place-items: center; flex-shrink: 0;
+    }
+    .info-text h3 { font-size: 1.1rem; margin-bottom: 0.25rem; }
+    .info-text p, .info-text a { color: rgba(255,255,255,0.9); text-decoration: none; }
+    .info-text a:hover { text-decoration: underline; }
+    .social-links { display: flex; gap: var(--space-sm); margin-top: var(--space-sm); }
+    .social-btn {
+      background: rgba(255,255,255,0.2); width: 2.5rem; height: 2.5rem;
+      border-radius: 50%; display: grid; place-items: center; color: white;
+      transition: background var(--transition);
+    }
+    .social-btn:hover { background: rgba(255,255,255,0.4); color: white; }
+
+    /* === FORM CARD === */
+    .form-card {
+      background: white; padding: var(--space-lg); border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md); border: 1px solid var(--border);
+    }
+    .form-card h2 { color: var(--green); margin-bottom: var(--space-md); }
+    .input-group { margin-bottom: var(--space-md); }
+    .input-group label { display: block; margin-bottom: var(--space-xs); font-weight: 500; }
+    .input-field {
+      width: 100%; padding: 0.75rem; border: 1px solid var(--border);
+      border-radius: var(--radius-md); font-size: 1rem; font-family: inherit;
+      background: #f8fafc;
+    }
+    .input-field:focus { outline: none; border-color: var(--green); box-shadow: var(--focus-ring); background: white; }
+    textarea.input-field { min-height: 120px; resize: vertical; }
+    .btn {
+      background: var(--green); color: white; border: none; padding: 0.8rem 1.5rem;
+      border-radius: var(--radius-md); font-weight: 600; cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+      font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%;
+    }
+    .btn:hover, .btn:focus-visible { background: var(--green-dark); transform: translateY(-1px); outline: none; }
+    .btn-whatsapp { background: #25D366; width: auto; text-decoration: none; }
+    .btn-whatsapp:hover { background: #128C7E; }
+
+    /* === FAQ === */
+    .faq-section { margin-bottom: var(--space-xl); }
+    .faq-section h2 { color: var(--green); margin-bottom: var(--space-md); }
+    .faq-item {
+      background: var(--light); border-radius: var(--radius-md); margin-bottom: var(--space-sm);
+      overflow: hidden; border: 1px solid var(--border);
+    }
+    .faq-question {
+      width: 100%; padding: var(--space-md); text-align: left; background: none;
+      border: none; font-size: 1rem; font-weight: 600; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .faq-question:hover { background: #e2e8f0; }
+    .faq-answer { padding: 0 var(--space-md); max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+    .faq-answer.open { padding: 0 var(--space-md) var(--space-md); max-height: 200px; }
+    .faq-icon { transition: transform 0.3s ease; }
+    .faq-question[aria-expanded="true"] .faq-icon { transform: rotate(180deg); }
+
+    /* === FOOTER === */
+    .footer { background: var(--dark); color: #cbd5e1; padding-block: var(--space-xl); margin-top: auto; }
+    .footer__grid {
+      display: grid; gap: var(--space-lg); grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      max-width: var(--max-w); margin: 0 auto; padding: 0 var(--space-md);
+    }
+    .footer__title { color: white; margin-bottom: var(--space-sm); }
+    .footer__link { color: #94a3b8; display: inline-block; margin-bottom: var(--space-xs); text-decoration: none; }
+    .footer__link:hover { color: white; text-decoration: underline; }
+    .footer__bottom {
+      text-align: center; margin-top: var(--space-lg); padding-top: var(--space-sm);
+      border-top: 1px solid #334155; max-width: var(--max-w); margin-inline: auto; padding-inline: var(--space-md);
+    }
+
+    /* === UTILS === */
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    @media (prefers-color-scheme: dark) {
+      :root { --surface: #111827; --light: #1e293b; --border: #334155; --dark: #f1f5f9; }
+      .form-card { background: #1e293b; }
+      .input-field { background: #0f172a; color: #f1f5f9; border-color: #334155; }
+      .input-field:focus { background: #111827; }
+      .faq-item { background: #1e293b; border-color: #334155; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Professional Header -->
+  <header class="header" role="banner">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html" class="nav__brand" aria-label="Mini OpenStax Home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Mini OpenStax
+      </a>
+      <button class="nav__toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      <nav id="main-nav" class="nav__list" role="navigation" aria-label="Primary">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="index.html" class="nav__link">Class 5</a>
+        <a href="dashboard.html" class="nav__link">Dashboard</a>
+        <a href="contact.html" class="nav__link" aria-current="page">Contact</a>
+      </nav>
+    </nav>
+  </header>
+
+  <main id="main" class="container" role="main">
+    <!-- Page Header -->
+    <header class="page-header">
+      <h1 id="page-title">👋 We're Here to Help</h1>
+      <p>Have questions about our lessons? Need to register a class? Reach out via WhatsApp or fill out the form below.</p>
+    </header>
+
+    <!-- Contact Grid -->
+    <div class="contact-grid">
+      <!-- Contact Info -->
+      <section class="info-card">
+        <div class="info-item">
+          <div class="info-icon"><i class="fab fa-whatsapp"></i></div>
+          <div class="info-text">
+            <h3>WhatsApp Support</h3>
+            <p><a href="https://wa.me/233257320201" target="_blank" rel="noopener">Chat with us instantly</a></p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+          <div class="info-text">
+            <h3>Call Us</h3>
+            <p><a href="tel:+233257320201">+233 25 732 0201</a></p>
+            <p style="font-size:0.85rem; opacity:0.8;">Mon-Fri, 8am - 5pm GMT</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-envelope"></i></div>
+          <div class="info-text">
+            <h3>Email</h3>
+            <p><a href="mailto:support@miniopenstax.edu.gh">support@miniopenstax.edu.gh</a></p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="info-text">
+            <h3>Location</h3>
+            <p>Accra, Ghana</p>
+          </div>
+        </div>
+        
+        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.3);">
+        
+        <p style="font-weight:500;">Follow Us:</p>
+        <div class="social-links">
+          <a href="#" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </section>
+
+      <!-- Contact Form -->
+      <section class="form-card">
+        <h2>Send a Message</h2>
+        <form id="contact-form" novalidate>
+          <div class="input-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" class="input-field" placeholder="e.g. Kwame Mensah" required>
+          </div>
+          <div class="input-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" class="input-field" placeholder="e.g. kwame@email.com" required>
+          </div>
+          <div class="input-group">
+            <label for="subject">Subject</label>
+            <select id="subject" class="input-field">
+              <option value="general">General Inquiry</option>
+              <option value="technical">Technical Issue</option>
+              <option value="registration">Class Registration</option>
+              <option value="feedback">Feedback / Suggestions</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="message">Message</label>
+            <textarea id="message" class="input-field" placeholder="How can we help you?" required></textarea>
+          </div>
+          <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+          <p id="form-status" style="margin-top:1rem; text-align:center; font-size:0.9rem; display:none;"></p>
+        </form>
+      </section>
+    </div>
+
+    <!-- Quick Action -->
+    <section style="text-align:center; margin-bottom: var(--space-xl);">
+      <p style="margin-bottom:1rem;">Prefer a quick chat?</p>
+      <a href="https://wa.me/233257320201?text=Hello%20Mini%20OpenStax%2C%20I%20have%20a%20question%20about..." class="btn btn-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i> Open WhatsApp Chat
+      </a>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <h2><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-1">
+          Is Mini OpenStax really free?
+          <i class="fas fa-chevron-down faq-icon"></i>
+        </button>
+        <div id="faq-1" class="faq-answer" role="region">
+          <p>Yes! All lessons, quizzes, and progress tracking are completely free for Ghanaian students.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-2">
+          Can I use this offline?
+          <i class="fas fa-chevron-down faq-icon"></i>
+        </button>
+        <div id="faq-2" class="faq-answer" role="region">
+          <p>Once a lesson page is loaded, you can read and take quizzes without data. You will need a connection to submit reports or sync progress.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-3">
+          How do I register a class?
+          <i class="fas fa-chevron-down faq-icon"></i>
+        </button>
+        <div id="faq-3" class="faq-answer" role="region">
+          <p>Click the "Class Registration" subject in the form above, or message us directly on WhatsApp with your school name and estimated class size.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Professional Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__grid">
+      <div>
+        <h4 class="footer__title">Mini OpenStax</h4>
+        <p style="max-width: 30ch; opacity: 0.9;">Free, accessible educational content for Ghanaian learners. Built with ❤️ for JHS students.</p>
+      </div>
+      <div>
+        <h4 class="footer__title">Quick Links</h4>
+        <nav aria-label="Footer navigation">
+          <a href="index.html" class="footer__link">Home</a><br>
+          <a href="index.html" class="footer__link">Class 5</a><br>
+          <a href="dashboard.html" class="footer__link">Dashboard</a><br>
+          <a href="contact.html" class="footer__link" aria-current="page">Contact Support</a>
+        </nav>
+      </div>
+      <div>
+        <h4 class="footer__title">Contact</h4>
+        <address style="font-style: normal; opacity: 0.9;">
+          <a href="tel:+233257320201" class="footer__link">+233 25 732 0201</a><br>
+          <a href="mailto:support@miniopenstax.edu.gh" class="footer__link">support@miniopenstax.edu.gh</a><br>
+          Accra, Ghana
+        </address>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; <span id="year"></span> Mini OpenStax. Content aligned with NaCCA curriculum. <a href="privacy.html" class="footer__link">Privacy</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // === NAV TOGGLE ===
+      const navToggle = document.querySelector('.nav__toggle');
+      const navList = document.querySelector('.nav__list');
+      if (navToggle && navList) {
+        navToggle.addEventListener('click', () => {
+          const isOpen = navList.classList.toggle('is-open');
+          navToggle.setAttribute('aria-expanded', isOpen);
+          navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+        });
+        document.addEventListener('click', (e) => {
+          if (navList.classList.contains('is-open') && !navList.contains(e.target) && !navToggle.contains(e.target)) {
+            navList.classList.remove('is-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.setAttribute('aria-label', 'Open navigation menu');
+          }
+        });
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && navList.classList.contains('is-open')) {
+            navList.classList.remove('is-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.setAttribute('aria-label', 'Open navigation menu');
+            navToggle.focus();
+          }
+        });
+      }
+
+      // === FAQ ACCORDION ===
+      document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', !expanded);
+          const answer = btn.nextElementSibling;
+          if (expanded) {
+            answer.classList.remove('open');
+          } else {
+            answer.classList.add('open');
+          }
+        });
+      });
+
+      // === FORM SUBMISSION ===
+      const form = document.getElementById('contact-form');
+      const status = document.getElementById('form-status');
+
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('name').value.trim();
+          const email = document.getElementById('email').value.trim();
+          const message = document.getElementById('message').value.trim();
+
+          if (!name || !email || !message) {
+            status.style.display = 'block';
+            status.style.color = '#ce1126';
+            status.textContent = 'Please fill in all required fields.';
+            return;
+          }
+
+          // Simulate sending
+          const btn = form.querySelector('button[type="submit"]');
+          const originalText = btn.innerHTML;
+          btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+          btn.disabled = true;
+
+          setTimeout(() => {
+            status.style.display = 'block';
+            status.style.color = '#006b3d';
+            status.textContent = 'Message sent successfully! We will reply soon.';
+            form.reset();
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+          }, 1500);
+        });
+      }
+
+      // === YEAR ===
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>          btn.disabled = false;
+          }, 1500);
+        });
+      }
+
+      // === YEAR ===
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
