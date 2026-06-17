@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Mini OpenStax: Casely Hayford's Role in NCBWA — Class 5 History Chapter 1" />
+  <meta name="description" content="Mini OpenStax: Joseph Mensah Sarbah & ARPS — Class 5 History Week 2" />
   <meta name="theme-color" content="#006b3d" />
-  <title>Mini OpenStax — Casely Hayford's Role in NCBWA</title>
+  <title>Mini OpenStax — Joseph Mensah Sarbah & ARPS (Week 2)</title>
   
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -30,6 +30,7 @@
       --radius-lg: 1rem;
       --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
       --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
       --space-xs: clamp(0.5rem, 0.8vw, 0.75rem);
       --space-sm: clamp(0.75rem, 1.2vw, 1rem);
       --space-md: clamp(1rem, 2vw, 1.5rem);
@@ -93,6 +94,7 @@
     .nav__link {
       padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm);
       font-weight: 500; color: var(--dark); transition: background var(--transition), color var(--transition);
+      text-decoration: none;
     }
     .nav__link:hover, .nav__link:focus-visible { background: var(--light); color: var(--green); }
     .nav__link[aria-current="page"] { color: var(--green); font-weight: 700; background: var(--light); }
@@ -163,6 +165,7 @@
       background: var(--green); color: white; border: none; padding: 0.6rem 1.2rem;
       border-radius: var(--radius-md); font-weight: 600; cursor: pointer; margin-top: 0.5rem;
       transition: background var(--transition), transform var(--transition);
+      text-decoration: none; display: inline-block;
     }
     .btn:hover, .btn:focus-visible { background: var(--green-dark); transform: translateY(-2px); }
     .btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
@@ -184,6 +187,45 @@
       background: #f8f9fa; padding: var(--space-md); border-left: 4px solid var(--gold);
       margin: var(--space-lg) 0; border-radius: 0 var(--radius-md) var(--radius-md) 0;
     }
+    .profile-card {
+      background: linear-gradient(135deg, var(--green-light, #e8f5ee), var(--gold-light, #fdf6d8));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      margin: var(--space-md) 0;
+      display: flex;
+      gap: var(--space-md);
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .profile-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--green);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+    .profile-info { flex: 1; min-width: 200px; }
+    .profile-info h3 { color: var(--green-dark); margin-bottom: 0.25rem; }
+    .profile-info .dates { font-size: 0.9rem; color: var(--text-muted, #64748b); margin-bottom: 0.5rem; }
+    .timeline {
+      display: flex; flex-direction: column; gap: var(--space-sm); margin: var(--space-md) 0;
+    }
+    .timeline-item {
+      display: flex; gap: var(--space-sm); padding: var(--space-sm);
+      background: var(--light); border-radius: var(--radius-md);
+      border-left: 4px solid var(--gold);
+    }
+    .timeline-year {
+      font-weight: 700; color: var(--green-dark); min-width: 60px;
+      font-family: monospace; font-size: 1rem;
+    }
+    .timeline-content { flex: 1; font-size: 0.95rem; }
 
     /* === QUIZ === */
     .quiz { margin-top: var(--space-lg); }
@@ -249,7 +291,7 @@
       max-width: var(--max-w); margin: 0 auto; padding: 0 var(--space-md);
     }
     .footer__title { color: white; margin-bottom: var(--space-sm); font-size: 1.1rem; }
-    .footer__link { color: #94a3b8; transition: color var(--transition); display: inline-block; margin-bottom: var(--space-xs); }
+    .footer__link { color: #94a3b8; transition: color var(--transition); display: inline-block; margin-bottom: var(--space-xs); text-decoration: none; }
     .footer__link:hover { color: white; text-decoration: underline; }
     .footer__bottom {
       text-align: center; margin-top: var(--space-lg); padding-top: var(--space-sm);
@@ -278,6 +320,9 @@
       }
       .card, .modal-content, .report-card { background: #1e293b; }
       .feedback details[open] { background: #064e3b; }
+      th { background-color: #1e3a2a; }
+      .timeline-item { background: #1e293b; }
+      .profile-card { background: linear-gradient(135deg, #0a2e1d, #3d3400); }
     }
   </style>
 </head>
@@ -297,8 +342,8 @@
       </button>
       <nav id="main-nav" class="nav__list" role="navigation">
         <a href="index.html" class="nav__link">Home</a>
-        <a href="index.html" class="nav__link">Class 5</a>
-        <a href="index.html" class="nav__link" aria-current="page">History</a>
+        <a href="dashboard.html" class="nav__link">Class 5</a>
+        <a href="historyChapter-1.html" class="nav__link" aria-current="page">History</a>
         <a href="dashboard.html" class="nav__link">Dashboard</a>
         <a href="contact.html" class="nav__link">Contact</a>
       </nav>
@@ -309,8 +354,8 @@
     <!-- Mini OpenStax App Header -->
     <div class="app-header">
       <div>
-        <h1 id="page-title">Casely Hayford's Role in NCBWA</h1>
-        <div class="lo-tags">B5.5.1.1.3</div>
+        <h1 id="page-title">Joseph Mensah Sarbah & ARPS</h1>
+        <div class="lo-tags">B5.5.1.1.2 • Journey to Independence</div>
       </div>
       <div style="display:flex;gap:0.5rem;align-items:center;">
         <div class="role-badge" id="current-role">Student View</div>
@@ -332,11 +377,10 @@
       <div class="section">
         <h2>🎯 What You'll Learn</h2>
         <ul id="objectives">
-          <li>Explain Casely Hayford's role in forming the National Congress of British West Africa (NCBWA).</li>
-          <li>Describe the 1920 London delegation led by Casely Hayford.</li>
-          <li>Identify what happened when Casely Hayford addressed the League of Nations.</li>
-          <li>Understand the outcome of the NCBWA's demands to the British government.</li>
-          <li>Recognize Casely Hayford's literary contributions, especially "Ethiopia Unbound".</li>
+          <li>Identify who Joseph Mensah Sarbah was and describe his background.</li>
+          <li>Explain his role as a key leader in the Aborigines' Rights Protection Society (ARPS).</li>
+          <li>Describe how the ARPS got the Land Bill withdrawn through petitions and advocacy.</li>
+          <li>Recognise the importance of using legal knowledge to fight for justice and rights.</li>
         </ul>
       </div>
 
@@ -344,49 +388,105 @@
         <h2>🔤 Important Words</h2>
         <p>Key terms for this lesson:</p>
         <div class="word-list" id="word-list">
+          <span class="word-item">Barrister</span>
+          <span class="word-item">Petition</span>
+          <span class="word-item">Unjust</span>
+          <span class="word-item">Legislative Council</span>
+          <span class="word-item">ARPS</span>
+          <span class="word-item">Land Bill</span>
+          <span class="word-item">Advocacy</span>
           <span class="word-item">Delegation</span>
-          <span class="word-item">Demands</span>
-          <span class="word-item">League of Nations</span>
-          <span class="word-item">NCBWA</span>
-          <span class="word-item">Nationalism</span>
-          <span class="word-item">Novel</span>
+          <span class="word-item">Colonial</span>
           <span class="word-item">Representation</span>
-          <span class="word-item">Visionary Leader</span>
+          <span class="word-item">Constitution</span>
+          <span class="word-item">Reform</span>
         </div>
       </div>
 
       <div class="section" id="lesson-content">
-        <h2>📘 Casely Hayford's Role in the NCBWA</h2>
+        <h2>📘 Joseph Mensah Sarbah & The ARPS</h2>
         
-        <h3>💡 Formation of the NCBWA</h3>
-        <p>Casely Hayford was a <strong>visionary leader</strong> who believed that Africans across West Africa needed to unite to demand better rights and representation. He helped to form the <strong>National Congress of British West Africa (NCBWA)</strong>, which was a major early nationalist protest movement.</p>
-        
-        <h3>🌍 The 1920 London Delegation</h3>
-        <p>In <strong>1920</strong>, Casely Hayford led a <strong>delegation</strong> (a group of representatives) to London to represent the NCBWA. He bravely stood before the British government to present their <strong>demands</strong> for:</p>
+        <h3>💡 Introduction: Who Was Joseph Mensah Sarbah?</h3>
+        <p>Joseph Mensah Sarbah was one of the most important leaders in Ghana's early struggle for justice and rights. He was not just a politician — he was a <strong>barrister</strong> (a trained lawyer) who used his knowledge of the law to fight against unfair colonial rules.</p>
+
+        <div class="profile-card">
+          <div class="profile-icon">⚖️</div>
+          <div class="profile-info">
+            <h3>John Mensah Sarbah</h3>
+            <div class="dates">1864 – 27 November 1910</div>
+            <p><strong>Profession:</strong> Barrister (Lawyer) &nbsp;|&nbsp; <strong>Role:</strong> Key Leader of ARPS</p>
+            <p><strong>Known For:</strong> Fighting against the Land Bills and getting Africans representation on the Legislative Council</p>
+          </div>
+        </div>
+
+        <h3>📜 Early Life and Education</h3>
+        <p>John Mensah Sarbah was born in <strong>1864</strong> in the Gold Coast (now Ghana). He was a brilliant student who received a good education. He went on to study law and became a <strong>barrister</strong> — a highly trained lawyer who could argue cases in court. His legal training gave him the tools he needed to challenge the unfair laws made by the British colonial government.</p>
+
+        <h3>⚖️ Fighting Against the Land Bills</h3>
+        <p>The British colonial government wanted to pass <strong>Land Bills</strong> — laws that would allow the government to take away land that belonged to Africans. This was very unjust because the land had belonged to African families and communities for generations.</p>
+        <p>John Mensah Sarbah <strong>strongly opposed</strong> these Land Bills. He believed that Africans had the right to own and keep their land. He used his legal knowledge to:</p>
         <ul>
-          <li>More African representation in government</li>
-          <li>Better rights for Africans under colonial rule</li>
-          <li>Fair treatment and opportunities</li>
+          <li>Write petitions to the British government explaining why the Land Bills were unfair</li>
+          <li>Argue that the bills violated the rights of African people</li>
+          <li>Work with other leaders in the ARPS to organise opposition to the bills</li>
         </ul>
-        
-        <h3>🏛️ Addressing the League of Nations</h3>
-        <p>Casely Hayford also addressed the <strong>League of Nations</strong>, which was the first organization of world governments that worked for world peace. By speaking there, he brought the struggles of West Africans to the <strong>global stage</strong>.</p>
-        
-        <h3>⚖️ Outcome of His Demands</h3>
+
         <blockquote>
-          <strong>Important Note:</strong> Although Casely Hayford was a powerful speaker and leader, he was <strong>not successful</strong> in getting the British government to grant the NCBWA's demands at that time. However, his efforts laid the <strong>foundation for future nationalist movements</strong> that eventually led to independence.
+          💭 <strong>Think About It</strong>: If someone tried to take away your family's land today, what would you do? How could knowledge of the law help you fight back?
         </blockquote>
-        
-        <h3>📚 Literary Contributions</h3>
-        <p>Aside from his political activism, Casely Hayford was a pioneering author:</p>
+
+        <h3>🏛️ Role in the ARPS</h3>
+        <p>John Mensah Sarbah was a key leader of the <strong>Aborigines' Rights Protection Society (ARPS)</strong>, which was formed in <strong>1897</strong>. The ARPS was the first major protest movement in the Gold Coast, and its main goal was to protect African land rights.</p>
+        <p>As a barrister, Sarbah played a special role in the ARPS:</p>
         <ul>
-          <li>He wrote <strong>six books</strong> about West Africa</li>
-          <li>His most famous book, <strong><em>Ethiopia Unbound</em></strong>, holds a special place in history</li>
-          <li><em>Ethiopia Unbound</em> was the <strong>first novel written by an African in the English language</strong></li>
+          <li>He used his legal expertise to draft petitions and arguments against unjust laws</li>
+          <li>He represented the ARPS in meetings with colonial officials</li>
+          <li>He continued to prevent unjust Bills from passing into law until his death</li>
         </ul>
-        
+
+        <h3>📅 Timeline of Key Events in Sarbah's Life</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">1864</div>
+            <div class="timeline-content">
+              <strong>Birth</strong> — John Mensah Sarbah was born in the Gold Coast.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1897</div>
+            <div class="timeline-content">
+              <strong>ARPS Formed</strong> — Sarbah became a key leader in the Aborigines' Rights Protection Society, fighting against the Land Bills.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1901</div>
+            <div class="timeline-content">
+              <strong>Legislative Council</strong> — Sarbah became a member of the Gold Coast Legislative Council, giving Africans a voice in government.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1910</div>
+            <div class="timeline-content">
+              <strong>Death</strong> — John Mensah Sarbah passed away on 27th November 1910, but his legacy lived on.
+            </div>
+          </div>
+        </div>
+
+        <h3>🏆 Achievements of Sarbah and the ARPS</h3>
+        <p>Thanks to the hard work of John Mensah Sarbah and other ARPS leaders, several important achievements were recorded:</p>
+        <ul>
+          <li><strong>Land Bill Withdrawn:</strong> The ARPS successfully got the British government to withdraw the unjust Land Bills that would have taken African land.</li>
+          <li><strong>African Representation:</strong> The ARPS managed to get a few Africans to serve on the Legislative Council, giving Africans a voice in how the country was governed.</li>
+          <li><strong>Direct Address to Council:</strong> The ARPS was allowed to address the Legislative Council directly on issues that concerned African people.</li>
+          <li><strong>Public Meetings:</strong> The ARPS organised meetings attended by members and the public, educating people about their rights.</li>
+        </ul>
+
+        <h3>🌟 Sarbah's Legacy</h3>
+        <p>John Mensah Sarbah died on <strong>27th November 1910</strong>, but his work did not end with his death. He showed that educated Africans could use their knowledge — especially legal knowledge — to fight for justice. His work inspired later leaders like Casely Hayford, J.B. Danquah, and eventually Kwame Nkrumah in the struggle for independence.</p>
+        <p>Today, Sarbah is remembered as one of the <strong>founding fathers</strong> of Ghana's nationalist movement. His courage in standing up to the powerful British colonial government showed that even a small group of determined people could make a difference.</p>
+
         <blockquote>
-          💭 <strong>Think About It</strong>: Even though Casely Hayford didn't succeed immediately in London, why was his effort still important for Ghana's journey to independence? How did his work inspire future leaders?
+          💭 <strong>Think About It</strong>: Why do you think it was important for the ARPS to have a trained lawyer like Sarbah as their leader? How did his education help the movement succeed?
         </blockquote>
       </div>
 
@@ -394,13 +494,13 @@
         <h2>✅ Check Your Understanding</h2>
         <div class="checkpoint">
           <ol>
-            <li>What does NCBWA stand for?</li>
-            <li>In what year did Casely Hayford lead a delegation to London?</li>
-            <li>What were the main demands of the NCBWA?</li>
-            <li>What was the League of Nations?</li>
-            <li>Was Casely Hayford successful in getting the British to grant NCBWA demands immediately?</li>
-            <li>What was the title of Casely Hayford's most famous book?</li>
-            <li>Why was "Ethiopia Unbound" historically significant?</li>
+            <li>Who was John Mensah Sarbah and when was he born?</li>
+            <li>What profession did Sarbah have that helped him fight for African rights?</li>
+            <li>What were the Land Bills and why did Sarbah oppose them?</li>
+            <li>In what year was the ARPS formed?</li>
+            <li>Name two achievements of the ARPS under Sarbah's leadership.</li>
+            <li>When did John Mensah Sarbah die?</li>
+            <li>In what year did Sarbah become a member of the Legislative Council?</li>
           </ol>
           <p><em>Confirm your understanding before moving on.</em></p>
         </div>
@@ -416,8 +516,8 @@
       <div class="chapter-nav" id="chapter-navigation">
         <div class="chapter-tabs" id="chapter-tabs"></div>
         <div>
-          <button id="prev-btn" class="btn" style="margin-right: 0.5rem; display: none;">← Previous Lesson</button>
-          <button id="next-btn" class="btn" style="display: none;">Next Lesson →</button>
+          <button id="prev-btn" class="btn" style="margin-right: 0.5rem; display: none;">← Previous Week</button>
+          <button id="next-btn" class="btn" style="display: none;">Next Week →</button>
         </div>
       </div>
 
@@ -435,7 +535,7 @@
           </div>
           <div class="stat-item">
             <div class="stat-value" id="stat-total">1</div>
-            <div class="stat-label">Total Lessons</div>
+            <div class="stat-label">Total Weeks</div>
           </div>
           <div class="stat-item">
             <div class="stat-value" id="stat-percent">0%</div>
@@ -490,8 +590,8 @@
         <h4 class="footer__title">Quick Links</h4>
         <nav aria-label="Footer navigation">
           <a href="index.html" class="footer__link">Home</a><br>
-          <a href="index.html" class="footer__link">Class 5</a><br>
-          <a href="index.html" class="footer__link">History Lessons</a><br>
+          <a href="dashboard.html" class="footer__link">Class 5</a><br>
+          <a href="historyChapter-1.html" class="footer__link">History Lessons</a><br>
           <a href="contact.html" class="footer__link">Contact Support</a>
         </nav>
       </div>
@@ -518,8 +618,8 @@
       // === AUTO-DETECT CHAPTER NUMBER FROM URL ===
       const path = window.location.pathname;
       const match = path.match(/historyChapter-(\d+)\.html/);
-      const currentChapter = match ? parseInt(match[1], 10) : 0;
-      const MAX_CHAPTERS = 1;
+      const currentChapter = match ? parseInt(match[1], 10) : 1;
+      const MAX_CHAPTERS = 11; // 12 weeks total (0 to 11)
 
       function getChapterUrl(n) {
         return `historyChapter-${n}.html`;
@@ -599,28 +699,28 @@
       };
       window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
 
-      // === QUIZ DATA (20 Questions - NCBWA, London Delegation, Literary Works) ===
+      // === QUIZ DATA (20 Questions - Joseph Mensah Sarbah & ARPS) ===
       const assessmentItems = [
-        {id:"1",prompt:"What does NCBWA stand for?",options:[{id:"a",text:"National Council of British West Africa",is_correct:false},{id:"b",text:"National Congress of British West Africa",is_correct:true},{id:"c",text:"National Committee for British West Africa",is_correct:false},{id:"d",text:"National Convention of British West Africa",is_correct:false}]},
-        {id:"2",prompt:"In what year did Casely Hayford lead a delegation to London?",options:[{id:"a",text:"1866",is_correct:false},{id:"b",text:"1920",is_correct:true},{id:"c",text:"1930",is_correct:false},{id:"d",text:"1945",is_correct:false}]},
-        {id:"3",prompt:"What is a delegation?",options:[{id:"a",text:"A type of colonial law",is_correct:false},{id:"b",text:"A group of people chosen to represent others",is_correct:true},{id:"c",text:"A book about Africa",is_correct:false},{id:"d",text:"A traditional chief",is_correct:false}]},
-        {id:"4",prompt:"What were the main demands of the NCBWA?",options:[{id:"a",text:"More taxes for Africans",is_correct:false},{id:"b",text:"More African representation and rights in government",is_correct:true},{id:"c",text:"Less education for Africans",is_correct:false},{id:"d",text:"More British control",is_correct:false}]},
-        {id:"5",prompt:"What was the League of Nations?",options:[{id:"a",text:"A Ghanaian traditional council",is_correct:false},{id:"b",text:"An early international organization for world peace",is_correct:true},{id:"c",text:"A British political party",is_correct:false},{id:"d",text:"A West African trading group",is_correct:false}]},
-        {id:"6",prompt:"Why did Casely Hayford address the League of Nations?",options:[{id:"a",text:"To ask for money",is_correct:false},{id:"b",text:"To bring West African struggles to the global stage",is_correct:true},{id:"c",text:"To support colonial rule",is_correct:false},{id:"d",text:"To promote trade",is_correct:false}]},
-        {id:"7",prompt:"Was Casely Hayford successful in getting the British to grant NCBWA demands immediately?",options:[{id:"a",text:"Yes, completely successful",is_correct:false},{id:"b",text:"No, he was not successful at that time",is_correct:true},{id:"c",text:"Partially successful with some demands",is_correct:false},{id:"d",text:"The British agreed to everything",is_correct:false}]},
-        {id:"8",prompt:"Despite not succeeding immediately, what was the importance of Casely Hayford's efforts?",options:[{id:"a",text:"They had no importance",is_correct:false},{id:"b",text:"They laid the foundation for future nationalist movements",is_correct:true},{id:"c",text:"They made the British angry",is_correct:false},{id:"d",text:"They ended all protests",is_correct:false}]},
-        {id:"9",prompt:"How many books did Casely Hayford write about West Africa?",options:[{id:"a",text:"Two books",is_correct:false},{id:"b",text:"Six books",is_correct:true},{id:"c",text:"Ten books",is_correct:false},{id:"d",text:"One book",is_correct:false}]},
-        {id:"10",prompt:"What was the title of Casely Hayford's most famous book?",options:[{id:"a",text:"Africa Rising",is_correct:false},{id:"b",text:"Ethiopia Unbound",is_correct:true},{id:"c",text:"West African Dreams",is_correct:false},{id:"d",text:"Ghana's Future",is_correct:false}]},
-        {id:"11",prompt:"Why was 'Ethiopia Unbound' historically significant?",options:[{id:"a",text:"It was the longest book ever written",is_correct:false},{id:"b",text:"It was the first novel written by an African in English",is_correct:true},{id:"c",text:"It was banned by the British",is_correct:false},{id:"d",text:"It was written in multiple languages",is_correct:false}]},
-        {id:"12",prompt:"What type of leader was Casely Hayford described as?",options:[{id:"a",text:"A cowardly leader",is_correct:false},{id:"b",text:"A visionary leader",is_correct:true},{id:"c",text:"A selfish leader",is_correct:false},{id:"d",text:"A lazy leader",is_correct:false}]},
-        {id:"13",prompt:"Where did Casely Hayford present the NCBWA demands in 1920?",options:[{id:"a",text:"In Accra",is_correct:false},{id:"b",text:"In London",is_correct:true},{id:"c",text:"In Cape Coast",is_correct:false},{id:"d",text:"In Kumasi",is_correct:false}]},
-        {id:"14",prompt:"What did Casely Hayford believe about Africans in West Africa?",options:[{id:"a",text:"They should remain divided",is_correct:false},{id:"b",text:"They needed to unite to demand better rights",is_correct:true},{id:"c",text:"They should accept colonial rule",is_correct:false},{id:"d",text:"They didn't need representation",is_correct:false}]},
-        {id:"15",prompt:"What was Casely Hayford known for besides politics?",options:[{id:"a",text:"Farming",is_correct:false},{id:"b",text:"Writing and literature",is_correct:true},{id:"c",text:"Trading",is_correct:false},{id:"d",text:"Soldiering",is_correct:false}]},
-        {id:"16",prompt:"What does 'representation' mean in the context of NCBWA demands?",options:[{id:"a",text:"Having Africans in government positions",is_correct:true},{id:"b",text:"Making paintings",is_correct:false},{id:"c",text:"Building statues",is_correct:false},{id:"d",text:"Writing letters",is_correct:false}]},
-        {id:"17",prompt:"Which organization did Casely Hayford help form?",options:[{id:"a",text:"The United Nations",is_correct:false},{id:"b",text:"The National Congress of British West Africa (NCBWA)",is_correct:true},{id:"c",text:"The African Union",is_correct:false},{id:"d",text:"The Commonwealth",is_correct:false}]},
-        {id:"18",prompt:"What quality made Casely Hayford effective in London?",options:[{id:"a",text:"He was a powerful speaker and leader",is_correct:true},{id:"b",text:"He was very wealthy",is_correct:false},{id:"c",text:"He was related to the British Queen",is_correct:false},{id:"d",text:"He was a British citizen",is_correct:false}]},
-        {id:"19",prompt:"What genre was 'Ethiopia Unbound'?",options:[{id:"a",text:"A novel (fiction)",is_correct:true},{id:"b",text:"A cookbook",is_correct:false},{id:"c",text:"A mathematics textbook",is_correct:false},{id:"d",text:"A travel guide",is_correct:false}]},
-        {id:"20",prompt:"Why is Casely Hayford important in Ghana's history?",options:[{id:"a",text:"He was the first President of Ghana",is_correct:false},{id:"b",text:"He was a founding father of Ghanaian nationalism who fought for rights",is_correct:true},{id:"c",text:"He discovered gold in Ghana",is_correct:false},{id:"d",text:"He built the first school in Ghana",is_correct:false}]}
+        {id:"1",prompt:"Who was John Mensah Sarbah?",options:[{id:"a",text:"A British colonial governor",is_correct:false},{id:"b",text:"A Gold Coast barrister and key leader of the ARPS",is_correct:true},{id:"c",text:"A traditional chief of the Ashanti Kingdom",is_correct:false},{id:"d",text:"A farmer who led a land protest",is_correct:false}]},
+        {id:"2",prompt:"In what year was John Mensah Sarbah born?",options:[{id:"a",text:"1847",is_correct:false},{id:"b",text:"1864",is_correct:true},{id:"c",text:"1897",is_correct:false},{id:"d",text:"1901",is_correct:false}]},
+        {id:"3",prompt:"What was John Mensah Sarbah's profession?",options:[{id:"a",text:"Teacher",is_correct:false},{id:"b",text:"Doctor",is_correct:false},{id:"c",text:"Barrister (Lawyer)",is_correct:true},{id:"d",text:"Farmer",is_correct:false}]},
+        {id:"4",prompt:"What were the Land Bills?",options:[{id:"a",text:"Laws that gave Africans more land",is_correct:false},{id:"b",text:"Laws the British wanted to pass to take away African-owned lands",is_correct:true},{id:"c",text:"Laws about paying taxes on land",is_correct:false},{id:"d",text:"Laws for building new farms",is_correct:false}]},
+        {id:"5",prompt:"Why did Sarbah strongly oppose the Land Bills?",options:[{id:"a",text:"Because they would make Africans rich",is_correct:false},{id:"b",text:"Because they were unjust and would take away land belonging to Africans",is_correct:true},{id:"c",text:"Because he wanted the land for himself",is_correct:false},{id:"d",text:"Because the British asked him to oppose them",is_correct:false}]},
+        {id:"6",prompt:"How did Sarbah use his legal knowledge to fight the Land Bills?",options:[{id:"a",text:"By stealing the documents",is_correct:false},{id:"b",text:"By writing petitions and arguing that the bills violated African rights",is_correct:true},{id:"c",text:"By starting a war against the British",is_correct:false},{id:"d",text:"By hiding in the forest",is_correct:false}]},
+        {id:"7",prompt:"In what year was the ARPS formed?",options:[{id:"a",text:"1864",is_correct:false},{id:"b",text:"1897",is_correct:true},{id:"c",text:"1901",is_correct:false},{id:"d",text:"1910",is_correct:false}]},
+        {id:"8",prompt:"What does ARPS stand for?",options:[{id:"a",text:"African Rights and Political Society",is_correct:false},{id:"b",text:"Aborigines' Rights Protection Society",is_correct:true},{id:"c",text:"All Rights Protection System",is_correct:false},{id:"d",text:"African Republic Political State",is_correct:false}]},
+        {id:"9",prompt:"What was the main goal of the ARPS?",options:[{id:"a",text:"To build more schools",is_correct:false},{id:"b",text:"To protect African land rights against colonial takeover",is_correct:true},{id:"c",text:"To start a new political party",is_correct:false},{id:"d",text:"To trade with other countries",is_correct:false}]},
+        {id:"10",prompt:"In what year did Sarbah become a member of the Legislative Council?",options:[{id:"a",text:"1897",is_correct:false},{id:"b",text:"1901",is_correct:true},{id:"c",text:"1910",is_correct:false},{id:"d",text:"1920",is_correct:false}]},
+        {id:"11",prompt:"What was the Legislative Council?",options:[{id:"a",text:"A group of traditional dancers",is_correct:false},{id:"b",text:"A body that made laws for the Gold Coast under British rule",is_correct:true},{id:"c",text:"A school for training teachers",is_correct:false},{id:"d",text:"A market where goods were sold",is_correct:false}]},
+        {id:"12",prompt:"What was one major achievement of the ARPS?",options:[{id:"a",text:"They won immediate independence for Ghana",is_correct:false},{id:"b",text:"They got the Land Bills withdrawn and some Africans on the Legislative Council",is_correct:true},{id:"c",text:"They built the University of Ghana",is_correct:false},{id:"d",text:"They started the first newspaper",is_correct:false}]},
+        {id:"13",prompt:"When did John Mensah Sarbah die?",options:[{id:"a",text:"27 November 1897",is_correct:false},{id:"b",text:"27 November 1901",is_correct:false},{id:"c",text:"27 November 1910",is_correct:true},{id:"d",text:"27 November 1920",is_correct:false}]},
+        {id:"14",prompt:"How did the ARPS address issues concerning African people?",options:[{id:"a",text:"By violent protests only",is_correct:false},{id:"b",text:"By addressing the Legislative Council directly and organising public meetings",is_correct:true},{id:"c",text:"By ignoring the British government",is_correct:false},{id:"d",text:"By leaving the Gold Coast",is_correct:false}]},
+        {id:"15",prompt:"What did Sarbah continue to do until his death?",options:[{id:"a",text:"He continued to farm",is_correct:false},{id:"b",text:"He continued to prevent unjust Bills from passing into law",is_correct:true},{id:"c",text:"He continued to teach in schools",is_correct:false},{id:"d",text:"He continued to trade with Europe",is_correct:false}]},
+        {id:"16",prompt:"Why was Sarbah's education as a barrister important for the ARPS?",options:[{id:"a",text:"It allowed him to write songs for the movement",is_correct:false},{id:"b",text:"It gave him legal knowledge to draft petitions and argue against unjust laws",is_correct:true},{id:"c",text:"It helped him become rich",is_correct:false},{id:"d",text:"It was not important at all",is_correct:false}]},
+        {id:"17",prompt:"Which of the following best describes Sarbah's legacy?",options:[{id:"a",text:"He is forgotten today",is_correct:false},{id:"b",text:"He is remembered as a founding father of Ghana's nationalist movement",is_correct:true},{id:"c",text:"He is remembered only as a farmer",is_correct:false},{id:"d",text:"He is remembered as a British governor",is_correct:false}]},
+        {id:"18",prompt:"What did the ARPS achieve regarding African representation?",options:[{id:"a",text:"They got all Africans to become governors",is_correct:false},{id:"b",text:"They got a few Africans to serve on the Legislative Council",is_correct:true},{id:"c",text:"They got no Africans represented at all",is_correct:false},{id:"d",text:"They got Africans to rule Britain",is_correct:false}]},
+        {id:"19",prompt:"What type of meetings did the ARPS organise?",options:[{id:"a",text:"Secret meetings only",is_correct:false},{id:"b",text:"Meetings attended by members and the public to discuss rights",is_correct:true},{id:"c",text:"Only meetings with British officials",is_correct:false},{id:"d",text:"They did not organise any meetings",is_correct:false}]},
+        {id:"20",prompt:"Which core competency is developed when learners study how Sarbah used his legal knowledge to fight for justice?",options:[{id:"a",text:"Financial Literacy",is_correct:false},{id:"b",text:"Critical Thinking and Problem Solving",is_correct:true},{id:"c",text:"Physical Coordination",is_correct:false},{id:"d",text:"Digital Literacy",is_correct:false}]}
       ];
 
       // === RENDER QUIZ ===
@@ -672,7 +772,7 @@
         localStorage.setItem(`quiz_attempts_${currentChapter}`, attempts);
         localStorage.setItem(`mastery_${currentChapter}`, mastery ? '1' : '0');
 
-        let report = `*Mini OpenStax — Casely Hayford: NCBWA & Legacy*\nStudent: ${userName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
+        let report = `*Mini OpenStax — Joseph Mensah Sarbah & ARPS (Week ${currentChapter + 1})*\nStudent: ${userName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
         if (correctList.length) {
           report += `✅ CORRECT ANSWERS (${correctList.length}):\n`;
           correctList.forEach(q => report += `${q.id}. ${q.prompt}\n   → ${q.correctText}\n\n`);
@@ -716,7 +816,7 @@
           const student = (lines.find(l => l.startsWith('Student:')) || '').replace('Student: ', '').trim() || 'Unknown';
           const score = (lines.find(l => l.startsWith('Score:')) || 'Score unknown');
           const date = new Date(rep.timestamp).toLocaleString();
-          return `<div class="report-card"><div class="report-header"><span>Casely Hayford: NCBWA & Legacy</span><span>${date}</span></div><div class="report-meta">Student: ${student} • ${score}</div><div class="report-detail" id="detail-${rep.timestamp}"></div><div class="report-actions"><button class="btn" onclick="toggleDetail(${rep.timestamp})">Details</button><button class="btn" onclick="viewReportAsPDF('${rep.key}')">PDF</button><button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">WhatsApp</button></div></div>`;
+          return `<div class="report-card"><div class="report-header"><span>Joseph Mensah Sarbah & ARPS</span><span>${date}</span></div><div class="report-meta">Student: ${student} • ${score}</div><div class="report-detail" id="detail-${rep.timestamp}"></div><div class="report-actions"><button class="btn" onclick="toggleDetail(${rep.timestamp})">Details</button><button class="btn" onclick="viewReportAsPDF('${rep.key}')">PDF</button><button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">WhatsApp</button></div></div>`;
         }).join('');
         window.reportContents = {};
         reports.forEach(r => window.reportContents[r.timestamp] = r.content);
@@ -735,7 +835,7 @@
         document.getElementById('stat-mastered').textContent = mastered;
         document.getElementById('stat-total').textContent = 1;
         document.getElementById('stat-percent').textContent = `${mastered * 100}%`;
-        document.getElementById('recent-lessons').innerHTML = `<div class="lesson-item"><div><span class="mastery-indicator ${mastered ? 'mastery-yes' : 'mastery-partial'}"></span>Lesson ${currentChapter + 1}</div><span>${mastered ? 'Mastered' : 'In Progress'}</span></div>`;
+        document.getElementById('recent-lessons').innerHTML = `<div class="lesson-item"><div><span class="mastery-indicator ${mastered ? 'mastery-yes' : 'mastery-partial'}"></span>Week ${currentChapter + 1}: Joseph Mensah Sarbah & ARPS</div><span>${mastered ? 'Mastered' : 'In Progress'}</span></div>`;
       }
       document.getElementById('btn-send-all').addEventListener('click', () => {
         let msg = `*📚 Mini OpenStax — All Quiz Reports*\nStudent: ${userName}\n\n`; let count = 0;
@@ -781,7 +881,7 @@
         let tabsHtml = '';
         for (let i = Math.max(0, currentChapter - 1); i <= Math.min(MAX_CHAPTERS, currentChapter + 2); i++) {
           const isActive = i === currentChapter;
-          tabsHtml += `<a href="${getChapterUrl(i)}" class="chapter-btn ${isActive ? 'active' : ''}">Lesson ${i + 1}</a>`;
+          tabsHtml += `<a href="${getChapterUrl(i)}" class="chapter-btn ${isActive ? 'active' : ''}">Week ${i + 1}</a>`;
         }
         tabsContainer.innerHTML = tabsHtml;
         if (currentChapter > 0) { prevBtn.style.display = 'inline-block'; prevBtn.onclick = () => window.location.href = getChapterUrl(currentChapter - 1); }
@@ -793,11 +893,6 @@
       // === INIT ===
       document.getElementById('year').textContent = new Date().getFullYear();
       renderQuiz(); updateChapterNavigation();
-      document.getElementById('send-analytics')?.addEventListener('click', (e) => { e.preventDefault(); alert("Usage data collection is handled globally."); });
-    })();
-  </script>
-</body>
-</html> updateChapterNavigation();
       document.getElementById('send-analytics')?.addEventListener('click', (e) => { e.preventDefault(); alert("Usage data collection is handled globally."); });
     })();
   </script>
