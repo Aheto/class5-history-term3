@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Mini OpenStax: The Boycott of European Goods and the Demand for Independence — Class 5 History Chapter 6" />
+  <meta name="description" content="Mini OpenStax: The Shooting of Ex-Servicemen — Class 5 History Week 7" />
   <meta name="theme-color" content="#006b3d" />
-  <title>Mini OpenStax — The Boycott and the Growing Demand for Independence</title>
+  <title>Mini OpenStax — The Shooting of Ex-Servicemen (Week 7)</title>
   
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -30,6 +30,7 @@
       --radius-lg: 1rem;
       --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
       --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
       --space-xs: clamp(0.5rem, 0.8vw, 0.75rem);
       --space-sm: clamp(0.75rem, 1.2vw, 1rem);
       --space-md: clamp(1rem, 2vw, 1.5rem);
@@ -93,6 +94,7 @@
     .nav__link {
       padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm);
       font-weight: 500; color: var(--dark); transition: background var(--transition), color var(--transition);
+      text-decoration: none;
     }
     .nav__link:hover, .nav__link:focus-visible { background: var(--light); color: var(--green); }
     .nav__link[aria-current="page"] { color: var(--green); font-weight: 700; background: var(--light); }
@@ -163,6 +165,7 @@
       background: var(--green); color: white; border: none; padding: 0.6rem 1.2rem;
       border-radius: var(--radius-md); font-weight: 600; cursor: pointer; margin-top: 0.5rem;
       transition: background var(--transition), transform var(--transition);
+      text-decoration: none; display: inline-block;
     }
     .btn:hover, .btn:focus-visible { background: var(--green-dark); transform: translateY(-2px); }
     .btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
@@ -183,6 +186,75 @@
     .checkpoint {
       background: #f8f9fa; padding: var(--space-md); border-left: 4px solid var(--gold);
       margin: var(--space-lg) 0; border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+    .timeline {
+      display: flex; flex-direction: column; gap: var(--space-sm); margin: var(--space-md) 0;
+    }
+    .timeline-item {
+      display: flex; gap: var(--space-sm); padding: var(--space-sm);
+      background: var(--light); border-radius: var(--radius-md);
+      border-left: 4px solid var(--gold);
+    }
+    .timeline-year {
+      font-weight: 700; color: var(--green-dark); min-width: 100px;
+      font-family: monospace; font-size: 0.95rem;
+    }
+    .timeline-content { flex: 1; font-size: 0.95rem; }
+    .memorial-card {
+      background: linear-gradient(135deg, #fde8ea 0%, #fff 100%);
+      border: 2px solid var(--red);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      margin: var(--space-md) 0;
+      text-align: center;
+    }
+    .memorial-card h3 {
+      color: var(--red);
+      margin-bottom: var(--space-sm);
+      font-size: 1.2rem;
+    }
+    .memorial-names {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      margin: var(--space-md) 0;
+    }
+    .memorial-name {
+      background: white;
+      padding: var(--space-sm);
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      color: var(--dark);
+      border-left: 4px solid var(--red);
+      text-align: left;
+    }
+    .map-container {
+      background: var(--light);
+      border: 2px solid var(--gold);
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+      margin: var(--space-md) 0;
+      text-align: center;
+    }
+    .map-route {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+      margin: var(--space-md) 0;
+      font-weight: 600;
+    }
+    .map-point {
+      background: var(--green);
+      color: white;
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+    }
+    .map-arrow {
+      color: var(--gold);
+      font-size: 1.5rem;
     }
 
     /* === QUIZ === */
@@ -249,7 +321,7 @@
       max-width: var(--max-w); margin: 0 auto; padding: 0 var(--space-md);
     }
     .footer__title { color: white; margin-bottom: var(--space-sm); font-size: 1.1rem; }
-    .footer__link { color: #94a3b8; transition: color var(--transition); display: inline-block; margin-bottom: var(--space-xs); }
+    .footer__link { color: #94a3b8; transition: color var(--transition); display: inline-block; margin-bottom: var(--space-xs); text-decoration: none; }
     .footer__link:hover { color: white; text-decoration: underline; }
     .footer__bottom {
       text-align: center; margin-top: var(--space-lg); padding-top: var(--space-sm);
@@ -278,6 +350,11 @@
       }
       .card, .modal-content, .report-card { background: #1e293b; }
       .feedback details[open] { background: #064e3b; }
+      th { background-color: #1e3a2a; }
+      .timeline-item { background: #1e293b; }
+      .memorial-card { background: linear-gradient(135deg, #3d0a10 0%, #1e293b 100%); }
+      .memorial-name { background: #1e293b; color: #f1f5f9; }
+      .map-container { background: #1e293b; }
     }
   </style>
 </head>
@@ -297,8 +374,8 @@
       </button>
       <nav id="main-nav" class="nav__list" role="navigation">
         <a href="index.html" class="nav__link">Home</a>
-        <a href="index.html" class="nav__link">Class 5</a>
-        <a href="index.html" class="nav__link" aria-current="page">History</a>
+        <a href="dashboard.html" class="nav__link">Class 5</a>
+        <a href="historyChapter-6.html" class="nav__link" aria-current="page">History</a>
         <a href="dashboard.html" class="nav__link">Dashboard</a>
         <a href="contact.html" class="nav__link">Contact</a>
       </nav>
@@ -309,8 +386,8 @@
     <!-- Mini OpenStax App Header -->
     <div class="app-header">
       <div>
-        <h1 id="page-title">The Boycott and the Growing Demand for Independence</h1>
-        <div class="lo-tags">B5.5.3.1.1</div>
+        <h1 id="page-title">The Shooting of Ex-Servicemen</h1>
+        <div class="lo-tags">B5.5.3.1.1 • The 1948 Riots</div>
       </div>
       <div style="display:flex;gap:0.5rem;align-items:center;">
         <div class="role-badge" id="current-role">Student View</div>
@@ -332,11 +409,10 @@
       <div class="section">
         <h2>🎯 What You'll Learn</h2>
         <ul id="objectives">
-          <li>Understand what a boycott is and why it was used as a tool of protest.</li>
-          <li>Identify the specific European goods that were boycotted by the people.</li>
-          <li>Explain the results of the boycott on foreign trading companies.</li>
-          <li>Describe how the combination of broken promises, farmer anger, and boycotts led to massive unrest.</li>
-          <li>Understand how these events strengthened the demand for self-government and independence.</li>
+          <li>Describe what happened on 28th February 1948 when ex-servicemen were shot.</li>
+          <li>Identify the three ex-servicemen who were killed: Sgt. Adjetey, Cpl. Attipoe, and Pte. Odartey Lamptey.</li>
+          <li>Explain the route and purpose of the march from Accra to Christiansborg Castle.</li>
+          <li>Discuss the immediate consequences of the shooting and how it led to the 1948 riots.</li>
         </ul>
       </div>
 
@@ -344,47 +420,123 @@
         <h2>🔤 Important Words</h2>
         <p>Key terms for this lesson:</p>
         <div class="word-list" id="word-list">
+          <span class="word-item">Ex-Servicemen</span>
+          <span class="word-item">Petition</span>
+          <span class="word-item">Christiansborg Castle</span>
+          <span class="word-item">Unarmed</span>
           <span class="word-item">Boycott</span>
-          <span class="word-item">Unrest</span>
-          <span class="word-item">Self-government</span>
-          <span class="word-item">Independence</span>
-          <span class="word-item">Trading Companies</span>
-          <span class="word-item">Shortage</span>
-          <span class="word-item">Nationalism</span>
+          <span class="word-item">Riots</span>
+          <span class="word-item">Big Six</span>
+          <span class="word-item">Pensions</span>
+          <span class="word-item">Colonial Governor</span>
+          <span class="word-item">Osu</span>
+          <span class="word-item">March</span>
+          <span class="word-item">Detention</span>
         </div>
       </div>
 
       <div class="section" id="lesson-content">
-        <h2>📘 The Power of the Boycott and the Path to Independence</h2>
+        <h2>📘 The Shooting of Ex-Servicemen — 28th February 1948</h2>
         
-        <h3>🛑 The Trigger for the Boycott</h3>
-        <p>After the Second World War, the ordinary people of the Gold Coast were suffering. Basic goods were very scarce, and the prices of imported foreign goods had increased heavily. Foreign trading companies continued to raise their prices, making it impossible for ordinary citizens to afford basic necessities.</p>
-        <p>The people demanded that the trading companies reduce their prices by <strong>1948</strong>. When the foreign traders refused to lower the prices, the people decided to take a powerful stand.</p>
+        <h3>💡 Background: After the Boycott</h3>
+        <p>In Week 6, we learned about the <strong>boycott of European goods</strong> that started on 26th January 1948. The boycott was organised by <strong>Chief Nii Kwabena Bonne III</strong> (Osu Alata Mantse) because trading companies had increased prices of imported goods. The boycott was largely successful — many shops closed and some prices were reduced.</p>
+        <p>However, the <strong>ex-servicemen</strong> (soldiers who had fought in World War II) were still unhappy. The British government had promised them many things when they went to fight, but these promises had not been kept. They decided to take action.</p>
+
+        <h3>🚶 The March — 28th February 1948</h3>
+        <p>On <strong>28th February 1948</strong>, a group of unarmed ex-servicemen organised a peaceful march. They wanted to present a <strong>petition</strong> (a formal written request) to the British colonial governor at <strong>Christiansborg Castle</strong> in Osu.</p>
         
-        <h3>✊ The Boycott of European Goods</h3>
-        <p>The people organized a massive <strong>boycott</strong>. A boycott is when people refuse to buy goods or take part in something as a way of showing their opposition and unhappiness.</p>
+        <div class="map-container">
+          <h4 style="color: var(--green-dark); margin-bottom: var(--space-sm);">📍 The March Route</h4>
+          <div class="map-route">
+            <span class="map-point">Accra (Starting Point)</span>
+            <span class="map-arrow">→</span>
+            <span class="map-point">Along the Road to Osu</span>
+            <span class="map-arrow">→</span>
+            <span class="map-point">Christiansborg Castle, Osu</span>
+          </div>
+          <p style="font-size: 0.9rem; color: #64748b; margin-top: var(--space-sm);">The ex-servicemen marched peacefully from Accra to Christiansborg Castle in Osu to present their petition.</p>
+        </div>
+
+        <h3>🎯 Purpose of the March</h3>
+        <p>The ex-servicemen marched to demand the British government to fulfil the promises made to them during World War II. Their demands included:</p>
         <ul>
-          <li><strong>What did they boycott?</strong> People throughout the country refused to buy European goods such as <strong>cotton prints, tinned meat, and flour biscuits</strong>.</li>
-          <li><strong>Targeting Foreign Stores:</strong> They also refused to shop at foreign-owned stores, leaving them completely empty.</li>
+          <li><strong>Payment of pensions</strong> that were promised for their service</li>
+          <li><strong>War benefits</strong> and compensation</li>
+          <li><strong>Jobs</strong> for returning soldiers</li>
+          <li><strong>Housing</strong> and other facilities</li>
         </ul>
-        
-        <h3>📉 The Impact of the Boycott</h3>
-        <p>The boycott was highly effective. Because the people stopped buying their products, <strong>many foreign shops closed down</strong> because they were not making any sales. The foreign traders were losing a lot of money. Eventually, the pressure worked, and the prices of some goods were <strong>forced to be reduced</strong>.</p>
-        
-        <h3>🔥 The Growing Demand for Independence</h3>
-        <p>The boycott was just one part of the growing anger. The combination of several factors created massive <strong>unrest</strong> across the country:</p>
+
+        <h3>💔 The Shooting</h3>
+        <p>On their way to Christiansborg Castle, the unarmed ex-servicemen were stopped by <strong>armed policemen</strong>. The police ordered them to stop, but they refused because they were on a peaceful mission to present their petition.</p>
+        <p>The police then <strong>shot the servicemen dead</strong>. Three ex-servicemen were killed on the spot:</p>
+
+        <div class="memorial-card">
+          <h3>🕊️ In Memory of the Three Martyrs</h3>
+          <p style="font-style: italic; color: #64748b; margin-bottom: var(--space-md);">Killed on 28th February 1948 while marching for their rights</p>
+          <div class="memorial-names">
+            <div class="memorial-name">🎖️ Sergeant Adjetey</div>
+            <div class="memorial-name">🎖️ Corporal Attipoe</div>
+            <div class="memorial-name">🎖️ Private Odartey Lamptey</div>
+          </div>
+          <p style="margin-top: var(--space-md); font-size: 0.9rem;">Their sacrifice became a turning point in Ghana's journey to independence. Today, a monument stands at Independence Square (Black Star Square) in Accra to honour their memory.</p>
+        </div>
+
+        <h3>⚡ Immediate Consequences</h3>
+        <p>The news of the shooting spread quickly throughout the Gold Coast. The people were already unhappy about many things:</p>
+        <ul>
+          <li>Broken promises to ex-servicemen</li>
+          <li>High prices and shortage of goods</li>
+          <li>Lack of jobs</li>
+          <li>Foreign control of the economy</li>
+          <li>Lack of African representation in government</li>
+        </ul>
+        <p>When they heard about the shooting of the three ex-servicemen, the people's anger reached its limit. They started <strong>rioting</strong> throughout the country. The riots targeted foreign-owned shops and property.</p>
+
+        <h3>🔒 Arrest of the "Big Six"</h3>
+        <p>The colonial governor blamed the leaders of the <strong>United Gold Coast Convention (UGCC)</strong> for the riots. He had them arrested and detained. These leaders became known as <strong>"The Big Six"</strong>:</p>
         <ol>
-          <li><strong>Broken Promises:</strong> The British failed to provide jobs, pensions, and houses to the returning WWII soldiers.</li>
-          <li><strong>Farmer Anger:</strong> Cocoa farmers were furious because the British ordered the cutting down of diseased cocoa trees without providing a cure or support.</li>
-          <li><strong>Consumer Hardship:</strong> High prices, shortages, and foreign control of the economy made life very difficult for everyone.</li>
+          <li><strong>Edward Akufo-Addo</strong></li>
+          <li><strong>Emmanuel Obetsebi-Lamptey</strong></li>
+          <li><strong>Dr. Joseph Boakye Danquah</strong></li>
+          <li><strong>Dr. Ebenezer Ako-Adjei</strong></li>
+          <li><strong>William Ofori Atta</strong></li>
+          <li><strong>Dr. Kwame Nkrumah</strong></li>
         </ol>
-        <p>Through all these hardships, the people of the Gold Coast realized a hard truth: <strong>the British colonial government did not care about their well-being</strong>. The wealth generated in the country was being taken by foreigners.</p>
-        
-        <h3>🇬🇭 The Spark of Nationalism</h3>
-        <p>This deep unhappiness and realization sparked riots and united the people like never before. It strengthened the demand for the Gold Coast to <strong>rule itself and become an independent nation</strong>. The people knew that only by governing themselves could they ensure that the country's resources were used to help the local people.</p>
-        
+        <p>The arrest of the Big Six made them even more popular among the people. It also showed that the British colonial government was afraid of the growing demand for independence.</p>
+
+        <h3>📅 Protests by Teachers and Students</h3>
+        <p>On <strong>8th March 1948</strong>, teachers and students protested against the arrest of the Big Six. They were immediately <strong>dismissed from school</strong> for their protest. This showed how deeply the people felt about the injustice.</p>
+
         <blockquote>
-          💭 <strong>Thought Experiment</strong>: Imagine you are a trader in Accra in 1948. You and your neighbors decide to stop buying foreign cotton prints and tinned meat. The foreign shop owner is losing money every day. How does this show that ordinary people can use their economic power to fight for their rights?
+          💭 <strong>Think About It</strong>: The three ex-servicemen were unarmed and on a peaceful mission. Why do you think the police reacted with violence? What does this tell us about the colonial government's attitude toward the demands of the Gold Coast people?
+        </blockquote>
+
+        <h3>🗺️ Flow of Events</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">26 Jan 1948</div>
+            <div class="timeline-content"><strong>Boycott of European goods</strong> begins — organised by Chief Nii Kwabena Bonne III</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">28 Feb 1948</div>
+            <div class="timeline-content"><strong>Ex-servicemen march</strong> from Accra to Christiansborg Castle — <strong>three are shot dead</strong></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">Late Feb 1948</div>
+            <div class="timeline-content"><strong>Riots spread</strong> throughout the Gold Coast — foreign-owned shops are looted</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">March 1948</div>
+            <div class="timeline-content"><strong>Arrest of the Big Six</strong> — colonial governor blames UGCC leaders</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">8 Mar 1948</div>
+            <div class="timeline-content"><strong>Teachers and students protest</strong> — they are dismissed from school</div>
+          </div>
+        </div>
+
+        <blockquote>
+          💭 <strong>Think About It</strong>: The shooting of the three ex-servicemen is considered one of the most important events in Ghana's journey to independence. Why do you think this event was so significant? How did it change the way people thought about colonial rule?
         </blockquote>
       </div>
 
@@ -392,11 +544,14 @@
         <h2>✅ Check Your Understanding</h2>
         <div class="checkpoint">
           <ol>
-            <li>What is a boycott, and why did the people of the Gold Coast use it?</li>
-            <li>Name three European goods that were boycotted.</li>
-            <li>What was the result of the boycott on foreign trading companies?</li>
-            <li>List three major factors that combined to create massive unrest in the country.</li>
-            <li>What hard truth did the people realize about the British colonial government, and what did they demand as a result?</li>
+            <li>On what date were the three ex-servicemen shot?</li>
+            <li>Where were the ex-servicemen marching to?</li>
+            <li>What was the purpose of their march?</li>
+            <li>Name the three ex-servicemen who were killed.</li>
+            <li>Were the ex-servicemen armed or unarmed?</li>
+            <li>What happened after the news of the shooting spread?</li>
+            <li>Who were the "Big Six"?</li>
+            <li>What happened to teachers and students who protested on 8th March 1948?</li>
           </ol>
           <p><em>Confirm your understanding before moving on.</em></p>
         </div>
@@ -412,8 +567,8 @@
       <div class="chapter-nav" id="chapter-navigation">
         <div class="chapter-tabs" id="chapter-tabs"></div>
         <div>
-          <button id="prev-btn" class="btn" style="margin-right: 0.5rem; display: none;">← Previous Lesson</button>
-          <button id="next-btn" class="btn" style="display: none;">Next Lesson →</button>
+          <button id="prev-btn" class="btn" style="margin-right: 0.5rem; display: none;">← Previous Week</button>
+          <button id="next-btn" class="btn" style="display: none;">Next Week →</button>
         </div>
       </div>
 
@@ -431,7 +586,7 @@
           </div>
           <div class="stat-item">
             <div class="stat-value" id="stat-total">1</div>
-            <div class="stat-label">Total Lessons</div>
+            <div class="stat-label">Total Weeks</div>
           </div>
           <div class="stat-item">
             <div class="stat-value" id="stat-percent">0%</div>
@@ -486,8 +641,8 @@
         <h4 class="footer__title">Quick Links</h4>
         <nav aria-label="Footer navigation">
           <a href="index.html" class="footer__link">Home</a><br>
-          <a href="index.html" class="footer__link">Class 5</a><br>
-          <a href="index.html" class="footer__link">History Lessons</a><br>
+          <a href="dashboard.html" class="footer__link">Class 5</a><br>
+          <a href="historyChapter-6.html" class="footer__link">History Lessons</a><br>
           <a href="contact.html" class="footer__link">Contact Support</a>
         </nav>
       </div>
@@ -514,8 +669,8 @@
       // === AUTO-DETECT CHAPTER NUMBER FROM URL ===
       const path = window.location.pathname;
       const match = path.match(/historyChapter-(\d+)\.html/);
-      const currentChapter = match ? parseInt(match[1], 10) : 0;
-      const MAX_CHAPTERS = 300;
+      const currentChapter = match ? parseInt(match[1], 10) : 6;
+      const MAX_CHAPTERS = 11; // 12 weeks total (0 to 11)
 
       function getChapterUrl(n) {
         return `historyChapter-${n}.html`;
@@ -595,28 +750,28 @@
       };
       window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
 
-      // === QUIZ DATA (20 Questions - The Boycott and Demand for Independence) ===
+      // === QUIZ DATA (20 Questions - The Shooting of Ex-Servicemen) ===
       const assessmentItems = [
-        {id:"1",prompt:"What is the definition of a boycott?",options:[{id:"a",text:"Buying as many goods as possible",is_correct:false},{id:"b",text:"Refusing to buy goods or take part in something as a protest",is_correct:true},{id:"c",text:"A type of traditional dance",is_correct:false},{id:"d",text:"A meeting of the colonial government",is_correct:false}]},
-        {id:"2",prompt:"Why did the people of the Gold Coast organize a boycott after WWII?",options:[{id:"a",text:"Because they wanted to start a war",is_correct:false},{id:"b",text:"Because of high prices and shortage of basic goods",is_correct:true},{id:"c",text:"Because they wanted to support foreign traders",is_correct:false},{id:"d",text:"Because the British asked them to",is_correct:false}]},
-        {id:"3",prompt:"By what year did the people demand that trading companies reduce their prices?",options:[{id:"a",text:"1945",is_correct:false},{id:"b",text:"1946",is_correct:false},{id:"c",text:"1947",is_correct:false},{id:"d",text:"1948",is_correct:true}]},
-        {id:"4",prompt:"What did the foreign trading companies do when the people demanded lower prices?",options:[{id:"a",text:"They immediately lowered the prices",is_correct:false},{id:"b",text:"They refused to lower the prices",is_correct:true},{id:"c",text:"They gave the goods away for free",is_correct:false},{id:"d",text:"They closed down voluntarily",is_correct:false}]},
-        {id:"5",prompt:"Which of the following European goods was boycotted by the people?",options:[{id:"a",text:"Cocoa beans and gold",is_correct:false},{id:"b",text:"Cotton prints, tinned meat, and flour biscuits",is_correct:true},{id:"c",text:"Local yams and plantains",is_correct:false},{id:"d",text:"British cars and airplanes",is_correct:false}]},
-        {id:"6",prompt:"What was the immediate result of the massive boycott?",options:[{id:"a",text:"The British arrested everyone",is_correct:false},{id:"b",text:"Many foreign shops closed down because they made no sales",is_correct:true},{id:"c",text:"The foreign traders became richer",is_correct:false},{id:"d",text:"The people ran out of food completely",is_correct:false}]},
-        {id:"7",prompt:"How did the boycott eventually affect the prices of some goods?",options:[{id:"a",text:"The prices increased even more",is_correct:false},{id:"b",text:"The prices were forced to be reduced",is_correct:true},{id:"c",text:"The prices stayed exactly the same",is_correct:false},{id:"d",text:"The goods were banned",is_correct:false}]},
-        {id:"8",prompt:"Besides the soldiers, which other group was very angry with the British government?",options:[{id:"a",text:"Cocoa farmers",is_correct:true},{id:"b",text:"Foreign traders",is_correct:false},{id:"c",text:"British soldiers",is_correct:false},{id:"d",text:"School teachers",is_correct:false}]},
-        {id:"9",prompt:"Why were the cocoa farmers furious with the British government?",options:[{id:"a",text:"The British bought all their cocoa",is_correct:false},{id:"b",text:"Their livelihoods were destroyed without any support or alternative solutions",is_correct:true},{id:"c",text:"The British forced them to grow other crops",is_correct:false},{id:"d",text:"The British increased taxes on cocoa",is_correct:false}]},
-        {id:"10",prompt:"What plant disease was destroying the cocoa farms?",options:[{id:"a",text:"Cocoa leaf rust",is_correct:false},{id:"b",text:"Cocoa swollen shoot disease",is_correct:true},{id:"c",text:"Cocoa black pod disease",is_correct:false},{id:"d",text:"Cocoa root rot",is_correct:false}]},
-        {id:"11",prompt:"How did the British colonial government respond to the cocoa swollen shoot disease?",options:[{id:"a",text:"They found a quick cure",is_correct:false},{id:"b",text:"They ordered the cutting down of all afflicted trees",is_correct:true},{id:"c",text:"They gave farmers money to buy new seeds",is_correct:false},{id:"d",text:"They ignored the disease completely",is_correct:false}]},
-        {id:"12",prompt:"The combination of broken promises, farmer anger, and boycotts created a lot of what?",options:[{id:"a",text:"Celebration",is_correct:false},{id:"b",text:"Unrest",is_correct:true},{id:"c",text:"Wealth",is_correct:false},{id:"d",text:"Peace",is_correct:false}]},
-        {id:"13",prompt:"What did the people of the Gold Coast realize about the British colonial government?",options:[{id:"a",text:"They cared deeply about the local people",is_correct:false},{id:"b",text:"They did not care about their well-being",is_correct:true},{id:"c",text:"They wanted to give them independence immediately",is_correct:false},{id:"d",text:"They were going to leave the country",is_correct:false}]},
-        {id:"14",prompt:"What did the widespread unhappiness ultimately spark?",options:[{id:"a",text:"A new type of farming",is_correct:false},{id:"b",text:"Riots and a stronger demand for independence",is_correct:true},{id:"c",text:"Mass migration to Britain",is_correct:false},{id:"d",text:"A celebration",is_correct:false}]},
-        {id:"15",prompt:"What does 'unrest' mean in this historical context?",options:[{id:"a",text:"A state of dissatisfaction, rebellion, or rioting among the public",is_correct:true},{id:"b",text:"A peaceful meeting",is_correct:false},{id:"c",text:"A type of local government",is_correct:false},{id:"d",text:"A religious ceremony",is_correct:false}]},
-        {id:"16",prompt:"Who mainly controlled the economy of the Gold Coast after the war?",options:[{id:"a",text:"The local chiefs",is_correct:false},{id:"b",text:"The Gold Coast soldiers",is_correct:false},{id:"c",text:"Foreigners",is_correct:true},{id:"d",text:"The cocoa farmers",is_correct:false}]},
-        {id:"17",prompt:"Why did the ordinary people suffer the most after the war?",options:[{id:"a",text:"They had too many jobs",is_correct:false},{id:"b",text:"High prices of imported goods and foreign control of the economy",is_correct:true},{id:"c",text:"They were forced to fight in another war",is_correct:false},{id:"d",text:"They were given too much money",is_correct:false}]},
-        {id:"18",prompt:"What did the people ultimately demand for the Gold Coast as a result of these hardships?",options:[{id:"a",text:"To remain a British colony forever",is_correct:false},{id:"b",text:"To rule itself and become an independent nation",is_correct:true},{id:"c",text:"To be ruled by the United Nations",is_correct:false},{id:"d",text:"To join another country",is_correct:false}]},
-        {id:"19",prompt:"True or False: The boycott was successful in forcing some foreign traders to reduce their prices.",options:[{id:"a",text:"True",is_correct:true},{id:"b",text:"False",is_correct:false},{id:"c",text:"Partially true",is_correct:false},{id:"d",text:"None of the above",is_correct:false}]},
-        {id:"20",prompt:"What was the main goal of the growing nationalist movement after these events?",options:[{id:"a",text:"To support British colonial rule",is_correct:false},{id:"b",text:"Self-government and independence",is_correct:true},{id:"c",text:"To start a war with Britain",is_correct:false},{id:"d",text:"To build more foreign shops",is_correct:false}]}
+        {id:"1",prompt:"On what date were the three ex-servicemen shot?",options:[{id:"a",text:"26th January 1948",is_correct:false},{id:"b",text:"28th February 1948",is_correct:true},{id:"c",text:"8th March 1948",is_correct:false},{id:"d",text:"6th March 1957",is_correct:false}]},
+        {id:"2",prompt:"Where were the ex-servicemen marching to?",options:[{id:"a",text:"Kumasi",is_correct:false},{id:"b",text:"Cape Coast Castle",is_correct:false},{id:"c",text:"Christiansborg Castle in Osu",is_correct:true},{id:"d",text:"The British Parliament in London",is_correct:false}]},
+        {id:"3",prompt:"What was the purpose of the ex-servicemen's march?",options:[{id:"a",text:"To start a war against the British",is_correct:false},{id:"b",text:"To present a petition demanding their promised pensions and benefits",is_correct:true},{id:"c",text:"To celebrate the end of World War II",is_correct:false},{id:"d",text:"To vote in a general election",is_correct:false}]},
+        {id:"4",prompt:"Who was Sergeant Adjetey?",options:[{id:"a",text:"A British colonial officer",is_correct:false},{id:"b",text:"One of the three ex-servicemen killed on 28th February 1948",is_correct:true},{id:"c",text:"A leader of the UGCC",is_correct:false},{id:"d",text:"The governor of the Gold Coast",is_correct:false}]},
+        {id:"5",prompt:"Which of these is NOT one of the three ex-servicemen who were killed?",options:[{id:"a",text:"Sergeant Adjetey",is_correct:false},{id:"b",text:"Corporal Attipoe",is_correct:false},{id:"c",text:"Private Odartey Lamptey",is_correct:false},{id:"d",text:"Captain Kwame Nkrumah",is_correct:true}]},
+        {id:"6",prompt:"Were the ex-servicemen armed during the march?",options:[{id:"a",text:"Yes, they carried guns",is_correct:false},{id:"b",text:"Yes, they carried swords",is_correct:false},{id:"c",text:"No, they were unarmed",is_correct:true},{id:"d",text:"They had knives only",is_correct:false}]},
+        {id:"7",prompt:"Who stopped the ex-servicemen on their way to Christiansborg Castle?",options:[{id:"a",text:"British soldiers from the army",is_correct:false},{id:"b",text:"Armed policemen",is_correct:true},{id:"c",text:"Traditional chiefs",is_correct:false},{id:"d",text:"Market women",is_correct:false}]},
+        {id:"8",prompt:"What did the police do when the ex-servicemen refused to stop?",options:[{id:"a",text:"They arrested them all peacefully",is_correct:false},{id:"b",text:"They let them continue to the castle",is_correct:false},{id:"c",text:"They shot them dead",is_correct:true},{id:"d",text:"They joined the march",is_correct:false}]},
+        {id:"9",prompt:"What is a petition?",options:[{id:"a",text:"A type of weapon used in war",is_correct:false},{id:"b",text:"A formal written request signed by people",is_correct:true},{id:"c",text:"A traditional dance",is_correct:false},{id:"d",text:"A type of food",is_correct:false}]},
+        {id:"10",prompt:"Where is Christiansborg Castle located?",options:[{id:"a",text:"Kumasi",is_correct:false},{id:"b",text:"Cape Coast",is_correct:false},{id:"c",text:"Osu, Accra",is_correct:true},{id:"d",text:"Tamale",is_correct:false}]},
+        {id:"11",prompt:"What happened after the news of the shooting spread throughout the Gold Coast?",options:[{id:"a",text:"People celebrated",is_correct:false},{id:"b",text:"People started rioting",is_correct:true},{id:"c",text:"People left the country",is_correct:false},{id:"d",text:"Nothing happened",is_correct:false}]},
+        {id:"12",prompt:"Who did the colonial governor blame for the riots?",options:[{id:"a",text:"The market women",is_correct:false},{id:"b",text:"The teachers and students",is_correct:false},{id:"c",text:"The leaders of the UGCC (the Big Six)",is_correct:true},{id:"d",text:"The traditional chiefs",is_correct:false}]},
+        {id:"13",prompt:"How many people were in the 'Big Six'?",options:[{id:"a",text:"Four",is_correct:false},{id:"b",text:"Five",is_correct:false},{id:"c",text:"Six",is_correct:true},{id:"d",text:"Seven",is_correct:false}]},
+        {id:"14",prompt:"Which of these is NOT one of the Big Six?",options:[{id:"a",text:"Dr. Kwame Nkrumah",is_correct:false},{id:"b",text:"Dr. J.B. Danquah",is_correct:false},{id:"c",text:"Chief Nii Kwabena Bonne III",is_correct:true},{id:"d",text:"Edward Akufo-Addo",is_correct:false}]},
+        {id:"15",prompt:"What happened to the Big Six after the riots?",options:[{id:"a",text:"They were given medals",is_correct:false},{id:"b",text:"They were arrested and detained",is_correct:true},{id:"c",text:"They were made governors",is_correct:false},{id:"d",text:"They left Ghana forever",is_correct:false}]},
+        {id:"16",prompt:"On what date did teachers and students protest against the arrest of the Big Six?",options:[{id:"a",text:"28th February 1948",is_correct:false},{id:"b",text:"6th March 1957",is_correct:false},{id:"c",text:"8th March 1948",is_correct:true},{id:"d",text:"26th January 1948",is_correct:false}]},
+        {id:"17",prompt:"What happened to the teachers and students who protested on 8th March 1948?",options:[{id:"a",text:"They were given awards",is_correct:false},{id:"b",text:"They were immediately dismissed from school",is_correct:true},{id:"c",text:"They were promoted",is_correct:false},{id:"d",text:"They were invited to meet the governor",is_correct:false}]},
+        {id:"18",prompt:"What promises had the British made to the Gold Coast soldiers during WWII?",options:[{id:"a",text:"Pensions, jobs, houses, and other benefits",is_correct:true},{id:"b",text:"Free travel to Europe",is_correct:false},{id:"c",text:"Independence immediately after the war",is_correct:false},{id:"d",text:"Land in England",is_correct:false}]},
+        {id:"19",prompt:"Did the British government keep all the promises made to the ex-servicemen?",options:[{id:"a",text:"Yes, all promises were kept",is_correct:false},{id:"b",text:"No, the promises were not met",is_correct:true},{id:"c",text:"Only some promises were kept",is_correct:false},{id:"d",text:"The promises were increased",is_correct:false}]},
+        {id:"20",prompt:"Why is the shooting of the three ex-servicemen considered an important event in Ghana's history?",options:[{id:"a",text:"It started the 1948 riots and accelerated the demand for independence",is_correct:true},{id:"b",text:"It ended World War II",is_correct:false},{id:"c",text:"It made Ghana rich",is_correct:false},{id:"d",text:"It built new schools",is_correct:false}]}
       ];
 
       // === RENDER QUIZ ===
@@ -668,7 +823,7 @@
         localStorage.setItem(`quiz_attempts_${currentChapter}`, attempts);
         localStorage.setItem(`mastery_${currentChapter}`, mastery ? '1' : '0');
 
-        let report = `*Mini OpenStax — The Boycott and the Growing Demand for Independence*\nStudent: ${userName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
+        let report = `*Mini OpenStax — The Shooting of Ex-Servicemen (Week ${currentChapter + 1})*\nStudent: ${userName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
         if (correctList.length) {
           report += `✅ CORRECT ANSWERS (${correctList.length}):\n`;
           correctList.forEach(q => report += `${q.id}. ${q.prompt}\n   → ${q.correctText}\n\n`);
@@ -712,7 +867,7 @@
           const student = (lines.find(l => l.startsWith('Student:')) || '').replace('Student: ', '').trim() || 'Unknown';
           const score = (lines.find(l => l.startsWith('Score:')) || 'Score unknown');
           const date = new Date(rep.timestamp).toLocaleString();
-          return `<div class="report-card"><div class="report-header"><span>The Boycott and Demand for Independence</span><span>${date}</span></div><div class="report-meta">Student: ${student} • ${score}</div><div class="report-detail" id="detail-${rep.timestamp}"></div><div class="report-actions"><button class="btn" onclick="toggleDetail(${rep.timestamp})">Details</button><button class="btn" onclick="viewReportAsPDF('${rep.key}')">PDF</button><button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">WhatsApp</button></div></div>`;
+          return `<div class="report-card"><div class="report-header"><span>The Shooting of Ex-Servicemen</span><span>${date}</span></div><div class="report-meta">Student: ${student} • ${score}</div><div class="report-detail" id="detail-${rep.timestamp}"></div><div class="report-actions"><button class="btn" onclick="toggleDetail(${rep.timestamp})">Details</button><button class="btn" onclick="viewReportAsPDF('${rep.key}')">PDF</button><button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">WhatsApp</button></div></div>`;
         }).join('');
         window.reportContents = {};
         reports.forEach(r => window.reportContents[r.timestamp] = r.content);
@@ -731,7 +886,7 @@
         document.getElementById('stat-mastered').textContent = mastered;
         document.getElementById('stat-total').textContent = 1;
         document.getElementById('stat-percent').textContent = `${mastered * 100}%`;
-        document.getElementById('recent-lessons').innerHTML = `<div class="lesson-item"><div><span class="mastery-indicator ${mastered ? 'mastery-yes' : 'mastery-partial'}"></span>Lesson ${currentChapter + 1}</div><span>${mastered ? 'Mastered' : 'In Progress'}</span></div>`;
+        document.getElementById('recent-lessons').innerHTML = `<div class="lesson-item"><div><span class="mastery-indicator ${mastered ? 'mastery-yes' : 'mastery-partial'}"></span>Week ${currentChapter + 1}: The Shooting of Ex-Servicemen</div><span>${mastered ? 'Mastered' : 'In Progress'}</span></div>`;
       }
       document.getElementById('btn-send-all').addEventListener('click', () => {
         let msg = `*📚 Mini OpenStax — All Quiz Reports*\nStudent: ${userName}\n\n`; let count = 0;
@@ -777,7 +932,7 @@
         let tabsHtml = '';
         for (let i = Math.max(0, currentChapter - 1); i <= Math.min(MAX_CHAPTERS, currentChapter + 2); i++) {
           const isActive = i === currentChapter;
-          tabsHtml += `<a href="${getChapterUrl(i)}" class="chapter-btn ${isActive ? 'active' : ''}">Lesson ${i + 1}</a>`;
+          tabsHtml += `<a href="${getChapterUrl(i)}" class="chapter-btn ${isActive ? 'active' : ''}">Week ${i + 1}</a>`;
         }
         tabsContainer.innerHTML = tabsHtml;
         if (currentChapter > 0) { prevBtn.style.display = 'inline-block'; prevBtn.onclick = () => window.location.href = getChapterUrl(currentChapter - 1); }
@@ -789,11 +944,6 @@
       // === INIT ===
       document.getElementById('year').textContent = new Date().getFullYear();
       renderQuiz(); updateChapterNavigation();
-      document.getElementById('send-analytics')?.addEventListener('click', (e) => { e.preventDefault(); alert("Usage data collection is handled globally."); });
-    })();
-  </script>
-</body>
-</html> updateChapterNavigation();
       document.getElementById('send-analytics')?.addEventListener('click', (e) => { e.preventDefault(); alert("Usage data collection is handled globally."); });
     })();
   </script>
