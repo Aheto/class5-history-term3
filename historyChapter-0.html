@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Mini OpenStax: Who was Joseph Ephraim Casely Hayford? — Class 5 History Chapter 0" />
+  <meta name="description" content="Mini OpenStax: Introduction to Early Protest Movements — Class 5 History Week 1" />
   <meta name="theme-color" content="#006b3d" />
-  <title>Mini OpenStax — Who was Joseph Ephraim Casely Hayford?</title>
+  <title>Mini OpenStax — Early Protest Movements (Week 1)</title>
   
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -30,6 +30,7 @@
       --radius-lg: 1rem;
       --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
       --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
       --space-xs: clamp(0.5rem, 0.8vw, 0.75rem);
       --space-sm: clamp(0.75rem, 1.2vw, 1rem);
       --space-md: clamp(1rem, 2vw, 1.5rem);
@@ -93,6 +94,7 @@
     .nav__link {
       padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm);
       font-weight: 500; color: var(--dark); transition: background var(--transition), color var(--transition);
+      text-decoration: none;
     }
     .nav__link:hover, .nav__link:focus-visible { background: var(--light); color: var(--green); }
     .nav__link[aria-current="page"] { color: var(--green); font-weight: 700; background: var(--light); }
@@ -163,6 +165,7 @@
       background: var(--green); color: white; border: none; padding: 0.6rem 1.2rem;
       border-radius: var(--radius-md); font-weight: 600; cursor: pointer; margin-top: 0.5rem;
       transition: background var(--transition), transform var(--transition);
+      text-decoration: none; display: inline-block;
     }
     .btn:hover, .btn:focus-visible { background: var(--green-dark); transform: translateY(-2px); }
     .btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
@@ -184,6 +187,19 @@
       background: #f8f9fa; padding: var(--space-md); border-left: 4px solid var(--gold);
       margin: var(--space-lg) 0; border-radius: 0 var(--radius-md) var(--radius-md) 0;
     }
+    .timeline {
+      display: flex; flex-direction: column; gap: var(--space-sm); margin: var(--space-md) 0;
+    }
+    .timeline-item {
+      display: flex; gap: var(--space-sm); padding: var(--space-sm);
+      background: var(--light); border-radius: var(--radius-md);
+      border-left: 4px solid var(--gold);
+    }
+    .timeline-year {
+      font-weight: 700; color: var(--green-dark); min-width: 60px;
+      font-family: monospace; font-size: 1rem;
+    }
+    .timeline-content { flex: 1; font-size: 0.95rem; }
 
     /* === QUIZ === */
     .quiz { margin-top: var(--space-lg); }
@@ -249,7 +265,7 @@
       max-width: var(--max-w); margin: 0 auto; padding: 0 var(--space-md);
     }
     .footer__title { color: white; margin-bottom: var(--space-sm); font-size: 1.1rem; }
-    .footer__link { color: #94a3b8; transition: color var(--transition); display: inline-block; margin-bottom: var(--space-xs); }
+    .footer__link { color: #94a3b8; transition: color var(--transition); display: inline-block; margin-bottom: var(--space-xs); text-decoration: none; }
     .footer__link:hover { color: white; text-decoration: underline; }
     .footer__bottom {
       text-align: center; margin-top: var(--space-lg); padding-top: var(--space-sm);
@@ -278,6 +294,8 @@
       }
       .card, .modal-content, .report-card { background: #1e293b; }
       .feedback details[open] { background: #064e3b; }
+      th { background-color: #1e3a2a; }
+      .timeline-item { background: #1e293b; }
     }
   </style>
 </head>
@@ -297,8 +315,8 @@
       </button>
       <nav id="main-nav" class="nav__list" role="navigation">
         <a href="index.html" class="nav__link">Home</a>
-        <a href="index.html" class="nav__link">Class 5</a>
-        <a href="index.html" class="nav__link" aria-current="page">History</a>
+        <a href="dashboard.html" class="nav__link">Class 5</a>
+        <a href="historyChapter-0.html" class="nav__link" aria-current="page">History</a>
         <a href="dashboard.html" class="nav__link">Dashboard</a>
         <a href="contact.html" class="nav__link">Contact</a>
       </nav>
@@ -309,8 +327,8 @@
     <!-- Mini OpenStax App Header -->
     <div class="app-header">
       <div>
-        <h1 id="page-title">Who was Joseph Ephraim Casely Hayford?</h1>
-        <div class="lo-tags">B5.5.1.1.3</div>
+        <h1 id="page-title">Introduction to Early Protest Movements</h1>
+        <div class="lo-tags">B5.5.1.1.1 • Journey to Independence</div>
       </div>
       <div style="display:flex;gap:0.5rem;align-items:center;">
         <div class="role-badge" id="current-role">Student View</div>
@@ -332,10 +350,10 @@
       <div class="section">
         <h2>🎯 What You'll Learn</h2>
         <ul id="objectives">
-          <li>Identify who Joseph Ephraim Casely Hayford was.</li>
-          <li>State where and when Joseph Ephraim Casely Hayford was born.</li>
-          <li>Describe his early activism in the Aborigines' Rights Protection Society (ARPS).</li>
-          <li>Explain how he united traditional chiefs and the ARPS against unjust colonial laws.</li>
+          <li>Define what a protest movement is and explain why people form them.</li>
+          <li>Identify the three main early protest movements in Ghana before 1945: ARPS, NCBWA, and GCYC.</li>
+          <li>Discuss the sequence of events and factors that led to the formation of these movements.</li>
+          <li>Recognise the importance of these movements in Ghana's journey to independence.</li>
         </ul>
       </div>
 
@@ -343,51 +361,94 @@
         <h2>🔤 Important Words</h2>
         <p>Key terms for this lesson:</p>
         <div class="word-list" id="word-list">
-          <span class="word-item">Activism</span>
-          <span class="word-item">ARPS</span>
-          <span class="word-item">Colonial Rule</span>
-          <span class="word-item">Intellectual</span>
+          <span class="word-item">Protest</span>
+          <span class="word-item">Movement</span>
           <span class="word-item">Nationalism</span>
-          <span class="word-item">Protest Movement</span>
-          <span class="word-item">Traditional Chiefs</span>
-          <span class="word-item">Unjust Laws</span>
+          <span class="word-item">Nationalist</span>
+          <span class="word-item">Elite</span>
+          <span class="word-item">ARPS</span>
+          <span class="word-item">NCBWA</span>
+          <span class="word-item">GCYC</span>
+          <span class="word-item">Land Bill</span>
+          <span class="word-item">Legislative Council</span>
+          <span class="word-item">Colonial</span>
+          <span class="word-item">Delegation</span>
+          <span class="word-item">Petition</span>
         </div>
       </div>
 
       <div class="section" id="lesson-content">
-        <h2>📘 Who was Joseph Ephraim Casely Hayford?</h2>
+        <h2>📘 Introduction to Early Protest Movements</h2>
         
-        <h3>💡 Early Life and Background</h3>
-        <p><strong>Joseph Ephraim Casely Hayford</strong> (also spelled Casley Hayford) was a brilliant Ghanaian intellectual, politician, and writer who fought for the rights of Africans during colonial rule.</p>
-        
-        <h3>📅 Lifespan and Birthplace</h3>
-        <ul>
-          <li><strong>Born:</strong> 1866 in <strong>Cape Coast</strong></li>
-          <li><strong>Died:</strong> 1930</li>
-          <li><strong>Lifespan:</strong> 64 years</li>
-        </ul>
-        
-        <h3>🤝 Early Activism in ARPS</h3>
-        <p>Casely Hayford was a prominent member of the <strong>Aborigines' Rights Protection Society (ARPS)</strong>. The ARPS was one of the earliest protest movements in Ghana that fought against unfair colonial laws.</p>
-        
-        <h3>👑 Uniting Chiefs and ARPS</h3>
-        <p>He played a very important role in bringing the <strong>traditional chiefs</strong> and the <strong>ARPS</strong> together so they could unite against unjust colonial laws, such as the <strong>Land Bill</strong>.</p>
+        <h3>💡 What is a Protest Movement?</h3>
+        <p>A <strong>protest movement</strong> is when people join together to show their unhappiness about something and demand change. In the Gold Coast (now Ghana), our ancestors formed protest movements because they were unhappy with the way the British colonial government was ruling them.</p>
         
         <blockquote>
-          <strong>Why was this important?</strong> By uniting the chiefs (who had traditional authority) with educated elites in the ARPS, Casely Hayford created a stronger force to challenge British colonial policies that threatened Ghanaian land rights and freedoms.
+          💭 <strong>Think About It</strong>: Why do people protest today? What do they hope to achieve when they come together?
         </blockquote>
-        
-        <h3>🎓 His Character and Contributions</h3>
-        <p>Casely Hayford was known for being:</p>
+
+        <h3>📜 The Three Early Protest Movements</h3>
+        <p>Before 1945, three major protest movements were formed in the Gold Coast. Each one played an important role in the journey to independence:</p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">1897</div>
+            <div class="timeline-content">
+              <strong>Aborigines' Rights Protection Society (ARPS)</strong> — The first major protest movement, formed to protect African land rights against the British Land Bills.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1917</div>
+            <div class="timeline-content">
+              <strong>National Congress of British West Africa (NCBWA)</strong> — A regional movement that brought together leaders from Gold Coast, Nigeria, Sierra Leone, and Gambia to demand more rights.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1929</div>
+            <div class="timeline-content">
+              <strong>Gold Coast Youth Conference (GCYC)</strong> — A movement led by young educated elites to encourage constitutional and economic development of the Gold Coast.
+            </div>
+          </div>
+        </div>
+
+        <h3>🌍 Factors That Led to These Movements</h3>
+        <p>Several important factors made our ancestors form these protest movements:</p>
         <ul>
-          <li>A brilliant thinker and intellectual</li>
-          <li>A courageous leader who stood up for African rights</li>
-          <li>A skilled politician who could bring different groups together</li>
-          <li>A writer who documented West African experiences</li>
+          <li><strong>Unjust Colonial Laws:</strong> The British passed laws like the Land Bills that tried to take African-owned lands.</li>
+          <li><strong>Lack of Representation:</strong> Africans had very little say in how the country was governed through the Legislative Council.</li>
+          <li><strong>Discrimination:</strong> Africans were treated unfairly compared to Europeans in jobs, education, and social life.</li>
+          <li><strong>Foreign Control of the Economy:</strong> Foreign companies controlled trade and resources, leaving Africans poor.</li>
         </ul>
-        
+
+        <h3>🏛️ The Aborigines' Rights Protection Society (ARPS) — 1897</h3>
+        <p>The ARPS was the first major protest movement in the Gold Coast. It was formed because the British colonial government wanted to pass <strong>Land Bills</strong> that would take away land belonging to Africans. The ARPS organised meetings, sent petitions to the British government, and successfully got some of these unjust laws stopped.</p>
+        <p><strong>Achievements of ARPS:</strong></p>
+        <ul>
+          <li>Got a few Africans to serve on the Legislative Council</li>
+          <li>Addressed the Council directly on issues concerning Africans</li>
+          <li>Protected African land rights from colonial takeover</li>
+        </ul>
+
+        <h3>🌐 National Congress of British West Africa (NCBWA) — 1917</h3>
+        <p>The NCBWA was special because it brought together leaders from <strong>four British West African colonies</strong>: Gold Coast, Nigeria, Sierra Leone, and Gambia. They worked together to demand better rights for all West Africans.</p>
+        <p><strong>Achievements of NCBWA:</strong></p>
+        <ul>
+          <li>Established Legislative Councils in each of the four colonies</li>
+          <li>Got more Africans to participate in their own government</li>
+          <li>Established political parties in British West African colonies</li>
+        </ul>
+
+        <h3>🎓 Gold Coast Youth Conference (GCYC) — 1929</h3>
+        <p>The GCYC was formed by young educated people who wanted to see the Gold Coast develop. They organised conferences and lectures to educate the public about their rights and the need for constitutional reforms.</p>
+        <p><strong>Achievements of GCYC:</strong></p>
+        <ul>
+          <li>Educated public servants, traders, and school leavers about their rights</li>
+          <li>Played an important role in establishing the University College of the Gold Coast</li>
+          <li>Designed and presented programmes for constitutional reforms</li>
+        </ul>
+
         <blockquote>
-          💭 <strong>Think About It</strong>: Why do you think it was important for Casely Hayford to unite the traditional chiefs with the educated members of ARPS? What strengths did each group bring to the fight against colonial laws?
+          💭 <strong>Think About It</strong>: If you were a young person in the Gold Coast in 1929, which of these three movements would you join and why? What would you want to change?
         </blockquote>
       </div>
 
@@ -395,11 +456,13 @@
         <h2>✅ Check Your Understanding</h2>
         <div class="checkpoint">
           <ol>
-            <li>In what year was Joseph Ephraim Casely Hayford born?</li>
-            <li>Where was he born?</li>
-            <li>What does ARPS stand for?</li>
-            <li>Why was it important for Casely Hayford to unite the chiefs and the ARPS?</li>
-            <li>Name one unjust colonial law that the ARPS fought against.</li>
+            <li>What is a protest movement?</li>
+            <li>Name the three main early protest movements in Ghana before 1945.</li>
+            <li>In what year was the ARPS formed?</li>
+            <li>What was the main reason the ARPS was formed?</li>
+            <li>Which movement brought together four British West African colonies?</li>
+            <li>Name two factors that led to the formation of early protest movements.</li>
+            <li>What was one achievement of the GCYC?</li>
           </ol>
           <p><em>Confirm your understanding before moving on.</em></p>
         </div>
@@ -415,8 +478,8 @@
       <div class="chapter-nav" id="chapter-navigation">
         <div class="chapter-tabs" id="chapter-tabs"></div>
         <div>
-          <button id="prev-btn" class="btn" style="margin-right: 0.5rem; display: none;">← Previous Lesson</button>
-          <button id="next-btn" class="btn" style="display: none;">Next Lesson →</button>
+          <button id="prev-btn" class="btn" style="margin-right: 0.5rem; display: none;">← Previous Week</button>
+          <button id="next-btn" class="btn" style="display: none;">Next Week →</button>
         </div>
       </div>
 
@@ -434,7 +497,7 @@
           </div>
           <div class="stat-item">
             <div class="stat-value" id="stat-total">1</div>
-            <div class="stat-label">Total Lessons</div>
+            <div class="stat-label">Total Weeks</div>
           </div>
           <div class="stat-item">
             <div class="stat-value" id="stat-percent">0%</div>
@@ -489,8 +552,8 @@
         <h4 class="footer__title">Quick Links</h4>
         <nav aria-label="Footer navigation">
           <a href="index.html" class="footer__link">Home</a><br>
-          <a href="index.html" class="footer__link">Class 5</a><br>
-          <a href="index.html" class="footer__link">History Lessons</a><br>
+          <a href="dashboard.html" class="footer__link">Class 5</a><br>
+          <a href="historyChapter-0.html" class="footer__link">History Lessons</a><br>
           <a href="contact.html" class="footer__link">Contact Support</a>
         </nav>
       </div>
@@ -518,7 +581,7 @@
       const path = window.location.pathname;
       const match = path.match(/historyChapter-(\d+)\.html/);
       const currentChapter = match ? parseInt(match[1], 10) : 0;
-      const MAX_CHAPTERS = 1;
+      const MAX_CHAPTERS = 11; // 12 weeks total (0 to 11)
 
       function getChapterUrl(n) {
         return `historyChapter-${n}.html`;
@@ -598,28 +661,28 @@
       };
       window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
 
-      // === QUIZ DATA (20 Questions - Casely Hayford Early Life & ARPS) ===
+      // === QUIZ DATA (20 Questions - Early Protest Movements) ===
       const assessmentItems = [
-        {id:"1",prompt:"In which year was Joseph Ephraim Casely Hayford born?",options:[{id:"a",text:"1866",is_correct:true},{id:"b",text:"1876",is_correct:false},{id:"c",text:"1930",is_correct:false},{id:"d",text:"1920",is_correct:false}]},
-        {id:"2",prompt:"Where was Joseph Ephraim Casely Hayford born?",options:[{id:"a",text:"Accra",is_correct:false},{id:"b",text:"Cape Coast",is_correct:true},{id:"c",text:"Kumasi",is_correct:false},{id:"d",text:"Sekondi",is_correct:false}]},
-        {id:"3",prompt:"What does ARPS stand for?",options:[{id:"a",text:"African Rights Protection Society",is_correct:false},{id:"b",text:"Aborigines' Rights Protection Society",is_correct:true},{id:"c",text:"African Regional Political Society",is_correct:false},{id:"d",text:"Association for Rights and Political Support",is_correct:false}]},
-        {id:"4",prompt:"What was Casely Hayford's main role in the ARPS?",options:[{id:"a",text:"He opposed the ARPS",is_correct:false},{id:"b",text:"He was a prominent member who united chiefs and ARPS",is_correct:true},{id:"c",text:"He only wrote books",is_correct:false},{id:"d",text:"He worked alone without chiefs",is_correct:false}]},
-        {id:"5",prompt:"Which colonial law did the ARPS fight against with Casely Hayford's help?",options:[{id:"a",text:"The Education Bill",is_correct:false},{id:"b",text:"The Land Bill",is_correct:true},{id:"c",text:"The Tax Bill",is_correct:false},{id:"d",text:"The Trade Bill",is_correct:false}]},
-        {id:"6",prompt:"Why was it important to unite traditional chiefs with the ARPS?",options:[{id:"a",text:"To create a stronger force against colonial policies",is_correct:true},{id:"b",text:"To make the chiefs richer",is_correct:false},{id:"c",text:"To please the British government",is_correct:false},{id:"d",text:"To stop all protests",is_correct:false}]},
-        {id:"7",prompt:"When did Joseph Ephraim Casely Hayford die?",options:[{id:"a",text:"1866",is_correct:false},{id:"b",text:"1920",is_correct:false},{id:"c",text:"1930",is_correct:true},{id:"d",text:"1945",is_correct:false}]},
-        {id:"8",prompt:"What type of person was Casely Hayford described as?",options:[{id:"a",text:"A farmer",is_correct:false},{id:"b",text:"A brilliant intellectual and politician",is_correct:true},{id:"c",text:"A soldier",is_correct:false},{id:"d",text:"A trader",is_correct:false}]},
-        {id:"9",prompt:"What was one of Casely Hayford's character strengths?",options:[{id:"a",text:"He avoided leadership",is_correct:false},{id:"b",text:"He was courageous and stood up for African rights",is_correct:true},{id:"c",text:"He supported colonial rule",is_correct:false},{id:"d",text:"He worked only for himself",is_correct:false}]},
-        {id:"10",prompt:"How old was Casely Hayford when he died?",options:[{id:"a",text:"54 years",is_correct:false},{id:"b",text:"64 years",is_correct:true},{id:"c",text:"74 years",is_correct:false},{id:"d",text:"44 years",is_correct:false}]},
-        {id:"11",prompt:"What did Casely Hayford bring together to fight colonial laws?",options:[{id:"a",text:"Only educated people",is_correct:false},{id:"b",text:"Traditional chiefs and the ARPS",is_correct:true},{id:"c",text:"Only British officials",is_correct:false},{id:"d",text:"Only traders",is_correct:false}]},
-        {id:"12",prompt:"Which group had traditional authority in Ghana?",options:[{id:"a",text:"British governors",is_correct:false},{id:"b",text:"Traditional chiefs",is_correct:true},{id:"c",text:"Foreign traders",is_correct:false},{id:"d",text:"School teachers",is_correct:false}]},
-        {id:"13",prompt:"What was the ARPS?",options:[{id:"a",text:"A British government agency",is_correct:false},{id:"b",text:"An early protest movement fighting unfair colonial laws",is_correct:true},{id:"c",text:"A trading company",is_correct:false},{id:"d",text:"A school organization",is_correct:false}]},
-        {id:"14",prompt:"Besides being a politician, what else was Casely Hayford known for?",options:[{id:"a",text:"Being a farmer",is_correct:false},{id:"b",text:"Being a writer and intellectual",is_correct:true},{id:"c",text:"Being a soldier",is_correct:false},{id:"d",text:"Being a chief",is_correct:false}]},
-        {id:"15",prompt:"Why did Casely Hayford unite different groups?",options:[{id:"a",text:"To create confusion",is_correct:false},{id:"b",text:"To build a stronger movement against unjust laws",is_correct:true},{id:"c",text:"To make money",is_correct:false},{id:"d",text:"To please the British",is_correct:false}]},
-        {id:"16",prompt:"What type of laws did the ARPS oppose?",options:[{id:"a",text:"Fair laws",is_correct:false},{id:"b",text:"Unjust colonial laws",is_correct:true},{id:"c",text:"Ghanaian traditional laws",is_correct:false},{id:"d",text:"International laws",is_correct:false}]},
-        {id:"17",prompt:"Which skill was Casely Hayford known for?",options:[{id:"a",text:"Avoiding people",is_correct:false},{id:"b",text:"Bringing different groups together",is_correct:true},{id:"c",text:"Working alone",is_correct:false},{id:"d",text:"Ignoring problems",is_correct:false}]},
-        {id:"18",prompt:"What did Casely Hayford fight for during colonial rule?",options:[{id:"a",text:"More colonial control",is_correct:false},{id:"b",text:"The rights of Africans",is_correct:true},{id:"c",text:"Higher taxes",is_correct:false},{id:"d",text:"Less education",is_correct:false}]},
-        {id:"19",prompt:"Where in Ghana was Casely Hayford from?",options:[{id:"a",text:"Northern Region",is_correct:false},{id:"b",text:"Central Region (Cape Coast)",is_correct:true},{id:"c",text:"Upper East Region",is_correct:false},{id:"d",text:"Volta Region",is_correct:false}]},
-        {id:"20",prompt:"What made the united front of chiefs and ARPS stronger?",options:[{id:"a",text:"They had more money",is_correct:false},{id:"b",text:"They combined traditional authority with educated leadership",is_correct:true},{id:"c",text:"They had British support",is_correct:false},{id:"d",text:"They were all from one town",is_correct:false}]}
+        {id:"1",prompt:"What is a protest movement?",options:[{id:"a",text:"A group of people who sing songs together",is_correct:false},{id:"b",text:"When people join together to show unhappiness and demand change",is_correct:true},{id:"c",text:"A type of government election",is_correct:false},{id:"d",text:"A school club for reading books",is_correct:false}]},
+        {id:"2",prompt:"Which protest movement was formed in 1897?",options:[{id:"a",text:"NCBWA",is_correct:false},{id:"b",text:"GCYC",is_correct:false},{id:"c",text:"ARPS",is_correct:true},{id:"d",text:"UGCC",is_correct:false}]},
+        {id:"3",prompt:"What does ARPS stand for?",options:[{id:"a",text:"African Rights and Political Society",is_correct:false},{id:"b",text:"Aborigines' Rights Protection Society",is_correct:true},{id:"c",text:"All Rights Protection System",is_correct:false},{id:"d",text:"African Republic Political State",is_correct:false}]},
+        {id:"4",prompt:"When was the NCBWA formed?",options:[{id:"a",text:"1897",is_correct:false},{id:"b",text:"1917",is_correct:true},{id:"c",text:"1929",is_correct:false},{id:"d",text:"1945",is_correct:false}]},
+        {id:"5",prompt:"What does NCBWA stand for?",options:[{id:"a",text:"National Congress of British West Africa",is_correct:true},{id:"b",text:"Nations Council of British World Alliance",is_correct:false},{id:"c",text:"National Committee of British Western Areas",is_correct:false},{id:"d",text:"New Congress for Black West Africans",is_correct:false}]},
+        {id:"6",prompt:"When was the Gold Coast Youth Conference (GCYC) formed?",options:[{id:"a",text:"1897",is_correct:false},{id:"b",text:"1917",is_correct:false},{id:"c",text:"1929",is_correct:true},{id:"d",text:"1948",is_correct:false}]},
+        {id:"7",prompt:"What was the main reason the ARPS was formed?",options:[{id:"a",text:"To build more schools",is_correct:false},{id:"b",text:"To protect African land rights against the British Land Bills",is_correct:true},{id:"c",text:"To start a new political party",is_correct:false},{id:"d",text:"To trade with other countries",is_correct:false}]},
+        {id:"8",prompt:"Which of these was NOT a factor leading to early protest movements?",options:[{id:"a",text:"Unjust colonial laws",is_correct:false},{id:"b",text:"Lack of African representation in government",is_correct:false},{id:"c",text:"Good roads and hospitals built by the British",is_correct:true},{id:"d",text:"Foreign control of the economy",is_correct:false}]},
+        {id:"9",prompt:"What were the Land Bills?",options:[{id:"a",text:"Laws that gave Africans more land",is_correct:false},{id:"b",text:"Laws the British wanted to pass to take away African-owned lands",is_correct:true},{id:"c",text:"Laws about paying taxes on land",is_correct:false},{id:"d",text:"Laws for building new farms",is_correct:false}]},
+        {id:"10",prompt:"Which movement brought together leaders from four British West African colonies?",options:[{id:"a",text:"ARPS",is_correct:false},{id:"b",text:"NCBWA",is_correct:true},{id:"c",text:"GCYC",is_correct:false},{id:"d",text:"UGCC",is_correct:false}]},
+        {id:"11",prompt:"Which four colonies were part of the NCBWA?",options:[{id:"a",text:"Gold Coast, Nigeria, Sierra Leone, and Gambia",is_correct:true},{id:"b",text:"Gold Coast, Kenya, Uganda, and Tanzania",is_correct:false},{id:"c",text:"Ghana, Togo, Benin, and Nigeria",is_correct:false},{id:"d",text:"Gold Coast, Mali, Senegal, and Ivory Coast",is_correct:false}]},
+        {id:"12",prompt:"What was one achievement of the ARPS?",options:[{id:"a",text:"They won independence for Ghana",is_correct:false},{id:"b",text:"They got some Africans to serve on the Legislative Council",is_correct:true},{id:"c",text:"They built the University of Ghana",is_correct:false},{id:"d",text:"They started the first newspaper",is_correct:false}]},
+        {id:"13",prompt:"What does 'nationalism' mean in the context of Ghana's history?",options:[{id:"a",text:"Love for foreign countries",is_correct:false},{id:"b",text:"Love and pride for one's own country and the desire for self-rule",is_correct:true},{id:"c",text:"A type of traditional dance",is_correct:false},{id:"d",text:"A religion practiced in West Africa",is_correct:false}]},
+        {id:"14",prompt:"Who mainly formed the Gold Coast Youth Conference?",options:[{id:"a",text:"Farmers and fishermen",is_correct:false},{id:"b",text:"Young educated elites",is_correct:true},{id:"c",text:"British colonial officers",is_correct:false},{id:"d",text:"Traditional priests",is_correct:false}]},
+        {id:"15",prompt:"What was the main aim of the GCYC?",options:[{id:"a",text:"To encourage constitutional and economic development of the Gold Coast",is_correct:true},{id:"b",text:"To start a war against the British",is_correct:false},{id:"c",text:"To make everyone speak English",is_correct:false},{id:"d",text:"To build more churches",is_correct:false}]},
+        {id:"16",prompt:"What was the Legislative Council?",options:[{id:"a",text:"A group of traditional dancers",is_correct:false},{id:"b",text:"A body that made laws for the Gold Coast under British rule",is_correct:true},{id:"c",text:"A school for training teachers",is_correct:false},{id:"d",text:"A market where goods were sold",is_correct:false}]},
+        {id:"17",prompt:"Why did Africans have little say in government before the protest movements?",options:[{id:"a",text:"They did not want to participate",is_correct:false},{id:"b",text:"The British colonial system excluded them from decision-making",is_correct:true},{id:"c",text:"They were all busy farming",is_correct:false},{id:"d",text:"There was no government at all",is_correct:false}]},
+        {id:"18",prompt:"Which protest movement was formed FIRST?",options:[{id:"a",text:"GCYC",is_correct:false},{id:"b",text:"NCBWA",is_correct:false},{id:"c",text:"ARPS",is_correct:true},{id:"d",text:"UGCC",is_correct:false}]},
+        {id:"19",prompt:"What was a common goal of all three early protest movements?",options:[{id:"a",text:"To make Ghana rich immediately",is_correct:false},{id:"b",text:"To demand better rights and fair treatment for Africans",is_correct:true},{id:"c",text:"To leave Ghana and move to another country",is_correct:false},{id:"d",text:"To stop all trade with Europe",is_correct:false}]},
+        {id:"20",prompt:"Which core competency is developed when learners study protest movements and their impact on Ghana?",options:[{id:"a",text:"Financial Literacy",is_correct:false},{id:"b",text:"Cultural Identity and Global Citizenship",is_correct:true},{id:"c",text:"Physical Coordination",is_correct:false},{id:"d",text:"Digital Literacy",is_correct:false}]}
       ];
 
       // === RENDER QUIZ ===
@@ -671,7 +734,7 @@
         localStorage.setItem(`quiz_attempts_${currentChapter}`, attempts);
         localStorage.setItem(`mastery_${currentChapter}`, mastery ? '1' : '0');
 
-        let report = `*Mini OpenStax — Casely Hayford: Early Life & ARPS*\nStudent: ${userName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
+        let report = `*Mini OpenStax — Early Protest Movements (Week ${currentChapter + 1})*\nStudent: ${userName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
         if (correctList.length) {
           report += `✅ CORRECT ANSWERS (${correctList.length}):\n`;
           correctList.forEach(q => report += `${q.id}. ${q.prompt}\n   → ${q.correctText}\n\n`);
@@ -715,7 +778,7 @@
           const student = (lines.find(l => l.startsWith('Student:')) || '').replace('Student: ', '').trim() || 'Unknown';
           const score = (lines.find(l => l.startsWith('Score:')) || 'Score unknown');
           const date = new Date(rep.timestamp).toLocaleString();
-          return `<div class="report-card"><div class="report-header"><span>Casely Hayford: Early Life & ARPS</span><span>${date}</span></div><div class="report-meta">Student: ${student} • ${score}</div><div class="report-detail" id="detail-${rep.timestamp}"></div><div class="report-actions"><button class="btn" onclick="toggleDetail(${rep.timestamp})">Details</button><button class="btn" onclick="viewReportAsPDF('${rep.key}')">PDF</button><button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">WhatsApp</button></div></div>`;
+          return `<div class="report-card"><div class="report-header"><span>Early Protest Movements</span><span>${date}</span></div><div class="report-meta">Student: ${student} • ${score}</div><div class="report-detail" id="detail-${rep.timestamp}"></div><div class="report-actions"><button class="btn" onclick="toggleDetail(${rep.timestamp})">Details</button><button class="btn" onclick="viewReportAsPDF('${rep.key}')">PDF</button><button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">WhatsApp</button></div></div>`;
         }).join('');
         window.reportContents = {};
         reports.forEach(r => window.reportContents[r.timestamp] = r.content);
@@ -734,7 +797,7 @@
         document.getElementById('stat-mastered').textContent = mastered;
         document.getElementById('stat-total').textContent = 1;
         document.getElementById('stat-percent').textContent = `${mastered * 100}%`;
-        document.getElementById('recent-lessons').innerHTML = `<div class="lesson-item"><div><span class="mastery-indicator ${mastered ? 'mastery-yes' : 'mastery-partial'}"></span>Lesson ${currentChapter + 1}</div><span>${mastered ? 'Mastered' : 'In Progress'}</span></div>`;
+        document.getElementById('recent-lessons').innerHTML = `<div class="lesson-item"><div><span class="mastery-indicator ${mastered ? 'mastery-yes' : 'mastery-partial'}"></span>Week ${currentChapter + 1}: Early Protest Movements</div><span>${mastered ? 'Mastered' : 'In Progress'}</span></div>`;
       }
       document.getElementById('btn-send-all').addEventListener('click', () => {
         let msg = `*📚 Mini OpenStax — All Quiz Reports*\nStudent: ${userName}\n\n`; let count = 0;
@@ -780,7 +843,7 @@
         let tabsHtml = '';
         for (let i = Math.max(0, currentChapter - 1); i <= Math.min(MAX_CHAPTERS, currentChapter + 2); i++) {
           const isActive = i === currentChapter;
-          tabsHtml += `<a href="${getChapterUrl(i)}" class="chapter-btn ${isActive ? 'active' : ''}">Lesson ${i + 1}</a>`;
+          tabsHtml += `<a href="${getChapterUrl(i)}" class="chapter-btn ${isActive ? 'active' : ''}">Week ${i + 1}</a>`;
         }
         tabsContainer.innerHTML = tabsHtml;
         if (currentChapter > 0) { prevBtn.style.display = 'inline-block'; prevBtn.onclick = () => window.location.href = getChapterUrl(currentChapter - 1); }
@@ -792,11 +855,6 @@
       // === INIT ===
       document.getElementById('year').textContent = new Date().getFullYear();
       renderQuiz(); updateChapterNavigation();
-      document.getElementById('send-analytics')?.addEventListener('click', (e) => { e.preventDefault(); alert("Usage data collection is handled globally."); });
-    })();
-  </script>
-</body>
-</html> updateChapterNavigation();
       document.getElementById('send-analytics')?.addEventListener('click', (e) => { e.preventDefault(); alert("Usage data collection is handled globally."); });
     })();
   </script>
