@@ -1,586 +1,1107 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Mini OpenStax: Free, NaCCA-aligned digital lessons for Ghanaian JHS students. Learn Science, Math, English & more." />
-  <meta name="theme-color" content="#006b3d" />
-  <title>Mini OpenStax — Free Digital Learning for JHS Students</title>
-  
-  <!-- Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
-  <style>
-    /* === MINI OPENSTAX DESIGN TOKENS (EduCore Integrated) === */
-    :root {
-      --green: #006b3d;
-      --green-dark: #00502e;
-      --green-light: #e8f5e9;
-      --gold: #cead00;
-      --red: #ce1126;
-      --blue: #0056b3;
-      --purple: #6f42c1;
-      --orange: #e67e22;
-      --light: #f9f9f9;
-      --dark: #2d2d2d;
-      --surface: #ffffff;
-      --border: #e2e8f0;
-      --focus-ring: 0 0 0 3px rgb(0 107 61 / 0.4);
-      --radius-sm: 0.375rem;
-      --radius-md: 0.75rem;
-      --radius-lg: 1rem;
-      --radius-xl: 1.25rem;
-      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-      --space-xs: clamp(0.5rem, 0.8vw, 0.75rem);
-      --space-sm: clamp(0.75rem, 1.2vw, 1rem);
-      --space-md: clamp(1rem, 2vw, 1.5rem);
-      --space-lg: clamp(1.5rem, 3vw, 2.5rem);
-      --space-xl: clamp(2rem, 5vw, 4rem);
-      --max-w: 900px;
-      --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
-      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Class 5 History - Term 3 Master Lesson Plan & Notes. Explore early protest movements, the 1948 riots, and Ghana's journey to independence aligned with the NaCCA curriculum.">
+<title>Class 5 History | Term 3 Master Lesson Plan - Mini OpenStax</title>
 
-    /* === RESET & BASE === */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: var(--surface);
-      color: var(--dark);
-      line-height: 1.6;
-      min-height: 100dvh;
-      display: flex;
-      flex-direction: column;
-    }
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
-    .skip-link {
-      position: absolute; top: -40px; left: 0; background: var(--green); color: white;
-      padding: var(--space-xs) var(--space-sm); z-index: 1000; border-radius: var(--radius-sm);
-      transition: top var(--transition); font-weight: 500; text-decoration: none;
-    }
-    .skip-link:focus { top: var(--space-xs); outline: 2px solid white; outline-offset: 2px; }
+<!-- Google Fonts: Inter & Playfair Display via media="print" onload trick -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet"></noscript>
 
-    /* === CONTAINER === */
-    .container {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: var(--space-md);
-      padding-top: calc(var(--space-md) + 72px);
-      flex: 1;
-    }
+<!-- Font Awesome 6.4.0 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    /* === PROFESSIONAL HEADER (EduCore Style) === */
-    .header {
-      position: sticky; top: 0; z-index: 100;
-      background: color-mix(in srgb, var(--surface) 95%, transparent);
-      backdrop-filter: blur(12px) saturate(180%);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: var(--space-sm) var(--space-md);
-      max-width: var(--max-w); margin: 0 auto; width: 100%;
-    }
-    .nav__brand {
-      font-size: 1.25rem; font-weight: 700; color: var(--green);
-      display: flex; align-items: center; gap: var(--space-xs);
-      text-decoration: none;
-    }
-    .nav__brand svg { width: 1.5rem; height: 1.5rem; stroke: var(--green); flex-shrink: 0; }
-    .nav__list {
-      display: none; flex-direction: column;
-      position: absolute; top: 100%; left: 0; right: 0;
-      background: var(--surface); padding: var(--space-sm);
-      border-bottom: 1px solid var(--border);
-      box-shadow: var(--shadow-md); gap: var(--space-xs);
-    }
-    .nav__list.is-open { display: flex; }
-    .nav__link {
-      padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm);
-      font-weight: 500; color: var(--dark); transition: background var(--transition), color var(--transition);
-      text-decoration: none;
-    }
-    .nav__link:hover, .nav__link:focus-visible { background: var(--light); color: var(--green); outline: none; }
-    .nav__link[aria-current="page"] { color: var(--green); font-weight: 700; background: var(--light); }
-    .nav__toggle {
-      display: grid; place-items: center; width: 2.5rem; height: 2.5rem;
-      border-radius: var(--radius-sm); transition: background var(--transition);
-      background: none; border: none; cursor: pointer;
-    }
-    .nav__toggle:hover, .nav__toggle:focus-visible { background: var(--light); outline: none; }
-    .nav__toggle svg { width: 1.5rem; height: 1.5rem; stroke: var(--dark); }
-    @media (min-width: 768px) {
-      .nav__toggle { display: none; }
-      .nav__list {
-        position: static; flex-direction: row; box-shadow: none; border: none; padding: 0;
-        background: transparent; display: flex; align-items: center; gap: var(--space-sm);
-      }
-    }
+<style>
+:root {
+  --green: #006b3d;
+  --green-dark: #00502e;
+  --green-light: #e8f5ee;
+  --gold: #cead00;
+  --gold-light: #fdf6d8;
+  --red: #ce1126;
+  --red-light: #fde8ea;
+  --light: #f9f9f9;
+  --dark: #2d2d2d;
+  --surface: #ffffff;
+  --border: #e2e8f0;
+  --text: #1a202c;
+  --text-muted: #64748b;
+  --focus-ring: 0 0 0 3px rgba(0, 107, 61, 0.25);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.15);
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --max-w: 800px;
+  --max-w-wide: 1200px;
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-    /* === HERO SECTION === */
-    .hero {
-      text-align: center;
-      padding: var(--space-xl) 0;
-      margin-bottom: var(--space-xl);
-    }
-    .hero__badge {
-      display: inline-block;
-      background: var(--green-light);
-      color: var(--green);
-      padding: 0.3rem 0.8rem;
-      border-radius: 50px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: var(--space-sm);
-    }
-    .hero__title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.75rem, 5vw, 2.5rem);
-      color: var(--green-dark);
-      line-height: 1.2;
-      margin-bottom: var(--space-sm);
-    }
-    .hero__subtitle {
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      color: #475569;
-      max-width: 60ch;
-      margin: 0 auto var(--space-md);
-    }
-    .hero__cta {
-      display: inline-flex; gap: var(--space-sm); flex-wrap: wrap; justify-content: center;
-    }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --light: #0f1419;
+    --dark: #f5f5f5;
+    --surface: #1a202c;
+    --border: #2d3748;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --green-light: #0a2e1d;
+    --gold-light: #3d3400;
+    --red-light: #3d0a10;
+  }
+}
 
-    /* === CARDS & GRIDS === */
-    .section { margin-bottom: var(--space-xl); }
-    .section__title {
-      font-size: 1.5rem;
-      color: var(--green);
-      margin-bottom: var(--space-md);
-      display: flex; align-items: center; gap: var(--space-xs);
-    }
-    .grid-2 { display: grid; gap: var(--space-md); grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-    .grid-3 { display: grid; gap: var(--space-md); grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-    .card {
-      background: white; padding: var(--space-lg); border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-md); border: 1px solid var(--border);
-      transition: transform var(--transition), box-shadow var(--transition);
-      text-decoration: none; color: var(--dark); display: flex; flex-direction: column;
-    }
-    .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); border-color: var(--green); }
-    .card:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
-    .card__icon { font-size: 2rem; color: var(--green); margin-bottom: var(--space-sm); }
-    .card__title { font-size: 1.2rem; font-weight: 600; margin-bottom: var(--space-xs); color: var(--green-dark); }
-    .card__desc { font-size: 0.95rem; color: #475569; flex: 1; margin-bottom: var(--space-sm); }
-    .card__footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
-    .card__badge { background: var(--light); padding: 0.2rem 0.5rem; border-radius: 50px; font-size: 0.8rem; color: #64748b; }
+html { scroll-behavior: smooth; }
 
-    /* === PROGRESS BAR === */
-    .progress-track {
-      height: 6px; background: var(--light); border-radius: 3px; overflow: hidden; margin-top: var(--space-xs);
-    }
-    .progress-fill {
-      height: 100%; background: var(--green); border-radius: 3px; transition: width 0.3s ease;
-    }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 
-    /* === FEATURES === */
-    .feature-item {
-      display: flex; gap: var(--space-sm); padding: var(--space-md);
-      background: var(--light); border-radius: var(--radius-md);
-      align-items: flex-start;
-    }
-    .feature-icon {
-      background: white; width: 2.5rem; height: 2.5rem; display: grid; place-items: center;
-      border-radius: 50%; color: var(--green); font-size: 1.1rem; box-shadow: var(--shadow-sm);
-      flex-shrink: 0;
-    }
-    .feature-title { font-weight: 600; margin-bottom: var(--space-xs); }
-    .feature-desc { font-size: 0.95rem; color: #475569; margin: 0; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--light);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-    /* === BUTTONS === */
-    .btn {
-      background: var(--green); color: white; border: none; padding: 0.6rem 1.2rem;
-      border-radius: var(--radius-md); font-weight: 600; cursor: pointer;
-      transition: background var(--transition), transform var(--transition);
-      font-size: 1rem; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;
-    }
-    .btn:hover, .btn:focus-visible { background: var(--green-dark); transform: translateY(-2px); outline: none; }
-    .btn:focus-visible { box-shadow: var(--focus-ring); }
-    .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-    .btn-outline { background: transparent; border: 2px solid var(--green); color: var(--green); }
-    .btn-outline:hover { background: var(--green); color: white; }
+h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.2; color: var(--text); }
 
-    /* === MODAL === */
-    .modal {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center;
-      z-index: 1000; display: none; padding: var(--space-md);
-    }
-    .modal-content {
-      background: white; padding: var(--space-lg); border-radius: var(--radius-lg);
-      width: 100%; max-width: 400px; box-shadow: var(--shadow-lg); position: relative;
-    }
-    .modal h3 { margin-top: 0; color: var(--green); }
-    .modal-close {
-      position: absolute; top: var(--space-sm); right: var(--space-sm);
-      background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #999;
-      padding: 0.25rem; border-radius: var(--radius-sm);
-    }
-    .modal-close:hover, .modal-close:focus-visible { color: var(--red); outline: none; }
-    .input-group { margin-bottom: var(--space-md); }
-    label { display: block; margin-bottom: var(--space-xs); font-weight: 600; }
-    input[type="text"] { width: 100%; padding: 0.6rem; border: 1px solid var(--border); border-radius: var(--radius-md); font-size: 1rem; }
-    input[type="checkbox"] { width: auto; margin-right: 0.5rem; transform: scale(1.2); }
+a { color: var(--green); text-decoration: none; transition: color var(--transition); }
+a:hover { color: var(--green-dark); }
+a:focus-visible { outline: none; box-shadow: var(--focus-ring); border-radius: var(--radius-sm); }
 
-    /* === FOOTER (EduCore Style) === */
-    .footer { background: var(--dark); color: #cbd5e1; padding-block: var(--space-xl); margin-top: auto; }
-    .footer__grid { display: grid; gap: var(--space-lg); grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); max-width: var(--max-w); margin: 0 auto; padding: 0 var(--space-md); }
-    .footer__title { color: white; margin-bottom: var(--space-sm); font-size: 1.1rem; }
-    .footer__link { color: #94a3b8; transition: color var(--transition); display: inline-block; margin-bottom: var(--space-xs); text-decoration: none; }
-    .footer__link:hover, .footer__link:focus-visible { color: white; text-decoration: underline; outline: none; }
-    .footer__bottom { text-align: center; margin-top: var(--space-lg); padding-top: var(--space-sm); border-top: 1px solid #334155; max-width: var(--max-w); margin-inline: auto; padding-inline: var(--space-md); }
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: var(--space-md);
+  background: var(--green);
+  color: white;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  z-index: 1000;
+  transition: top var(--transition);
+}
+.skip-link:focus { top: var(--space-md); }
 
-    /* === PRINT & ACCESSIBILITY === */
-    @media print {
-      .header, .footer, .nav__toggle, .btn:not(.btn-whatsapp), .modal, .hero__cta { display: none !important; }
-      body { background: white; color: black; }
-      .container { padding-top: 0; }
-      .card { break-inside: avoid; page-break-inside: avoid; border: 1px solid #000; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
-    }
-    @media (prefers-color-scheme: dark) {
-      :root { --surface: #111827; --light: #1e293b; --border: #334155; --dark: #f1f5f9; --green-light: #064e3b; }
-      .card, .modal-content, .feature-item, input[type="text"] { background: #1e293b; border-color: #334155; }
-      .card__desc, .feature-desc, .hero__subtitle { color: #cbd5e1; }
-    }
-    a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
-  </style>
+/* HEADER */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+@media (prefers-color-scheme: dark) {
+  .site-header { background: rgba(26, 32, 44, 0.85); }
+}
+
+.header-inner {
+  max-width: var(--max-w-wide);
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--green);
+}
+.brand svg { flex-shrink: 0; }
+
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs) var(--space-sm);
+  cursor: pointer;
+  color: var(--text);
+  transition: all var(--transition);
+}
+.nav-toggle:hover { background: var(--green-light); border-color: var(--green); }
+.nav-toggle:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: var(--space-xs);
+  align-items: center;
+}
+.nav-list a {
+  display: block;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--text);
+  transition: all var(--transition);
+}
+.nav-list a:hover { background: var(--green-light); color: var(--green); }
+.nav-list a[aria-current="page"] {
+  background: var(--green);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .nav-toggle { display: flex; align-items: center; gap: var(--space-xs); }
+  .nav-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: var(--space-md);
+    gap: var(--space-xs);
+    box-shadow: var(--shadow-md);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: all var(--transition);
+  }
+  .nav-list.is-open {
+    max-height: 500px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .nav-list a { width: 100%; padding: var(--space-sm) var(--space-md); }
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+  color: white;
+  padding: var(--space-3xl) var(--space-lg);
+  text-align: center;
+  border-bottom: 4px solid var(--gold);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 20% 50%, rgba(206, 173, 0, 0.15) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(206, 17, 38, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-inner { max-width: var(--max-w-wide); margin: 0 auto; position: relative; z-index: 1; }
+.hero h1 {
+  color: white;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  margin-bottom: var(--space-sm);
+  font-weight: 800;
+}
+.hero .subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  opacity: 0.95;
+  margin-bottom: var(--space-md);
+  font-weight: 500;
+}
+.hero .indicator {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark);
+  padding: var(--space-xs) var(--space-lg);
+  border-radius: var(--radius-xl);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  box-shadow: var(--shadow-md);
+}
+
+/* MAIN */
+main {
+  max-width: var(--max-w-wide);
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-lg);
+  width: 100%;
+  flex: 1;
+}
+
+.section { margin-bottom: var(--space-3xl); }
+.section-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: var(--space-md);
+  color: var(--green-dark);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+.section-title::before {
+  content: '';
+  width: 5px;
+  height: 1.5em;
+  background: linear-gradient(180deg, var(--green), var(--gold));
+  border-radius: 3px;
+}
+.section-subtitle {
+  color: var(--text-muted);
+  margin-bottom: var(--space-xl);
+  font-size: 1.05rem;
+}
+
+/* OBJECTIVE CARDS */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg);
+}
+
+.objective-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.objective-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--green), var(--gold), var(--red));
+}
+.objective-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--green);
+}
+.objective-card .card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+.objective-card .card-num {
+  background: var(--green-light);
+  color: var(--green-dark);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.objective-card .indicator-tag {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+.objective-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-xs);
+  color: var(--green-dark);
+}
+.objective-card .strand {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px dashed var(--border);
+}
+.objective-card .strand strong { color: var(--text); }
+.objective-card h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--green);
+  margin-bottom: var(--space-sm);
+  font-weight: 700;
+}
+.objective-card ul {
+  list-style: none;
+  margin-bottom: var(--space-md);
+}
+.objective-card ul li {
+  padding: var(--space-xs) 0;
+  padding-left: 1.75rem;
+  position: relative;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+.objective-card ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-weight: 700;
+  font-size: 1rem;
+}
+.objective-card .meta {
+  background: var(--light);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-sm);
+  font-size: 0.85rem;
+}
+.objective-card .meta strong { color: var(--green-dark); display: block; margin-bottom: 2px; }
+.objective-card .keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+}
+.objective-card .keywords span {
+  background: var(--gold-light);
+  color: var(--dark);
+  padding: 2px 10px;
+  border-radius: var(--radius-xl);
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid var(--gold);
+}
+
+/* LESSON GRIDS (TABLES) */
+.grid-section { margin-bottom: var(--space-2xl); }
+.grid-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-bottom: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--green-light);
+  border-left: 4px solid var(--green);
+  border-radius: var(--radius-sm);
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+  font-size: 0.9rem;
+}
+.data-table thead {
+  background: linear-gradient(135deg, var(--green-dark), var(--green));
+  color: white;
+}
+.data-table th {
+  padding: var(--space-md);
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--gold);
+}
+.data-table td {
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.data-table tbody tr { transition: background var(--transition); }
+.data-table tbody tr:hover { background: var(--green-light); }
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table td:first-child {
+  font-weight: 700;
+  color: var(--green-dark);
+  text-align: center;
+  background: var(--light);
+  width: 60px;
+}
+.data-table td ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.data-table td ul li {
+  padding: 2px 0 2px 1.25rem;
+  position: relative;
+  font-size: 0.85rem;
+}
+.data-table td ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* STRATEGY CARDS */
+.strategy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+.strategy-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+}
+.strategy-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+.strategy-card.struggling h3 { color: var(--red); }
+.strategy-card.advanced h3 { color: var(--green); }
+.strategy-card ul {
+  list-style: none;
+}
+.strategy-card ul li {
+  padding: var(--space-xs) 0 var(--space-xs) 1.75rem;
+  position: relative;
+  font-size: 0.95rem;
+}
+.strategy-card.struggling ul li::before {
+  content: '🎯';
+  position: absolute;
+  left: 0;
+}
+.strategy-card.advanced ul li::before {
+  content: '🚀';
+  position: absolute;
+  left: 0;
+}
+
+/* CROSS-CURRICULAR */
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-md);
+}
+.link-chip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  transition: all var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+.link-chip:hover {
+  transform: translateX(4px);
+  border-left-color: var(--green);
+  box-shadow: var(--shadow-md);
+  color: var(--green-dark);
+}
+.link-chip i { color: var(--gold); font-size: 1.25rem; }
+
+/* PROGRESS CARD */
+.progress-card {
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+  color: white;
+  padding: var(--space-2xl);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+.progress-card::before {
+  content: '';
+  position: absolute;
+  top: -50%; right: -20%;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(206, 173, 0, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.progress-card h2 {
+  color: white;
+  font-size: 1.75rem;
+  margin-bottom: var(--space-md);
+  position: relative;
+}
+.progress-card p {
+  font-size: 1.05rem;
+  margin-bottom: var(--space-sm);
+  position: relative;
+}
+.progress-card .subtext {
+  opacity: 0.85;
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+/* FOOTER */
+.site-footer {
+  background: var(--dark);
+  color: #cbd5e0;
+  padding: var(--space-3xl) var(--space-lg) var(--space-lg);
+  margin-top: auto;
+}
+@media (prefers-color-scheme: dark) {
+  .site-footer { background: #0a0e14; }
+}
+.footer-inner {
+  max-width: var(--max-w-wide);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.footer-col h4 {
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  margin-bottom: var(--space-md);
+}
+.footer-col p { font-size: 0.9rem; line-height: 1.7; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: var(--space-xs); }
+.footer-col ul li a {
+  color: #cbd5e0;
+  font-size: 0.9rem;
+  transition: color var(--transition);
+}
+.footer-col ul li a:hover { color: var(--gold); }
+.footer-col .contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  font-size: 0.9rem;
+}
+.footer-col .contact-item i {
+  color: var(--gold);
+  margin-top: 3px;
+  width: 16px;
+}
+.footer-bottom {
+  max-width: var(--max-w-wide);
+  margin: var(--space-lg) auto 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+.footer-bottom p { margin-bottom: var(--space-xs); }
+.footer-bottom a { color: var(--gold); }
+.footer-bottom .nacca {
+  display: inline-block;
+  background: rgba(206, 173, 0, 0.15);
+  color: var(--gold);
+  padding: 2px 10px;
+  border-radius: var(--radius-xl);
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: var(--space-xs);
+}
+
+/* UTILITIES */
+@media (max-width: 640px) {
+  main { padding: var(--space-xl) var(--space-md); }
+  .hero { padding: var(--space-2xl) var(--space-md); }
+  .objective-card { padding: var(--space-lg); }
+  .strategy-card, .progress-card { padding: var(--space-lg); }
+}
+</style>
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to main content</a>
 
-  <!-- Professional Header -->
-  <header class="header" role="banner">
-    <nav class="nav" aria-label="Main navigation">
-      <a href="index.html" class="nav__brand" aria-label="Mini OpenStax Home" aria-current="page">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Mini OpenStax
-      </a>
-      <button class="nav__toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-nav">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-      </button>
-      <nav id="main-nav" class="nav__list" role="navigation" aria-label="Primary">
-        <a href="index.html" class="nav__link" aria-current="page">Home</a>
-        <a href="dashboard.html" class="nav__link">Dashboard</a>
-        <a href="contact.html" class="nav__link">Contact</a>
-      </nav>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="../index.html" class="brand" aria-label="Mini OpenStax Home">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="#006b3d"/>
+        <path d="M8 10 L16 6 L24 10 L24 22 L16 26 L8 22 Z" fill="#cead00" opacity="0.9"/>
+        <path d="M16 6 L16 26" stroke="#fff" stroke-width="1.5"/>
+        <path d="M8 10 L16 14 L24 10" stroke="#fff" stroke-width="1.5" fill="none"/>
+      </svg>
+      <span>Mini OpenStax</span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navList" aria-label="Toggle navigation menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+      <span>Menu</span>
+    </button>
+
+    <nav aria-label="Primary navigation">
+      <ul class="nav-list" id="navList">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../dashboard.html">Class 5</a></li>
+        <li><a href="../historyChapter-0.html">History</a></li>
+        <li><a href="../dashboard.html">Dashboard</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <main id="main" class="container" role="main">
-    <!-- Hero Section -->
-    <section class="hero">
-      <span class="hero__badge" aria-label="NaCCA Aligned Curriculum">🇬🇭 NaCCA Aligned</span>
-      <h1 class="hero__title" id="hero-title">Welcome to Mini OpenStax</h1>
-      <p class="hero__subtitle">Free, accessible digital lessons for Ghanaian JHS students. Learn anytime, anywhere — even offline.</p>
-      <div class="hero__cta">
-        <a href="historyChapter-0.html" class="btn">📖 Start Learning</a>
-        <a href="dashboard.html" class="btn btn-outline">📊 View Progress</a>
-      </div>
-    </section>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>🏛️ Class 5 History</h1>
+    <p class="subtitle">Term 3 — Master Lesson Plan & Notes</p>
+    <span class="indicator">NaCCA Standards-Based Curriculum</span>
+  </div>
+</section>
 
-    <!-- Class Selection -->
-    <section class="section">
-      <h2 class="section__title"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Select Your Class</h2>
-      <div class="grid-2">
-        <a href="index.html" class="card">
-          <div class="card__icon" style="color: var(--green);">📘</div>
-          <h3 class="card__title">JHS 1 (Class 7)</h3>
-          <p class="card__desc">Foundation year: States of matter, basic biology, simple circuits, and forces.</p>
-          <div class="card__footer">
-            <span class="card__badge">300 Lessons</span>
-            <div style="flex:1; margin-left:1rem;">
-              <div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:0.25rem;">
-                <span>Progress</span><span id="prog-7">0%</span>
-              </div>
-              <div class="progress-track"><div class="progress-fill" id="bar-7" style="width:0%"></div></div>
-            </div>
-          </div>
-        </a>
-        <a href="index.html" class="card">
-          <div class="card__icon" style="color: var(--blue);">📗</div>
-          <h3 class="card__title">JHS 2 (Class 8)</h3>
-          <p class="card__desc">Intermediate: Ecosystems, energy transfer, chemical reactions, and human systems.</p>
-          <div class="card__footer">
-            <span class="card__badge">Coming Soon</span>
-            <div style="flex:1; margin-left:1rem;">
-              <div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:0.25rem;">
-                <span>Progress</span><span>0%</span>
-              </div>
-              <div class="progress-track"><div class="progress-fill" style="width:0%"></div></div>
-            </div>
-          </div>
-        </a>
-      </div>
-    </section>
+<!-- MAIN -->
+<main id="main-content">
 
-    <!-- Quick Subject Access -->
-    <section class="section">
-      <h2 class="section__title"><i class="fas fa-book-open" aria-hidden="true"></i> Explore Subjects</h2>
-      <div class="grid-3">
-        <a href="index.html" class="card" style="border-top: 4px solid var(--green);">
-          <div class="card__icon">🔬</div>
-          <h3 class="card__title">Integrated Science</h3>
-          <p class="card__desc">Matter, energy, living things, and the environment.</p>
-        </a>
-        <a href="index.html" class="card" style="border-top: 4px solid var(--blue);">
-          <div class="card__icon">📐</div>
-          <h3 class="card__title">Mathematics</h3>
-          <p class="card__desc">Algebra, geometry, statistics, and problem solving.</p>
-        </a>
-        <a href="index.html" class="card" style="border-top: 4px solid var(--purple);">
-          <div class="card__icon">📝</div>
-          <h3 class="card__title">English Language</h3>
-          <p class="card__desc">Grammar, literature, comprehension, and writing skills.</p>
-        </a>
-        <a href="index.html" class="card" style="border-top: 4px solid var(--orange);">
-          <div class="card__icon">🌍</div>
-          <h3 class="card__title">Social Studies</h3>
-          <p class="card__desc">Governance, economics, geography, and civic education.</p>
-        </a>
-        <a href="index.html" class="card" style="border-top: 4px solid #e74c3c;">
-          <div class="card__icon">🕊️</div>
-          <h3 class="card__title">RME & Values</h3>
-          <p class="card__desc">Religious & moral education, ethics, and cultural studies.</p>
-        </a>
-        <a href="index.html" class="card" style="border-top: 4px solid #2ecc71;">
-          <div class="card__icon">💻</div>
-          <h3 class="card__title">Computing / ICT</h3>
-          <p class="card__desc">Digital literacy, coding basics, and safe internet use.</p>
-        </a>
-      </div>
-    </section>
+  <!-- LESSON OBJECTIVES -->
+  <section class="section" aria-labelledby="objectives-title">
+    <h2 class="section-title" id="objectives-title">Term 3 Learning Objectives</h2>
+    <p class="section-subtitle">Explore Ghana's journey to independence through early protest movements, post-WWII unrest, and the pivotal 1948 riots across four thematic blocks.</p>
 
-    <!-- Why Choose Mini OpenStax -->
-    <section class="section">
-      <h2 class="section__title"><i class="fas fa-star" aria-hidden="true"></i> Why Learners Choose Us</h2>
-      <div class="grid-2">
-        <div class="feature-item">
-          <div class="feature-icon"><i class="fas fa-book"></i></div>
-          <div>
-            <h3 class="feature-title">NaCCA Curriculum Aligned</h3>
-            <p class="feature-desc">Every lesson maps directly to Ghana's official JHS learning outcomes and standards.</p>
-          </div>
+    <div class="card-grid">
+
+      <!-- Card 1 -->
+      <article class="objective-card">
+        <div class="card-head">
+          <span class="card-num">Weeks 1-3</span>
+          <span class="indicator-tag">B5.5.1.1.1 - B5.5.1.1.2</span>
         </div>
-        <div class="feature-item">
-          <div class="feature-icon"><i class="fas fa-wifi-slash"></i></div>
-          <div>
-            <h3 class="feature-title">Works Offline</h3>
-            <p class="feature-desc">Once loaded, lessons cache locally. No data needed for reading or quizzes.</p>
-          </div>
+        <h3>Early Protest Movements & ARPS</h3>
+        <p class="strand"><strong>Strand:</strong> Journey to Independence &nbsp;|&nbsp; <strong>Sub-strand:</strong> Early Protest Movements before 1945</p>
+        <h4>By the end of these lessons, learners will be able to:</h4>
+        <ul>
+          <li>Define what a protest movement is and why people form them</li>
+          <li>Identify the three main early protest movements: ARPS (1897), NCBWA (1917), and GCYC (1929)</li>
+          <li>Discuss the sequence of events that led to the formation of these movements</li>
+          <li>Examine the role of Joseph Mensah Sarbah in the Aborigines' Rights Protection Society</li>
+        </ul>
+        <div class="meta"><strong>Core Competencies:</strong> Critical Thinking & Problem Solving, Cultural Identity & Global Citizenship</div>
+        <div class="keywords">
+          <span>Protest Movements</span><span>ARPS</span><span>Land Bills</span><span>Joseph Mensah Sarbah</span><span>Legislative Council</span>
         </div>
-        <div class="feature-item">
-          <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-          <div>
-            <h3 class="feature-title">Progress Tracking</h3>
-            <p class="feature-desc">Automatic mastery tracking, quiz analytics, and WhatsApp report sharing.</p>
-          </div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon"><i class="fas fa-universal-access"></i></div>
-          <div>
-            <h3 class="feature-title">Fully Accessible</h3>
-            <p class="feature-desc">WCAG 2.2 AA compliant: screen reader ready, keyboard navigable, dark mode supported.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+      </article>
 
-  <!-- Settings Modal -->
-  <div id="settings-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal-content">
-      <button class="modal-close" id="close-settings" aria-label="Close settings">&times;</button>
-      <h3 id="modal-title">👤 Account Settings</h3>
-      <div class="input-group">
-        <label for="edit-name">Your Name</label>
-        <input type="text" id="edit-name" maxlength="30" placeholder="e.g., Ama" autocomplete="name">
+      <!-- Card 2 -->
+      <article class="objective-card">
+        <div class="card-head">
+          <span class="card-num">Weeks 4-6</span>
+          <span class="indicator-tag">B5.5.1.1.3 - B5.5.3.1.1</span>
+        </div>
+        <h3>NCBWA, GCYC & Post-WWII Unrest</h3>
+        <p class="strand"><strong>Strand:</strong> Journey to Independence &nbsp;|&nbsp; <strong>Sub-strand:</strong> Key Leaders & Post-War Conditions</p>
+        <h4>By the end of these lessons, learners will be able to:</h4>
+        <ul>
+          <li>Narrate the role of Joseph Ephraim Casely Hayford in the NCBWA</li>
+          <li>Present a narrative of Dr. J.B. Danquah's role in the Gold Coast Youth Conference</li>
+          <li>Explain why people were unhappy in the country after the Second World War</li>
+          <li>Describe the broken promises made to Gold Coast soldiers who fought in WWII</li>
+        </ul>
+        <div class="meta"><strong>Core Competencies:</strong> Communication & Collaboration, Creativity & Innovation</div>
+        <div class="keywords">
+          <span>Casely Hayford</span><span>J.B. Danquah</span><span>NCBWA</span><span>GCYC</span><span>Post-WWII</span><span>Unrest</span>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="objective-card">
+        <div class="card-head">
+          <span class="card-num">Weeks 7-9</span>
+          <span class="indicator-tag">B5.5.3.1.1 - B5.5.3.1.2</span>
+        </div>
+        <h3>The Boycott & The 1948 Riots</h3>
+        <p class="strand"><strong>Strand:</strong> Journey to Independence &nbsp;|&nbsp; <strong>Sub-strand:</strong> The 1948 Riots</p>
+        <h4>By the end of these lessons, learners will be able to:</h4>
+        <ul>
+          <li>Explain why people boycotted European goods and how the boycott was organized</li>
+          <li>Describe the events of 28th February 1948 when unarmed ex-servicemen were shot</li>
+          <li>Identify the three ex-servicemen: Sgt. Adjetey, Cpl. Attipoe, and Pte. Odartey Lamptey</li>
+          <li>Examine sources of evidence about what happened during the 1948 riots and the arrest of the Big Six</li>
+        </ul>
+        <div class="meta"><strong>Core Competencies:</strong> Critical Thinking & Problem Solving, Personal Development & Leadership</div>
+        <div class="keywords">
+          <span>Boycott</span><span>28th February 1948</span><span>Ex-Servicemen</span><span>Big Six</span><span>Christiansborg Castle</span>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="objective-card">
+        <div class="card-head">
+          <span class="card-num">Weeks 10-12</span>
+          <span class="indicator-tag">B5.5.3.1.2 - B5.5.3.1.3</span>
+        </div>
+        <h3>Watson & Coussey Commissions</h3>
+        <p class="strand"><strong>Strand:</strong> Journey to Independence &nbsp;|&nbsp; <strong>Sub-strand:</strong> Post-Riot Commissions & Constitutional Reform</p>
+        <h4>By the end of these lessons, learners will be able to:</h4>
+        <ul>
+          <li>Explain what the Watson Commission was and describe its key findings</li>
+          <li>Discuss the recommendations of the Watson Commission for constitutional reform</li>
+          <li>Explain why the Coussey Committee was established and its main recommendations</li>
+          <li>Trace the sequence of events from the 1948 riots to the path toward independence</li>
+        </ul>
+        <div class="meta"><strong>Core Competencies:</strong> Communication & Collaboration, Cultural Identity & Global Citizenship</div>
+        <div class="keywords">
+          <span>Watson Commission</span><span>Coussey Committee</span><span>Constitution</span><span>Independence</span><span>Assessment</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- LESSON GRIDS -->
+  <section class="section" aria-labelledby="grids-title">
+    <h2 class="section-title" id="grids-title">Weekly Lesson Grids</h2>
+    <p class="section-subtitle">A detailed breakdown of the 12-week Term 3 scheme, including indicators, activities, and assessments.</p>
+
+    <!-- GRID 1 -->
+    <div class="grid-section">
+      <h3 class="grid-title"><i class="fa-solid fa-flag"></i> &nbsp;Weeks 1-4 — Early Protest Movements</h3>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Week</th>
+              <th>Topic</th>
+              <th>Duration</th>
+              <th>Learning Objectives (Indicators)</th>
+              <th>Teacher Activities</th>
+              <th>Resources</th>
+              <th>Assessment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Introduction to Early Protest Movements</td>
+              <td>4 Periods</td>
+              <td><ul><li>B5.5.1.1.1</li></ul></td>
+              <td><ul><li>Discuss meaning of "protest movement" with recent news clips</li><li>Introduce ARPS (1897), NCBWA (1917), and GCYC (1929)</li><li>Discuss factors: unjust colonial laws, lack of representation, discrimination</li><li>Group poster work on one protest movement each</li></ul></td>
+              <td>Map of Ghana, protest movement posters, documentary videos, timeline charts</td>
+              <td><ul><li>Observe group discussions</li><li>Review posters for accuracy</li><li>Question check on understanding</li></ul></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Joseph Mensah Sarbah & ARPS</td>
+              <td>4 Periods</td>
+              <td><ul><li>B5.5.1.1.2</li></ul></td>
+              <td><ul><li>Introduce Joseph Mensah Sarbah (1864-1910) as a barrister</li><li>Examine his role in ARPS and opposition to Land Bills</li><li>Discuss ARPS achievements: getting Africans on Legislative Council</li><li>Group research project creating biography posters</li></ul></td>
+              <td>Photographs of Sarbah, documentary videos, internet resources, Drum magazine article (1969)</td>
+              <td><ul><li>Check poster accuracy using rubric</li><li>Assess group participation</li><li>Verify understanding of ARPS achievements</li></ul></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Casely Hayford & NCBWA</td>
+              <td>4 Periods</td>
+              <td><ul><li>B5.5.1.1.3</li></ul></td>
+              <td><ul><li>Introduce Joseph Ephraim Casely Hayford (1866-1930)</li><li>Discuss his role in forming NCBWA in 1917 and London trip (1920)</li><li>Highlight "Ethiopia Unbound" as first African novel in English</li><li>Timeline creation and short story writing activity</li></ul></td>
+              <td>Photographs of Casely Hayford, bust at Casford Hall UCC, audio tribute, internet resources</td>
+              <td><ul><li>Check timeline accuracy</li><li>Assess short story for understanding</li><li>Evaluate oral presentation</li></ul></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Dr. J.B. Danquah & Gold Coast Youth Conference</td>
+              <td>4 Periods</td>
+              <td><ul><li>B5.5.1.1.4</li></ul></td>
+              <td><ul><li>Introduce Dr. J.B. Danquah as GCYC leader (1937-1947)</li><li>Discuss his role bringing educated elites and chiefs together</li><li>Highlight GCYC's role in constitutional reforms and university development</li><li>Research activity and possible field trip to Danquah Circle</li></ul></td>
+              <td>Photographs of Danquah, map showing Danquah Circle Accra, documentary videos, internet resources</td>
+              <td><ul><li>Observe research skills</li><li>Assess short stories for accuracy</li><li>Evaluate class display</li></ul></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="input-group">
-        <label><input type="checkbox" id="edit-role"> Switch to Instructor Mode</label>
+    </div>
+
+    <!-- GRID 2 -->
+    <div class="grid-section">
+      <h3 class="grid-title"><i class="fa-solid fa-fire"></i> &nbsp;Weeks 5-8 — Post-WWII Unrest & The 1948 Riots</h3>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Week</th>
+              <th>Topic</th>
+              <th>Duration</th>
+              <th>Learning Objectives (Indicators)</th>
+              <th>Teacher Activities</th>
+              <th>Resources</th>
+              <th>Assessment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>5</td>
+              <td>Post-WWII Unhappiness</td>
+              <td>4 Periods</td>
+              <td><ul><li>B5.5.3.1.1</li></ul></td>
+              <td><ul><li>Discuss WWII context and promises made to Gold Coast soldiers</li><li>Examine broken promises: no pensions, jobs, or housing</li><li>Explore general state of affairs: cocoa tree cutting, high prices, unemployment</li><li>Watch "End of Empire" documentary and role-play post-war conditions</li></ul></td>
+              <td>Map of Ghana, "End of Empire" documentary, posters showing post-war conditions</td>
+              <td><ul><li>Observe note-taking during documentary</li><li>Check understanding through discussion</li><li>Evaluate role-play accuracy</li></ul></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>The Boycott of European Goods</td>
+              <td>4 Periods</td>
+              <td><ul><li>B5.5.3.1.1</li></ul></td>
+              <td><ul><li>Explain why trading companies increased prices after WWII</li><li>Discuss Chief Nii Kwabena Bonne III and the Anti-Inflation Campaign Committee</li><li>Describe boycotted goods: cotton prints, tinned meat, flour biscuits</li><li>Diary entry writing activity imagining being a boycotter on 26th January 1948</li></ul></td>
+              <td>Photographs of boycotted goods, charts showing price increases, newspapers from the period</td>
+              <td><ul><li>Review diary entries for understanding</li><li>Check historical accuracy</li><li>Evaluate creativity and expression</li></ul></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>The Shooting of Ex-Servicemen</td>
+              <td>4 Periods</td>
+              <td><ul><li>B5.5.3.1.1</li></ul></td>
+              <td><ul><li>Describe the march on 28th February 1948 from Accra to Christiansborg Castle</li><li>Discuss the shooting of Sgt. Adjetey, Cpl. Attipoe, and Pte. Odartey Lamptey</li><li>Explain immediate consequences: riots and arrest of Big Six</li><li>Flow chart creation and map work showing the march route</li></ul></td>
+              <td>Map of Accra showing route, photographs of Christiansborg Castle, timeline charts</td>
+              <td><ul><li>Check flow charts for accuracy and sequence</li><li>Review map work</li><li>Ask verification questions</li></ul></td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>The 1948 Riots</td>
+              <td>4 Periods</td>
+              <td><ul><li>B5.5.3.1.2</li></ul></td>
+              <td><ul><li>Describe the riots that spread throughout the country</li><li>Discuss the arrest of the Big Six: Akufo-Addo, Obetsebi-Lamptey, Danquah, Ako-Adjei, Ofori Atta, Nkrumah</li><li>Examine the 8th March 1948 protests by teachers and students</li><li>Role-play based on documentary footage</li></ul></td>
+              <td>Documentary videos, photographs from the riots, newspapers from the period</td>
+              <td><ul><li>Observe role-play for historical accuracy</li><li>Check understanding through discussion</li><li>Evaluate participation and teamwork</li></ul></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <button class="btn" id="save-settings">Save Changes</button>
+    </div>
+
+    <!-- GRID 3 -->
+    <div class="grid-section">
+      <h3 class="grid-title"><i class="fa-solid fa-gavel"></i> &nbsp;Weeks 9-12 — Commissions, Reform & Assessment</h3>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Week</th>
+              <th>Topic</th>
+              <th>Duration</th>
+              <th>Learning Objectives (Indicators)</th>
+              <th>Teacher Activities</th>
+              <th>Resources</th>
+              <th>Assessment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>9</td>
+              <td>The Watson Commission</td>
+              <td>4 Periods</td>
+              <td><ul><li>B5.5.3.1.2</li></ul></td>
+              <td><ul><li>Explain the purpose of the Watson Commission sent by British government</li><li>Discuss findings: broken promises, high prices, lack of jobs, foreign control</li><li>Examine recommendations: local people to draft own Constitution</li><li>Group discussion, report preparation, and poster creation</li></ul></td>
+              <td>Documents about Watson Commission, charts showing recommendations, documentary videos</td>
+              <td><ul><li>Review group reports for understanding</li><li>Assess posters for accuracy and creativity</li><li>Ask comprehension questions</li></ul></td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>The Coussey Committee</td>
+              <td>4 Periods</td>
+              <td><ul><li>B5.5.3.1.3</li></ul></td>
+              <td><ul><li>Explain why the Coussey Committee was established following Watson Commission</li><li>Discuss main recommendations: more elected African members, greater participation</li><li>Examine impact on Ghana's constitution and path to self-government</li><li>Timeline creation and structured debate activity</li></ul></td>
+              <td>Documents about Coussey Committee, charts showing constitutional changes, documentary videos</td>
+              <td><ul><li>Review timelines for accuracy</li><li>Evaluate debate participation and arguments</li><li>Check understanding through questioning</li></ul></td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td>Revision & Formative Assessment</td>
+              <td>4 Periods</td>
+              <td><ul><li>B5.5.1.1 - B5.5.3.1</li></ul></td>
+              <td><ul><li>Overview of all Term 3 topics with review charts and summaries</li><li>Crossword puzzle completion using key terms and surnames</li><li>Matching exercises: events with dates, personalities with roles</li><li>Self-assessment table completion</li></ul></td>
+              <td>Review charts and summaries, crossword puzzle, assessment papers, answer keys</td>
+              <td><ul><li>Review crossword completion</li><li>Check matching exercises</li><li>Assess self-assessment tables</li></ul></td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>End of Term Assessment</td>
+              <td>4 Periods</td>
+              <td><ul><li>B5.5.1.1 - B5.5.3.1</li></ul></td>
+              <td><ul><li>Administer Section A: Multiple Choice (10 marks)</li><li>Administer Section B: Short Answer Questions (20 marks)</li><li>Administer Section C: Essay Questions (20 marks)</li><li>Mark, provide individual feedback, and review common errors</li></ul></td>
+              <td>End-of-term assessment papers, marking schemes, answer keys</td>
+              <td><ul><li>Mark assessments using provided scheme</li><li>Provide individual feedback</li><li>Celebrate achievements</li></ul></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFERENTIATION STRATEGIES -->
+  <section class="section" aria-labelledby="strategies-title">
+    <h2 class="section-title" id="strategies-title">Differentiation Strategies</h2>
+    <p class="section-subtitle">Tailored support to ensure every learner succeeds — whether they need extra help or an extra challenge.</p>
+
+    <div class="strategy-grid">
+      <article class="strategy-card struggling">
+        <h3><i class="fa-solid fa-hand-holding-heart"></i> For Struggling Learners</h3>
+        <ul>
+          <li>Provide simplified texts, sentence frames, and extra time for research and writing tasks</li>
+          <li>Use visual aids, timelines, and anchor charts for key personalities and events</li>
+          <li>Pair learners with able peers in group work; assign specific roles (scribe, researcher, designer, orator)</li>
+          <li>Offer flow chart templates and guided notes for complex sequences like the 1948 riots</li>
+        </ul>
+      </article>
+
+      <article class="strategy-card advanced">
+        <h3><i class="fa-solid fa-rocket"></i> For Advanced Learners</h3>
+        <ul>
+          <li>Challenge learners to write longer essays (150-180 words) on key personalities like Casely Hayford</li>
+          <li>Assign leadership roles in group research, documentary creation, and debate activities</li>
+          <li>Encourage deeper research using internet sources and library books on "Ethiopia Unbound"</li>
+          <li>Extend tasks to include comparative analysis of different protest movements and commissions</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- CROSS-CURRICULAR LINKS -->
+  <section class="section" aria-labelledby="links-title">
+    <h2 class="section-title" id="links-title">Cross-Curricular Links</h2>
+    <p class="section-subtitle">Connect History knowledge to other subjects for a richer, integrated learning experience.</p>
+
+    <div class="links-grid">
+      <div class="link-chip"><i class="fa-solid fa-book"></i> English Language</div>
+      <div class="link-chip"><i class="fa-solid fa-earth-africa"></i> Our World Our People</div>
+      <div class="link-chip"><i class="fa-solid fa-hand-holding-heart"></i> RME & Morals</div>
+      <div class="link-chip"><i class="fa-solid fa-palette"></i> Creative Arts</div>
+      <div class="link-chip"><i class="fa-solid fa-laptop"></i> ICT & Computing</div>
+      <div class="link-chip"><i class="fa-solid fa-landmark"></i> Citizenship Education</div>
+    </div>
+  </section>
+
+  <!-- PROGRESS TRACKING -->
+  <section class="section" aria-labelledby="progress-title">
+    <div class="progress-card">
+      <h2 id="progress-title">📊 Track Your Progress</h2>
+      <p>Each week includes interactive activities, role-plays, and formative checks. Complete all 12 weeks to master Ghana's journey to independence!</p>
+      <p class="subtext">Your progress is automatically saved and can be shared with parents via WhatsApp.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Mini OpenStax</h4>
+      <p>Free, high-quality, and accessible educational content for Ghanaian learners. Aligned with the NaCCA standards-based curriculum to empower every student.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../dashboard.html">Class 5</a></li>
+        <li><a href="../historyChapter-0.html">History Lessons</a></li>
+        <li><a href="../contact.html">Contact Support</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="contact-item"><i class="fa-solid fa-phone"></i> <span>+233 25 732 0201</span></div>
+      <div class="contact-item"><i class="fa-solid fa-envelope"></i> <a href="mailto:learn@miniopenstax.edu.gh">learn@miniopenstax.edu.gh</a></div>
+      <div class="contact-item"><i class="fa-solid fa-location-dot"></i> <span>Accra, Ghana</span></div>
     </div>
   </div>
+  <div class="footer-bottom">
+    <p>&copy; <span id="year"></span> Mini OpenStax. All rights reserved.</p>
+    <p><span class="nacca">Content aligned with NaCCA curriculum</span></p>
+    <p><a href="../privacy.html">Privacy Policy</a></p>
+  </div>
+</footer>
 
-  <!-- Professional Footer -->
-  <footer class="footer" role="contentinfo">
-    <div class="footer__grid">
-      <div>
-        <h4 class="footer__title">Mini OpenStax</h4>
-        <p style="max-width: 30ch; opacity: 0.9;">Free, accessible educational content for Ghanaian learners. Built with ❤️ for JHS students.</p>
-      </div>
-      <div>
-        <h4 class="footer__title">Quick Links</h4>
-        <nav aria-label="Footer navigation">
-          <a href="index.html" class="footer__link" aria-current="page">Home</a><br>
-          <a href="index.html" class="footer__link">Class 5</a><br>
-          <a href="dashboard.html" class="footer__link">Dashboard</a><br>
-          <a href="contact.html" class="footer__link">Contact Support</a>
-        </nav>
-      </div>
-      <div>
-        <h4 class="footer__title">Contact</h4>
-        <address style="font-style: normal; opacity: 0.9;">
-          <a href="tel:+233257320201" class="footer__link">+233 25 732 0201</a><br>
-          <a href="mailto:learn@miniopenstax.edu.gh" class="footer__link">learn@miniopenstax.edu.gh</a><br>
-          Accra, Ghana
-        </address>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <p>&copy; <span id="year"></span> Mini OpenStax. Content aligned with NaCCA curriculum. <a href="privacy.html" class="footer__link">Privacy</a></p>
-    </div>
-  </footer>
+<script>
+(function () {
+  'use strict';
 
-  <script>
-    (function () {
-      'use strict';
-      const TOTAL_LESSONS = 300;
+  // Dynamic copyright year
+  var yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-      // === USER STATE ===
-      let userName = localStorage.getItem('student_name') || 'Learner';
-      let userRole = localStorage.getItem('user_role') || 'student';
-      localStorage.setItem('student_name', userName);
-      localStorage.setItem('user_role', userRole);
+  // Mobile nav toggle
+  var toggle = document.getElementById('navToggle');
+  var navList = document.getElementById('navList');
 
-      // === DOM ===
-      const heroTitle = document.getElementById('hero-title');
-      const prog7 = document.getElementById('prog-7');
-      const bar7 = document.getElementById('bar-7');
-      const currentRoleEl = document.getElementById('current-role'); // Optional: add to header if needed
+  if (toggle && navList) {
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = navList.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
 
-      // === INIT ===
-      function init() {
-        document.getElementById('year').textContent = new Date().getFullYear();
-        updateGreeting();
-        updateClassProgress();
-        setupNavToggle();
-        setupSettingsModal();
+    // Click outside to close
+    document.addEventListener('click', function (e) {
+      if (!navList.contains(e.target) && !toggle.contains(e.target) && navList.classList.contains('is-open')) {
+        navList.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
       }
+    });
 
-      // === UPDATE GREETING ===
-      function updateGreeting() {
-        const hour = new Date().getHours();
-        let greeting = hour < 12 ? 'Good Morning' : hour < 18 ? 'Good Afternoon' : 'Good Evening';
-        heroTitle.textContent = `${greeting}, ${userName}!`;
+    // Escape key to close and refocus
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && navList.classList.contains('is-open')) {
+        navList.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.focus();
       }
+    });
 
-      // === CALCULATE PROGRESS ===
-      function updateClassProgress() {
-        let mastered = 0;
-        for (let i = 0; i < TOTAL_LESSONS; i++) {
-          if (localStorage.getItem(`mastery_${i}`) === '1') mastered++;
+    // Close on nav link click (mobile UX)
+    navList.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (window.innerWidth <= 768) {
+          navList.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
         }
-        const percent = Math.round((mastered / TOTAL_LESSONS) * 100);
-        if (prog7) prog7.textContent = `${percent}%`;
-        if (bar7) bar7.style.width = `${percent}%`;
-      }
+      });
+    });
+  }
+})();
+</script>
 
-      // === NAV TOGGLE ===
-      function setupNavToggle() {
-        const navToggle = document.querySelector('.nav__toggle');
-        const navList = document.querySelector('.nav__list');
-        if (navToggle && navList) {
-          navToggle.addEventListener('click', () => {
-            const isOpen = navList.classList.toggle('is-open');
-            navToggle.setAttribute('aria-expanded', isOpen);
-            navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
-          });
-          document.addEventListener('click', (e) => {
-            if (navList.classList.contains('is-open') && !navList.contains(e.target) && !navToggle.contains(e.target)) {
-              navList.classList.remove('is-open');
-              navToggle.setAttribute('aria-expanded', 'false');
-              navToggle.setAttribute('aria-label', 'Open navigation menu');
-            }
-          });
-          document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && navList.classList.contains('is-open')) {
-              navList.classList.remove('is-open');
-              navToggle.setAttribute('aria-expanded', 'false');
-              navToggle.setAttribute('aria-label', 'Open navigation menu');
-              navToggle.focus();
-            }
-          });
-        }
-      }
-
-      // === SETTINGS MODAL ===
-      function setupSettingsModal() {
-        // Add settings button to nav dynamically for homepage
-        const navList = document.querySelector('.nav__list');
-        const settingsBtn = document.createElement('button');
-        settingsBtn.className = 'nav__link';
-        settingsBtn.style.cursor = 'pointer';
-        settingsBtn.style.background = 'none';
-        settingsBtn.style.border = 'none';
-        settingsBtn.textContent = '⚙️ Settings';
-        settingsBtn.onclick = () => openModal();
-        if (navList) navList.appendChild(settingsBtn);
-
-        const modal = document.getElementById('settings-modal');
-        const openBtn = settingsBtn;
-        const closeBtn = document.getElementById('close-settings');
-        const saveBtn = document.getElementById('save-settings');
-
-        function openModal() {
-          document.getElementById('edit-name').value = userName;
-          document.getElementById('edit-role').checked = (userRole === 'instructor');
-          modal.style.display = 'flex';
-          document.getElementById('edit-name').focus();
-        }
-
-        if (closeBtn) closeBtn.onclick = () => { modal.style.display = 'none'; openBtn.focus(); };
-        if (saveBtn) {
-          saveBtn.onclick = () => {
-            const newName = document.getElementById('edit-name').value.trim();
-            if (!newName) { alert("Please enter a name."); return; }
-            userName = newName;
-            userRole = document.getElementById('edit-role').checked ? 'instructor' : 'student';
-            localStorage.setItem('student_name', userName);
-            localStorage.setItem('user_role', userRole);
-            updateGreeting();
-            modal.style.display = 'none';
-          };
-        }
-        if (modal) {
-          window.onclick = (e) => { if (e.target === modal) { modal.style.display = 'none'; openBtn.focus(); } };
-          modal.addEventListener('keydown', (e) => { if (e.key === 'Escape') { modal.style.display = 'none'; openBtn.focus(); } });
-        }
-      }
-
-      // === INIT ON LOAD ===
-      document.addEventListener('DOMContentLoaded', init);
-    })();
-  </script>
-</body>
-</html>odal) {
-          window.onclick = (e) => { if (e.target === modal) { modal.style.display = 'none'; openBtn.focus(); } };
-          modal.addEventListener('keydown', (e) => { if (e.key === 'Escape') { modal.style.display = 'none'; openBtn.focus(); } });
-        }
-      }
-
-      // === INIT ON LOAD ===
-      document.addEventListener('DOMContentLoaded', init);
-    })();
-  </script>
 </body>
 </html>
