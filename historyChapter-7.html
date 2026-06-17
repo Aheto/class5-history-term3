@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Mini OpenStax: Examine sources of evidence about what happened during the 1948 riots — Class 5 History Chapter 7" />
+  <meta name="description" content="Mini OpenStax: The 1948 Riots — Class 5 History Week 8" />
   <meta name="theme-color" content="#006b3d" />
-  <title>Mini OpenStax — What Happened During the 1948 Riots</title>
+  <title>Mini OpenStax — The 1948 Riots (Week 8)</title>
   
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -30,6 +30,7 @@
       --radius-lg: 1rem;
       --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
       --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
       --space-xs: clamp(0.5rem, 0.8vw, 0.75rem);
       --space-sm: clamp(0.75rem, 1.2vw, 1rem);
       --space-md: clamp(1rem, 2vw, 1.5rem);
@@ -93,6 +94,7 @@
     .nav__link {
       padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm);
       font-weight: 500; color: var(--dark); transition: background var(--transition), color var(--transition);
+      text-decoration: none;
     }
     .nav__link:hover, .nav__link:focus-visible { background: var(--light); color: var(--green); }
     .nav__link[aria-current="page"] { color: var(--green); font-weight: 700; background: var(--light); }
@@ -163,6 +165,7 @@
       background: var(--green); color: white; border: none; padding: 0.6rem 1.2rem;
       border-radius: var(--radius-md); font-weight: 600; cursor: pointer; margin-top: 0.5rem;
       transition: background var(--transition), transform var(--transition);
+      text-decoration: none; display: inline-block;
     }
     .btn:hover, .btn:focus-visible { background: var(--green-dark); transform: translateY(-2px); }
     .btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
@@ -184,6 +187,29 @@
       background: #f8f9fa; padding: var(--space-md); border-left: 4px solid var(--gold);
       margin: var(--space-lg) 0; border-radius: 0 var(--radius-md) var(--radius-md) 0;
     }
+    .timeline {
+      display: flex; flex-direction: column; gap: var(--space-sm); margin: var(--space-md) 0;
+    }
+    .timeline-item {
+      display: flex; gap: var(--space-sm); padding: var(--space-sm);
+      background: var(--light); border-radius: var(--radius-md);
+      border-left: 4px solid var(--gold);
+    }
+    .timeline-year {
+      font-weight: 700; color: var(--green-dark); min-width: 80px;
+      font-family: monospace; font-size: 1rem;
+    }
+    .timeline-content { flex: 1; font-size: 0.95rem; }
+    .big-six-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-sm); margin: var(--space-md) 0;
+    }
+    .big-six-card {
+      background: var(--light); padding: var(--space-sm); border-radius: var(--radius-md);
+      border-left: 4px solid var(--green); text-align: center;
+    }
+    .big-six-card strong { color: var(--green-dark); display: block; margin-bottom: 0.25rem; }
+    .big-six-card small { color: #64748b; font-size: 0.85rem; }
 
     /* === QUIZ === */
     .quiz { margin-top: var(--space-lg); }
@@ -249,7 +275,7 @@
       max-width: var(--max-w); margin: 0 auto; padding: 0 var(--space-md);
     }
     .footer__title { color: white; margin-bottom: var(--space-sm); font-size: 1.1rem; }
-    .footer__link { color: #94a3b8; transition: color var(--transition); display: inline-block; margin-bottom: var(--space-xs); }
+    .footer__link { color: #94a3b8; transition: color var(--transition); display: inline-block; margin-bottom: var(--space-xs); text-decoration: none; }
     .footer__link:hover { color: white; text-decoration: underline; }
     .footer__bottom {
       text-align: center; margin-top: var(--space-lg); padding-top: var(--space-sm);
@@ -278,6 +304,8 @@
       }
       .card, .modal-content, .report-card { background: #1e293b; }
       .feedback details[open] { background: #064e3b; }
+      th { background-color: #1e3a2a; }
+      .timeline-item, .big-six-card { background: #1e293b; }
     }
   </style>
 </head>
@@ -297,8 +325,8 @@
       </button>
       <nav id="main-nav" class="nav__list" role="navigation">
         <a href="index.html" class="nav__link">Home</a>
-        <a href="index.html" class="nav__link">Class 5</a>
-        <a href="index.html" class="nav__link" aria-current="page">History</a>
+        <a href="dashboard.html" class="nav__link">Class 5</a>
+        <a href="historyChapter-7.html" class="nav__link" aria-current="page">History</a>
         <a href="dashboard.html" class="nav__link">Dashboard</a>
         <a href="contact.html" class="nav__link">Contact</a>
       </nav>
@@ -309,8 +337,8 @@
     <!-- Mini OpenStax App Header -->
     <div class="app-header">
       <div>
-        <h1 id="page-title">What Happened During the 1948 Riots</h1>
-        <div class="lo-tags">B5.5.3.1.2</div>
+        <h1 id="page-title">The 1948 Riots</h1>
+        <div class="lo-tags">B5.5.3.1.2 • Journey to Independence</div>
       </div>
       <div style="display:flex;gap:0.5rem;align-items:center;">
         <div class="role-badge" id="current-role">Student View</div>
@@ -332,11 +360,10 @@
       <div class="section">
         <h2>🎯 What You'll Learn</h2>
         <ul id="objectives">
-          <li>Identify who led the boycott of European goods in January 1948.</li>
-          <li>Explain why the ex-servicemen marched on 28th February 1948 and where they were heading.</li>
-          <li>Name the three ex-servicemen who were shot dead by the police.</li>
-          <li>Describe the public's reaction to the shooting and the arrest of the 'Big Six'.</li>
-          <li>Understand the role and recommendation of the Watson Commission.</li>
+          <li>Describe what happened during the 1948 riots in the Gold Coast.</li>
+          <li>Explain the role of the "Big Six" leaders in the independence movement.</li>
+          <li>Identify the six members of the Big Six and their political party, the UGCC.</li>
+          <li>Discuss the significance of the 1948 riots in Ghana's journey to independence.</li>
         </ul>
       </div>
 
@@ -344,42 +371,134 @@
         <h2>🔤 Important Words</h2>
         <p>Key terms for this lesson:</p>
         <div class="word-list" id="word-list">
-          <span class="word-item">Petition</span>
-          <span class="word-item">Unarmed</span>
           <span class="word-item">Riots</span>
           <span class="word-item">Detention</span>
+          <span class="word-item">Protest</span>
           <span class="word-item">Commission</span>
-          <span class="word-item">Martyrs</span>
-          <span class="word-item">Watson Commission</span>
+          <span class="word-item">Big Six</span>
+          <span class="word-item">UGCC</span>
+          <span class="word-item">Looting</span>
+          <span class="word-item">Christiansborg</span>
+          <span class="word-item">Unrest</span>
+          <span class="word-item">Arrest</span>
+          <span class="word-item">Curfew</span>
+          <span class="word-item">Governor</span>
+          <span class="word-item">Independence</span>
         </div>
       </div>
 
       <div class="section" id="lesson-content">
-        <h2>📘 The 1948 Riots: Events and Consequences</h2>
+        <h2>📘 The 1948 Riots</h2>
         
-        <h3>🛑 The Background: Boycott and Petition</h3>
-        <p>Following the Second World War, the people of the Gold Coast were deeply unhappy due to broken promises, shortages, and high prices. In January 1948, the people took action by boycotting European goods. This massive boycott was led by prominent leaders, including <strong>Chief Nii Kwabena Bonne III</strong> (the Osu Alata Mantse).</p>
-        <p>Because their grievances were being ignored, the ex-servicemen decided to march and present a formal <strong>petition</strong> (a formal written request) to the British Governor. They demanded the pensions and war benefits they had been promised.</p>
-        
-        <h3>🩸 The Shooting of the Ex-Servicemen</h3>
-        <p>On <strong>28th February 1948</strong>, a group of <strong>unarmed</strong> ex-servicemen marched from Accra to <strong>Christiansborg Castle at Osu</strong>. On their way, they were stopped by a group of armed policemen. When the ex-servicemen refused to stop or turn back, the policemen opened fire and shot them dead.</p>
-        <p>Three brave ex-servicemen lost their lives and are remembered as martyrs:</p>
-        <ol>
-          <li><strong>Sergeant Cornelius Francis Adjetey</strong></li>
-          <li><strong>Corporal Patrick Gagbale Attipoe</strong></li>
-          <li><strong>Private Odartey Lamptey</strong></li>
-        </ol>
-        
-        <h3>💥 The Outbreak of the 1948 Riots</h3>
-        <p>When the people heard about the brutal shooting, they were filled with anger and grief. The people started <strong>riot</strong>ing and looting foreign-owned shops across the country. The 1948 riots marked a major turning point, showing the British that the people could no longer tolerate colonial oppression.</p>
-        <p>The colonial governor was frightened by the scale of the riots. He blamed the leaders of the United Gold Coast Convention (UGCC) and ordered the arrest of the <strong>'Big Six'</strong> leaders, detaining them without trial. On <strong>8th March 1948</strong>, teachers and students protested this unfair detention, but as punishment, they were immediately dismissed from their schools.</p>
-        
-        <h3>⚖️ The Watson Commission</h3>
-        <p>To find out what caused the riots, the British colonial government sent a team of investigators known as the <strong>Watson Commission</strong>. Their mandate was to investigate the causes and make recommendations.</p>
-        <p>The Commission recommended that the local people of the Gold Coast be allowed to <strong>draft their own Constitution</strong>. This led the British government to set up a committee to draft a new constitution, setting the country on the final path to independence on 6th March 1957.</p>
+        <h3>💡 What Were the 1948 Riots?</h3>
+        <p>The <strong>1948 riots</strong> were a series of violent protests, looting, and unrest that spread across the Gold Coast (now Ghana) in late February and early March 1948. These riots were a turning point in Ghana's history because they showed the British colonial government that the people of the Gold Coast were no longer willing to accept unfair treatment.</p>
         
         <blockquote>
-          💭 <strong>Thought Experiment</strong>: Imagine you are a student in 1948. You hear that the 'Big Six' have been arrested without trial for demanding rights for the people. You decide to join a protest with your teachers. What risks are you taking, and why do you feel it is important to stand up for justice?
+          💭 <strong>Think About It</strong>: Have you ever seen people come together to protest against something unfair? What do you think makes people reach the point of rioting?
+        </blockquote>
+
+        <h3>🔥 How the Riots Started</h3>
+        <p>The riots began immediately after the <strong>shooting of three unarmed ex-servicemen</strong> on <strong>28th February 1948</strong>. The ex-servicemen — Sergeant Adjetey, Corporal Attipoe, and Private Odartey Lamptey — were marching peacefully from Accra to Christiansborg Castle in Osu to present a petition to the British Governor about their unpaid pensions and war benefits. When they refused to stop at a police roadblock, the police shot them dead.</p>
+        <p>When news of the shooting spread, people were filled with anger. They had already been suffering from:</p>
+        <ul>
+          <li>High prices of goods after the boycott</li>
+          <li>Shortage of basic items</li>
+          <li>Lack of jobs for returning soldiers</li>
+          <li>Broken promises by the British government</li>
+          <li>Foreign control of the economy</li>
+        </ul>
+
+        <h3>🏚️ The Spread of the Riots</h3>
+        <p>The riots quickly spread from Accra to other towns across the Gold Coast, including Kumasi, Koforidua, and Cape Coast. During the riots:</p>
+        <ul>
+          <li><strong>Foreign-owned shops were looted</strong> — especially European and Syrian trading stores</li>
+          <li>Property was damaged and burned</li>
+          <li>The police and army struggled to control the crowds</li>
+          <li>A state of emergency and curfew was declared in many towns</li>
+        </ul>
+        <p>The riots lasted for several days and caused serious damage to property and businesses. However, they also showed the British that the people of the Gold Coast were united in their demand for self-government.</p>
+
+        <h3>⛓️ The Arrest of the Big Six</h3>
+        <p>The British colonial Governor, <strong>Sir Gerald Creasy</strong>, blamed the leaders of the <strong>United Gold Coast Convention (UGCC)</strong> for inciting the riots. He ordered the arrest of six key leaders, who became known as <strong>"The Big Six"</strong>. They were detained without trial because the government believed they were behind the unrest.</p>
+
+        <h3>👥 Who Were the Big Six?</h3>
+        <p>The Big Six were the most important political leaders of the Gold Coast at that time. They were all members of the UGCC, the first major political party in the Gold Coast, formed in 1947. Here are the six leaders:</p>
+
+        <div class="big-six-grid">
+          <div class="big-six-card">
+            <strong>Dr. Joseph Boakye Danquah</strong>
+            <small>Founder of the UGCC</small>
+          </div>
+          <div class="big-six-card">
+            <strong>Dr. Kwame Nkrumah</strong>
+            <small>Later became first President of Ghana</small>
+          </div>
+          <div class="big-six-card">
+            <strong>Dr. Ebenezer Ako-Adjei</strong>
+            <small>Recommended Nkrumah to the UGCC</small>
+          </div>
+          <div class="big-six-card">
+            <strong>Edward Akufo-Addo</strong>
+            <small>Later became Chief Justice and President</small>
+          </div>
+          <div class="big-six-card">
+            <strong>William Ofori Atta</strong>
+            <small>Prominent statesman and politician</small>
+          </div>
+          <div class="big-six-card">
+            <strong>Emmanuel Obetsebi-Lamptey</strong>
+            <small>First Chairman of the UGCC</small>
+          </div>
+        </div>
+
+        <h3>📢 The Protests of 8th March 1948</h3>
+        <p>On <strong>8th March 1948</strong>, teachers and students across the Gold Coast organised peaceful protests to demand the release of the Big Six. They believed the leaders were being unfairly detained. However, the colonial government responded harshly — the teachers and students who protested were <strong>immediately dismissed from their schools</strong>.</p>
+        <p>This showed how determined the people were to stand together for justice, even when facing punishment.</p>
+
+        <h3>🌟 Why Were the 1948 Riots Significant?</h3>
+        <p>The 1948 riots changed the course of Ghana's history in several important ways:</p>
+        <ul>
+          <li><strong>They forced the British to act:</strong> The British government sent the <strong>Watson Commission</strong> to investigate the causes of the riots.</li>
+          <li><strong>They united the people:</strong> For the first time, people from different backgrounds came together to demand independence.</li>
+          <li><strong>They led to a new constitution:</strong> The Coussey Committee was set up to draft a new constitution giving Africans more power.</li>
+          <li><strong>They inspired future leaders:</strong> The events of 1948 inspired a new generation of nationalists, including Kwame Nkrumah, who later led Ghana to independence on 6th March 1957.</li>
+        </ul>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">28 Feb 1948</div>
+            <div class="timeline-content">
+              <strong>Shooting of Ex-Servicemen</strong> — Sergeant Adjetey, Corporal Attipoe, and Private Odartey Lamptey are shot dead at Christiansborg.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">28 Feb – Mar</div>
+            <div class="timeline-content">
+              <strong>Riots Spread</strong> — Protests, looting, and unrest spread from Accra to other major towns across the Gold Coast.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">Early Mar 1948</div>
+            <div class="timeline-content">
+              <strong>Arrest of the Big Six</strong> — The colonial Governor detains the six UGCC leaders without trial.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">8 Mar 1948</div>
+            <div class="timeline-content">
+              <strong>Teacher & Student Protests</strong> — Peaceful protesters are dismissed from schools for demanding the release of the Big Six.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1948</div>
+            <div class="timeline-content">
+              <strong>Watson Commission</strong> — British government sends a commission to investigate the causes of the riots.
+            </div>
+          </div>
+        </div>
+
+        <blockquote>
+          💭 <strong>Think About It</strong>: If you were a young person in 1948, would you have joined the protests to demand the release of the Big Six? What risks would you have faced? Why is it important to stand up for what is right, even when it is difficult?
         </blockquote>
       </div>
 
@@ -387,11 +506,14 @@
         <h2>✅ Check Your Understanding</h2>
         <div class="checkpoint">
           <ol>
-            <li>Who led the boycott of European goods in January 1948?</li>
-            <li>Where were the ex-servicemen marching to on 28th February 1948, and what was their purpose?</li>
-            <li>Name the three ex-servicemen who were shot dead by the police.</li>
-            <li>How did the colonial governor react to the riots, and what happened to teachers and students who protested?</li>
-            <li>What was the main recommendation of the Watson Commission?</li>
+            <li>What event triggered the 1948 riots?</li>
+            <li>On what date were the three ex-servicemen shot?</li>
+            <li>Name the three ex-servicemen who were shot.</li>
+            <li>What does UGCC stand for?</li>
+            <li>Name all six members of the Big Six.</li>
+            <li>Why were the Big Six arrested?</li>
+            <li>What happened on 8th March 1948?</li>
+            <li>Name one significant outcome of the 1948 riots.</li>
           </ol>
           <p><em>Confirm your understanding before moving on.</em></p>
         </div>
@@ -407,8 +529,8 @@
       <div class="chapter-nav" id="chapter-navigation">
         <div class="chapter-tabs" id="chapter-tabs"></div>
         <div>
-          <button id="prev-btn" class="btn" style="margin-right: 0.5rem; display: none;">← Previous Lesson</button>
-          <button id="next-btn" class="btn" style="display: none;">Next Lesson →</button>
+          <button id="prev-btn" class="btn" style="margin-right: 0.5rem; display: none;">← Previous Week</button>
+          <button id="next-btn" class="btn" style="display: none;">Next Week →</button>
         </div>
       </div>
 
@@ -426,7 +548,7 @@
           </div>
           <div class="stat-item">
             <div class="stat-value" id="stat-total">1</div>
-            <div class="stat-label">Total Lessons</div>
+            <div class="stat-label">Total Weeks</div>
           </div>
           <div class="stat-item">
             <div class="stat-value" id="stat-percent">0%</div>
@@ -481,8 +603,8 @@
         <h4 class="footer__title">Quick Links</h4>
         <nav aria-label="Footer navigation">
           <a href="index.html" class="footer__link">Home</a><br>
-          <a href="index.html" class="footer__link">Class 5</a><br>
-          <a href="index.html" class="footer__link">History Lessons</a><br>
+          <a href="dashboard.html" class="footer__link">Class 5</a><br>
+          <a href="historyChapter-7.html" class="footer__link">History Lessons</a><br>
           <a href="contact.html" class="footer__link">Contact Support</a>
         </nav>
       </div>
@@ -509,8 +631,8 @@
       // === AUTO-DETECT CHAPTER NUMBER FROM URL ===
       const path = window.location.pathname;
       const match = path.match(/historyChapter-(\d+)\.html/);
-      const currentChapter = match ? parseInt(match[1], 10) : 0;
-      const MAX_CHAPTERS = 300;
+      const currentChapter = match ? parseInt(match[1], 10) : 7;
+      const MAX_CHAPTERS = 11; // 12 weeks total (0 to 11)
 
       function getChapterUrl(n) {
         return `historyChapter-${n}.html`;
@@ -590,28 +712,28 @@
       };
       window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
 
-      // === QUIZ DATA (20 Questions - The 1948 Riots Events) ===
+      // === QUIZ DATA (20 Questions - The 1948 Riots) ===
       const assessmentItems = [
-        {id:"1",prompt:"Who led the boycott of European goods in January 1948?",options:[{id:"a",text:"Kwame Nkrumah",is_correct:false},{id:"b",text:"Chief Nii Kwabena Bonne III",is_correct:true},{id:"c",text:"J.B. Danquah",is_correct:false},{id:"d",text:"The British Governor",is_correct:false}]},
-        {id:"2",prompt:"What was the traditional title of Chief Nii Kwabena Bonne III?",options:[{id:"a",text:"Asantehene",is_correct:false},{id:"b",text:"Osu Alata Mantse",is_correct:true},{id:"c",text:"Ga Mantse",is_correct:false},{id:"d",text:"Akuapem Mantse",is_correct:false}]},
-        {id:"3",prompt:"Why did the ex-servicemen march on 28th February 1948?",options:[{id:"a",text:"To celebrate the end of the war",is_correct:false},{id:"b",text:"To attack the British Governor",is_correct:false},{id:"c",text:"To present a petition about unpaid pensions and war benefits",is_correct:true},{id:"d",text:"To ask for more weapons",is_correct:false}]},
-        {id:"4",prompt:"Where were the ex-servicemen marching to on 28th February 1948?",options:[{id:"a",text:"Independence Square",is_correct:false},{id:"b",text:"Christiansborg Castle at Osu",is_correct:true},{id:"c",text:"Kwame Nkrumah Circle",is_correct:false},{id:"d",text:"The British Parliament",is_correct:false}]},
-        {id:"5",prompt:"Who stopped the unarmed ex-servicemen on their way to the castle?",options:[{id:"a",text:"British soldiers",is_correct:false},{id:"b",text:"Traditional chiefs",is_correct:false},{id:"c",text:"Armed policemen",is_correct:true},{id:"d",text:"UGCC members",is_correct:false}]},
-        {id:"6",prompt:"What happened when the ex-servicemen refused to stop or turn back?",options:[{id:"a",text:"The policemen joined the march",is_correct:false},{id:"b",text:"The policemen arrested them peacefully",is_correct:false},{id:"c",text:"The policemen opened fire and shot them dead",is_correct:true},{id:"d",text:"The policemen gave them water",is_correct:false}]},
-        {id:"7",prompt:"Which of the following was one of the three ex-servicemen shot dead?",options:[{id:"a",text:"Sergeant Cornelius Francis Adjetey",is_correct:true},{id:"b",text:"Corporal Kwame Nkrumah",is_correct:false},{id:"c",text:"Private Jerry Rawlings",is_correct:false},{id:"d",text:"Sergeant J.B. Danquah",is_correct:false}]},
-        {id:"8",prompt:"Who was the second ex-serviceman martyred during the shooting?",options:[{id:"a",text:"Private Odartey Lamptey",is_correct:false},{id:"b",text:"Corporal Patrick Gagbale Attipoe",is_correct:true},{id:"c",text:"Sergeant Adjetey",is_correct:false},{id:"d",text:"Captain Mensah",is_correct:false}]},
-        {id:"9",prompt:"Who was the third ex-serviceman martyred during the shooting?",options:[{id:"a",text:"Sergeant Adjetey",is_correct:false},{id:"b",text:"Corporal Attipoe",is_correct:false},{id:"c",text:"Private Odartey Lamptey",is_correct:true},{id:"d",text:"Private Yaw",is_correct:false}]},
-        {id:"10",prompt:"What did the public do when they heard about the brutal shooting of the ex-servicemen?",options:[{id:"a",text:"They celebrated",is_correct:false},{id:"b",text:"They rioted and looted foreign-owned shops",is_correct:true},{id:"c",text:"They moved to another country",is_correct:false},{id:"d",text:"They ignored the news",is_correct:false}]},
-        {id:"11",prompt:"Who did the colonial governor blame for the 1948 riots?",options:[{id:"a",text:"The cocoa farmers",is_correct:false},{id:"b",text:"The ex-servicemen",is_correct:false},{id:"c",text:"The 'Big Six' leaders of the UGCC",is_correct:true},{id:"d",text:"The Watson Commission",is_correct:false}]},
-        {id:"12",prompt:"What happened to the 'Big Six' after they were blamed for the riots?",options:[{id:"a",text:"They were awarded medals",is_correct:false},{id:"b",text:"They were arrested and detained without trial",is_correct:true},{id:"c",text:"They were made governors",is_correct:false},{id:"d",text:"They were exiled to Britain",is_correct:false}]},
-        {id:"13",prompt:"On what date did teachers and students protest against the unfair detention of the 'Big Six'?",options:[{id:"a",text:"28th February 1948",is_correct:false},{id:"b",text:"8th March 1948",is_correct:true},{id:"c",text:"6th March 1957",is_correct:false},{id:"d",text:"1st January 1948",is_correct:false}]},
-        {id:"14",prompt:"What was the punishment for the teachers and students who protested on 8th March 1948?",options:[{id:"a",text:"They were given extra homework",is_correct:false},{id:"b",text:"They were immediately dismissed from their schools",is_correct:true},{id:"c",text:"They were arrested",is_correct:false},{id:"d",text:"They were praised by the governor",is_correct:false}]},
-        {id:"15",prompt:"What commission was set up by the British government to investigate the causes of the 1948 riots?",options:[{id:"a",text:"The Coussey Commission",is_correct:false},{id:"b",text:"The Watson Commission",is_correct:true},{id:"c",text:"The Burns Commission",is_correct:false},{id:"d",text:"The Big Six Commission",is_correct:false}]},
-        {id:"16",prompt:"What was the main job of the Watson Commission?",options:[{id:"a",text:"To arrest the Big Six",is_correct:false},{id:"b",text:"To investigate the causes of the riots and make recommendations",is_correct:true},{id:"c",text:"To build new schools",is_correct:false},{id:"d",text:"To pay the ex-servicemen their pensions",is_correct:false}]},
-        {id:"17",prompt:"What major recommendation did the Watson Commission make?",options:[{id:"a",text:"That the British should leave immediately",is_correct:false},{id:"b",text:"That the local people be allowed to draft their own constitution",is_correct:true},{id:"c",text:"That the ex-servicemen should be punished",is_correct:false},{id:"d",text:"That foreign shops should be banned",is_correct:false}]},
-        {id:"18",prompt:"What does the word 'petition' mean in this context?",options:[{id:"a",text:"A violent protest",is_correct:false},{id:"b",text:"A formal written request or demand signed by many people",is_correct:true},{id:"c",text:"A type of traditional dance",is_correct:false},{id:"d",text:"A weapon used in war",is_correct:false}]},
-        {id:"19",prompt:"What does 'detention' mean?",options:[{id:"a",text:"Being kept in prison without a fair trial",is_correct:true},{id:"b",text:"Winning a competition",is_correct:false},{id:"c",text:"Traveling to another country",is_correct:false},{id:"d",text:"Receiving a medal",is_correct:false}]},
-        {id:"20",prompt:"True or False: The Watson Commission recommended that the British government should continue to make all laws for the Gold Coast.",options:[{id:"a",text:"True",is_correct:false},{id:"b",text:"False",is_correct:true},{id:"c",text:"Partially true",is_correct:false},{id:"d",text:"None of the above",is_correct:false}]}
+        {id:"1",prompt:"What event triggered the 1948 riots in the Gold Coast?",options:[{id:"a",text:"The signing of a new constitution",is_correct:false},{id:"b",text:"The shooting of three unarmed ex-servicemen on 28th February 1948",is_correct:true},{id:"c",text:"The arrival of a new British Governor",is_correct:false},{id:"d",text:"A national election",is_correct:false}]},
+        {id:"2",prompt:"On what date were the three ex-servicemen shot?",options:[{id:"a",text:"6th March 1957",is_correct:false},{id:"b",text:"8th March 1948",is_correct:false},{id:"c",text:"28th February 1948",is_correct:true},{id:"d",text:"26th January 1948",is_correct:false}]},
+        {id:"3",prompt:"Where were the ex-servicemen marching to when they were shot?",options:[{id:"a",text:"Kumasi",is_correct:false},{id:"b",text:"Christiansborg Castle in Osu",is_correct:true},{id:"c",text:"Cape Coast Castle",is_correct:false},{id:"d",text:"The British Parliament in London",is_correct:false}]},
+        {id:"4",prompt:"What was the purpose of the ex-servicemen's march?",options:[{id:"a",text:"To attack the British Governor",is_correct:false},{id:"b",text:"To present a petition about unpaid pensions and war benefits",is_correct:true},{id:"c",text:"To celebrate the end of World War II",is_correct:false},{id:"d",text:"To demand free education",is_correct:false}]},
+        {id:"5",prompt:"Who was Sergeant Adjetey?",options:[{id:"a",text:"A British police officer",is_correct:false},{id:"b",text:"One of the three ex-servicemen shot on 28th February 1948",is_correct:true},{id:"c",text:"A member of the Big Six",is_correct:false},{id:"d",text:"The British Governor",is_correct:false}]},
+        {id:"6",prompt:"What does UGCC stand for?",options:[{id:"a",text:"United Gold Coast Convention",is_correct:true},{id:"b",text:"Union of Gold Coast Citizens",is_correct:false},{id:"c",text:"United Government of Coastal Areas",is_correct:false},{id:"d",text:"Union of Ghanaian Colonial Communities",is_correct:false}]},
+        {id:"7",prompt:"Who were the Big Six?",options:[{id:"a",text:"Six British colonial officers",is_correct:false},{id:"b",text:"Six UGCC leaders arrested after the 1948 riots",is_correct:true},{id:"c",text:"Six traditional chiefs of the Gold Coast",is_correct:false},{id:"d",text:"Six soldiers who fought in World War II",is_correct:false}]},
+        {id:"8",prompt:"Which of these was NOT a member of the Big Six?",options:[{id:"a",text:"Dr. Kwame Nkrumah",is_correct:false},{id:"b",text:"Dr. J.B. Danquah",is_correct:false},{id:"c",text:"Joseph Mensah Sarbah",is_correct:true},{id:"d",text:"Edward Akufo-Addo",is_correct:false}]},
+        {id:"9",prompt:"Who was the first Chairman of the UGCC?",options:[{id:"a",text:"Dr. Kwame Nkrumah",is_correct:false},{id:"b",text:"Emmanuel Obetsebi-Lamptey",is_correct:true},{id:"c",text:"Dr. J.B. Danquah",is_correct:false},{id:"d",text:"William Ofori Atta",is_correct:false}]},
+        {id:"10",prompt:"Why were the Big Six arrested?",options:[{id:"a",text:"They stole money from the government",is_correct:false},{id:"b",text:"The colonial Governor blamed them for inciting the riots",is_correct:true},{id:"c",text:"They refused to pay taxes",is_correct:false},{id:"d",text:"They supported the British colonial government",is_correct:false}]},
+        {id:"11",prompt:"What happened on 8th March 1948?",options:[{id:"a",text:"Ghana gained independence",is_correct:false},{id:"b",text:"Teachers and students protested to demand the release of the Big Six",is_correct:true},{id:"c",text:"The Watson Commission was formed",is_correct:false},{id:"d",text:"The Big Six were released from prison",is_correct:false}]},
+        {id:"12",prompt:"What was the consequence for teachers and students who protested on 8th March 1948?",options:[{id:"a",text:"They were given medals",is_correct:false},{id:"b",text:"They were immediately dismissed from their schools",is_correct:true},{id:"c",text:"They were promoted",is_correct:false},{id:"d",text:"They were invited to meet the Governor",is_correct:false}]},
+        {id:"13",prompt:"What type of shops were mainly looted during the riots?",options:[{id:"a",text:"African-owned markets",is_correct:false},{id:"b",text:"Foreign-owned shops, especially European and Syrian stores",is_correct:true},{id:"c",text:"School bookshops",is_correct:false},{id:"d",text:"Church buildings",is_correct:false}]},
+        {id:"14",prompt:"What does the word 'detention' mean in the context of the Big Six?",options:[{id:"a",text:"Being given an award",is_correct:false},{id:"b",text:"Being kept in prison without trial",is_correct:true},{id:"c",text:"Being elected to parliament",is_correct:false},{id:"d",text:"Being sent to study abroad",is_correct:false}]},
+        {id:"15",prompt:"Which commission did the British government send to investigate the 1948 riots?",options:[{id:"a",text:"The Coussey Committee",is_correct:false},{id:"b",text:"The Watson Commission",is_correct:true},{id:"c",text:"The Asante Commission",is_correct:false},{id:"d",text:"The Nkrumah Commission",is_correct:false}]},
+        {id:"16",prompt:"Who recommended Dr. Kwame Nkrumah to join the UGCC?",options:[{id:"a",text:"Edward Akufo-Addo",is_correct:false},{id:"b",text:"Dr. Ebenezer Ako-Adjei",is_correct:true},{id:"c",text:"William Ofori Atta",is_correct:false},{id:"d",text:"Emmanuel Obetsebi-Lamptey",is_correct:false}]},
+        {id:"17",prompt:"Which of these was a cause of the 1948 riots?",options:[{id:"a",text:"Too many jobs for Africans",is_correct:false},{id:"b",text:"High prices, shortage of goods, and broken promises to ex-servicemen",is_correct:true},{id:"c",text:"Free education for all",is_correct:false},{id:"d",text:"A strong economy",is_correct:false}]},
+        {id:"18",prompt:"What was the main significance of the 1948 riots?",options:[{id:"a",text:"They made Ghana rich immediately",is_correct:false},{id:"b",text:"They forced the British to investigate and begin constitutional reforms toward independence",is_correct:true},{id:"c",text:"They ended all trade with Europe",is_correct:false},{id:"d",text:"They made the British Governor more powerful",is_correct:false}]},
+        {id:"19",prompt:"Who later became the first President of Ghana and was one of the Big Six?",options:[{id:"a",text:"Dr. J.B. Danquah",is_correct:false},{id:"b",text:"Dr. Kwame Nkrumah",is_correct:true},{id:"c",text:"Edward Akufo-Addo",is_correct:false},{id:"d",text:"William Ofori Atta",is_correct:false}]},
+        {id:"20",prompt:"Which core competency is developed when learners study the 1948 riots and the Big Six?",options:[{id:"a",text:"Digital Literacy",is_correct:false},{id:"b",text:"Cultural Identity and Global Citizenship",is_correct:true},{id:"c",text:"Financial Literacy",is_correct:false},{id:"d",text:"Physical Coordination",is_correct:false}]}
       ];
 
       // === RENDER QUIZ ===
@@ -663,7 +785,7 @@
         localStorage.setItem(`quiz_attempts_${currentChapter}`, attempts);
         localStorage.setItem(`mastery_${currentChapter}`, mastery ? '1' : '0');
 
-        let report = `*Mini OpenStax — What Happened During the 1948 Riots*\nStudent: ${userName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
+        let report = `*Mini OpenStax — The 1948 Riots (Week ${currentChapter + 1})*\nStudent: ${userName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
         if (correctList.length) {
           report += `✅ CORRECT ANSWERS (${correctList.length}):\n`;
           correctList.forEach(q => report += `${q.id}. ${q.prompt}\n   → ${q.correctText}\n\n`);
@@ -707,7 +829,7 @@
           const student = (lines.find(l => l.startsWith('Student:')) || '').replace('Student: ', '').trim() || 'Unknown';
           const score = (lines.find(l => l.startsWith('Score:')) || 'Score unknown');
           const date = new Date(rep.timestamp).toLocaleString();
-          return `<div class="report-card"><div class="report-header"><span>The 1948 Riots Events</span><span>${date}</span></div><div class="report-meta">Student: ${student} • ${score}</div><div class="report-detail" id="detail-${rep.timestamp}"></div><div class="report-actions"><button class="btn" onclick="toggleDetail(${rep.timestamp})">Details</button><button class="btn" onclick="viewReportAsPDF('${rep.key}')">PDF</button><button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">WhatsApp</button></div></div>`;
+          return `<div class="report-card"><div class="report-header"><span>The 1948 Riots</span><span>${date}</span></div><div class="report-meta">Student: ${student} • ${score}</div><div class="report-detail" id="detail-${rep.timestamp}"></div><div class="report-actions"><button class="btn" onclick="toggleDetail(${rep.timestamp})">Details</button><button class="btn" onclick="viewReportAsPDF('${rep.key}')">PDF</button><button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">WhatsApp</button></div></div>`;
         }).join('');
         window.reportContents = {};
         reports.forEach(r => window.reportContents[r.timestamp] = r.content);
@@ -726,7 +848,7 @@
         document.getElementById('stat-mastered').textContent = mastered;
         document.getElementById('stat-total').textContent = 1;
         document.getElementById('stat-percent').textContent = `${mastered * 100}%`;
-        document.getElementById('recent-lessons').innerHTML = `<div class="lesson-item"><div><span class="mastery-indicator ${mastered ? 'mastery-yes' : 'mastery-partial'}"></span>Lesson ${currentChapter + 1}</div><span>${mastered ? 'Mastered' : 'In Progress'}</span></div>`;
+        document.getElementById('recent-lessons').innerHTML = `<div class="lesson-item"><div><span class="mastery-indicator ${mastered ? 'mastery-yes' : 'mastery-partial'}"></span>Week ${currentChapter + 1}: The 1948 Riots</div><span>${mastered ? 'Mastered' : 'In Progress'}</span></div>`;
       }
       document.getElementById('btn-send-all').addEventListener('click', () => {
         let msg = `*📚 Mini OpenStax — All Quiz Reports*\nStudent: ${userName}\n\n`; let count = 0;
@@ -772,7 +894,7 @@
         let tabsHtml = '';
         for (let i = Math.max(0, currentChapter - 1); i <= Math.min(MAX_CHAPTERS, currentChapter + 2); i++) {
           const isActive = i === currentChapter;
-          tabsHtml += `<a href="${getChapterUrl(i)}" class="chapter-btn ${isActive ? 'active' : ''}">Lesson ${i + 1}</a>`;
+          tabsHtml += `<a href="${getChapterUrl(i)}" class="chapter-btn ${isActive ? 'active' : ''}">Week ${i + 1}</a>`;
         }
         tabsContainer.innerHTML = tabsHtml;
         if (currentChapter > 0) { prevBtn.style.display = 'inline-block'; prevBtn.onclick = () => window.location.href = getChapterUrl(currentChapter - 1); }
@@ -784,11 +906,6 @@
       // === INIT ===
       document.getElementById('year').textContent = new Date().getFullYear();
       renderQuiz(); updateChapterNavigation();
-      document.getElementById('send-analytics')?.addEventListener('click', (e) => { e.preventDefault(); alert("Usage data collection is handled globally."); });
-    })();
-  </script>
-</body>
-</html> updateChapterNavigation();
       document.getElementById('send-analytics')?.addEventListener('click', (e) => { e.preventDefault(); alert("Usage data collection is handled globally."); });
     })();
   </script>
