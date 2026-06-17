@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Mini OpenStax: Examine sources of evidence about the role of Dr. Joseph Boakye Danquah in the Gold Coast Youth Conference (GCYC) — Class 5 History Chapter 2" />
+  <meta name="description" content="Mini OpenStax: Casely Hayford & NCBWA — Class 5 History Week 3" />
   <meta name="theme-color" content="#006b3d" />
-  <title>Mini OpenStax — Dr. Joseph Boakye Danquah and the GCYC</title>
+  <title>Mini OpenStax — Casely Hayford & NCBWA (Week 3)</title>
   
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -30,6 +30,7 @@
       --radius-lg: 1rem;
       --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
       --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
       --space-xs: clamp(0.5rem, 0.8vw, 0.75rem);
       --space-sm: clamp(0.75rem, 1.2vw, 1rem);
       --space-md: clamp(1rem, 2vw, 1.5rem);
@@ -93,6 +94,7 @@
     .nav__link {
       padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm);
       font-weight: 500; color: var(--dark); transition: background var(--transition), color var(--transition);
+      text-decoration: none;
     }
     .nav__link:hover, .nav__link:focus-visible { background: var(--light); color: var(--green); }
     .nav__link[aria-current="page"] { color: var(--green); font-weight: 700; background: var(--light); }
@@ -163,6 +165,7 @@
       background: var(--green); color: white; border: none; padding: 0.6rem 1.2rem;
       border-radius: var(--radius-md); font-weight: 600; cursor: pointer; margin-top: 0.5rem;
       transition: background var(--transition), transform var(--transition);
+      text-decoration: none; display: inline-block;
     }
     .btn:hover, .btn:focus-visible { background: var(--green-dark); transform: translateY(-2px); }
     .btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
@@ -183,6 +186,27 @@
     .checkpoint {
       background: #f8f9fa; padding: var(--space-md); border-left: 4px solid var(--gold);
       margin: var(--space-lg) 0; border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+    .timeline {
+      display: flex; flex-direction: column; gap: var(--space-sm); margin: var(--space-md) 0;
+    }
+    .timeline-item {
+      display: flex; gap: var(--space-sm); padding: var(--space-sm);
+      background: var(--light); border-radius: var(--radius-md);
+      border-left: 4px solid var(--gold);
+    }
+    .timeline-year {
+      font-weight: 700; color: var(--green-dark); min-width: 60px;
+      font-family: monospace; font-size: 1rem;
+    }
+    .timeline-content { flex: 1; font-size: 0.95rem; }
+    .achievement-list {
+      background: var(--light); padding: var(--space-md); border-radius: var(--radius-md);
+      margin: var(--space-md) 0;
+    }
+    .achievement-list h4 {
+      color: var(--green-dark); margin-bottom: var(--space-sm);
+      font-size: 1rem;
     }
 
     /* === QUIZ === */
@@ -249,7 +273,7 @@
       max-width: var(--max-w); margin: 0 auto; padding: 0 var(--space-md);
     }
     .footer__title { color: white; margin-bottom: var(--space-sm); font-size: 1.1rem; }
-    .footer__link { color: #94a3b8; transition: color var(--transition); display: inline-block; margin-bottom: var(--space-xs); }
+    .footer__link { color: #94a3b8; transition: color var(--transition); display: inline-block; margin-bottom: var(--space-xs); text-decoration: none; }
     .footer__link:hover { color: white; text-decoration: underline; }
     .footer__bottom {
       text-align: center; margin-top: var(--space-lg); padding-top: var(--space-sm);
@@ -278,6 +302,9 @@
       }
       .card, .modal-content, .report-card { background: #1e293b; }
       .feedback details[open] { background: #064e3b; }
+      th { background-color: #1e3a2a; }
+      .timeline-item { background: #1e293b; }
+      .achievement-list { background: #1e293b; }
     }
   </style>
 </head>
@@ -297,8 +324,8 @@
       </button>
       <nav id="main-nav" class="nav__list" role="navigation">
         <a href="index.html" class="nav__link">Home</a>
-        <a href="index.html" class="nav__link">Class 5</a>
-        <a href="index.html" class="nav__link" aria-current="page">History</a>
+        <a href="dashboard.html" class="nav__link">Class 5</a>
+        <a href="historyChapter-2.html" class="nav__link" aria-current="page">History</a>
         <a href="dashboard.html" class="nav__link">Dashboard</a>
         <a href="contact.html" class="nav__link">Contact</a>
       </nav>
@@ -309,8 +336,8 @@
     <!-- Mini OpenStax App Header -->
     <div class="app-header">
       <div>
-        <h1 id="page-title">Dr. Joseph Boakye Danquah and the GCYC</h1>
-        <div class="lo-tags">B5.5.1.1.4</div>
+        <h1 id="page-title">Casely Hayford & NCBWA</h1>
+        <div class="lo-tags">B5.5.1.1.3 • Journey to Independence</div>
       </div>
       <div style="display:flex;gap:0.5rem;align-items:center;">
         <div class="role-badge" id="current-role">Student View</div>
@@ -332,11 +359,10 @@
       <div class="section">
         <h2>🎯 What You'll Learn</h2>
         <ul id="objectives">
-          <li>Identify who Dr. Joseph Boakye Danquah was and where he was born.</li>
-          <li>Explain the purpose of the Gold Coast Youth Conference (GCYC).</li>
-          <li>Describe Dr. Danquah's role in uniting educated elites and traditional chiefs.</li>
-          <li>List the major achievements of the GCYC, including the Burns Constitution of 1946.</li>
-          <li>Understand key vocabulary: constitutional reforms, elite, legislative council, nationalism, doyen.</li>
+          <li>Identify Joseph Ephraim Casely Hayford from photographs and describe his background.</li>
+          <li>Narrate the leadership role of Casely Hayford in the National Congress of British West Africa (NCBWA).</li>
+          <li>Explain the achievements of the NCBWA in bringing constitutional reforms to West Africa.</li>
+          <li>Retell the story of Casely Hayford's contributions to literature and politics.</li>
         </ul>
       </div>
 
@@ -344,50 +370,99 @@
         <h2>🔤 Important Words</h2>
         <p>Key terms for this lesson:</p>
         <div class="word-list" id="word-list">
-          <span class="word-item">Constitutional reforms</span>
-          <span class="word-item">Elite</span>
+          <span class="word-item">NCBWA</span>
+          <span class="word-item">Casely Hayford</span>
+          <span class="word-item">Constitutional</span>
+          <span class="word-item">Reforms</span>
+          <span class="word-item">Novel</span>
+          <span class="word-item">Representation</span>
+          <span class="word-item">Delegation</span>
           <span class="word-item">Legislative Council</span>
-          <span class="word-item">Nationalism</span>
-          <span class="word-item">Doyen</span>
-          <span class="word-item">GCYC</span>
-          <span class="word-item">UGCC</span>
-          <span class="word-item">The Big Six</span>
-          <span class="word-item">Burns Constitution</span>
+          <span class="word-item">Ethiopia Unbound</span>
+          <span class="word-item">Academics</span>
+          <span class="word-item">Political Parties</span>
         </div>
       </div>
 
       <div class="section" id="lesson-content">
-        <h2>📘 Dr. Joseph Boakye Danquah and the Fight for Self-Government</h2>
+        <h2>📘 Casely Hayford & The National Congress of British West Africa</h2>
         
-        <h3>👤 Who was Dr. Joseph Boakye Danquah?</h3>
-        <p>Dr. Joseph Boakye Danquah (often referred to as J.B. Danquah) was a brilliant Ghanaian scholar, lawyer, writer, and a prominent nationalist leader. He is often remembered as one of the most important political figures in the Gold Coast before independence.</p>
-        <ul>
-          <li><strong>Birthplace:</strong> He was born in <strong>Bepong</strong>, a town in the Akuapem region of the Gold Coast (now Ghana).</li>
-          <li><strong>Political Leadership:</strong> He was a powerful voice for the people. In <strong>1946</strong>, he became a member of the Gold Coast Legislative Council.</li>
-          <li><strong>The Big Six and UGCC:</strong> He was one of the founding members of the <strong>United Gold Coast Convention (UGCC)</strong>, the first major political party in Ghana, formed to fight for self-government. He is famously remembered as one of the <strong>"Big Six"</strong> leaders.</li>
-          <li><strong>Member of Parliament:</strong> Following political developments in the late 1940s, he was elected as a Member of Parliament in <strong>1951</strong>.</li>
-        </ul>
-        
-        <h3>🌍 The Gold Coast Youth Conference (GCYC)</h3>
-        <p>The GCYC was a major nationalist protest movement formed to encourage the constitutional and economic development of the Gold Coast. It was created to give young, educated Africans a platform to discuss the future of their country and demand more rights from the British colonial government.</p>
-        
-        <h3>🤝 Dr. Danquah’s Role in the GCYC</h3>
-        <p>Dr. J.B. Danquah was a central figure in the GCYC.</p>
-        <ul>
-          <li><strong>Leadership:</strong> He served as the <strong>leader of the GCYC from 1937 until 1947</strong>.</li>
-          <li><strong>Uniting the People:</strong> His most important role and greatest achievement was <strong>bringing the educated elites and the traditional chiefs together</strong>. Before this, the British colonial government often tried to divide these two groups. Dr. Danquah realized that for the Gold Coast to gain freedom, traditional rulers and educated lawyers, teachers, and traders had to unite as one strong voice.</li>
-        </ul>
-        
-        <h3>🏆 Achievements of the GCYC</h3>
-        <p>Under the guidance of leaders like Dr. Danquah, the GCYC achieved several massive successes:</p>
-        <ul>
-          <li><strong>Public Education:</strong> Through conferences and lectures, the GCYC educated public servants, traders, and young school leavers about their rights and the need for self-rule.</li>
-          <li><strong>University Education:</strong> The GCYC played a very important role in the campaign to establish the <strong>University College of the Gold Coast</strong> (now the University of Ghana), ensuring Africans could receive higher education in their own country.</li>
-          <li><strong>The Burns Constitution of 1946:</strong> The GCYC designed and presented a programme for constitutional reforms. Their demands brought about the <strong>Burns Constitution of 1946</strong>. This new constitution created a Legislative Council made up of <strong>mainly African members</strong>, giving Ghanaians more power to make laws for the first time.</li>
-        </ul>
+        <h3>💡 Who Was Joseph Ephraim Casely Hayford?</h3>
+        <p><strong>Joseph Ephraim Casely Hayford</strong> (1866-1930) was one of the most important leaders in Ghana's journey to independence. He was born in 1866 and became a teacher, lawyer, writer, and politician. He was a member of the Aborigines' Rights Protection Society (ARPS) and played a key role in bringing chiefs and educated Africans together to fight for their rights.</p>
         
         <blockquote>
-          💭 <strong>Thought Experiment</strong>: Imagine you are at Danquah Circle in Accra today, looking at the monument. Why do you think a major busy intersection and monument in the capital city was named after Dr. J.B. Danquah? What does this monument represent to the people of Ghana today?
+          💭 <strong>Think About It</strong>: Casely Hayford was both a teacher and a writer. How do you think his education helped him fight for independence?
+        </blockquote>
+
+        <h3>📜 The Formation of NCBWA (1917)</h3>
+        <p>In 1917, Casely Hayford helped form the <strong>National Congress of British West Africa (NCBWA)</strong>. This was a very important movement because it brought together leaders from <strong>four British West African colonies</strong>:</p>
+        <ul>
+          <li><strong>Gold Coast</strong> (now Ghana)</li>
+          <li><strong>Nigeria</strong></li>
+          <li><strong>Sierra Leone</strong></li>
+          <li><strong>Gambia</strong></li>
+        </ul>
+        <p>These leaders worked together to demand better rights and representation for all West Africans under British colonial rule.</p>
+
+        <h3>🌍 The London Delegation (1920)</h3>
+        <p>In 1920, Casely Hayford led a <strong>delegation</strong> (a group of representatives) to London to present their demands to the British government. They asked for:</p>
+        <ul>
+          <li>More Africans to be included in government</li>
+          <li>Establishment of Legislative Councils in each colony</li>
+          <li>Better education and economic opportunities for Africans</li>
+          <li>End to discrimination in jobs and social life</li>
+        </ul>
+        <p>Although the British government did not grant all their demands immediately, the NCBWA's efforts laid the foundation for future constitutional reforms.</p>
+
+        <div class="achievement-list">
+          <h4>🏆 Achievements of the NCBWA</h4>
+          <ul>
+            <li><strong>Established Legislative Councils</strong> in each of the four British West African colonies</li>
+            <li><strong>Got more Africans</strong> to participate in their own government</li>
+            <li><strong>Established political parties</strong> in British West African colonies</li>
+            <li><strong>Raised awareness</strong> about the need for self-government and independence</li>
+          </ul>
+        </div>
+
+        <h3>📚 Casely Hayford as a Writer</h3>
+        <p>Casely Hayford was not only a politician but also a talented writer. He wrote <strong>six books</strong> about West Africa, history, and culture. His most famous work was <strong>"Ethiopia Unbound"</strong>, which was the <strong>first novel written by an African in English</strong>. This book was very important because it showed that Africans could write great literature and tell their own stories.</p>
+        
+        <blockquote>
+          💭 <strong>Think About It</strong>: Why was it important for an African to write the first novel in English? How does this connect to the fight for independence?
+        </blockquote>
+
+        <h3>🎓 Legacy of Casely Hayford</h3>
+        <p>Casely Hayford died in 1930, but his work continued to inspire future generations of leaders. He showed that education, writing, and unity could be powerful tools in the fight for freedom. His efforts with the NCBWA helped pave the way for the constitutional reforms that eventually led to Ghana's independence in 1957.</p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">1866</div>
+            <div class="timeline-content">
+              <strong>Birth</strong> — Joseph Ephraim Casely Hayford was born in the Gold Coast.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1917</div>
+            <div class="timeline-content">
+              <strong>Formation of NCBWA</strong> — Casely Hayford helped establish the National Congress of British West Africa.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1920</div>
+            <div class="timeline-content">
+              <strong>London Delegation</strong> — Led a group to present demands to the British government.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1930</div>
+            <div class="timeline-content">
+              <strong>Death</strong> — Casely Hayford passed away, but his legacy lived on.
+            </div>
+          </div>
+        </div>
+
+        <blockquote>
+          💭 <strong>Think About It</strong>: If you could meet Casely Hayford today, what would you ask him about his work and his book "Ethiopia Unbound"?
         </blockquote>
       </div>
 
@@ -395,11 +470,14 @@
         <h2>✅ Check Your Understanding</h2>
         <div class="checkpoint">
           <ol>
-            <li>Where was Dr. J.B. Danquah born?</li>
-            <li>What was the main purpose of the Gold Coast Youth Conference (GCYC)?</li>
-            <li>Why was Dr. Danquah's ability to unite educated elites and traditional chiefs so important?</li>
-            <li>Name two major achievements of the GCYC.</li>
-            <li>What was significant about the Burns Constitution of 1946?</li>
+            <li>When was Joseph Ephraim Casely Hayford born?</li>
+            <li>What does NCBWA stand for?</li>
+            <li>Name the four British West African colonies that were part of the NCBWA.</li>
+            <li>In what year did Casely Hayford lead a delegation to London?</li>
+            <li>What was the title of Casely Hayford's most famous book?</li>
+            <li>Why was "Ethiopia Unbound" significant?</li>
+            <li>Name two achievements of the NCBWA.</li>
+            <li>What year did Casely Hayford die?</li>
           </ol>
           <p><em>Confirm your understanding before moving on.</em></p>
         </div>
@@ -415,8 +493,8 @@
       <div class="chapter-nav" id="chapter-navigation">
         <div class="chapter-tabs" id="chapter-tabs"></div>
         <div>
-          <button id="prev-btn" class="btn" style="margin-right: 0.5rem; display: none;">← Previous Lesson</button>
-          <button id="next-btn" class="btn" style="display: none;">Next Lesson →</button>
+          <button id="prev-btn" class="btn" style="margin-right: 0.5rem; display: none;">← Previous Week</button>
+          <button id="next-btn" class="btn" style="display: none;">Next Week →</button>
         </div>
       </div>
 
@@ -434,7 +512,7 @@
           </div>
           <div class="stat-item">
             <div class="stat-value" id="stat-total">1</div>
-            <div class="stat-label">Total Lessons</div>
+            <div class="stat-label">Total Weeks</div>
           </div>
           <div class="stat-item">
             <div class="stat-value" id="stat-percent">0%</div>
@@ -489,8 +567,8 @@
         <h4 class="footer__title">Quick Links</h4>
         <nav aria-label="Footer navigation">
           <a href="index.html" class="footer__link">Home</a><br>
-          <a href="index.html" class="footer__link">Class 5</a><br>
-          <a href="index.html" class="footer__link">History Lessons</a><br>
+          <a href="dashboard.html" class="footer__link">Class 5</a><br>
+          <a href="historyChapter-2.html" class="footer__link">History Lessons</a><br>
           <a href="contact.html" class="footer__link">Contact Support</a>
         </nav>
       </div>
@@ -517,8 +595,8 @@
       // === AUTO-DETECT CHAPTER NUMBER FROM URL ===
       const path = window.location.pathname;
       const match = path.match(/historyChapter-(\d+)\.html/);
-      const currentChapter = match ? parseInt(match[1], 10) : 0;
-      const MAX_CHAPTERS = 300;
+      const currentChapter = match ? parseInt(match[1], 10) : 2;
+      const MAX_CHAPTERS = 11; // 12 weeks total (0 to 11)
 
       function getChapterUrl(n) {
         return `historyChapter-${n}.html`;
@@ -598,28 +676,28 @@
       };
       window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
 
-      // === QUIZ DATA (20 Questions - Dr. J.B. Danquah & GCYC) ===
+      // === QUIZ DATA (20 Questions - Casely Hayford & NCBWA) ===
       const assessmentItems = [
-        {id:"1",prompt:"Where was Dr. Joseph Boakye Danquah born?",options:[{id:"a",text:"Accra",is_correct:false},{id:"b",text:"Bepong, Akuapem",is_correct:true},{id:"c",text:"Cape Coast",is_correct:false},{id:"d",text:"Kumasi",is_correct:false}]},
-        {id:"2",prompt:"What was Dr. J.B. Danquah's profession?",options:[{id:"a",text:"Farmer and trader",is_correct:false},{id:"b",text:"Scholar, lawyer, writer, and nationalist leader",is_correct:true},{id:"c",text:"Soldier and chief",is_correct:false},{id:"d",text:"Doctor and teacher",is_correct:false}]},
-        {id:"3",prompt:"In what year did Dr. Danquah become a member of the Gold Coast Legislative Council?",options:[{id:"a",text:"1937",is_correct:false},{id:"b",text:"1946",is_correct:true},{id:"c",text:"1951",is_correct:false},{id:"d",text:"1947",is_correct:false}]},
-        {id:"4",prompt:"Which political party did Dr. Danquah help found?",options:[{id:"a",text:"Convention People's Party (CPP)",is_correct:false},{id:"b",text:"United Gold Coast Convention (UGCC)",is_correct:true},{id:"c",text:"National Liberation Movement (NLM)",is_correct:false},{id:"d",text:"Aborigines' Rights Protection Society (ARPS)",is_correct:false}]},
-        {id:"5",prompt:"Dr. Danquah is famously remembered as one of the:",options:[{id:"a",text:"Big Six",is_correct:true},{id:"b",text:"Big Four",is_correct:false},{id:"c",text:"Founding Fathers of Africa",is_correct:false},{id:"d",text:"Golden Trio",is_correct:false}]},
-        {id:"6",prompt:"In what year was Dr. Danquah elected as a Member of Parliament?",options:[{id:"a",text:"1946",is_correct:false},{id:"b",text:"1951",is_correct:true},{id:"c",text:"1957",is_correct:false},{id:"d",text:"1937",is_correct:false}]},
-        {id:"7",prompt:"What does GCYC stand for?",options:[{id:"a",text:"Gold Coast Youth Council",is_correct:false},{id:"b",text:"Gold Coast Youth Conference",is_correct:true},{id:"c",text:"Ghanaian Youth Committee",is_correct:false},{id:"d",text:"Gold Coast Youth Coalition",is_correct:false}]},
-        {id:"8",prompt:"What was the main purpose of the GCYC?",options:[{id:"a",text:"To start a war",is_correct:false},{id:"b",text:"To encourage constitutional and economic development and demand rights",is_correct:true},{id:"c",text:"To support British colonial rule",is_correct:false},{id:"d",text:"To build churches",is_correct:false}]},
-        {id:"9",prompt:"For how many years did Dr. Danquah serve as the leader of the GCYC?",options:[{id:"a",text:"1937 to 1947",is_correct:true},{id:"b",text:"1946 to 1951",is_correct:false},{id:"c",text:"1920 to 1930",is_correct:false},{id:"d",text:"1951 to 1960",is_correct:false}]},
-        {id:"10",prompt:"What was Dr. Danquah's greatest achievement in the GCYC?",options:[{id:"a",text:"Building schools",is_correct:false},{id:"b",text:"Bringing educated elites and traditional chiefs together",is_correct:true},{id:"c",text:"Becoming a British citizen",is_correct:false},{id:"d",text:"Starting a business",is_correct:false}]},
-        {id:"11",prompt:"Why did the British colonial government try to divide chiefs and educated elites?",options:[{id:"a",text:"To prevent them from uniting against colonial rule",is_correct:true},{id:"b",text:"To help them make more money",is_correct:false},{id:"c",text:"Because they lived in different regions",is_correct:false},{id:"d",text:"To promote peace",is_correct:false}]},
-        {id:"1 each",prompt:"What did the GCYC do to educate the public?",options:[{id:"a",text:"Built roads",is_correct:false},{id:"b",text:"Held conferences and lectures about rights and self-rule",is_correct:true},{id:"c",text:"Published newspapers only",is_correct:false},{id:"d",text:"Organized sports events",is_correct:false}]},
-        {id:"13",prompt:"Which institution did the GCYC play an important role in establishing?",options:[{id:"a",text:"Kwame Nkrumah University of Science and Technology",is_correct:false},{id:"b",text:"University College of the Gold Coast (now University of Ghana)",is_correct:true},{id:"c",text:"Accra Academy",is_correct:false},{id:"d",text:"Mfantsipim School",is_correct:false}]},
-        {id:"14",prompt:"What constitution was brought about by the demands of the GCYC?",options:[{id:"a",text:"The Clifford Constitution",is_correct:false},{id:"b",text:"The Burns Constitution of 1946",is_correct:true},{id:"c",text:"The Coussey Constitution",is_correct:false},{id:"d",text:"The 1969 Constitution",is_correct:false}]},
-        {id:"15",prompt:"What was significant about the Burns Constitution of 1946?",options:[{id:"a",text:"It gave the British total control",is_correct:false},{id:"b",text:"It created a Legislative Council made up of mainly African members",is_correct:true},{id:"c",text:"It granted immediate independence",is_correct:false},{id:"d",text:"It banned all political parties",is_correct:false}]},
-        {id:"16",prompt:"What does 'constitutional reforms' mean?",options:[{id:"a",text:"Changing the weather",is_correct:false},{id:"b",text:"Changes made to the laws and rules by which a country is governed",is_correct:true},{id:"c",text:"Building new houses",is_correct:false},{id:"d",text:"Starting a new religion",is_correct:false}]},
-        {id:"17",prompt:"What does the term 'elite' refer to in this context?",options:[{id:"a",text:"A group of highly educated and influential people",is_correct:true},{id:"b",text:"A type of food",is_correct:false},{id:"c",text:"A military rank",is_correct:false},{id:"d",text:"Traditional rulers only",is_correct:false}]},
-        {id:"18",prompt:"What is a 'Legislative Council'?",options:[{id:"a",text:"A group of people who had the power to discuss and make laws during the colonial era",is_correct:true},{id:"b",text:"A market square",is_correct:false},{id:"c",text:"A type of school",is_correct:false},{id:"d",text:"A British royal family",is_correct:false}]},
-        {id:"19",prompt:"What does 'doyen' mean, a title often given to Dr. Danquah?",options:[{id:"a",text:"The most respected or senior member of a group",is_correct:true},{id:"b",text:"A young beginner",is_correct:false},{id:"c",text:"A foreign visitor",is_correct:false},{id:"d",text:"A wealthy merchant",is_correct:false}]},
-        {id:"20",prompt:"Where is the monument named after Dr. J.B. Danquah located?",options:[{id:"a",text:"Kumasi",is_correct:false},{id:"b",text:"Cape Coast",is_correct:false},{id:"c",text:"Danquah Circle, Accra",is_correct:true},{id:"d",text:"Takoradi",is_correct:false}]}
+        {id:"1",prompt:"When was Joseph Ephraim Casely Hayford born?",options:[{id:"a",text:"1866",is_correct:true},{id:"b",text:"1897",is_correct:false},{id:"c",text:"1917",is_correct:false},{id:"d",text:"1930",is_correct:false}]},
+        {id:"2",prompt:"What does NCBWA stand for?",options:[{id:"a",text:"National Council of British World Alliance",is_correct:false},{id:"b",text:"National Congress of British West Africa",is_correct:true},{id:"c",text:"New Congress for Black West Africans",is_correct:false},{id:"d",text:"National Committee of British Western Areas",is_correct:false}]},
+        {id:"3",prompt:"In what year was the NCBWA formed?",options:[{id:"a",text:"1897",is_correct:false},{id:"b",text:"1917",is_correct:true},{id:"c",text:"1920",is_correct:false},{id:"d",text:"1930",is_correct:false}]},
+        {id:"4",prompt:"Which four colonies were part of the NCBWA?",options:[{id:"a",text:"Gold Coast, Nigeria, Sierra Leone, and Gambia",is_correct:true},{id:"b",text:"Ghana, Togo, Benin, and Nigeria",is_correct:false},{id:"c",text:"Gold Coast, Kenya, Uganda, and Tanzania",is_correct:false},{id:"d",text:"Gold Coast, Mali, Senegal, and Ivory Coast",is_correct:false}]},
+        {id:"5",prompt:"In what year did Casely Hayford lead a delegation to London?",options:[{id:"a",text:"1917",is_correct:false},{id:"b",text:"1920",is_correct:true},{id:"c",text:"1930",is_correct:false},{id:"d",text:"1945",is_correct:false}]},
+        {id:"6",prompt:"What was the title of Casely Hayford's most famous book?",options:[{id:"a",text:"Things Fall Apart",is_correct:false},{id:"b",text:"Ethiopia Unbound",is_correct:true},{id:"c",text:"The African Prince",is_correct:false},{id:"d",text:"West African Stories",is_correct:false}]},
+        {id:"7",prompt:"Why was 'Ethiopia Unbound' significant?",options:[{id:"a",text:"It was the first book printed in Africa",is_correct:false},{id:"b",text:"It was the first novel written by an African in English",is_correct:true},{id:"c",text:"It was written in a local African language",is_correct:false},{id:"d",text:"It was the longest book ever written",is_correct:false}]},
+        {id:"8",prompt:"How many books did Casely Hayford write about West Africa?",options:[{id:"a",text:"Two",is_correct:false},{id:"b",text:"Four",is_correct:false},{id:"c",text:"Six",is_correct:true},{id:"d",text:"Ten",is_correct:false}]},
+        {id:"9",prompt:"When did Casely Hayford die?",options:[{id:"a",text:"1917",is_correct:false},{id:"b",text:"1920",is_correct:false},{id:"c",text:"1930",is_correct:true},{id:"d",text:"1945",is_correct:false}]},
+        {id:"10",prompt:"What was one of the main demands of the NCBWA when they went to London?",options:[{id:"a",text:"To start a war against Britain",is_correct:false},{id:"b",text:"To get more Africans included in government",is_correct:true},{id:"c",text:"To make English the only language spoken",is_correct:false},{id:"d",text:"To stop all trade with Europe",is_correct:false}]},
+        {id:"11",prompt:"What role did Casely Hayford play before forming the NCBWA?",options:[{id:"a",text:"He was a British colonial officer",is_correct:false},{id:"b",text:"He was a member of the Aborigines' Rights Protection Society (ARPS)",is_correct:true},{id:"c",text:"He was a soldier in the British army",is_correct:false},{id:"d",text:"He was a traditional chief",is_correct:false}]},
+        {id:"12",prompt:"What was a delegation?",options:[{id:"a",text:"A type of traditional dance",is_correct:false},{id:"b",text:"A group of representatives sent to present demands",is_correct:true},{id:"c",text:"A religious ceremony",is_correct:false},{id:"d",text:"A market where goods were sold",is_correct:false}]},
+        {id:"13",prompt:"Which of these was NOT an achievement of the NCBWA?",options:[{id:"a",text:"Established Legislative Councils in the colonies",is_correct:false},{id:"b",text:"Got more Africans to participate in government",is_correct:false},{id:"c",text:"Won immediate independence for all West African countries",is_correct:true},{id:"d",text:"Established political parties in the colonies",is_correct:false}]},
+        {id:"14",prompt:"What profession was Casely Hayford NOT known for?",options:[{id:"a",text:"Teacher",is_correct:false},{id:"b",text:"Writer",is_correct:false},{id:"c",text:"Farmer",is_correct:true},{id:"d",text:"Politician",is_correct:false}]},
+        {id:"15",prompt:"Why was it important that the NCBWA brought together four different colonies?",options:[{id:"a",text:"It showed that West Africans could unite for a common cause",is_correct:true},{id:"b",text:"It made travel easier between countries",is_correct:false},{id:"c",text:"It allowed them to speak more languages",is_correct:false},{id:"d",text:"It helped them win more sports competitions",is_correct:false}]},
+        {id:"16",prompt:"What did the NCBWA demand regarding education?",options:[{id:"a",text:"To stop all schools",is_correct:false},{id:"b",text:"Better education and economic opportunities for Africans",is_correct:true},{id:"c",text:"To make all schools teach only in English",is_correct:false},{id:"d",text:"To close all universities",is_correct:false}]},
+        {id:"17",prompt:"What was the Legislative Council?",options:[{id:"a",text:"A group of traditional dancers",is_correct:false},{id:"b",text:"A body that made laws for the colonies under British rule",is_correct:true},{id:"c",text:"A school for training teachers",is_correct:false},{id:"d",text:"A market where goods were sold",is_correct:false}]},
+        {id:"18",prompt:"How did Casely Hayford's work help future generations?",options:[{id:"a",text:"He made Ghana rich immediately",is_correct:false},{id:"b",text:"He laid the foundation for constitutional reforms that led to independence",is_correct:true},{id:"c",text:"He stopped all British influence in Africa",is_correct:false},{id:"d",text:"He built many hospitals",is_correct:false}]},
+        {id:"19",prompt:"What core competency is developed when learners study the life of Casely Hayford?",options:[{id:"a",text:"Financial Literacy",is_correct:false},{id:"b",text:"Cultural Identity and Global Citizenship",is_correct:true},{id:"c",text:"Physical Coordination",is_correct:false},{id:"d",text:"Digital Literacy",is_correct:false}]},
+        {id:"20",prompt:"What was Casely Hayford's main contribution to African literature?",options:[{id:"a",text:"He wrote the first African textbook",is_correct:false},{id:"b",text:"He wrote the first novel by an African in English",is_correct:true},{id:"c",text:"He translated the Bible into African languages",is_correct:false},{id:"d",text:"He started the first African newspaper",is_correct:false}]}
       ];
 
       // === RENDER QUIZ ===
@@ -671,7 +749,7 @@
         localStorage.setItem(`quiz_attempts_${currentChapter}`, attempts);
         localStorage.setItem(`mastery_${currentChapter}`, mastery ? '1' : '0');
 
-        let report = `*Mini OpenStax — Dr. Joseph Boakye Danquah and the GCYC*\nStudent: ${userName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
+        let report = `*Mini OpenStax — Casely Hayford & NCBWA (Week ${currentChapter + 1})*\nStudent: ${userName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
         if (correctList.length) {
           report += `✅ CORRECT ANSWERS (${correctList.length}):\n`;
           correctList.forEach(q => report += `${q.id}. ${q.prompt}\n   → ${q.correctText}\n\n`);
@@ -715,7 +793,7 @@
           const student = (lines.find(l => l.startsWith('Student:')) || '').replace('Student: ', '').trim() || 'Unknown';
           const score = (lines.find(l => l.startsWith('Score:')) || 'Score unknown');
           const date = new Date(rep.timestamp).toLocaleString();
-          return `<div class="report-card"><div class="report-header"><span>Dr. Joseph Boakye Danquah and the GCYC</span><span>${date}</span></div><div class="report-meta">Student: ${student} • ${score}</div><div class="report-detail" id="detail-${rep.timestamp}"></div><div class="report-actions"><button class="btn" onclick="toggleDetail(${rep.timestamp})">Details</button><button class="btn" onclick="viewReportAsPDF('${rep.key}')">PDF</button><button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">WhatsApp</button></div></div>`;
+          return `<div class="report-card"><div class="report-header"><span>Casely Hayford & NCBWA</span><span>${date}</span></div><div class="report-meta">Student: ${student} • ${score}</div><div class="report-detail" id="detail-${rep.timestamp}"></div><div class="report-actions"><button class="btn" onclick="toggleDetail(${rep.timestamp})">Details</button><button class="btn" onclick="viewReportAsPDF('${rep.key}')">PDF</button><button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">WhatsApp</button></div></div>`;
         }).join('');
         window.reportContents = {};
         reports.forEach(r => window.reportContents[r.timestamp] = r.content);
@@ -734,7 +812,7 @@
         document.getElementById('stat-mastered').textContent = mastered;
         document.getElementById('stat-total').textContent = 1;
         document.getElementById('stat-percent').textContent = `${mastered * 100}%`;
-        document.getElementById('recent-lessons').innerHTML = `<div class="lesson-item"><div><span class="mastery-indicator ${mastered ? 'mastery-yes' : 'mastery-partial'}"></span>Lesson ${currentChapter + 1}</div><span>${mastered ? 'Mastered' : 'In Progress'}</span></div>`;
+        document.getElementById('recent-lessons').innerHTML = `<div class="lesson-item"><div><span class="mastery-indicator ${mastered ? 'mastery-yes' : 'mastery-partial'}"></span>Week ${currentChapter + 1}: Casely Hayford & NCBWA</div><span>${mastered ? 'Mastered' : 'In Progress'}</span></div>`;
       }
       document.getElementById('btn-send-all').addEventListener('click', () => {
         let msg = `*📚 Mini OpenStax — All Quiz Reports*\nStudent: ${userName}\n\n`; let count = 0;
@@ -780,7 +858,7 @@
         let tabsHtml = '';
         for (let i = Math.max(0, currentChapter - 1); i <= Math.min(MAX_CHAPTERS, currentChapter + 2); i++) {
           const isActive = i === currentChapter;
-          tabsHtml += `<a href="${getChapterUrl(i)}" class="chapter-btn ${isActive ? 'active' : ''}">Lesson ${i + 1}</a>`;
+          tabsHtml += `<a href="${getChapterUrl(i)}" class="chapter-btn ${isActive ? 'active' : ''}">Week ${i + 1}</a>`;
         }
         tabsContainer.innerHTML = tabsHtml;
         if (currentChapter > 0) { prevBtn.style.display = 'inline-block'; prevBtn.onclick = () => window.location.href = getChapterUrl(currentChapter - 1); }
@@ -792,11 +870,6 @@
       // === INIT ===
       document.getElementById('year').textContent = new Date().getFullYear();
       renderQuiz(); updateChapterNavigation();
-      document.getElementById('send-analytics')?.addEventListener('click', (e) => { e.preventDefault(); alert("Usage data collection is handled globally."); });
-    })();
-  </script>
-</body>
-</html> updateChapterNavigation();
       document.getElementById('send-analytics')?.addEventListener('click', (e) => { e.preventDefault(); alert("Usage data collection is handled globally."); });
     })();
   </script>
