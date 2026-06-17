@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Mini OpenStax: Explain why people were unhappy in the country after the Second World War — Class 5 History Chapter 4" />
+  <meta name="description" content="Mini OpenStax: Post-WWII Unhappiness — Class 5 History Week 5" />
   <meta name="theme-color" content="#006b3d" />
-  <title>Mini OpenStax — Why People Were Unhappy After the Second World War</title>
+  <title>Mini OpenStax — Post-WWII Unhappiness (Week 5)</title>
   
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -30,6 +30,7 @@
       --radius-lg: 1rem;
       --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
       --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
       --space-xs: clamp(0.5rem, 0.8vw, 0.75rem);
       --space-sm: clamp(0.75rem, 1.2vw, 1rem);
       --space-md: clamp(1rem, 2vw, 1.5rem);
@@ -93,6 +94,7 @@
     .nav__link {
       padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm);
       font-weight: 500; color: var(--dark); transition: background var(--transition), color var(--transition);
+      text-decoration: none;
     }
     .nav__link:hover, .nav__link:focus-visible { background: var(--light); color: var(--green); }
     .nav__link[aria-current="page"] { color: var(--green); font-weight: 700; background: var(--light); }
@@ -163,6 +165,7 @@
       background: var(--green); color: white; border: none; padding: 0.6rem 1.2rem;
       border-radius: var(--radius-md); font-weight: 600; cursor: pointer; margin-top: 0.5rem;
       transition: background var(--transition), transform var(--transition);
+      text-decoration: none; display: inline-block;
     }
     .btn:hover, .btn:focus-visible { background: var(--green-dark); transform: translateY(-2px); }
     .btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
@@ -183,6 +186,49 @@
     .checkpoint {
       background: #f8f9fa; padding: var(--space-md); border-left: 4px solid var(--gold);
       margin: var(--space-lg) 0; border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+    .timeline {
+      display: flex; flex-direction: column; gap: var(--space-sm); margin: var(--space-md) 0;
+    }
+    .timeline-item {
+      display: flex; gap: var(--space-sm); padding: var(--space-sm);
+      background: var(--light); border-radius: var(--radius-md);
+      border-left: 4px solid var(--gold);
+    }
+    .timeline-year {
+      font-weight: 700; color: var(--green-dark); min-width: 80px;
+      font-family: monospace; font-size: 1rem;
+    }
+    .timeline-content { flex: 1; font-size: 0.95rem; }
+    .promise-list {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-sm); margin: var(--space-md) 0;
+    }
+    .promise-card {
+      background: linear-gradient(135deg, var(--green-light, #e8f5ee), var(--surface));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--green);
+      padding: var(--space-md);
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+    .promise-card.broken {
+      border-left-color: var(--red);
+      background: linear-gradient(135deg, #fde8ea, var(--surface));
+    }
+    .promise-card i {
+      font-size: 1.75rem; color: var(--green); margin-bottom: var(--space-xs);
+    }
+    .promise-card.broken i { color: var(--red); }
+    .promise-card h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+      color: var(--dark);
+    }
+    .promise-card p {
+      font-size: 0.85rem;
+      color: #64748b;
     }
 
     /* === QUIZ === */
@@ -249,7 +295,7 @@
       max-width: var(--max-w); margin: 0 auto; padding: 0 var(--space-md);
     }
     .footer__title { color: white; margin-bottom: var(--space-sm); font-size: 1.1rem; }
-    .footer__link { color: #94a3b8; transition: color var(--transition); display: inline-block; margin-bottom: var(--space-xs); }
+    .footer__link { color: #94a3b8; transition: color var(--transition); display: inline-block; margin-bottom: var(--space-xs); text-decoration: none; }
     .footer__link:hover { color: white; text-decoration: underline; }
     .footer__bottom {
       text-align: center; margin-top: var(--space-lg); padding-top: var(--space-sm);
@@ -278,6 +324,10 @@
       }
       .card, .modal-content, .report-card { background: #1e293b; }
       .feedback details[open] { background: #064e3b; }
+      th { background-color: #1e3a2a; }
+      .timeline-item { background: #1e293b; }
+      .promise-card { background: linear-gradient(135deg, #0a2e1d, #1e293b); }
+      .promise-card.broken { background: linear-gradient(135deg, #3d0a10, #1e293b); }
     }
   </style>
 </head>
@@ -297,8 +347,8 @@
       </button>
       <nav id="main-nav" class="nav__list" role="navigation">
         <a href="index.html" class="nav__link">Home</a>
-        <a href="index.html" class="nav__link">Class 5</a>
-        <a href="index.html" class="nav__link" aria-current="page">History</a>
+        <a href="dashboard.html" class="nav__link">Class 5</a>
+        <a href="historyChapter-4.html" class="nav__link" aria-current="page">History</a>
         <a href="dashboard.html" class="nav__link">Dashboard</a>
         <a href="contact.html" class="nav__link">Contact</a>
       </nav>
@@ -309,8 +359,8 @@
     <!-- Mini OpenStax App Header -->
     <div class="app-header">
       <div>
-        <h1 id="page-title">Why People Were Unhappy After the Second World War</h1>
-        <div class="lo-tags">B5.5.3.1.1</div>
+        <h1 id="page-title">Post-WWII Unhappiness</h1>
+        <div class="lo-tags">B5.5.3.1.1 • The 1948 Riots</div>
       </div>
       <div style="display:flex;gap:0.5rem;align-items:center;">
         <div class="role-badge" id="current-role">Student View</div>
@@ -332,11 +382,10 @@
       <div class="section">
         <h2>🎯 What You'll Learn</h2>
         <ul id="objectives">
-          <li>Identify when the Second World War was fought and the major groups involved.</li>
-          <li>Explain the promises made to Gold Coast soldiers by the British.</li>
-          <li>Describe the hardships faced by soldiers and citizens after the war.</li>
-          <li>Understand why cocoa farmers were angry with the colonial government.</li>
-          <li>Explain what a boycott is and why the people boycotted European goods.</li>
+          <li>Explain when the Second World War was fought and which side the Gold Coast supported.</li>
+          <li>Describe the promises made to Gold Coast soldiers who fought in the war.</li>
+          <li>Explain why people were unhappy in the country after the Second World War.</li>
+          <li>Discuss the general state of affairs that led to unrest and the demand for independence.</li>
         </ul>
       </div>
 
@@ -346,53 +395,125 @@
         <div class="word-list" id="word-list">
           <span class="word-item">Allies</span>
           <span class="word-item">Axis</span>
-          <span class="word-item">Boycott</span>
+          <span class="word-item">Reinforcement</span>
           <span class="word-item">Pensions</span>
-          <span class="word-item">Shortage</span>
           <span class="word-item">Unemployment</span>
           <span class="word-item">Unrest</span>
+          <span class="word-item">Riots</span>
+          <span class="word-item">Boycott</span>
+          <span class="word-item">Ex-Servicemen</span>
           <span class="word-item">Swollen Shoot Disease</span>
+          <span class="word-item">Inflation</span>
+          <span class="word-item">Gold Coast Regiment</span>
         </div>
       </div>
 
       <div class="section" id="lesson-content">
-        <h2>📘 The 1948 Riots: Unhappiness After the War</h2>
+        <h2>📘 Post-WWII Unhappiness</h2>
         
-        <h3>🌍 The Second World War and Gold Coast Soldiers</h3>
-        <p>By 1939, most of the countries in the world were fighting in a massive global conflict known as the <strong>Second World War (1939–1945)</strong>. The war was fought between two major groups: the <strong>Allies</strong> and the <strong>Axis</strong> powers.</p>
-        <p>During this time, soldiers from the Gold Coast bravely fought alongside the British and the Allies. They served in the <strong>Gold Coast Regiment</strong> and the <strong>Royal West African Frontier Force</strong>, traveling far from home and risking their lives for the British Empire.</p>
-        
-        <h3>🤝 The British Promises</h3>
-        <p>Before and during the war, the British made many big promises to encourage the Gold Coast soldiers to fight. They promised that if the soldiers helped them win, they would be rewarded with:</p>
+        <h3>💡 Introduction: The Second World War (1939–1945)</h3>
+        <p>By 1939, most countries in the world were fighting in a big war called the <strong>Second World War (WWII)</strong>. The war was fought between two main groups:</p>
         <ul>
-          <li><strong>Pensions</strong> (money paid regularly after retirement).</li>
-          <li><strong>Houses</strong> to live in.</li>
-          <li><strong>Good jobs</strong>.</li>
-          <li>Other facilities to improve their lives and the lives of the local people.</li>
+          <li><strong>The Allies</strong> — included Britain, France, USA, Soviet Union, and many other countries including the Gold Coast.</li>
+          <li><strong>The Axis</strong> — included Germany, Italy, and Japan.</li>
         </ul>
-        
-        <h3>😞 Broken Promises and General Hardships</h3>
-        <p>When the war ended in 1945, the soldiers returned home expecting a better life but were met with deep disappointment. The British colonial government <strong>failed to honour their promises</strong>. The general state of affairs was very difficult:</p>
+        <p>The Gold Coast, being a British colony, fought on the side of the <strong>Allies</strong>. Many Gold Coast men joined the army and were sent to fight in different parts of the world.</p>
+
+        <h3>🎖️ Gold Coast Soldiers in the War</h3>
+        <p>Gold Coast soldiers fought in two main military units:</p>
         <ul>
-          <li><strong>No Jobs (Unemployment):</strong> The British did not provide the promised jobs. Many soldiers struggled to feed their families.</li>
-          <li><strong>Lack of Housing:</strong> There was a severe shortage of suitable housing for the returning heroes.</li>
-          <li><strong>Shortage of Goods & High Prices:</strong> Basic goods were very scarce, and the prices of imported foreign goods increased heavily. Only the wealthy could afford basic necessities.</li>
-          <li><strong>Foreign Control:</strong> The economy was still completely controlled by foreigners, meaning the wealth generated was not helping the local people.</li>
+          <li><strong>The Gold Coast Regiment</strong> — the local army unit of the Gold Coast.</li>
+          <li><strong>The Royal West African Frontier Force (RWAFF)</strong> — a bigger British army group that included soldiers from Gold Coast, Nigeria, Sierra Leone, and Gambia.</li>
         </ul>
-        
-        <h3>🌳 The Anger of the Cocoa Farmers</h3>
-        <p>The unhappiness was not just felt by the soldiers; the farmers were also very angry. A plant disease called the <strong>cocoa swollen shoot disease</strong> began destroying cocoa farms. Instead of helping farmers find a cure, the British colonial government ordered the <strong>cutting down of all afflicted cocoa trees</strong>. The farmers were furious because their livelihoods were destroyed without any support or alternative solutions.</p>
-        
-        <h3>🛑 The Boycott of European Goods</h3>
-        <p>Because of the high prices and shortages, the ordinary people decided to take action. After the war, foreign trading companies continued to increase prices. The people demanded that the trading companies reduce their prices by 1948. When the foreign traders refused, the people organized a massive <strong>boycott</strong>.</p>
+        <p>These soldiers were sent to fight in places like Burma (now Myanmar), Ethiopia, and other parts of Africa and Asia. They risked their lives for the British Empire.</p>
+
+        <h3>🤝 Promises Made to the Soldiers</h3>
+        <p>Before the soldiers went to war, the British government made many promises to encourage them to fight. They were told they would receive:</p>
+
+        <div class="promise-list">
+          <div class="promise-card">
+            <i class="fas fa-money-bill-wave"></i>
+            <h4>Pensions</h4>
+            <p>Regular money after the war</p>
+          </div>
+          <div class="promise-card">
+            <i class="fas fa-house"></i>
+            <h4>Houses</h4>
+            <p>Places to live with their families</p>
+          </div>
+          <div class="promise-card">
+            <i class="fas fa-briefcase"></i>
+            <h4>Jobs</h4>
+            <p>Good employment opportunities</p>
+          </div>
+          <div class="promise-card">
+            <i class="fas fa-hand-holding-heart"></i>
+            <h4>Other Benefits</h4>
+            <p>Education, health, and welfare</p>
+          </div>
+        </div>
+
+        <h3>💔 Broken Promises After the War</h3>
+        <p>When the war ended in 1945, the soldiers returned home expecting to receive all these benefits. But to their disappointment, the British government <strong>did NOT keep these promises</strong>. The soldiers found:</p>
         <ul>
-          <li><strong>What is a boycott?</strong> A boycott is when people refuse to buy goods or take part in something as a way of showing their opposition.</li>
-          <li><strong>What did they boycott?</strong> People refused to buy European goods such as <strong>cotton prints, tinned meat, and flour biscuits</strong>. They also refused to shop at foreign-owned stores.</li>
-          <li><strong>The Result:</strong> Many foreign shops closed down because they made no sales. Eventually, the prices of some goods were forced to be reduced.</li>
+          <li>No jobs waiting for them</li>
+          <li>No pensions being paid</li>
+          <li>No houses built for them</li>
+          <li>No help to start businesses or continue education</li>
         </ul>
-        
+
         <blockquote>
-          💭 <strong>Thought Experiment</strong>: Imagine you are a returning Gold Coast soldier in 1946. You were promised a house and a job, but you have neither. You see foreign shops selling goods at prices you cannot afford. How do you feel, and what actions might you take to change this situation?
+          💭 <strong>Think About It</strong>: Imagine you fought in a war for your country, risking your life, and when you returned home, all the promises were broken. How would you feel? What would you do?
+        </blockquote>
+
+        <h3>🌍 The General State of Affairs After WWII</h3>
+        <p>The unhappiness was not only among the soldiers. Many other people in the Gold Coast were also suffering. Here is what was happening:</p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">🌱 Cocoa</div>
+            <div class="timeline-content">
+              <strong>Swollen Shoot Disease</strong> — A disease was attacking cocoa trees, which was the main source of income for many Ghanaians. The British ordered farmers to cut down their cocoa trees to stop the disease from spreading. Farmers were very angry because this destroyed their livelihood.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">📉 Shortages</div>
+            <div class="timeline-content">
+              <strong>Shortage of Goods</strong> — After the war, there were very few goods in the shops. Basic things like sugar, cloth, and tinned food were hard to find because the war had disrupted trade.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">💰 Prices</div>
+            <div class="timeline-content">
+              <strong>High Prices (Inflation)</strong> — Because goods were scarce, their prices went up very high. Only the wealthy could afford to buy things. Ordinary people could not afford basic necessities.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">👷 Jobs</div>
+            <div class="timeline-content">
+              <strong>Unemployment</strong> — Returning soldiers and young educated people could not find jobs. The foreign companies controlled most of the good jobs, leaving Africans with few opportunities.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">🔥 Unrest</div>
+            <div class="timeline-content">
+              <strong>Growing Unrest</strong> — People began to protest and riot against the colonial government. The demand for independence grew stronger every day.
+            </div>
+          </div>
+        </div>
+
+        <h3>⚔️ Foreign Control of the Economy</h3>
+        <p>Another big problem was that <strong>foreign companies controlled the Gold Coast economy</strong>. European businesses owned the big trading companies, the mines, and most of the import-export businesses. Africans were left with very little control over their own resources. This made people feel that even after the war, they were still being treated like second-class citizens in their own country.</p>
+
+        <h3>📢 The Demand for Independence</h3>
+        <p>All these problems together — broken promises to soldiers, high prices, unemployment, cut cocoa trees, and foreign control — made the people of the Gold Coast very angry. They began to ask:</p>
+        <blockquote>
+          "If we fought and died for freedom in the war, why can't we have freedom in our own country?"
+        </blockquote>
+        <p>This is how the demand for <strong>independence</strong> grew stronger and stronger. The people realised that only by governing themselves could they solve their own problems. This unhappiness would soon lead to the <strong>boycott of European goods</strong>, the <strong>shooting of ex-servicemen on 28th February 1948</strong>, and the famous <strong>1948 riots</strong> that changed Ghana's history forever.</p>
+
+        <blockquote>
+          💭 <strong>Think About It</strong>: Which of the problems after WWII do you think was the most serious? Why? Can you connect any of these problems to issues we still face in Ghana today?
         </blockquote>
       </div>
 
@@ -400,11 +521,14 @@
         <h2>✅ Check Your Understanding</h2>
         <div class="checkpoint">
           <ol>
-            <li>When was the Second World War fought, and which two major groups were involved?</li>
-            <li>Name three promises the British made to the Gold Coast soldiers.</li>
-            <li>What were three major hardships faced by the general public after the war?</li>
-            <li>Why were the cocoa farmers angry with the British colonial government?</li>
-            <li>What is a boycott, and which goods did the people boycott in 1948?</li>
+            <li>When was the Second World War fought?</li>
+            <li>Which side did the Gold Coast fight on — the Allies or the Axis?</li>
+            <li>Name the two military units that Gold Coast soldiers fought in.</li>
+            <li>List three promises the British made to the soldiers before the war.</li>
+            <li>What happened when the soldiers returned home after the war?</li>
+            <li>What was the swollen shoot disease, and how did it affect farmers?</li>
+            <li>Why did the prices of goods go up after the war?</li>
+            <li>Name two reasons why people demanded independence after WWII.</li>
           </ol>
           <p><em>Confirm your understanding before moving on.</em></p>
         </div>
@@ -420,8 +544,8 @@
       <div class="chapter-nav" id="chapter-navigation">
         <div class="chapter-tabs" id="chapter-tabs"></div>
         <div>
-          <button id="prev-btn" class="btn" style="margin-right: 0.5rem; display: none;">← Previous Lesson</button>
-          <button id="next-btn" class="btn" style="display: none;">Next Lesson →</button>
+          <button id="prev-btn" class="btn" style="margin-right: 0.5rem;">← Previous Week</button>
+          <button id="next-btn" class="btn" style="margin-left: 0.5rem;">Next Week →</button>
         </div>
       </div>
 
@@ -439,7 +563,7 @@
           </div>
           <div class="stat-item">
             <div class="stat-value" id="stat-total">1</div>
-            <div class="stat-label">Total Lessons</div>
+            <div class="stat-label">Total Weeks</div>
           </div>
           <div class="stat-item">
             <div class="stat-value" id="stat-percent">0%</div>
@@ -494,8 +618,8 @@
         <h4 class="footer__title">Quick Links</h4>
         <nav aria-label="Footer navigation">
           <a href="index.html" class="footer__link">Home</a><br>
-          <a href="index.html" class="footer__link">Class 5</a><br>
-          <a href="index.html" class="footer__link">History Lessons</a><br>
+          <a href="dashboard.html" class="footer__link">Class 5</a><br>
+          <a href="historyChapter-4.html" class="footer__link">History Lessons</a><br>
           <a href="contact.html" class="footer__link">Contact Support</a>
         </nav>
       </div>
@@ -522,8 +646,8 @@
       // === AUTO-DETECT CHAPTER NUMBER FROM URL ===
       const path = window.location.pathname;
       const match = path.match(/historyChapter-(\d+)\.html/);
-      const currentChapter = match ? parseInt(match[1], 10) : 0;
-      const MAX_CHAPTERS = 300;
+      const currentChapter = match ? parseInt(match[1], 10) : 4;
+      const MAX_CHAPTERS = 11; // 12 weeks total (0 to 11)
 
       function getChapterUrl(n) {
         return `historyChapter-${n}.html`;
@@ -605,26 +729,26 @@
 
       // === QUIZ DATA (20 Questions - Post-WWII Unhappiness) ===
       const assessmentItems = [
-        {id:"1",prompt:"When was the Second World War fought?",options:[{id:"a",text:"1914–1918",is_correct:false},{id:"b",text:"1939–1945",is_correct:true},{id:"c",text:"1945–1950",is_correct:false},{id:"d",text:"1935–1940",is_correct:false}]},
-        {id:"2",prompt:"What were the two major groups that fought in the Second World War?",options:[{id:"a",text:"The North and South",is_correct:false},{id:"b",text:"The Allies and the Axis powers",is_correct:true},{id:"c",text:"The British and the French",is_correct:false},{id:"d",text:"The Africans and the Europeans",is_correct:false}]},
-        {id:"3",prompt:"In which military units did Gold Coast soldiers serve during the war?",options:[{id:"a",text:"The Gold Coast Regiment and Royal West African Frontier Force",is_correct:true},{id:"b",text:"The British Navy and Air Force",is_correct:false},{id:"c",text:"The United States Army",is_correct:false},{id:"d",text:"The French Foreign Legion",is_correct:false}]},
-        {id:"4",prompt:"What did the British promise the Gold Coast soldiers to encourage them to fight?",options:[{id:"a",text:"Free land in Britain",is_correct:false},{id:"b",text:"Pensions, houses, and good jobs",is_correct:true},{id:"c",text:"Immediate independence",is_correct:false},{id:"d",text:"Positions in the British Parliament",is_correct:false}]},
-        {id:"5",prompt:"In what year did the Second World War end?",options:[{id:"a",text:"1939",is_correct:false},{id:"b",text:"1940",is_correct:false},{id:"c",text:"1945",is_correct:true},{id:"d",text:"1957",is_correct:false}]},
-        {id:"6",prompt:"How did the British colonial government respond to their promises after the war?",options:[{id:"a",text:"They fulfilled all promises immediately",is_correct:false},{id:"b",text:"They failed to honour them",is_correct:true},{id:"c",text:"They gave double the promised amount",is_correct:false},{id:"d",text:"They asked the soldiers to wait 10 years",is_correct:false}]},
-        {id:"7",prompt:"What was a major problem faced by returning Gold Coast soldiers?",options:[{id:"a",text:"They had too many job offers",is_correct:false},{id:"b",text:"High unemployment",is_correct:true},{id:"c",text:"They were forced to return to the war",is_correct:false},{id:"d",text:"They were given too much money",is_correct:false}]},
-        {id:"8",prompt:"What was the housing situation like in the Gold Coast after the war?",options:[{id:"a",text:"There was an abundance of free houses",is_correct:false},{id:"b",text:"There was a severe shortage of suitable housing",is_correct:true},{id:"c",text:"The British built new cities for them",is_correct:false},{id:"d",text:"Soldiers were given mansions",is_correct:false}]},
-        {id:"9",prompt:"What happened to the prices of imported foreign goods after the war?",options:[{id:"a",text:"They decreased heavily",is_correct:false},{id:"b",text:"They remained exactly the same",is_correct:false},{id:"c",text:"They increased heavily",is_correct:true},{id:"d",text:"Goods were given away for free",is_correct:false}]},
-        {id:"10",prompt:"Who mainly controlled the economy of the Gold Coast after the war?",options:[{id:"a",text:"The local chiefs",is_correct:false},{id:"b",text:"The Gold Coast soldiers",is_correct:false},{id:"c",text:"Foreigners",is_correct:true},{id:"d",text:"The cocoa farmers",is_correct:false}]},
-        {id:"11",prompt:"What plant disease began destroying cocoa farms in the Gold Coast?",options:[{id:"a",text:"Cocoa swollen shoot disease",is_correct:true},{id:"b",text:"Cocoa leaf rust",is_correct:false},{id:"c",text:"Cocoa black pod disease",is_correct:false},{id:"d",text:"Cocoa root rot",is_correct:false}]},
-        {id:"12",prompt:"How did the British colonial government respond to the cocoa swollen shoot disease?",options:[{id:"a",text:"They found a quick cure and saved the farms",is_correct:false},{id:"b",text:"They ordered the cutting down of all afflicted trees",is_correct:true},{id:"c",text:"They gave farmers money to buy new seeds",is_correct:false},{id:"d",text:"They ignored the disease completely",is_correct:false}]},
-        {id:"13",prompt:"Why were the cocoa farmers furious with the British government?",options:[{id:"a",text:"The British bought all their cocoa",is_correct:false},{id:"b",text:"Their livelihoods were destroyed without any support or alternative solutions",is_correct:true},{id:"c",text:"The British forced them to grow other crops",is_correct:false},{id:"d",text:"The British increased taxes on cocoa",is_correct:false}]},
-        {id:"14",prompt:"What action did the ordinary people of the Gold Coast take in response to high prices and shortages?",options:[{id:"a",text:"They organized a massive boycott of European goods",is_correct:true},{id:"b",text:"They started printing their own money",is_correct:false},{id:"c",text:"They moved to other countries",is_correct:false},{id:"d",text:"They asked the United Nations for help",is_correct:false}]},
-        {id:"15",prompt:"What is the definition of a boycott?",options:[{id:"a",text:"Buying as many goods as possible",is_correct:false},{id:"b",text:"Refusing to buy goods or take part in something as a protest",is_correct:true},{id:"c",text:"A type of traditional dance",is_correct:false},{id:"d",text:"A meeting of the colonial government",is_correct:false}]},
-        {id:"16",prompt:"Which of the following European goods were boycotted by the people?",options:[{id:"a",text:"Cocoa beans and gold",is_correct:false},{id:"b",text:"Cotton prints, tinned meat, and flour biscuits",is_correct:true},{id:"c",text:"Local yams and plantains",is_correct:false},{id:"d",text:"British cars and airplanes",is_correct:false}]},
-        {id:"17",prompt:"By what year did the people demand that trading companies reduce their prices?",options:[{id:"a",text:"1945",is_correct:false},{id:"b",text:"1946",is_correct:false},{id:"c",text:"1947",is_correct:false},{id:"d",text:"1948",is_correct:true}]},
-        {id:"18",prompt:"What was the result of the boycott of European goods?",options:[{id:"a",text:"The British arrested everyone",is_correct:false},{id:"b",text:"Many foreign shops closed down and some prices were forced to be reduced",is_correct:true},{id:"c",text:"The foreign traders became richer",is_correct:false},{id:"d",text:"The people ran out of food completely",is_correct:false}]},
-        {id:"19",prompt:"What did the widespread unhappiness and hardships ultimately spark?",options:[{id:"a",text:"A celebration",is_correct:false},{id:"b",text:"Riots and a stronger demand for independence",is_correct:true},{id:"c",text:"A new type of farming",is_correct:false},{id:"d",text:"Mass migration to Britain",is_correct:false}]},
-        {id:"20",prompt:"True or False: The British government successfully provided houses and jobs for all returning soldiers.",options:[{id:"a",text:"True",is_correct:false},{id:"b",text:"False",is_correct:true},{id:"c",text:"Partially true",is_correct:false},{id:"d",text:"None of the above",is_correct:false}]}
+        {id:"1",prompt:"When was the Second World War fought?",options:[{id:"a",text:"1914 to 1918",is_correct:false},{id:"b",text:"1939 to 1945",is_correct:true},{id:"c",text:"1945 to 1950",is_correct:false},{id:"d",text:"1929 to 1935",is_correct:false}]},
+        {id:"2",prompt:"Which side did the Gold Coast fight on during the Second World War?",options:[{id:"a",text:"The Axis powers",is_correct:false},{id:"b",text:"The Allied powers",is_correct:true},{id:"c",text:"They remained neutral",is_correct:false},{id:"d",text:"They fought against both sides",is_correct:false}]},
+        {id:"3",prompt:"Which of these countries was part of the Axis powers?",options:[{id:"a",text:"Britain",is_correct:false},{id:"b",text:"France",is_correct:false},{id:"c",text:"Germany",is_correct:true},{id:"d",text:"United States",is_correct:false}]},
+        {id:"4",prompt:"Which military unit was made up of soldiers from the Gold Coast?",options:[{id:"a",text:"The Royal African Army",is_correct:false},{id:"b",text:"The Gold Coast Regiment",is_correct:true},{id:"c",text:"The British Legion",is_correct:false},{id:"d",text:"The West African Navy",is_correct:false}]},
+        {id:"5",prompt:"What was the Royal West African Frontier Force (RWAFF)?",options:[{id:"a",text:"A group of traders",is_correct:false},{id:"b",text:"A British army group including soldiers from Gold Coast, Nigeria, Sierra Leone, and Gambia",is_correct:true},{id:"c",text:"A political party",is_correct:false},{id:"d",text:"A farming cooperative",is_correct:false}]},
+        {id:"6",prompt:"Which of these was NOT a promise made to Gold Coast soldiers before the war?",options:[{id:"a",text:"Pensions",is_correct:false},{id:"b",text:"Houses",is_correct:false},{id:"c",text:"Jobs",is_correct:false},{id:"d",text:"Free trips to Europe for holidays",is_correct:true}]},
+        {id:"7",prompt:"What happened when the soldiers returned home after the war?",options:[{id:"a",text:"They received all the promised benefits",is_correct:false},{id:"b",text:"The British government did NOT keep the promises",is_correct:true},{id:"c",text:"They were given more money than promised",is_correct:false},{id:"d",text:"They were asked to fight another war",is_correct:false}]},
+        {id:"8",prompt:"What was the swollen shoot disease?",options:[{id:"a",text:"A disease that attacked cocoa trees",is_correct:true},{id:"b",text:"A disease that affected soldiers",is_correct:false},{id:"c",text:"A disease that affected gold miners",is_correct:false},{id:"d",text:"A disease that affected fishing boats",is_correct:false}]},
+        {id:"9",prompt:"Why were farmers angry about the swollen shoot disease?",options:[{id:"a",text:"The British ordered them to cut down their cocoa trees",is_correct:true},{id:"b",text:"The British gave them new seeds",is_correct:false},{id:"c",text:"The British built new farms for them",is_correct:false},{id:"d",text:"The British paid them extra money",is_correct:false}]},
+        {id:"10",prompt:"What happened to the prices of goods after the Second World War?",options:[{id:"a",text:"They went down",is_correct:false},{id:"b",text:"They stayed the same",is_correct:false},{id:"c",text:"They went up very high (inflation)",is_correct:true},{id:"d",text:"Goods became free",is_correct:false}]},
+        {id:"11",prompt:"Why were goods scarce (hard to find) after the war?",options:[{id:"a",text:"Because there were too many shops",is_correct:false},{id:"b",text:"Because the war had disrupted trade",is_correct:true},{id:"c",text:"Because people stopped buying things",is_correct:false},{id:"d",text:"Because the British gave all goods to the soldiers",is_correct:false}]},
+        {id:"12",prompt:"What does 'inflation' mean?",options:[{id:"a",text:"When prices go down",is_correct:false},{id:"b",text:"When prices go up and money loses value",is_correct:true},{id:"c",text:"When goods are free",is_correct:false},{id:"d",text:"When there are too many jobs",is_correct:false}]},
+        {id:"13",prompt:"Who controlled most of the big trading companies in the Gold Coast after the war?",options:[{id:"a",text:"African businessmen",is_correct:false},{id:"b",text:"The Gold Coast government",is_correct:false},{id:"c",text:"Foreign (European) companies",is_correct:true},{id:"d",text:"Traditional chiefs",is_correct:false}]},
+        {id:"14",prompt:"Why were returning soldiers unhappy when they came back home?",options:[{id:"a",text:"They had too much money",is_correct:false},{id:"b",text:"They found no jobs, no pensions, and no houses",is_correct:true},{id:"c",text:"They were given too many benefits",is_correct:false},{id:"d",text:"They were asked to go back to war",is_correct:false}]},
+        {id:"15",prompt:"What was one of the main reasons people began to demand independence after WWII?",options:[{id:"a",text:"They wanted to leave Ghana",is_correct:false},{id:"b",text:"They realised they could only solve their problems by governing themselves",is_correct:true},{id:"c",text:"They wanted to join another country",is_correct:false},{id:"d",text:"They wanted to stop trading with other countries",is_correct:false}]},
+        {id:"16",prompt:"Which of these was NOT a problem faced by people in the Gold Coast after WWII?",options:[{id:"a",text:"High prices of goods",is_correct:false},{id:"b",text:"Lack of jobs",is_correct:false},{id:"c",text:"Cutting down of cocoa trees",is_correct:false},{id:"d",text:"Too many houses being built for everyone",is_correct:true}]},
+        {id:"17",prompt:"What question did the people of the Gold Coast begin to ask after the war?",options:[{id:"a",text:"Why did we fight for freedom abroad but not have it at home?",is_correct:true},{id:"b",text:"Why don't we join the British Empire?",is_correct:false},{id:"c",text:"Why should we stop trading with Africa?",is_correct:false},{id:"d",text:"Why should we build more churches?",is_correct:false}]},
+        {id:"18",prompt:"What important event happened on 28th February 1948 as a result of this unhappiness?",options:[{id:"a",text:"Ghana became independent",is_correct:false},{id:"b",text:"Unarmed ex-servicemen were shot by police",is_correct:true},{id:"c",text:"A new king was crowned",is_correct:false},{id:"d",text:"A big festival was held",is_correct:false}]},
+        {id:"19",prompt:"Which core competency is developed when learners study the causes of post-WWII unhappiness in Ghana?",options:[{id:"a",text:"Digital Literacy",is_correct:false},{id:"b",text:"Critical Thinking and Problem Solving",is_correct:true},{id:"c",text:"Physical Coordination",is_correct:false},{id:"d",text:"Financial Literacy",is_correct:false}]},
+        {id:"20",prompt:"What did the broken promises to soldiers teach the people of the Gold Coast?",options:[{id:"a",text:"That they should trust the British more",is_correct:false},{id:"b",text:"That they needed to fight for their own rights and independence",is_correct:true},{id:"c",text:"That they should leave the country",is_correct:false},{id:"d",text:"That war is always good",is_correct:false}]}
       ];
 
       // === RENDER QUIZ ===
@@ -676,7 +800,7 @@
         localStorage.setItem(`quiz_attempts_${currentChapter}`, attempts);
         localStorage.setItem(`mastery_${currentChapter}`, mastery ? '1' : '0');
 
-        let report = `*Mini OpenStax — Why People Were Unhappy After the Second World War*\nStudent: ${userName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
+        let report = `*Mini OpenStax — Post-WWII Unhappiness (Week ${currentChapter + 1})*\nStudent: ${userName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
         if (correctList.length) {
           report += `✅ CORRECT ANSWERS (${correctList.length}):\n`;
           correctList.forEach(q => report += `${q.id}. ${q.prompt}\n   → ${q.correctText}\n\n`);
@@ -720,7 +844,7 @@
           const student = (lines.find(l => l.startsWith('Student:')) || '').replace('Student: ', '').trim() || 'Unknown';
           const score = (lines.find(l => l.startsWith('Score:')) || 'Score unknown');
           const date = new Date(rep.timestamp).toLocaleString();
-          return `<div class="report-card"><div class="report-header"><span>Unhappiness After WWII</span><span>${date}</span></div><div class="report-meta">Student: ${student} • ${score}</div><div class="report-detail" id="detail-${rep.timestamp}"></div><div class="report-actions"><button class="btn" onclick="toggleDetail(${rep.timestamp})">Details</button><button class="btn" onclick="viewReportAsPDF('${rep.key}')">PDF</button><button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">WhatsApp</button></div></div>`;
+          return `<div class="report-card"><div class="report-header"><span>Post-WWII Unhappiness</span><span>${date}</span></div><div class="report-meta">Student: ${student} • ${score}</div><div class="report-detail" id="detail-${rep.timestamp}"></div><div class="report-actions"><button class="btn" onclick="toggleDetail(${rep.timestamp})">Details</button><button class="btn" onclick="viewReportAsPDF('${rep.key}')">PDF</button><button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">WhatsApp</button></div></div>`;
         }).join('');
         window.reportContents = {};
         reports.forEach(r => window.reportContents[r.timestamp] = r.content);
@@ -739,7 +863,7 @@
         document.getElementById('stat-mastered').textContent = mastered;
         document.getElementById('stat-total').textContent = 1;
         document.getElementById('stat-percent').textContent = `${mastered * 100}%`;
-        document.getElementById('recent-lessons').innerHTML = `<div class="lesson-item"><div><span class="mastery-indicator ${mastered ? 'mastery-yes' : 'mastery-partial'}"></span>Lesson ${currentChapter + 1}</div><span>${mastered ? 'Mastered' : 'In Progress'}</span></div>`;
+        document.getElementById('recent-lessons').innerHTML = `<div class="lesson-item"><div><span class="mastery-indicator ${mastered ? 'mastery-yes' : 'mastery-partial'}"></span>Week ${currentChapter + 1}: Post-WWII Unhappiness</div><span>${mastered ? 'Mastered' : 'In Progress'}</span></div>`;
       }
       document.getElementById('btn-send-all').addEventListener('click', () => {
         let msg = `*📚 Mini OpenStax — All Quiz Reports*\nStudent: ${userName}\n\n`; let count = 0;
@@ -785,7 +909,7 @@
         let tabsHtml = '';
         for (let i = Math.max(0, currentChapter - 1); i <= Math.min(MAX_CHAPTERS, currentChapter + 2); i++) {
           const isActive = i === currentChapter;
-          tabsHtml += `<a href="${getChapterUrl(i)}" class="chapter-btn ${isActive ? 'active' : ''}">Lesson ${i + 1}</a>`;
+          tabsHtml += `<a href="${getChapterUrl(i)}" class="chapter-btn ${isActive ? 'active' : ''}">Week ${i + 1}</a>`;
         }
         tabsContainer.innerHTML = tabsHtml;
         if (currentChapter > 0) { prevBtn.style.display = 'inline-block'; prevBtn.onclick = () => window.location.href = getChapterUrl(currentChapter - 1); }
@@ -797,11 +921,6 @@
       // === INIT ===
       document.getElementById('year').textContent = new Date().getFullYear();
       renderQuiz(); updateChapterNavigation();
-      document.getElementById('send-analytics')?.addEventListener('click', (e) => { e.preventDefault(); alert("Usage data collection is handled globally."); });
-    })();
-  </script>
-</body>
-</html> updateChapterNavigation();
       document.getElementById('send-analytics')?.addEventListener('click', (e) => { e.preventDefault(); alert("Usage data collection is handled globally."); });
     })();
   </script>
