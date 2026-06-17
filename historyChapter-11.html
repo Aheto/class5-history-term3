@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Mini OpenStax: Casely Hayford's Leadership in the NCBWA & Literary Legacy — Class 5 History Chapter 1" />
+  <meta name="description" content="Mini OpenStax: End of Term Assessment — Class 5 History Week 12" />
   <meta name="theme-color" content="#006b3d" />
-  <title>Mini OpenStax — Casely Hayford's Leadership in the NCBWA & Literary Legacy</title>
+  <title>Mini OpenStax — End of Term Assessment (Week 12)</title>
   
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -30,6 +30,7 @@
       --radius-lg: 1rem;
       --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
       --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
       --space-xs: clamp(0.5rem, 0.8vw, 0.75rem);
       --space-sm: clamp(0.75rem, 1.2vw, 1rem);
       --space-md: clamp(1rem, 2vw, 1.5rem);
@@ -93,6 +94,7 @@
     .nav__link {
       padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm);
       font-weight: 500; color: var(--dark); transition: background var(--transition), color var(--transition);
+      text-decoration: none;
     }
     .nav__link:hover, .nav__link:focus-visible { background: var(--light); color: var(--green); }
     .nav__link[aria-current="page"] { color: var(--green); font-weight: 700; background: var(--light); }
@@ -163,6 +165,7 @@
       background: var(--green); color: white; border: none; padding: 0.6rem 1.2rem;
       border-radius: var(--radius-md); font-weight: 600; cursor: pointer; margin-top: 0.5rem;
       transition: background var(--transition), transform var(--transition);
+      text-decoration: none; display: inline-block;
     }
     .btn:hover, .btn:focus-visible { background: var(--green-dark); transform: translateY(-2px); }
     .btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
@@ -183,6 +186,23 @@
     .checkpoint {
       background: #f8f9fa; padding: var(--space-md); border-left: 4px solid var(--gold);
       margin: var(--space-lg) 0; border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+    .assessment-section {
+      background: linear-gradient(135deg, #f0f7f4 0%, #fdf6d8 100%);
+      padding: var(--space-lg);
+      border-radius: var(--radius-lg);
+      margin: var(--space-lg) 0;
+      border: 2px solid var(--gold);
+    }
+    .assessment-section h3 {
+      color: var(--green-dark);
+      margin-bottom: var(--space-md);
+    }
+    .assessment-section ul {
+      margin-left: var(--space-md);
+    }
+    .assessment-section li {
+      margin-bottom: var(--space-xs);
     }
 
     /* === QUIZ === */
@@ -249,7 +269,7 @@
       max-width: var(--max-w); margin: 0 auto; padding: 0 var(--space-md);
     }
     .footer__title { color: white; margin-bottom: var(--space-sm); font-size: 1.1rem; }
-    .footer__link { color: #94a3b8; transition: color var(--transition); display: inline-block; margin-bottom: var(--space-xs); }
+    .footer__link { color: #94a3b8; transition: color var(--transition); display: inline-block; margin-bottom: var(--space-xs); text-decoration: none; }
     .footer__link:hover { color: white; text-decoration: underline; }
     .footer__bottom {
       text-align: center; margin-top: var(--space-lg); padding-top: var(--space-sm);
@@ -278,6 +298,8 @@
       }
       .card, .modal-content, .report-card { background: #1e293b; }
       .feedback details[open] { background: #064e3b; }
+      th { background-color: #1e3a2a; }
+      .assessment-section { background: linear-gradient(135deg, #0a2e1d 0%, #3d3400 100%); }
     }
   </style>
 </head>
@@ -297,8 +319,8 @@
       </button>
       <nav id="main-nav" class="nav__list" role="navigation">
         <a href="index.html" class="nav__link">Home</a>
-        <a href="index.html" class="nav__link">Class 5</a>
-        <a href="index.html" class="nav__link" aria-current="page">History</a>
+        <a href="dashboard.html" class="nav__link">Class 5</a>
+        <a href="historyChapter-0.html" class="nav__link" aria-current="page">History</a>
         <a href="dashboard.html" class="nav__link">Dashboard</a>
         <a href="contact.html" class="nav__link">Contact</a>
       </nav>
@@ -309,8 +331,8 @@
     <!-- Mini OpenStax App Header -->
     <div class="app-header">
       <div>
-        <h1 id="page-title">Casely Hayford's Leadership in the NCBWA & Literary Legacy</h1>
-        <div class="lo-tags">B5.5.1.1.3</div>
+        <h1 id="page-title">End of Term Assessment</h1>
+        <div class="lo-tags">B5.5.1.1 - B5.5.3.1 • Journey to Independence</div>
       </div>
       <div style="display:flex;gap:0.5rem;align-items:center;">
         <div class="role-badge" id="current-role">Student View</div>
@@ -332,77 +354,121 @@
       <div class="section">
         <h2>🎯 What You'll Learn</h2>
         <ul id="objectives">
-          <li>Understand the formation and goals of the National Congress of British West Africa (NCBWA).</li>
-          <li>Analyze the significance of the 1920 London Delegation led by Casely Hayford.</li>
-          <li>Evaluate the outcome of the NCBWA's demands and their impact on future nationalism.</li>
-          <li>Appreciate Casely Hayford's literary contributions, specifically <em>Ethiopia Unbound</em>.</li>
+          <li>Demonstrate comprehensive understanding of all Term 3 topics on Ghana's journey to independence.</li>
+          <li>Apply knowledge to answer assessment questions covering early protest movements, the 1948 riots, and constitutional reforms.</li>
+          <li>Show ability to analyze historical events and their significance.</li>
+          <li>Reflect on the importance of the journey to independence for modern Ghana.</li>
         </ul>
       </div>
 
       <div class="section">
         <h2>🔤 Important Words</h2>
-        <p>Key terms for this lesson:</p>
+        <p>Key terms for this assessment:</p>
         <div class="word-list" id="word-list">
-          <span class="word-item">NCBWA</span>
-          <span class="word-item">Delegation</span>
-          <span class="word-item">League of Nations</span>
+          <span class="word-item">Assessment</span>
+          <span class="word-item">Comprehensive</span>
+          <span class="word-item">Analysis</span>
+          <span class="word-item">Independence</span>
+          <span class="word-item">Constitution</span>
+          <span class="word-item">Commission</span>
+          <span class="word-item">Reform</span>
           <span class="word-item">Nationalism</span>
-          <span class="word-item">Novel</span>
+          <span class="word-item">Self-Government</span>
           <span class="word-item">Legacy</span>
-          <span class="word-item">Representation</span>
-          <span class="word-item">Visionary</span>
         </div>
       </div>
 
       <div class="section" id="lesson-content">
-        <h2>📘 The NCBWA and the Fight for Representation</h2>
+        <h2>📘 End of Term Assessment</h2>
         
-        <h3>🌍 Formation of the NCBWA</h3>
-        <p>Casely Hayford was a visionary leader who believed that Africans across West Africa needed to unite to demand better rights and representation. He helped form the <strong>National Congress of British West Africa (NCBWA)</strong>, which was a major early nationalist protest movement.</p>
-        
-        <h3>✈️ The 1920 London Delegation</h3>
-        <p>In <strong>1920</strong>, Casely Hayford led a delegation to represent the NCBWA in London. He bravely stood before the British government to put forward the NCBWA's demands for more African representation and rights in the government. This was a bold move, as it was rare for African leaders to directly challenge the British government in their own capital.</p>
-        
-        <h3>🏛️ Addressing the League of Nations</h3>
-        <p>During his time in Europe, Casely Hayford also addressed the <strong>League of Nations</strong>. The League of Nations was the first organisation of world governments that worked for world peace. By speaking there, he brought the struggles of West Africans to the global stage, making the international community aware of the injustices of colonial rule.</p>
-        
-        <h3>⚖️ Outcome and Legacy</h3>
-        <p>Although Casely Hayford was a powerful speaker and leader, he was <strong>not successful</strong> in getting the British government to grant the NCBWA's demands at that time. However, his efforts were not in vain. His bravery and leadership laid the foundation for future nationalist movements. He inspired a new generation of Africans to continue the struggle for independence.</p>
-        
-        <h3>📚 Literary Contributions: <em>Ethiopia Unbound</em></h3>
-        <p>Aside from his political activism, Casely Hayford was a pioneering author. He wrote <strong>six books</strong> about West Africa. His most famous book, <strong><em>Ethiopia Unbound</em></strong>, holds a special place in history because it was the <strong>first novel written by an African in the English language</strong>. Through his writing, he continued to advocate for African pride and self-determination.</p>
-        
+        <h3>📊 Assessment Overview</h3>
+        <p>Welcome to the End of Term Assessment! This assessment covers everything you've learned in Term 3 about Ghana's journey to independence. You will be tested on:</p>
+        <ul>
+          <li>Early protest movements (ARPS, NCBWA, GCYC)</li>
+          <li>Key personalities and their roles</li>
+          <li>Post-WWII conditions and unhappiness</li>
+          <li>The boycott of European goods</li>
+          <li>The shooting of ex-servicemen on 28th February 1948</li>
+          <li>The 1948 riots and arrest of the Big Six</li>
+          <li>The Watson Commission and Coussey Committee</li>
+        </ul>
+
+        <div class="assessment-section">
+          <h3>📝 Assessment Structure</h3>
+          <p>This end-of-term assessment is divided into three sections:</p>
+          <ul>
+            <li><strong>Section A: Multiple Choice Questions</strong> — 10 marks</li>
+            <li><strong>Section B: Short Answer Questions</strong> — 20 marks</li>
+            <li><strong>Section C: Essay Questions</strong> — 20 marks</li>
+          </ul>
+          <p><strong>Total Marks: 50</strong></p>
+        </div>
+
+        <h3>📚 Term 3 Content Review</h3>
+        <p>Before taking the assessment, let's review the key topics from Term 3:</p>
+
+        <h4>Weeks 1-4: Early Protest Movements</h4>
+        <ul>
+          <li><strong>ARPS (1897):</strong> Formed to protect African land rights against Land Bills. Led by Joseph Mensah Sarbah.</li>
+          <li><strong>NCBWA (1917):</strong> Brought together four British West African colonies. Led by Joseph Ephraim Casely Hayford.</li>
+          <li><strong>GCYC (1929):</strong> Led by young educated elites including Dr. J.B. Danquah to encourage constitutional and economic development.</li>
+        </ul>
+
+        <h4>Weeks 5-8: Post-WWII Unrest & The 1948 Riots</h4>
+        <ul>
+          <li><strong>Post-WWII Conditions:</strong> Broken promises to soldiers, high prices, unemployment, shortage of goods.</li>
+          <li><strong>Boycott (January 1948):</strong> Led by Chief Nii Kwabena Bonne III against European goods with inflated prices.</li>
+          <li><strong>28th February 1948:</strong> Unarmed ex-servicemen marching to Christiansborg Castle were shot. Three died: Sgt. Adjetey, Cpl. Attipoe, Pte. Odartey Lamptey.</li>
+          <li><strong>The Riots:</strong> Spread throughout the country. The Big Six were arrested.</li>
+        </ul>
+
+        <h4>Weeks 9-12: Commissions & Constitutional Reform</h4>
+        <ul>
+          <li><strong>Watson Commission:</strong> Investigated causes of riots. Recommended that locals draft their own constitution.</li>
+          <li><strong>Coussey Committee:</strong> Established to review and draft new constitution with more African participation.</li>
+          <li><strong>Path to Independence:</strong> These events set the stage for Ghana's independence in 1957.</li>
+        </ul>
+
         <blockquote>
-          💭 <strong>Thought Experiment</strong>: Imagine you are a young student in the 1920s hearing about Casely Hayford's trip to London and his speech at the League of Nations. How would this inspire you to contribute to your country's future? What qualities of a leader do you see in his actions?
+          💭 <strong>Think About It</strong>: How did the early protest movements lay the foundation for Ghana's independence? What lessons can we learn from the bravery of those who fought for our freedom?
         </blockquote>
+
+        <h3>🎓 Tips for Success</h3>
+        <ul>
+          <li>Read each question carefully before answering.</li>
+          <li>For essay questions, organize your thoughts before writing.</li>
+          <li>Use specific dates, names, and events to support your answers.</li>
+          <li>Take your time — this assessment covers 12 weeks of learning!</li>
+        </ul>
       </div>
 
       <div class="section">
         <h2>✅ Check Your Understanding</h2>
         <div class="checkpoint">
           <ol>
-            <li>What was the main goal of the NCBWA?</li>
-            <li>Why was the 1920 London Delegation considered a brave move?</li>
-            <li>What international organization did Casely Hayford address, and what was its purpose?</li>
-            <li>Even though the British government did not grant the demands immediately, what was the long-term impact of Casely Hayford's work?</li>
-            <li>Why is the book <em>Ethiopia Unbound</em> historically significant?</li>
+            <li>Name the three early protest movements and their formation years.</li>
+            <li>Who were the three ex-servicemen shot on 28th February 1948?</li>
+            <li>What was the main recommendation of the Watson Commission?</li>
+            <li>Name all six members of the Big Six.</li>
+            <li>What was the purpose of the Coussey Committee?</li>
           </ol>
-          <p><em>Confirm your understanding before moving on.</em></p>
+          <p><em>Confirm your understanding before moving on to the assessment quiz.</em></p>
         </div>
       </div>
 
       <div class="section">
-        <h2>📝 Quick Quiz (20 Questions)</h2>
+        <h2>📝 End of Term Assessment Quiz (20 Questions)</h2>
+        <p><strong>Note:</strong> This comprehensive quiz covers all Term 3 topics. You need 75% or higher to master this term.</p>
         <form id="quiz-form"></form>
-        <button type="button" class="btn" id="submit-quiz">Check Answers</button>
+        <button type="button" class="btn" id="submit-quiz">Submit Assessment</button>
       </div>
 
       <!-- Chapter Navigation -->
       <div class="chapter-nav" id="chapter-navigation">
         <div class="chapter-tabs" id="chapter-tabs"></div>
         <div>
-          <button id="prev-btn" class="btn" style="margin-right: 0.5rem; display: none;">← Previous Lesson</button>
-          <button id="next-btn" class="btn" style="display: none;">Next Lesson →</button>
+          <button id="prev-btn" class="btn" style="margin-right: 0.5rem; display: none;">← Previous Week</button>
+          <button id="next-btn" class="btn" style="display: none;">Next Week →</button>
         </div>
       </div>
 
@@ -420,7 +486,7 @@
           </div>
           <div class="stat-item">
             <div class="stat-value" id="stat-total">1</div>
-            <div class="stat-label">Total Lessons</div>
+            <div class="stat-label">Total Weeks</div>
           </div>
           <div class="stat-item">
             <div class="stat-value" id="stat-percent">0%</div>
@@ -475,8 +541,8 @@
         <h4 class="footer__title">Quick Links</h4>
         <nav aria-label="Footer navigation">
           <a href="index.html" class="footer__link">Home</a><br>
-          <a href="index.html" class="footer__link">Class 5</a><br>
-          <a href="index.html" class="footer__link">History Lessons</a><br>
+          <a href="dashboard.html" class="footer__link">Class 5</a><br>
+          <a href="historyChapter-0.html" class="footer__link">History Lessons</a><br>
           <a href="contact.html" class="footer__link">Contact Support</a>
         </nav>
       </div>
@@ -503,8 +569,8 @@
       // === AUTO-DETECT CHAPTER NUMBER FROM URL ===
       const path = window.location.pathname;
       const match = path.match(/historyChapter-(\d+)\.html/);
-      const currentChapter = match ? parseInt(match[1], 10) : 0;
-      const MAX_CHAPTERS = 300;
+      const currentChapter = match ? parseInt(match[1], 10) : 11;
+      const MAX_CHAPTERS = 11; // 12 weeks total (0 to 11)
 
       function getChapterUrl(n) {
         return `historyChapter-${n}.html`;
@@ -584,28 +650,28 @@
       };
       window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
 
-      // === QUIZ DATA (20 Questions - NCBWA Leadership & Literary Legacy) ===
+      // === QUIZ DATA (20 Questions - End of Term Comprehensive Assessment) ===
       const assessmentItems = [
-        {id:"1",prompt:"What was the main goal of the NCBWA?",options:[{id:"a",text:"To start a war with Britain",is_correct:false},{id:"b",text:"To demand better rights and representation for Africans",is_correct:true},{id:"c",text:"To move all Africans to London",is_correct:false},{id:"d",text:"To stop all trade with Europe",is_correct:false}]},
-        {id:"2",prompt:"In what year did Casely Hayford lead the NCBWA delegation to London?",options:[{id:"a",text:"1866",is_correct:false},{id:"b",text:"1900",is_correct:false},{id:"c",text:"1920",is_correct:true},{id:"d",text:"1930",is_correct:false}]},
-        {id:"3",prompt:"Where did the delegation travel to present their demands?",options:[{id:"a",text:"Paris",is_correct:false},{id:"b",text:"New York",is_correct:false},{id:"c",text:"London",is_correct:true},{id:"d",text:"Accra",is_correct:false}]},
-        {id:"4",prompt:"Which international organization did Casely Hayford address during his trip?",options:[{id:"a",text:"United Nations",is_correct:false},{id:"b",text:"African Union",is_correct:false},{id:"c",text:"League of Nations",is_correct:true},{id:"d",text:"British Parliament",is_correct:false}]},
-        {id:"5",prompt:"What was the primary purpose of the League of Nations?",options:[{id:"a",text:"To control African colonies",is_correct:false},{id:"b",text:"To work for world peace",is_correct:true},{id:"c",text:"To promote British trade",is_correct:false},{id:"d",text:"To build schools in Ghana",is_correct:false}]},
-        {id:"6",prompt:"What was the outcome of the 1920 London delegation?",options:[{id:"a",text:"The British government immediately granted all demands",is_correct:false},{id:"b",text:"The NCBWA was banned",is_correct:false},{id:"c",text:"Casely Hayford was not successful in getting the demands granted at that time",is_correct:true},{id:"d",text:"Ghana became independent immediately",is_correct:false}]},
-        {id:"7",prompt:"Despite the outcome, what did Casely Hayford's efforts achieve?",options:[{id:"a",text:"Nothing changed",is_correct:false},{id:"b",text:"It laid the foundation for future nationalist movements",is_correct:true},{id:"c",text:"It caused the British to leave Africa immediately",is_correct:false},{id:"d",text:"It stopped all protest movements",is_correct:false}]},
-        {id:"8",prompt:"How many books did Casely Hayford write about West Africa?",options:[{id:"a",text:"Two",is_correct:false},{id:"b",text:"Four",is_correct:false},{id:"c",text:"Six",is_correct:true},{id:"d",text:"Ten",is_correct:false}]},
-        {id:"9",prompt:"What is the title of Casely Hayford's most famous book?",options:[{id:"a",text:"Ghana Unbound",is_correct:false},{id:"b",text:"Africa Rising",is_correct:false},{id:"c",text:"Ethiopia Unbound",is_correct:true},{id:"d",text:"The Gold Coast",is_correct:false}]},
-        {id:"10",prompt:"What is special about the book Ethiopia Unbound?",options:[{id:"a",text:"It was the first novel written by an African in the English language",is_correct:true},{id:"b",text:"It was written in the Twi language",is_correct:false},{id:"c",text:"It was a science fiction book",is_correct:false},{id:"d",text:"It was banned in Ghana",is_correct:false}]},
-        {id:"11",prompt:"What does NCBWA stand for?",options:[{id:"a",text:"National Council of British West Africa",is_correct:false},{id:"b",text:"National Congress of British West Africa",is_correct:true},{id:"c",text:"National Committee of British West Africa",is_correct:false},{id:"d",text:"National Convention of British West Africa",is_correct:false}]},
-        {id:"12",prompt:"Why did Casely Hayford believe Africans needed to unite?",options:[{id:"a",text:"To play football together",is_correct:false},{id:"b",text:"To demand better rights and representation",is_correct:true},{id:"c",text:"To travel to Europe",is_correct:false},{id:"d",text:"To start a new religion",is_correct:false}]},
-        {id:"13",prompt:"What type of movement was the NCBWA?",options:[{id:"a",text:"A religious movement",is_correct:false},{id:"b",text:"An early nationalist protest movement",is_correct:true},{id:"c",text:"A sporting club",is_correct:false},{id:"d",text:"A trading company",is_correct:false}]},
-        {id:"14",prompt:"What does 'nationalism' mean in this context?",options:[{id:"a",text:"Loving foreign cultures",is_correct:false},{id:"b",text:"The struggle against foreign control to become an independent nation",is_correct:true},{id:"c",text:"Supporting colonial rule",is_correct:false},{id:"d",text:"Traveling to different countries",is_correct:false}]},
-        {id:"15",prompt:"What did Casely Hayford bring to the global stage by addressing the League of Nations?",options:[{id:"a",text:"The struggles of West Africans",is_correct:true},{id:"b",text:"A request for money",is_correct:false},{id:"c",text:"A new type of food",is_correct:false},{id:"d",text:"A map of Africa",is_correct:false}]},
-        {id:"16",prompt:"True or False: The British government immediately granted all NCBWA demands in 1920.",options:[{id:"a",text:"True",is_correct:false},{id:"b",text:"False",is_correct:true}]},
-        {id:"17",prompt:"True or False: Casely Hayford addressed the United Nations in 1920.",options:[{id:"a",text:"True",is_correct:false},{id:"b",text:"False",is_correct:true}]},
-        {id:"18",prompt:"True or False: Ethiopia Unbound was written in the French language.",options:[{id:"a",text:"True",is_correct:false},{id:"b",text:"False",is_correct:true}]},
-        {id:"19",prompt:"What did Casely Hayford put forward to the British government in London?",options:[{id:"a",text:"A request for a vacation",is_correct:false},{id:"b",text:"Demands for more African representation and rights",is_correct:true},{id:"c",text:"A proposal to sell gold",is_correct:false},{id:"d",text:"A plan to build a new city",is_correct:false}]},
-        {id:"20",prompt:"How is Casely Hayford remembered today for his work with the NCBWA?",options:[{id:"a",text:"As a British loyalist",is_correct:false},{id:"b",text:"As a visionary leader and founding father of Ghanaian nationalism",is_correct:true},{id:"c",text:"As a famous footballer",is_correct:false},{id:"d",text:"As a wealthy merchant",is_correct:false}]}
+        {id:"1",prompt:"Which protest movement was formed FIRST in the Gold Coast?",options:[{id:"a",text:"NCBWA in 1917",is_correct:false},{id:"b",text:"GCYC in 1929",is_correct:false},{id:"c",text:"ARPS in 1897",is_correct:true},{id:"d",text:"UGCC in 1947",is_correct:false}]},
+        {id:"2",prompt:"Who was the key leader of the Aborigines' Rights Protection Society (ARPS)?",options:[{id:"a",text:"Dr. J.B. Danquah",is_correct:false},{id:"b",text:"Joseph Ephraim Casely Hayford",is_correct:false},{id:"c",text:"Joseph Mensah Sarbah",is_correct:true},{id:"d",text:"Kwame Nkrumah",is_correct:false}]},
+        {id:"3",prompt:"What was the main reason the ARPS was formed?",options:[{id:"a",text:"To build schools",is_correct:false},{id:"b",text:"To protect African land rights against British Land Bills",is_correct:true},{id:"c",text:"To start a newspaper",is_correct:false},{id:"d",text:"To trade with Europe",is_correct:false}]},
+        {id:"4",prompt:"Which movement brought together leaders from four British West African colonies?",options:[{id:"a",text:"ARPS",is_correct:false},{id:"b",text:"NCBWA",is_correct:true},{id:"c",text:"GCYC",is_correct:false},{id:"d",text:"UGCC",is_correct:false}]},
+        {id:"5",prompt:"Who led the Gold Coast Youth Conference (GCYC) from 1937 to 1947?",options:[{id:"a",text:"Joseph Mensah Sarbah",is_correct:false},{id:"b",text:"Casely Hayford",is_correct:false},{id:"c",text:"Dr. J.B. Danquah",is_correct:true},{id:"d",text:"Kwame Nkrumah",is_correct:false}]},
+        {id:"6",prompt:"What happened on 28th February 1948?",options:[{id:"a",text:"Ghana gained independence",is_correct:false},{id:"b",text:"Unarmed ex-servicemen were shot while marching to Christiansborg Castle",is_correct:true},{id:"c",text:"The Big Six were released from prison",is_correct:false},{id:"d",text:"The Watson Commission was formed",is_correct:false}]},
+        {id:"7",prompt:"Name the three ex-servicemen who were shot dead on 28th February 1948.",options:[{id:"a",text:"Danquah, Nkrumah, and Akufo-Addo",is_correct:false},{id:"b",text:"Sgt. Adjetey, Cpl. Attipoe, and Pte. Odartey Lamptey",is_correct:true},{id:"c",text:"Sarbah, Casely Hayford, and Danquah",is_correct:false},{id:"d",text:"Bonne, Ofori Atta, and Ako-Adjei",is_correct:false}]},
+        {id:"8",prompt:"Who organized the boycott of European goods in January 1948?",options:[{id:"a",text:"Dr. J.B. Danquah",is_correct:false},{id:"b",text:"Kwame Nkrumah",is_correct:false},{id:"c",text:"Chief Nii Kwabena Bonne III",is_correct:true},{id:"d",text:"Joseph Mensah Sarbah",is_correct:false}]},
+        {id:"9",prompt:"Why did people boycott European goods in 1948?",options:[{id:"a",text:"The goods were of poor quality",is_correct:false},{id:"b",text:"Trading companies had increased prices after WWII",is_correct:true},{id:"c",text:"The government banned European goods",is_correct:false},{id:"d",text:"People preferred local products",is_correct:false}]},
+        {id:"10",prompt:"What was the Watson Commission?",options:[{id:"a",text:"A group that organized the boycott",is_correct:false},{id:"b",text:"A commission sent by the British to investigate the causes of the 1948 riots",is_correct:true},{id:"c",text:"A political party formed after the riots",is_correct:false},{id:"d",text:"A committee to draft Ghana's constitution",is_correct:false}]},
+        {id:"11",prompt:"What was the main recommendation of the Watson Commission?",options:[{id:"a",text:"Ghana should remain a British colony",is_correct:false},{id:"b",text:"Local people should be allowed to draft their own constitution",is_correct:true},{id:"c",text:"All British officers should leave immediately",is_correct:false},{id:"d",text:"The Big Six should be punished",is_correct:false}]},
+        {id:"12",prompt:"What was the Coussey Committee established to do?",options:[{id:"a",text:"Investigate the boycott",is_correct:false},{id:"b",text:"Review and draft a new constitution for the Gold Coast",is_correct:true},{id:"c",text:"Organize elections",is_correct:false},{id:"d",text:"Arrest the Big Six",is_correct:false}]},
+        {id:"13",prompt:"Who were the Big Six?",options:[{id:"a",text:"Six British colonial officers",is_correct:false},{id:"b",text:"Six leaders of the UGCC who were arrested after the 1948 riots",is_correct:true},{id:"c",text:"Six traditional chiefs",is_correct:false},{id:"d",text:"Six ex-servicemen who were shot",is_correct:false}]},
+        {id:"14",prompt:"Which of these was NOT one of the Big Six?",options:[{id:"a",text:"Dr. J.B. Danquah",is_correct:false},{id:"b",text:"Kwame Nkrumah",is_correct:false},{id:"c",text:"Joseph Mensah Sarbah",is_correct:true},{id:"d",text:"Edward Akufo-Addo",is_correct:false}]},
+        {id:"15",prompt:"What were the broken promises made to Gold Coast soldiers after WWII?",options:[{id:"a",text:"Pensions, houses, and jobs",is_correct:true},{id:"b",text:"Free education and healthcare",is_correct:false},{id:"c",text:"Land and cattle",is_correct:false},{id:"d",text:"Cars and bicycles",is_correct:false}]},
+        {id:"16",prompt:"What was one achievement of the NCBWA?",options:[{id:"a",text:"It won immediate independence for Ghana",is_correct:false},{id:"b",text:"It established Legislative Councils in each of the four colonies",is_correct:true},{id:"c",text:"It built the University of Ghana",is_correct:false},{id:"d",text:"It stopped all British trade",is_correct:false}]},
+        {id:"17",prompt:"What book did Joseph Ephraim Casely Hayford write that was the first novel by an African in English?",options:[{id:"a",text:"Things Fall Apart",is_correct:false},{id:"b",text:"Ethiopia Unbound",is_correct:true},{id:"c",text:"The African Child",is_correct:false},{id:"d",text:"Weep Not Child",is_correct:false}]},
+        {id:"18",prompt:"What was the main purpose of the Gold Coast Youth Conference (GCYC)?",options:[{id:"a",text:"To organize sports competitions",is_correct:false},{id:"b",text:"To encourage constitutional and economic development of the Gold Coast",is_correct:true},{id:"c",text:"To start a youth football league",is_correct:false},{id:"d",text:"To build more schools",is_correct:false}]},
+        {id:"19",prompt:"What core competency is most developed when learners study Ghana's journey to independence?",options:[{id:"a",text:"Digital Literacy",is_correct:false},{id:"b",text:"Cultural Identity and Global Citizenship",is_correct:true},{id:"c",text:"Financial Literacy",is_correct:false},{id:"d",text:"Physical Coordination",is_correct:false}]},
+        {id:"20",prompt:"What was the sequence of events that led to Ghana's independence?",options:[{id:"a",text:"Early protest movements → Post-WWII unrest → 1948 riots → Watson Commission → Coussey Committee → Independence",is_correct:true},{id:"b",text:"Independence → 1948 riots → Early protest movements",is_correct:false},{id:"c",text:"Watson Commission → Early protest movements → 1948 riots",is_correct:false},{id:"d",text:"1948 riots → Early protest movements → Independence",is_correct:false}]}
       ];
 
       // === RENDER QUIZ ===
@@ -657,7 +723,7 @@
         localStorage.setItem(`quiz_attempts_${currentChapter}`, attempts);
         localStorage.setItem(`mastery_${currentChapter}`, mastery ? '1' : '0');
 
-        let report = `*Mini OpenStax — Casely Hayford's Leadership in the NCBWA & Literary Legacy*\nStudent: ${userName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
+        let report = `*Mini OpenStax — End of Term Assessment (Week ${currentChapter + 1})*\nStudent: ${userName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
         if (correctList.length) {
           report += `✅ CORRECT ANSWERS (${correctList.length}):\n`;
           correctList.forEach(q => report += `${q.id}. ${q.prompt}\n   → ${q.correctText}\n\n`);
@@ -666,12 +732,24 @@
           report += `❌ INCORRECT ANSWERS (${incorrectList.length}):\n`;
           incorrectList.forEach(q => report += `${q.id}. ${q.prompt}\n   Your answer: ${q.yourAnswer}\n   Correct answer: ${q.correctAnswer}\n\n`);
         }
-        report += `Report generated via Mini OpenStax.\n\nCALL OR WHATSAPP TO REGISTER FOR A CLASS @ +233257320201`;
+        report += `\n🎓 TERM 3 COMPLETION STATUS: ${mastery ? '✅ PASSED - Ready for Term 4!' : '❌ NEEDS REVIEW - Please revisit earlier weeks.'}`;
+        report += `\n\nReport generated via Mini OpenStax.\n\nCALL OR WHATSAPP TO REGISTER FOR A CLASS @ +233257320201`;
 
         const timestamp = Date.now();
         localStorage.setItem(`saved_report_${currentChapter}_${timestamp}`, report);
 
-        let feedbackHTML = `<div class="feedback"><h3>📊 Results: ${score}/${total}</h3><p><strong>${mastery ? '🎉 Excellent!' : score >= total/2 ? 'Good!' : 'Keep practicing.'}</strong></p><p><strong>Time:</strong> ${timeOnTask}s | <strong>Attempts:</strong> ${attempts}</p>`;
+        let feedbackHTML = `<div class="feedback"><h3>📊 End of Term Results: ${score}/${total}</h3>`;
+        if (mastery) {
+          feedbackHTML += `<p style="font-size:1.2rem; color:var(--green); font-weight:700;">🎉 Congratulations! You have mastered Term 3!</p>`;
+          feedbackHTML += `<p>You have demonstrated comprehensive understanding of Ghana's journey to independence. You are ready to move on to Term 4!</p>`;
+        } else if (score >= total/2) {
+          feedbackHTML += `<p style="font-size:1.1rem; color:var(--gold); font-weight:700;">👍 Good effort! You're on the right track.</p>`;
+          feedbackHTML += `<p>Review the incorrect answers below and revisit the relevant weeks to strengthen your understanding.</p>`;
+        } else {
+          feedbackHTML += `<p style="font-size:1.1rem; color:var(--red); font-weight:700;">📚 Keep practicing! Review Term 3 content.</p>`;
+          feedbackHTML += `<p>We recommend going back through Weeks 1-11 to review the material before retaking this assessment.</p>`;
+        }
+        feedbackHTML += `<p><strong>Time:</strong> ${timeOnTask}s | <strong>Attempts:</strong> ${attempts}</p>`;
         if (correctList.length) {
           feedbackHTML += `<details style="margin-top:1rem; background:#e8f5e9; padding:0.8rem; border-radius:6px;"><summary><strong>✅ Correct Answers (${correctList.length})</strong></summary><ul style="margin-top:0.5rem; padding-left:1.2rem;">${correctList.map(q => `<li>${q.id}. ${q.prompt}<br><em>→ ${q.correctText}</em></li>`).join('')}</ul></details>`;
         }
@@ -701,7 +779,7 @@
           const student = (lines.find(l => l.startsWith('Student:')) || '').replace('Student: ', '').trim() || 'Unknown';
           const score = (lines.find(l => l.startsWith('Score:')) || 'Score unknown');
           const date = new Date(rep.timestamp).toLocaleString();
-          return `<div class="report-card"><div class="report-header"><span>Casely Hayford's Leadership in the NCBWA</span><span>${date}</span></div><div class="report-meta">Student: ${student} • ${score}</div><div class="report-detail" id="detail-${rep.timestamp}"></div><div class="report-actions"><button class="btn" onclick="toggleDetail(${rep.timestamp})">Details</button><button class="btn" onclick="viewReportAsPDF('${rep.key}')">PDF</button><button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">WhatsApp</button></div></div>`;
+          return `<div class="report-card"><div class="report-header"><span>End of Term Assessment</span><span>${date}</span></div><div class="report-meta">Student: ${student} • ${score}</div><div class="report-detail" id="detail-${rep.timestamp}"></div><div class="report-actions"><button class="btn" onclick="toggleDetail(${rep.timestamp})">Details</button><button class="btn" onclick="viewReportAsPDF('${rep.key}')">PDF</button><button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">WhatsApp</button></div></div>`;
         }).join('');
         window.reportContents = {};
         reports.forEach(r => window.reportContents[r.timestamp] = r.content);
@@ -720,7 +798,7 @@
         document.getElementById('stat-mastered').textContent = mastered;
         document.getElementById('stat-total').textContent = 1;
         document.getElementById('stat-percent').textContent = `${mastered * 100}%`;
-        document.getElementById('recent-lessons').innerHTML = `<div class="lesson-item"><div><span class="mastery-indicator ${mastered ? 'mastery-yes' : 'mastery-partial'}"></span>Lesson ${currentChapter + 1}</div><span>${mastered ? 'Mastered' : 'In Progress'}</span></div>`;
+        document.getElementById('recent-lessons').innerHTML = `<div class="lesson-item"><div><span class="mastery-indicator ${mastered ? 'mastery-yes' : 'mastery-partial'}"></span>Week ${currentChapter + 1}: End of Term Assessment</div><span>${mastered ? 'Mastered ✅' : 'In Progress'}</span></div>`;
       }
       document.getElementById('btn-send-all').addEventListener('click', () => {
         let msg = `*📚 Mini OpenStax — All Quiz Reports*\nStudent: ${userName}\n\n`; let count = 0;
@@ -766,7 +844,7 @@
         let tabsHtml = '';
         for (let i = Math.max(0, currentChapter - 1); i <= Math.min(MAX_CHAPTERS, currentChapter + 2); i++) {
           const isActive = i === currentChapter;
-          tabsHtml += `<a href="${getChapterUrl(i)}" class="chapter-btn ${isActive ? 'active' : ''}">Lesson ${i + 1}</a>`;
+          tabsHtml += `<a href="${getChapterUrl(i)}" class="chapter-btn ${isActive ? 'active' : ''}">Week ${i + 1}</a>`;
         }
         tabsContainer.innerHTML = tabsHtml;
         if (currentChapter > 0) { prevBtn.style.display = 'inline-block'; prevBtn.onclick = () => window.location.href = getChapterUrl(currentChapter - 1); }
@@ -778,11 +856,6 @@
       // === INIT ===
       document.getElementById('year').textContent = new Date().getFullYear();
       renderQuiz(); updateChapterNavigation();
-      document.getElementById('send-analytics')?.addEventListener('click', (e) => { e.preventDefault(); alert("Usage data collection is handled globally."); });
-    })();
-  </script>
-</body>
-</html> updateChapterNavigation();
       document.getElementById('send-analytics')?.addEventListener('click', (e) => { e.preventDefault(); alert("Usage data collection is handled globally."); });
     })();
   </script>
