@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Mini OpenStax: Examine the formation and role of the UGCC and the Big Six — Class 5 History Chapter 3" />
+  <meta name="description" content="Mini OpenStax: Dr. J.B. Danquah & Gold Coast Youth Conference — Class 5 History Week 4" />
   <meta name="theme-color" content="#006b3d" />
-  <title>Mini OpenStax — The United Gold Coast Convention (UGCC) and the Big Six</title>
+  <title>Mini OpenStax — Dr. J.B. Danquah & GCYC (Week 4)</title>
   
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -30,6 +30,7 @@
       --radius-lg: 1rem;
       --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
       --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
       --space-xs: clamp(0.5rem, 0.8vw, 0.75rem);
       --space-sm: clamp(0.75rem, 1.2vw, 1rem);
       --space-md: clamp(1rem, 2vw, 1.5rem);
@@ -93,6 +94,7 @@
     .nav__link {
       padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm);
       font-weight: 500; color: var(--dark); transition: background var(--transition), color var(--transition);
+      text-decoration: none;
     }
     .nav__link:hover, .nav__link:focus-visible { background: var(--light); color: var(--green); }
     .nav__link[aria-current="page"] { color: var(--green); font-weight: 700; background: var(--light); }
@@ -163,6 +165,7 @@
       background: var(--green); color: white; border: none; padding: 0.6rem 1.2rem;
       border-radius: var(--radius-md); font-weight: 600; cursor: pointer; margin-top: 0.5rem;
       transition: background var(--transition), transform var(--transition);
+      text-decoration: none; display: inline-block;
     }
     .btn:hover, .btn:focus-visible { background: var(--green-dark); transform: translateY(-2px); }
     .btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
@@ -183,6 +186,51 @@
     .checkpoint {
       background: #f8f9fa; padding: var(--space-md); border-left: 4px solid var(--gold);
       margin: var(--space-lg) 0; border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+    .timeline {
+      display: flex; flex-direction: column; gap: var(--space-sm); margin: var(--space-md) 0;
+    }
+    .timeline-item {
+      display: flex; gap: var(--space-sm); padding: var(--space-sm);
+      background: var(--light); border-radius: var(--radius-md);
+      border-left: 4px solid var(--gold);
+    }
+    .timeline-year {
+      font-weight: 700; color: var(--green-dark); min-width: 60px;
+      font-family: monospace; font-size: 1rem;
+    }
+    .timeline-content { flex: 1; font-size: 0.95rem; }
+    .profile-card {
+      background: linear-gradient(135deg, var(--green-light, #e8f5ee), var(--surface));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+      margin: var(--space-md) 0;
+    }
+    .profile-card h4 {
+      color: var(--green-dark);
+      margin-bottom: var(--space-xs);
+      font-family: 'Playfair Display', serif;
+    }
+    .big-six-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+    }
+    .big-six-item {
+      background: var(--light);
+      padding: var(--space-sm);
+      border-radius: var(--radius-sm);
+      text-align: center;
+      border-left: 3px solid var(--gold);
+      font-size: 0.9rem;
+    }
+    .big-six-item.highlight {
+      background: var(--gold);
+      color: var(--dark);
+      font-weight: 700;
+      border-left-color: var(--green);
     }
 
     /* === QUIZ === */
@@ -249,7 +297,7 @@
       max-width: var(--max-w); margin: 0 auto; padding: 0 var(--space-md);
     }
     .footer__title { color: white; margin-bottom: var(--space-sm); font-size: 1.1rem; }
-    .footer__link { color: #94a3b8; transition: color var(--transition); display: inline-block; margin-bottom: var(--space-xs); }
+    .footer__link { color: #94a3b8; transition: color var(--transition); display: inline-block; margin-bottom: var(--space-xs); text-decoration: none; }
     .footer__link:hover { color: white; text-decoration: underline; }
     .footer__bottom {
       text-align: center; margin-top: var(--space-lg); padding-top: var(--space-sm);
@@ -278,6 +326,11 @@
       }
       .card, .modal-content, .report-card { background: #1e293b; }
       .feedback details[open] { background: #064e3b; }
+      th { background-color: #1e3a2a; }
+      .timeline-item { background: #1e293b; }
+      .profile-card { background: linear-gradient(135deg, #0a2e1d, #1e293b); }
+      .big-six-item { background: #1e293b; }
+      .big-six-item.highlight { background: var(--gold); color: var(--dark); }
     }
   </style>
 </head>
@@ -288,7 +341,7 @@
   <!-- Professional Header -->
   <header class="header" role="banner">
     <div class="nav container" style="padding: 0; max-width: 100%;">
-      <a href="class5-history-term3/index.html" class="nav__brand" aria-label="Mini OpenStax Home">
+      <a href="index.html" class="nav__brand" aria-label="Mini OpenStax Home">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         Mini OpenStax
       </a>
@@ -296,11 +349,11 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
       <nav id="main-nav" class="nav__list" role="navigation">
-        <a href="class5-history-term3/index.html" class="nav__link">Home</a>
-        <a href="class5-history-term3/index.html" class="nav__link">Class 5</a>
-        <a href="class5-history-term3/index.html" class="nav__link" aria-current="page">History</a>
-        <a href="class5-history-term3/dashboard.html" class="nav__link">Dashboard</a>
-        <a href="class5-history-term3/contact.html" class="nav__link">Contact</a>
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="dashboard.html" class="nav__link">Class 5</a>
+        <a href="historyChapter-3.html" class="nav__link" aria-current="page">History</a>
+        <a href="dashboard.html" class="nav__link">Dashboard</a>
+        <a href="contact.html" class="nav__link">Contact</a>
       </nav>
     </div>
   </header>
@@ -309,8 +362,8 @@
     <!-- Mini OpenStax App Header -->
     <div class="app-header">
       <div>
-        <h1 id="page-title">The United Gold Coast Convention (UGCC) and the Big Six</h1>
-        <div class="lo-tags">B5.5.1.1.5</div>
+        <h1 id="page-title">Dr. J.B. Danquah & Gold Coast Youth Conference</h1>
+        <div class="lo-tags">B5.5.1.1.4 • Journey to Independence</div>
       </div>
       <div style="display:flex;gap:0.5rem;align-items:center;">
         <div class="role-badge" id="current-role">Student View</div>
@@ -332,10 +385,10 @@
       <div class="section">
         <h2>🎯 What You'll Learn</h2>
         <ul id="objectives">
-          <li>Identify the factors that led to the formation of the UGCC.</li>
-          <li>Name the members of "The Big Six" and their roles.</li>
-          <li>Explain the main goal of the UGCC for the Gold Coast.</li>
-          <li>Describe the events of the 1948 Accra Riots and their impact on the independence struggle.</li>
+          <li>Present a narrative of the role of Dr. J.B. Danquah in the Gold Coast Youth Conference.</li>
+          <li>Retell the story of Dr. J.B. Danquah and the Gold Coast Youth Conference.</li>
+          <li>Understand the significance of Danquah Circle in Accra and its connection to his legacy.</li>
+          <li>Recognise Dr. J.B. Danquah as one of "The Big Six" founding fathers of Ghana.</li>
         </ul>
       </div>
 
@@ -343,58 +396,130 @@
         <h2>🔤 Important Words</h2>
         <p>Key terms for this lesson:</p>
         <div class="word-list" id="word-list">
+          <span class="word-item">Constitutional</span>
+          <span class="word-item">Economic Development</span>
+          <span class="word-item">Elites</span>
+          <span class="word-item">Reforms</span>
+          <span class="word-item">GCYC</span>
           <span class="word-item">UGCC</span>
           <span class="word-item">The Big Six</span>
-          <span class="word-item">Self-government</span>
-          <span class="word-item">Boycott</span>
-          <span class="word-item">Ex-servicemen</span>
-          <span class="word-item">Political Party</span>
-          <span class="word-item">1948 Riots</span>
+          <span class="word-item">Danquah Circle</span>
+          <span class="word-item">Member of Parliament</span>
+          <span class="word-item">Legislative Council</span>
+          <span class="word-item">University College</span>
+          <span class="word-item">Founding Father</span>
         </div>
       </div>
 
       <div class="section" id="lesson-content">
-        <h2>📘 The Birth of the UGCC and the Big Six</h2>
+        <h2>📘 Dr. J.B. Danquah & The Gold Coast Youth Conference</h2>
         
-        <h3>🌍 Background: After World War II</h3>
-        <p>After World War II, soldiers from the Gold Coast returned home expecting jobs and a better life. Instead, they faced high unemployment, rising prices for goods, and a lack of support from the British colonial government. This frustration sparked a new wave of nationalism.</p>
-        
-        <h3>🔥 The 1948 Accra Riots</h3>
-        <p>On <strong>February 28, 1948</strong>, unarmed ex-servicemen were marching peacefully to present their grievances to the Governor. At <strong>Christiansburg Crossroads</strong>, British police opened fire, killing three soldiers: <strong>Sgt Adjetey, Cpl Attipoe, and Pte Odartey Lamptey</strong>. This tragic event sparked massive riots across the country and a boycott of European goods.</p>
-        
-        <h3>🏛️ Formation of the UGCC</h3>
-        <p>In <strong>August 1947</strong>, even before the riots fully peaked, educated elites and traditional chiefs came together to form the <strong>United Gold Coast Convention (UGCC)</strong>. Led by Dr. J.B. Danquah, the UGCC was the <strong>first major political party</strong> in the Gold Coast. Their main demand was <em>"self-government in the shortest possible time."</em></p>
-        
-        <h3>👥 The Big Six</h3>
-        <p>To help organize the movement, the UGCC invited a young, dynamic leader named <strong>Kwame Nkrumah</strong> to become their General Secretary in December 1947. The six key leaders who drove this political movement became known as <strong>"The Big Six"</strong>:</p>
-        <ol>
-          <li>Ebenezer Ako-Adjei</li>
-          <li>Edward Akufo-Addo</li>
-          <li>Joseph Boakye Danquah (J.B. Danquah)</li>
-          <li>Kwame Nkrumah</li>
-          <li>Emmanuel Obetsebi-Lamptey</li>
-          <li>William Ofori Atta</li>
-        </ol>
-        
-        <h3>⛓️ Arrest and Legacy</h3>
-        <p>Following the 1948 riots, the British colonial government arrested the Big Six, blaming them for the unrest. However, this arrest only made them more popular. The people saw them as heroes who were willing to suffer for the freedom of the Gold Coast. The UGCC laid the direct groundwork for Ghana's eventual independence in 1957.</p>
-        
+        <div class="profile-card">
+          <h4>👤 Who was Dr. Joseph Boakye Danquah?</h4>
+          <p><strong>Dr. Joseph Boakye Danquah</strong> (1895–1965) was one of Ghana's most important founding fathers. He was a brilliant scholar, lawyer, politician, and traditional ruler. He is widely remembered as the "<strong>Doyen of Gold Coast Politics</strong>" — meaning the senior and most respected leader of Gold Coast politics in his time.</p>
+        </div>
+
+        <h3>💡 Introduction: The Young Educated Elites</h3>
+        <p>By the late 1920s, a new generation of young, educated Africans had emerged in the Gold Coast. These young people had gone to school, some even abroad, and they were eager to see their country develop. They wanted a greater say in how the country was governed. This is when the <strong>Gold Coast Youth Conference (GCYC)</strong> was born.</p>
+
         <blockquote>
-          💭 <strong>Thought Experiment</strong>: Imagine you are a young person in 1948 hearing that the British have arrested the Big Six for demanding self-government. How would this make you feel about your country's future? What actions might you take to support these leaders?
+          💭 <strong>Think About It</strong>: Why do you think young, educated people would want to form their own conference? What unique contributions could young people bring to the struggle for independence?
         </blockquote>
+
+        <h3>📜 The Gold Coast Youth Conference (GCYC) — 1929</h3>
+        <p>The <strong>Gold Coast Youth Conference</strong> was formed in <strong>1929</strong> by <strong>Dr. J.B. Danquah</strong> together with <strong>Joseph Ephraim Casely Hayford</strong> (whom we learned about in Week 3). The GCYC was different from earlier protest movements because it was led mainly by <strong>young educated elites</strong>.</p>
+
+        <p><strong>Main Aim of the GCYC:</strong></p>
+        <ul>
+          <li>To encourage the <strong>constitutional</strong> and <strong>economic development</strong> of the Gold Coast.</li>
+          <li>To bring the <strong>educated elites</strong> and the <strong>traditional chiefs</strong> together to work as one team.</li>
+          <li>To educate the public about their rights and the need for self-government.</li>
+        </ul>
+
+        <h3>🎓 Dr. J.B. Danquah's Leadership (1937–1947)</h3>
+        <p>Dr. J.B. Danquah became the main leader of the GCYC from <strong>1937 until 1947</strong>. During his leadership, he played several important roles:</p>
+        <ul>
+          <li><strong>Uniting Leaders:</strong> His main role was to bring the educated elites and the traditional chiefs together so they could work as one force for change.</li>
+          <li><strong>Public Education:</strong> Through conferences and lectures, the GCYC educated many public servants, traders, and school leavers about their rights.</li>
+          <li><strong>Constitutional Reforms:</strong> The GCYC designed and presented a programme for constitutional reforms — meaning they wrote down the changes they wanted in the country's laws.</li>
+          <li><strong>University Development:</strong> The GCYC played an important role in the establishment of the <strong>University College of the Gold Coast</strong> (now the University of Ghana, Legon).</li>
+        </ul>
+
+        <h3>🏛️ Achievements of the GCYC</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">1929</div>
+            <div class="timeline-content"><strong>Formation:</strong> GCYC was founded by Dr. J.B. Danquah and Casely Hayford to promote constitutional and economic development.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1930s</div>
+            <div class="timeline-content"><strong>Education Campaign:</strong> Through conferences and lectures, the GCYC educated thousands of public servants, traders, and school leavers.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1940s</div>
+            <div class="timeline-content"><strong>University Role:</strong> The GCYC played an important role in establishing the University College of the Gold Coast.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1947</div>
+            <div class="timeline-content"><strong>UGCC Formation:</strong> Danquah and other GCYC members helped form the United Gold Coast Convention (UGCC), the first political party demanding immediate self-government.</div>
+          </div>
+        </div>
+
+        <h3>⭐ The Big Six — Ghana's Founding Fathers</h3>
+        <p>Dr. J.B. Danquah was one of <strong>"The Big Six"</strong> — the six founding fathers of Ghana who were arrested by the British colonial government after the 1948 riots. The Big Six were:</p>
+
+        <div class="big-six-grid">
+          <div class="big-six-item highlight">🌟 Dr. J.B. Danquah</div>
+          <div class="big-six-item">Dr. Kwame Nkrumah</div>
+          <div class="big-six-item">Edward Akufo-Addo</div>
+          <div class="big-six-item">Emmanuel Obetsebi-Lamptey</div>
+          <div class="big-six-item">Dr. Ebenezer Ako-Adjei</div>
+          <div class="big-six-item">William Ofori Atta</div>
+        </div>
+
+        <p>These six leaders were members of the <strong>UGCC (United Gold Coast Convention)</strong>, which was formed in <strong>1947</strong> with Danquah's help. The UGCC was the first major political party in the Gold Coast that demanded <strong>immediate self-government</strong>.</p>
+
+        <h3>🏛️ Danquah Circle — A Lasting Legacy</h3>
+        <p>If you have ever been to Accra, you may have heard of <strong>Danquah Circle</strong> — a major junction in the centre of Accra. This important place is named after Dr. J.B. Danquah to honour his contribution to Ghana's independence. It reminds us every day of the sacrifices made by our founding fathers.</p>
+
+        <p><strong>Other achievements of Dr. J.B. Danquah:</strong></p>
+        <ul>
+          <li>He was elected as a <strong>Member of Parliament (MP)</strong> in <strong>1951</strong>.</li>
+          <li>He was a brilliant scholar who studied in the United Kingdom.</li>
+          <li>He helped draft the ideas that eventually led to Ghana's independence in 1957.</li>
+          <li>He is remembered as a teacher to many other independence leaders, including Kwame Nkrumah.</li>
+        </ul>
+
+        <blockquote>
+          💭 <strong>Think About It</strong>: Dr. J.B. Danquah brought together the educated elites and the traditional chiefs. Why do you think it was important for these two groups to work together? What would have happened if they had not united?
+        </blockquote>
+
+        <h3>📝 Summary of the Lesson</h3>
+        <p>In this lesson, we learned about <strong>Dr. Joseph Boakye Danquah</strong> and his leadership of the <strong>Gold Coast Youth Conference (GCYC)</strong>. We discovered that:</p>
+        <ul>
+          <li>The GCYC was formed in <strong>1929</strong> by Dr. J.B. Danquah and Casely Hayford.</li>
+          <li>Danquah led the GCYC from <strong>1937 to 1947</strong>.</li>
+          <li>The main aim was <strong>constitutional and economic development</strong> of the Gold Coast.</li>
+          <li>Danquah's main role was to <strong>unite the educated elites and the traditional chiefs</strong>.</li>
+          <li>The GCYC helped establish the <strong>University College of the Gold Coast</strong>.</li>
+          <li>Danquah was one of <strong>The Big Six</strong> founding fathers of Ghana.</li>
+          <li><strong>Danquah Circle</strong> in Accra is named in his honour.</li>
+        </ul>
       </div>
 
       <div class="section">
         <h2>✅ Check Your Understanding</h2>
         <div class="checkpoint">
           <ol>
-            <li>What was the main goal of the UGCC?</li>
-            <li>Name at least three members of the Big Six.</li>
-            <li>Why were the ex-servicemen marching on February 28, 1948?</li>
-            <li>How did the British government react to the 1948 riots?</li>
-            <li>Why is the UGCC considered a turning point in Ghana's history?</li>
+            <li>Who formed the Gold Coast Youth Conference (GCYC) together with Casely Hayford?</li>
+            <li>In what year was the GCYC formed?</li>
+            <li>What was the main aim of the GCYC?</li>
+            <li>What was Dr. J.B. Danquah's main role as leader of the GCYC?</li>
+            <li>Name one important institution that the GCYC helped to establish.</li>
+            <li>What group of six leaders was Dr. J.B. Danquah a part of?</li>
+            <li>What major junction in Accra is named after Dr. J.B. Danquah?</li>
           </ol>
-          <p><em>Confirm your understanding before moving on.</em></p>
+          <p><em>Confirm your understanding before moving on to the quiz.</em></p>
         </div>
       </div>
 
@@ -408,8 +533,8 @@
       <div class="chapter-nav" id="chapter-navigation">
         <div class="chapter-tabs" id="chapter-tabs"></div>
         <div>
-          <button id="prev-btn" class="btn" style="margin-right: 0.5rem; display: none;">← Previous Lesson</button>
-          <button id="next-btn" class="btn" style="display: none;">Next Lesson →</button>
+          <button id="prev-btn" class="btn" style="margin-right: 0.5rem; display: none;">← Previous Week</button>
+          <button id="next-btn" class="btn" style="display: none;">Next Week →</button>
         </div>
       </div>
 
@@ -427,7 +552,7 @@
           </div>
           <div class="stat-item">
             <div class="stat-value" id="stat-total">1</div>
-            <div class="stat-label">Total Lessons</div>
+            <div class="stat-label">Total Weeks</div>
           </div>
           <div class="stat-item">
             <div class="stat-value" id="stat-percent">0%</div>
@@ -481,10 +606,10 @@
       <div>
         <h4 class="footer__title">Quick Links</h4>
         <nav aria-label="Footer navigation">
-          <a href="class5-history-term3/index.html" class="footer__link">Home</a><br>
-          <a href="class5-history-term3/index.html" class="footer__link">Class 5</a><br>
-          <a href="class5-history-term3/index.html" class="footer__link">History Lessons</a><br>
-          <a href="class5-history-term3/contact.html" class="footer__link">Contact Support</a>
+          <a href="index.html" class="footer__link">Home</a><br>
+          <a href="dashboard.html" class="footer__link">Class 5</a><br>
+          <a href="historyChapter-3.html" class="footer__link">History Lessons</a><br>
+          <a href="contact.html" class="footer__link">Contact Support</a>
         </nav>
       </div>
       <div>
@@ -497,7 +622,7 @@
       </div>
     </div>
     <div class="footer__bottom">
-      <p>&copy; <span id="year"></span> Mini OpenStax. Content aligned with NaCCA curriculum. <a href="class5-history-term3/privacy.html" class="footer__link">Privacy</a></p>
+      <p>&copy; <span id="year"></span> Mini OpenStax. Content aligned with NaCCA curriculum. <a href="privacy.html" class="footer__link">Privacy</a></p>
     </div>
   </footer>
 
@@ -510,8 +635,8 @@
       // === AUTO-DETECT CHAPTER NUMBER FROM URL ===
       const path = window.location.pathname;
       const match = path.match(/historyChapter-(\d+)\.html/);
-      const currentChapter = match ? parseInt(match[1], 10) : 0;
-      const MAX_CHAPTERS = 300;
+      const currentChapter = match ? parseInt(match[1], 10) : 3;
+      const MAX_CHAPTERS = 11; // 12 weeks total (0 to 11)
 
       function getChapterUrl(n) {
         return `historyChapter-${n}.html`;
@@ -591,28 +716,28 @@
       };
       window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
 
-      // === QUIZ DATA (20 Questions - UGCC & The Big Six) ===
+      // === QUIZ DATA (20 Questions - Dr. J.B. Danquah & GCYC) ===
       const assessmentItems = [
-        {id:"1",prompt:"When was the UGCC formed?",options:[{id:"a",text:"August 1947",is_correct:true},{id:"b",text:"February 1948",is_correct:false},{id:"c",text:"March 1957",is_correct:false},{id:"d",text:"January 1946",is_correct:false}]},
-        {id:"2",prompt:"What does UGCC stand for?",options:[{id:"a",text:"United Gold Coast Convention",is_correct:true},{id:"b",text:"United Ghana Congress Committee",is_correct:false},{id:"c",text:"Union of Gold Coast Citizens",is_correct:false},{id:"d",text:"United Gold Coast Council",is_correct:false}]},
-        {id:"3",prompt:"What was the main goal of the UGCC?",options:[{id:"a",text:"To support British colonial rule",is_correct:false},{id:"b",text:"Self-government in the shortest possible time",is_correct:true},{id:"c",text:"To start a war with Britain",is_correct:false},{id:"d",text:"To build more schools only",is_correct:false}]},
-        {id:"4",prompt:"Who were the founding leaders of the UGCC known as?",options:[{id:"a",text:"The Big Six",is_correct:true},{id:"b",text:"The Big Four",is_correct:false},{id:"c",text:"The Founding Fathers",is_correct:false},{id:"d",text:"The Golden Trio",is_correct:false}]},
-        {id:"5",prompt:"Which event in 1948 led to the arrest of the Big Six?",options:[{id:"a",text:"The 1948 Accra Riots",is_correct:true},{id:"b",text:"The formation of the CPP",is_correct:false},{id:"c",text:"The signing of the Burns Constitution",is_correct:false},{id:"d",text:"A visit by the Queen of England",is_correct:false}]},
-        {id:"6",prompt:"Where were the three ex-servicemen shot by British police?",options:[{id:"a",text:"Independence Square",is_correct:false},{id:"b",text:"Christiansburg Crossroads",is_correct:true},{id:"c",text:"Kwame Nkrumah Circle",is_correct:false},{id:"d",text:"Makola Market",is_correct:false}]},
-        {id:"7",prompt:"Why did the ex-servicemen march on February 28, 1948?",options:[{id:"a",text:"To celebrate a holiday",is_correct:false},{id:"b",text:"To present their grievances to the Governor",is_correct:true},{id:"c",text:"To attack the British police",is_correct:false},{id:"d",text:"To go to the beach",is_correct:false}]},
-        {id:"8",prompt:"Who was invited to become the General Secretary of the UGCC in 1947?",options:[{id:"a",text:"Kwame Nkrumah",is_correct:true},{id:"b",text:"Jerry Rawlings",is_correct:false},{id:"c",text:"J.B. Danquah",is_correct:false},{id:"d",text:"Kofi Annan",is_correct:false}]},
-        {id:"9",prompt:"Which of the following is NOT one of the Big Six?",options:[{id:"a",text:"Ebenezer Ako-Adjei",is_correct:false},{id:"b",text:"Edward Akufo-Addo",is_correct:false},{id:"c",text:"Jerry Rawlings",is_correct:true},{id:"d",text:"William Ofori Atta",is_correct:false}]},
-        {id:"10",prompt:"What was the UGCC?",options:[{id:"a",text:"A British military group",is_correct:false},{id:"b",text:"The first major political party in the Gold Coast",is_correct:true},{id:"c",text:"A traditional chief's council",is_correct:false},{id:"d",text:"A trading company",is_correct:false}]},
-        {id:"11",prompt:"What major problem did ex-servicemen face after World War II?",options:[{id:"a",text:"They had too many jobs",is_correct:false},{id:"b",text:"Unemployment and lack of benefits",is_correct:true},{id:"c",text:"They were given too much money",is_correct:false},{id:"d",text:"They were forced to leave the country",is_correct:false}]},
-        {id:"12",prompt:"What action did the people take against European goods before the riots?",options:[{id:"a",text:"A boycott",is_correct:true},{id:"b",text:"They bought more of them",is_correct:false},{id:"c",text:"They gave them away for free",is_correct:false},{id:"d",text:"They hid them in their houses",is_correct:false}]},
-        {id:"13",prompt:"What happened to the Big Six after the 1948 riots?",options:[{id:"a",text:"They were awarded medals",is_correct:false},{id:"b",text:"They were arrested by the British government",is_correct:true},{id:"c",text:"They became the new Governors",is_correct:false},{id:"d",text:"They fled to another country",is_correct:false}]},
-        {id:"14",prompt:"How did the arrest of the Big Six affect their popularity?",options:[{id:"a",text:"People stopped liking them",is_correct:false},{id:"b",text:"It made them more popular and seen as heroes",is_correct:true},{id:"c",text:"It had no effect",is_correct:false},{id:"d",text:"People were angry at them",is_correct:false}]},
-        {id:"15",prompt:"Which constitution did the UGCC want to improve upon?",options:[{id:"a",text:"The 1969 Constitution",is_correct:false},{id:"b",text:"The Burns Constitution of 1946",is_correct:true},{id:"c",text:"The 1992 Constitution",is_correct:false},{id:"d",text:"The Clifford Constitution of 1916",is_correct:false}]},
-        {id:"16",prompt:"What did the UGCC demand for the Gold Coast?",options:[{id:"a",text:"Complete independence immediately",is_correct:false},{id:"b",text:"Self-government in the shortest possible time",is_correct:true},{id:"c",text:"To remain a British colony forever",is_correct:false},{id:"d",text:"To be ruled by the United Nations",is_correct:false}]},
-        {id:"17",prompt:"Which war had the ex-servicemen just returned from when they faced unemployment?",options:[{id:"a",text:"World War I",is_correct:false},{id:"b",text:"World War II",is_correct:true},{id:"c",text:"The Cold War",is_correct:false},{id:"d",text:"The Vietnam War",is_correct:false}]},
-        {id:"18",prompt:"Who was the prominent lawyer and founder of the UGCC?",options:[{id:"a",text:"Kwame Nkrumah",is_correct:false},{id:"b",text:"J.B. Danquah",is_correct:true},{id:"c",text:"Jerry Rawlings",is_correct:false},{id:"d",text:"Kofi Annan",is_correct:false}]},
-        {id:"19",prompt:"Why did the British arrest the Big Six?",options:[{id:"a",text:"They stole money",is_correct:false},{id:"b",text:"They blamed them for causing the 1948 riots",is_correct:true},{id:"c",text:"They refused to pay taxes",is_correct:false},{id:"d",text:"They left the country",is_correct:false}]},
-        {id:"20",prompt:"Why is the UGCC important in Ghana's history?",options:[{id:"a",text:"It was the first major political party to demand self-government",is_correct:true},{id:"b",text:"It built the University of Ghana",is_correct:false},{id:"c",text:"It started the Gold Coast economy",is_correct:false},{id:"d",text:"It ended World War II",is_correct:false}]}
+        {id:"1",prompt:"Who was the main leader of the Gold Coast Youth Conference (GCYC) from 1937 to 1947?",options:[{id:"a",text:"Dr. Kwame Nkrumah",is_correct:false},{id:"b",text:"Dr. J.B. Danquah",is_correct:true},{id:"c",text:"Joseph Mensah Sarbah",is_correct:false},{id:"d",text:"Casely Hayford",is_correct:false}]},
+        {id:"2",prompt:"In what year was the Gold Coast Youth Conference (GCYC) formed?",options:[{id:"a",text:"1897",is_correct:false},{id:"b",text:"1917",is_correct:false},{id:"c",text:"1929",is_correct:true},{id:"d",text:"1947",is_correct:false}]},
+        {id:"3",prompt:"Who co-founded the GCYC together with Dr. J.B. Danquah?",options:[{id:"a",text:"Dr. Kwame Nkrumah",is_correct:false},{id:"b",text:"Joseph Ephraim Casely Hayford",is_correct:true},{id:"c",text:"Joseph Mensah Sarbah",is_correct:false},{id:"d",text:"Edward Akufo-Addo",is_correct:false}]},
+        {id:"4",prompt:"What was the main aim of the Gold Coast Youth Conference?",options:[{id:"a",text:"To start a war against the British",is_correct:false},{id:"b",text:"To encourage constitutional and economic development of the Gold Coast",is_correct:true},{id:"c",text:"To build more churches",is_correct:false},{id:"d",text:"To stop all foreign trade",is_correct:false}]},
+        {id:"5",prompt:"What was Dr. J.B. Danquah's main role as leader of the GCYC?",options:[{id:"a",text:"To collect taxes from the people",is_correct:false},{id:"b",text:"To bring the educated elites and the traditional chiefs together",is_correct:true},{id:"c",text:"To become the British governor",is_correct:false},{id:"d",text:"To write songs for the movement",is_correct:false}]},
+        {id:"6",prompt:"Through conferences and lectures, the GCYC educated many people. Which group was NOT mentioned as being educated by the GCYC?",options:[{id:"a",text:"Public servants",is_correct:false},{id:"b",text:"Traders",is_correct:false},{id:"c",text:"School leavers",is_correct:false},{id:"d",text:"British colonial officers",is_correct:true}]},
+        {id:"7",prompt:"What important institution did the GCYC play a role in establishing?",options:[{id:"a",text:"Kumasi City Mall",is_correct:false},{id:"b",text:"University College of the Gold Coast (now University of Ghana)",is_correct:true},{id:"c",text:"Kotoka International Airport",is_correct:false},{id:"d",text:"The Gold Coast Railway",is_correct:false}]},
+        {id:"8",prompt:"What famous group of six leaders was Dr. J.B. Danquah a part of?",options:[{id:"a",text:"The Big Seven",is_correct:false},{id:"b",text:"The Big Six",is_correct:true},{id:"c",text:"The Six Heroes",is_correct:false},{id:"d",text:"The Six Chiefs",is_correct:false}]},
+        {id:"9",prompt:"Which political party did Dr. J.B. Danquah help form in 1947?",options:[{id:"a",text:"Convention People's Party (CPP)",is_correct:false},{id:"b",text:"United Gold Coast Convention (UGCC)",is_correct:true},{id:"c",text:"National Democratic Congress (NDC)",is_correct:false},{id:"d",text:"New Patriotic Party (NPP)",is_correct:false}]},
+        {id:"10",prompt:"What major junction in Accra is named after Dr. J.B. Danquah?",options:[{id:"a",text:"Kwame Nkrumah Circle",is_correct:false},{id:"b",text:"Ridge Circle",is_correct:false},{id:"c",text:"Danquah Circle",is_correct:true},{id:"d",text:"Osu Circle",is_correct:false}]},
+        {id:"11",prompt:"In what year was Dr. J.B. Danquah elected as a Member of Parliament?",options:[{id:"a",text:"1947",is_correct:false},{id:"b",text:"1951",is_correct:true},{id:"c",text:"1957",is_correct:false},{id:"d",text:"1960",is_correct:false}]},
+        {id:"12",prompt:"What title is often given to Dr. J.B. Danquah in Gold Coast politics?",options:[{id:"a",text:"Father of the Nation",is_correct:false},{id:"b",text:"Doyen of Gold Coast Politics",is_correct:true},{id:"c",text:"King of the Gold Coast",is_correct:false},{id:"d",text:"President of West Africa",is_correct:false}]},
+        {id:"13",prompt:"Which of the following was NOT one of The Big Six?",options:[{id:"a",text:"Dr. Kwame Nkrumah",is_correct:false},{id:"b",text:"Edward Akufo-Addo",is_correct:false},{id:"c",text:"Joseph Mensah Sarbah",is_correct:true},{id:"d",text:"Dr. Ebenezer Ako-Adjei",is_correct:false}]},
+        {id:"14",prompt:"What did the GCYC design and present for the Gold Coast?",options:[{id:"a",text:"A new flag",is_correct:false},{id:"b",text:"A programme for constitutional reforms",is_correct:true},{id:"c",text:"A national anthem",is_correct:false},{id:"d",text:"A new currency",is_correct:false}]},
+        {id:"15",prompt:"Who mainly formed the Gold Coast Youth Conference?",options:[{id:"a",text:"Farmers and fishermen",is_correct:false},{id:"b",text:"Young educated elites",is_correct:true},{id:"c",text:"British colonial officers",is_correct:false},{id:"d",text:"Traditional priests",is_correct:false}]},
+        {id:"16",prompt:"What does the word 'constitutional' mean in the context of the GCYC's aims?",options:[{id:"a",text:"Related to the country's laws and system of government",is_correct:true},{id:"b",text:"Related to building roads",is_correct:false},{id:"c",text:"Related to farming methods",is_correct:false},{id:"d",text:"Related to traditional dances",is_correct:false}]},
+        {id:"17",prompt:"Why was it important for the educated elites and traditional chiefs to work together?",options:[{id:"a",text:"So they could have more fun together",is_correct:false},{id:"b",text:"So they could form a stronger united force for change",is_correct:true},{id:"c",text:"So they could stop trading with other countries",is_correct:false},{id:"d",text:"So they could build more schools only",is_correct:false}]},
+        {id:"18",prompt:"What was the main demand of the UGCC when it was formed in 1947?",options:[{id:"a",text:"Immediate self-government for the Gold Coast",is_correct:true},{id:"b",text:"To make English the only language spoken",is_correct:false},{id:"c",text:"To join another country",is_correct:false},{id:"d",text:"To stop all education",is_correct:false}]},
+        {id:"19",prompt:"Which of these statements about Dr. J.B. Danquah is TRUE?",options:[{id:"a",text:"He was a British colonial officer",is_correct:false},{id:"b",text:"He was a brilliant scholar who studied in the United Kingdom",is_correct:true},{id:"c",text:"He opposed Ghana's independence",is_correct:false},{id:"d",text:"He never went to school",is_correct:false}]},
+        {id:"20",prompt:"Which core competency is developed when learners study the role of Dr. J.B. Danquah and the GCYC?",options:[{id:"a",text:"Financial Literacy",is_correct:false},{id:"b",text:"Cultural Identity and Global Citizenship",is_correct:true},{id:"c",text:"Physical Coordination",is_correct:false},{id:"d",text:"Digital Literacy",is_correct:false}]}
       ];
 
       // === RENDER QUIZ ===
@@ -664,7 +789,7 @@
         localStorage.setItem(`quiz_attempts_${currentChapter}`, attempts);
         localStorage.setItem(`mastery_${currentChapter}`, mastery ? '1' : '0');
 
-        let report = `*Mini OpenStax — The United Gold Coast Convention (UGCC) and the Big Six*\nStudent: ${userName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
+        let report = `*Mini OpenStax — Dr. J.B. Danquah & GCYC (Week ${currentChapter + 1})*\nStudent: ${userName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
         if (correctList.length) {
           report += `✅ CORRECT ANSWERS (${correctList.length}):\n`;
           correctList.forEach(q => report += `${q.id}. ${q.prompt}\n   → ${q.correctText}\n\n`);
@@ -708,7 +833,7 @@
           const student = (lines.find(l => l.startsWith('Student:')) || '').replace('Student: ', '').trim() || 'Unknown';
           const score = (lines.find(l => l.startsWith('Score:')) || 'Score unknown');
           const date = new Date(rep.timestamp).toLocaleString();
-          return `<div class="report-card"><div class="report-header"><span>The UGCC and the Big Six</span><span>${date}</span></div><div class="report-meta">Student: ${student} • ${score}</div><div class="report-detail" id="detail-${rep.timestamp}"></div><div class="report-actions"><button class="btn" onclick="toggleDetail(${rep.timestamp})">Details</button><button class="btn" onclick="viewReportAsPDF('${rep.key}')">PDF</button><button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">WhatsApp</button></div></div>`;
+          return `<div class="report-card"><div class="report-header"><span>Dr. J.B. Danquah & GCYC</span><span>${date}</span></div><div class="report-meta">Student: ${student} • ${score}</div><div class="report-detail" id="detail-${rep.timestamp}"></div><div class="report-actions"><button class="btn" onclick="toggleDetail(${rep.timestamp})">Details</button><button class="btn" onclick="viewReportAsPDF('${rep.key}')">PDF</button><button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">WhatsApp</button></div></div>`;
         }).join('');
         window.reportContents = {};
         reports.forEach(r => window.reportContents[r.timestamp] = r.content);
@@ -727,7 +852,7 @@
         document.getElementById('stat-mastered').textContent = mastered;
         document.getElementById('stat-total').textContent = 1;
         document.getElementById('stat-percent').textContent = `${mastered * 100}%`;
-        document.getElementById('recent-lessons').innerHTML = `<div class="lesson-item"><div><span class="mastery-indicator ${mastered ? 'mastery-yes' : 'mastery-partial'}"></span>Lesson ${currentChapter + 1}</div><span>${mastered ? 'Mastered' : 'In Progress'}</span></div>`;
+        document.getElementById('recent-lessons').innerHTML = `<div class="lesson-item"><div><span class="mastery-indicator ${mastered ? 'mastery-yes' : 'mastery-partial'}"></span>Week ${currentChapter + 1}: Dr. J.B. Danquah & GCYC</div><span>${mastered ? 'Mastered' : 'In Progress'}</span></div>`;
       }
       document.getElementById('btn-send-all').addEventListener('click', () => {
         let msg = `*📚 Mini OpenStax — All Quiz Reports*\nStudent: ${userName}\n\n`; let count = 0;
@@ -773,7 +898,7 @@
         let tabsHtml = '';
         for (let i = Math.max(0, currentChapter - 1); i <= Math.min(MAX_CHAPTERS, currentChapter + 2); i++) {
           const isActive = i === currentChapter;
-          tabsHtml += `<a href="${getChapterUrl(i)}" class="chapter-btn ${isActive ? 'active' : ''}">Lesson ${i + 1}</a>`;
+          tabsHtml += `<a href="${getChapterUrl(i)}" class="chapter-btn ${isActive ? 'active' : ''}">Week ${i + 1}</a>`;
         }
         tabsContainer.innerHTML = tabsHtml;
         if (currentChapter > 0) { prevBtn.style.display = 'inline-block'; prevBtn.onclick = () => window.location.href = getChapterUrl(currentChapter - 1); }
