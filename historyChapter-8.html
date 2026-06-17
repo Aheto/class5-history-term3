@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Mini OpenStax: Examine the recommendations of the Watson Commission and the Coussey Constitution — Class 5 History Chapter 8" />
+  <meta name="description" content="Mini OpenStax: The Watson Commission — Class 5 History Week 9" />
   <meta name="theme-color" content="#006b3d" />
-  <title>Mini OpenStax — The Coussey Constitution and the Birth of the CPP</title>
+  <title>Mini OpenStax — The Watson Commission (Week 9)</title>
   
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -30,6 +30,7 @@
       --radius-lg: 1rem;
       --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
       --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
       --space-xs: clamp(0.5rem, 0.8vw, 0.75rem);
       --space-sm: clamp(0.75rem, 1.2vw, 1rem);
       --space-md: clamp(1rem, 2vw, 1.5rem);
@@ -93,6 +94,7 @@
     .nav__link {
       padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm);
       font-weight: 500; color: var(--dark); transition: background var(--transition), color var(--transition);
+      text-decoration: none;
     }
     .nav__link:hover, .nav__link:focus-visible { background: var(--light); color: var(--green); }
     .nav__link[aria-current="page"] { color: var(--green); font-weight: 700; background: var(--light); }
@@ -163,6 +165,7 @@
       background: var(--green); color: white; border: none; padding: 0.6rem 1.2rem;
       border-radius: var(--radius-md); font-weight: 600; cursor: pointer; margin-top: 0.5rem;
       transition: background var(--transition), transform var(--transition);
+      text-decoration: none; display: inline-block;
     }
     .btn:hover, .btn:focus-visible { background: var(--green-dark); transform: translateY(-2px); }
     .btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
@@ -183,6 +186,27 @@
     .checkpoint {
       background: #f8f9fa; padding: var(--space-md); border-left: 4px solid var(--gold);
       margin: var(--space-lg) 0; border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+    .timeline {
+      display: flex; flex-direction: column; gap: var(--space-sm); margin: var(--space-md) 0;
+    }
+    .timeline-item {
+      display: flex; gap: var(--space-sm); padding: var(--space-sm);
+      background: var(--light); border-radius: var(--radius-md);
+      border-left: 4px solid var(--gold);
+    }
+    .timeline-year {
+      font-weight: 700; color: var(--green-dark); min-width: 60px;
+      font-family: monospace; font-size: 1rem;
+    }
+    .timeline-content { flex: 1; font-size: 0.95rem; }
+    .findings-list {
+      background: #fff8e1; padding: var(--space-md); border-radius: var(--radius-md);
+      border-left: 4px solid var(--gold); margin: var(--space-md) 0;
+    }
+    .recommendations-list {
+      background: #e8f5e9; padding: var(--space-md); border-radius: var(--radius-md);
+      border-left: 4px solid var(--green); margin: var(--space-md) 0;
     }
 
     /* === QUIZ === */
@@ -249,7 +273,7 @@
       max-width: var(--max-w); margin: 0 auto; padding: 0 var(--space-md);
     }
     .footer__title { color: white; margin-bottom: var(--space-sm); font-size: 1.1rem; }
-    .footer__link { color: #94a3b8; transition: color var(--transition); display: inline-block; margin-bottom: var(--space-xs); }
+    .footer__link { color: #94a3b8; transition: color var(--transition); display: inline-block; margin-bottom: var(--space-xs); text-decoration: none; }
     .footer__link:hover { color: white; text-decoration: underline; }
     .footer__bottom {
       text-align: center; margin-top: var(--space-lg); padding-top: var(--space-sm);
@@ -278,6 +302,10 @@
       }
       .card, .modal-content, .report-card { background: #1e293b; }
       .feedback details[open] { background: #064e3b; }
+      th { background-color: #1e3a2a; }
+      .timeline-item { background: #1e293b; }
+      .findings-list { background: #3d3400; }
+      .recommendations-list { background: #0a2e1d; }
     }
   </style>
 </head>
@@ -297,8 +325,8 @@
       </button>
       <nav id="main-nav" class="nav__list" role="navigation">
         <a href="index.html" class="nav__link">Home</a>
-        <a href="index.html" class="nav__link">Class 5</a>
-        <a href="index.html" class="nav__link" aria-current="page">History</a>
+        <a href="dashboard.html" class="nav__link">Class 5</a>
+        <a href="historyChapter-8.html" class="nav__link" aria-current="page">History</a>
         <a href="dashboard.html" class="nav__link">Dashboard</a>
         <a href="contact.html" class="nav__link">Contact</a>
       </nav>
@@ -309,8 +337,8 @@
     <!-- Mini OpenStax App Header -->
     <div class="app-header">
       <div>
-        <h1 id="page-title">The Coussey Constitution and the Birth of the CPP</h1>
-        <div class="lo-tags">B5.5.3.1.3</div>
+        <h1 id="page-title">The Watson Commission</h1>
+        <div class="lo-tags">B5.5.3.1.2 • Journey to Independence</div>
       </div>
       <div style="display:flex;gap:0.5rem;align-items:center;">
         <div class="role-badge" id="current-role">Student View</div>
@@ -332,10 +360,10 @@
       <div class="section">
         <h2>🎯 What You'll Learn</h2>
         <ul id="objectives">
-          <li>Understand the main recommendations of the Watson Commission.</li>
-          <li>Identify the Coussey Commission and its role in drafting a new constitution.</li>
-          <li>Explain the differences between the UGCC's and Kwame Nkrumah's approaches to independence.</li>
-          <li>Describe the formation of the Convention People's Party (CPP) in 1949.</li>
+          <li>Explain what the Watson Commission was and why it was established.</li>
+          <li>Describe the main findings of the Watson Commission about the causes of the 1948 riots.</li>
+          <li>Discuss the key recommendations made by the Watson Commission.</li>
+          <li>Understand how the Watson Commission shaped Ghana's path toward independence.</li>
         </ul>
       </div>
 
@@ -343,65 +371,130 @@
         <h2>🔤 Important Words</h2>
         <p>Key terms for this lesson:</p>
         <div class="word-list" id="word-list">
+          <span class="word-item">Commission</span>
+          <span class="word-item">Investigation</span>
+          <span class="word-item">Recommendations</span>
           <span class="word-item">Constitution</span>
-          <span class="word-item">Coussey Commission</span>
-          <span class="word-item">Convention People's Party (CPP)</span>
-          <span class="word-item">Self-Government Now</span>
-          <span class="word-item">Mass Movement</span>
-          <span class="word-item">Legislative Council</span>
+          <span class="word-item">Unrest</span>
+          <span class="word-item">Riots</span>
+          <span class="word-item">Colonial Government</span>
+          <span class="word-item">Self-Government</span>
+          <span class="word-item">Reforms</span>
+          <span class="word-item">Representatives</span>
+          <span class="word-item">Watson Commission</span>
+          <span class="word-item">Coussey Committee</span>
         </div>
       </div>
 
       <div class="section" id="lesson-content">
-        <h2>📘 The Path to a New Constitution and the CPP</h2>
+        <h2>📘 The Watson Commission</h2>
         
-        <h3>⚖️ The Watson Commission's Recommendations</h3>
-        <p>Following the 1948 riots, the British government set up the <strong>Watson Commission</strong> to investigate the causes of the unrest. The Commission made several important recommendations:</p>
-        <ul>
-          <li>The <strong>'Big Six'</strong> leaders should be released from detention.</li>
-          <li>The most crucial recommendation was that the local people of the Gold Coast should be allowed to <strong>draft their own constitution</strong>.</li>
-        </ul>
-        <p>The British government accepted this recommendation and set up a new committee to draft the constitution.</p>
-        
-        <h3>📜 The Coussey Commission and Constitution</h3>
-        <p>In 1949, a committee led by <strong>Justice Coussey</strong> was formed to draft the new constitution. This became known as the <strong>Coussey Commission</strong>.</p>
-        <p>The resulting <strong>Coussey Constitution of 1951</strong> was a major step forward because:</p>
-        <ul>
-          <li>It introduced <strong>elections</strong> for the first time, allowing Africans to vote.</li>
-          <li>It created a new Legislative Council with a <strong>majority of African members</strong>.</li>
-          <li>It gave Ghanaians more power to participate in their own government.</li>
-        </ul>
-        
-        <h3>⚡ "Self-Government NOW!"</h3>
-        <p>While the Coussey Constitution was a step forward, it was not fast enough for everyone. A young, dynamic leader named <strong>Kwame Nkrumah</strong> felt that the gradual approach was too slow.</p>
-        <table>
-          <thead>
-            <tr><th>Leader / Group</th><th>Demand for Independence</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>The UGCC (The Big Six)</td><td>"Self-Government in the <em>shortest possible time</em>" (Gradual approach)</td></tr>
-            <tr><td>Kwame Nkrumah & The Youth</td><td>"<strong>Self-Government NOW!</strong>" (Immediate independence)</td></tr>
-          </tbody>
-        </table>
-        
-        <h3>🚩 The Birth of the CPP</h3>
-        <p>Because of this fundamental disagreement, Kwame Nkrumah broke away from the UGCC in <strong>June 1949</strong>. He formed a new political party called the <strong>Convention People's Party (CPP)</strong>.</p>
-        <p>Unlike the UGCC, which was mostly made up of educated elites and chiefs, the CPP became a <strong>mass movement</strong>. It involved ordinary people, market women, workers, farmers, and the youth. The CPP's main goal was clear: immediate self-government and total independence from British rule.</p>
+        <h3>💡 What Happened Before the Watson Commission?</h3>
+        <p>After the <strong>1948 riots</strong> that shook the Gold Coast, the British colonial government realised that something serious had happened. The shooting of the three ex-servicemen — <strong>Sergeant Adjetey, Corporal Attipoe, and Private Odartey Lamptey</strong> — on 28th February 1948 had sparked anger across the country. People were rioting, foreign-owned shops were being looted, and the "Big Six" leaders had been arrested. The British government knew they had to find out what had caused all this trouble.</p>
         
         <blockquote>
-          💭 <strong>Thought Experiment</strong>: Imagine you are a young person in 1949. You have seen the British break their promises and shoot unarmed soldiers. The older leaders say "wait a little longer" for independence, but you and your friends say "we want it NOW!" Why do you think the youth were so impatient for freedom?
+          💭 <strong>Think About It</strong>: If you were the British governor, what would you do after such serious riots broke out across the country?
         </blockquote>
+
+        <h3>🏛️ What Was the Watson Commission?</h3>
+        <p>The <strong>Watson Commission</strong> was a team of investigators sent by the British colonial government to the Gold Coast in <strong>1948</strong>. It was named after its chairman, <strong>Mr. A. C. Watson</strong>. The commission was given a very important job:</p>
+        <ul>
+          <li>To <strong>investigate</strong> (find out) what had caused the 1948 riots</li>
+          <li>To look at the general state of affairs in the Gold Coast</li>
+          <li>To make <strong>recommendations</strong> (suggestions) to the British government on how to respond</li>
+        </ul>
+        <p>A commission like this is a group of people chosen to look carefully into a serious problem and report their findings.</p>
+
+        <h3>🔍 The Main Findings of the Watson Commission</h3>
+        <p>After listening to many people and studying the situation, the Watson Commission discovered several serious problems that had caused the unrest:</p>
+
+        <div class="findings-list">
+          <strong>📋 Key Findings:</strong>
+          <ol style="margin-top: 0.5rem; padding-left: 1.5rem;">
+            <li><strong>Broken Promises:</strong> The British had not kept their promises to the ex-servicemen who fought in World War II — no pensions, no jobs, no housing.</li>
+            <li><strong>High Prices & Shortage of Goods:</strong> Trading companies had increased prices of imported goods, making life very hard for ordinary people.</li>
+            <li><strong>Lack of Jobs:</strong> Returning soldiers and young educated people could not find work.</li>
+            <li><strong>Foreign Control of the Economy:</strong> Foreign companies controlled trade and resources, leaving Africans poor.</li>
+            <li><strong>Lack of African Representation:</strong> Africans had very little say in how the country was governed through the Legislative Council.</li>
+            <li><strong>Distance Between Government and People:</strong> The colonial government did not listen to the complaints of ordinary Ghanaians.</li>
+          </ol>
+        </div>
+
+        <h3>💡 The Recommendations of the Watson Commission</h3>
+        <p>The Watson Commission made several important recommendations to the British government. These recommendations were very significant because they recognised that the Gold Coast needed serious changes:</p>
+
+        <div class="recommendations-list">
+          <strong>✅ Key Recommendations:</strong>
+          <ol style="margin-top: 0.5rem; padding-left: 1.5rem;">
+            <li><strong>New Constitution:</strong> Local people (Ghanaians) should be allowed to <strong>draft their own Constitution</strong>.</li>
+            <li><strong>More Africans in Government:</strong> More Africans should be included in the government and decision-making processes.</li>
+            <li><strong>Constitutional Reforms:</strong> The political system needed to be changed to give Africans more power.</li>
+            <li><strong>Listen to the People:</strong> The government should pay attention to the complaints and needs of ordinary citizens.</li>
+            <li><strong>Political Education:</strong> There should be efforts to educate the public about political matters.</li>
+          </ol>
+        </div>
+
+        <h3>🌍 Why Was the Watson Commission Important?</h3>
+        <p>The Watson Commission was a <strong>turning point</strong> in Ghana's journey to independence. For the first time, the British government officially admitted that there were serious problems with the way the Gold Coast was being governed. The commission's recommendations led directly to the next important step — the <strong>Coussey Committee</strong>, which was set up to draft the new constitution that the Watson Commission had recommended.</p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">1948</div>
+            <div class="timeline-content">
+              <strong>28th February:</strong> Shooting of ex-servicemen → Riots break out → Big Six arrested
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1948</div>
+            <div class="timeline-content">
+              <strong>Watson Commission:</strong> Sent by British government to investigate the riots
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1949</div>
+            <div class="timeline-content">
+              <strong>Coussey Committee:</strong> Set up to draft a new constitution based on Watson's recommendations
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1951</div>
+            <div class="timeline-content">
+              <strong>New Constitution:</strong> Gave Africans more representation in government
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1957</div>
+            <div class="timeline-content">
+              <strong>Independence:</strong> Ghana becomes the first sub-Saharan African country to gain independence
+            </div>
+          </div>
+        </div>
+
+        <blockquote>
+          💭 <strong>Think About It</strong>: The Watson Commission recommended that Ghanaians should draft their own constitution. Why do you think this was such an important recommendation? How is it connected to independence?
+        </blockquote>
+
+        <h3>📚 Group Activity: The Watson Commission Report</h3>
+        <p>In your groups, imagine you are members of the Watson Commission. Prepare a short report that includes:</p>
+        <ul>
+          <li>Three main causes of the 1948 riots</li>
+          <li>Three recommendations you would make to the British government</li>
+          <li>Why you believe these changes are necessary</li>
+        </ul>
+        <p>Present your report to the class. Think about how your recommendations compare to the real Watson Commission's recommendations!</p>
       </div>
 
       <div class="section">
         <h2>✅ Check Your Understanding</h2>
         <div class="checkpoint">
           <ol>
+            <li>What was the Watson Commission?</li>
+            <li>In what year was the Watson Commission sent to the Gold Coast?</li>
+            <li>Name two findings of the Watson Commission about the causes of the riots.</li>
             <li>What was the most important recommendation of the Watson Commission?</li>
-            <li>Who led the committee that drafted the Coussey Constitution?</li>
-            <li>What new feature did the Coussey Constitution of 1951 introduce for the first time?</li>
-            <li>What was the main difference between the UGCC's and Kwame Nkrumah's demands for independence?</li>
-            <li>When did Kwame Nkrumah form the CPP, and who did the party mainly represent?</li>
+            <li>Which committee was set up after the Watson Commission to draft a new constitution?</li>
+            <li>Why was the Watson Commission a turning point in Ghana's history?</li>
+            <li>How did the Watson Commission's recommendations lead toward independence?</li>
           </ol>
           <p><em>Confirm your understanding before moving on.</em></p>
         </div>
@@ -417,8 +510,8 @@
       <div class="chapter-nav" id="chapter-navigation">
         <div class="chapter-tabs" id="chapter-tabs"></div>
         <div>
-          <button id="prev-btn" class="btn" style="margin-right: 0.5rem; display: none;">← Previous Lesson</button>
-          <button id="next-btn" class="btn" style="display: none;">Next Lesson →</button>
+          <button id="prev-btn" class="btn" style="margin-right: 0.5rem; display: none;">← Previous Week</button>
+          <button id="next-btn" class="btn" style="display: none;">Next Week →</button>
         </div>
       </div>
 
@@ -436,7 +529,7 @@
           </div>
           <div class="stat-item">
             <div class="stat-value" id="stat-total">1</div>
-            <div class="stat-label">Total Lessons</div>
+            <div class="stat-label">Total Weeks</div>
           </div>
           <div class="stat-item">
             <div class="stat-value" id="stat-percent">0%</div>
@@ -491,8 +584,8 @@
         <h4 class="footer__title">Quick Links</h4>
         <nav aria-label="Footer navigation">
           <a href="index.html" class="footer__link">Home</a><br>
-          <a href="index.html" class="footer__link">Class 5</a><br>
-          <a href="index.html" class="footer__link">History Lessons</a><br>
+          <a href="dashboard.html" class="footer__link">Class 5</a><br>
+          <a href="historyChapter-8.html" class="footer__link">History Lessons</a><br>
           <a href="contact.html" class="footer__link">Contact Support</a>
         </nav>
       </div>
@@ -519,8 +612,8 @@
       // === AUTO-DETECT CHAPTER NUMBER FROM URL ===
       const path = window.location.pathname;
       const match = path.match(/historyChapter-(\d+)\.html/);
-      const currentChapter = match ? parseInt(match[1], 10) : 0;
-      const MAX_CHAPTERS = 300;
+      const currentChapter = match ? parseInt(match[1], 10) : 8;
+      const MAX_CHAPTERS = 11; // 12 weeks total (0 to 11)
 
       function getChapterUrl(n) {
         return `historyChapter-${n}.html`;
@@ -600,28 +693,28 @@
       };
       window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
 
-      // === QUIZ DATA (20 Questions - Coussey Constitution & CPP) ===
+      // === QUIZ DATA (20 Questions - The Watson Commission) ===
       const assessmentItems = [
-        {id:"1",prompt:"What did the Watson Commission recommend the Gold Coast people should do?",options:[{id:"a",text:"Start a new war",is_correct:false},{id:"b",text:"Draft their own constitution",is_correct:true},{id:"c",text:"Boycott all foreign goods forever",is_correct:false},{id:"d",text:"Move to another country",is_correct:false}]},
-        {id:"2",prompt:"Who was appointed to lead the committee that drafted the new constitution?",options:[{id:"a",text:"Kwame Nkrumah",is_correct:false},{id:"b",text:"J.B. Danquah",is_correct:false},{id:"c",text:"Justice Coussey",is_correct:true},{id:"d",text:"Chief Nii Kwabena Bonne III",is_correct:false}]},
-        {id:"3",prompt:"What was the new constitution called?",options:[{id:"a",text:"The Burns Constitution",is_correct:false},{id:"b",text:"The Coussey Constitution",is_correct:true},{id:"c",text:"The Watson Constitution",is_correct:false},{id:"d",text:"The 1992 Constitution",is_correct:false}]},
-        {id:"4",prompt:"In what year was the Coussey Constitution implemented?",options:[{id:"a",text:"1946",is_correct:false},{id:"b",text:"1948",is_correct:false},{id:"c",text:"1951",is_correct:true},{id:"d",text:"1957",is_correct:false}]},
-        {id:"5",prompt:"What new feature did the Coussey Constitution introduce for the first time?",options:[{id:"a",text:"Elections allowing Africans to vote",is_correct:true},{id:"b",text:"A military government",is_correct:false},{id:"c",text:"Free education for all",is_correct:false},{id:"d",text:"A new national anthem",is_correct:false}]},
-        {id:"6",prompt:"What was Kwame Nkrumah's famous slogan for independence?",options:[{id:"a",text:"Self-Government in the shortest possible time",is_correct:false},{id:"b",text:"Self-Government NOW!",is_correct:true},{id:"c",text:"Freedom at all costs",is_correct:false},{id:"d",text:"One people, one nation",is_correct:false}]},
-        {id:"7",prompt:"What was the UGCC's slogan for independence?",options:[{id:"a",text:"Self-Government NOW!",is_correct:false},{id:"b",text:"Self-Government in the shortest possible time",is_correct:true},{id:"c",text:"Immediate independence",is_correct:false},{id:"d",text:"No independence before 1960",is_correct:false}]},
-        {id:"8",prompt:"Why did Kwame Nkrumah disagree with the UGCC leaders?",options:[{id:"a",text:"He wanted immediate independence, they wanted a gradual approach",is_correct:true},{id:"b",text:"He wanted to remain a British colony",is_correct:false},{id:"c",text:"He disagreed with their choice of clothing",is_correct:false},{id:"d",text:"He wanted to move the capital city",is_correct:false}]},
-        {id:"9",prompt:"In what month and year did Kwame Nkrumah break away from the UGCC?",options:[{id:"a",text:"February 1948",is_correct:false},{id:"b",text:"March 1948",is_correct:false},{id:"c",text:"June 1949",is_correct:true},{id:"d",text:"March 1957",is_correct:false}]},
-        {id:"10",prompt:"What new political party did Kwame Nkrumah form?",options:[{id:"a",text:"United Gold Coast Convention (UGCC)",is_correct:false},{id:"b",text:"Convention People's Party (CPP)",is_correct:true},{id:"c",text:"National Liberation Movement (NLM)",is_correct:false},{id:"d",text:"Progress Party (PP)",is_correct:false}]},
-        {id:"11",prompt:"What does CPP stand for?",options:[{id:"a",text:"Council of Political Parties",is_correct:false},{id:"b",text:"Convention People's Party",is_correct:true},{id:"c",text:"Congress of Progressive People",is_correct:false},{id:"d",text:"Committee for Public Peace",is_correct:false}]},
-        {id:"12",prompt:"Who did the CPP mainly represent?",options:[{id:"a",text:"Only the British Governor",is_correct:false},{id:"b",text:"Ordinary people, workers, and youth",is_correct:true},{id:"c",text:"Only the traditional chiefs",is_correct:false},{id:"d",text:"Foreign traders",is_correct:false}]},
-        {id:"13",prompt:"What was the main goal of the CPP?",options:[{id:"a",text:"To support British colonial rule",is_correct:false},{id:"b",text:"Immediate self-government and independence",is_correct:true},{id:"c",text:"To build more foreign shops",is_correct:false},{id:"d",text:"To stop all elections",is_correct:false}]},
-        {id:"14",prompt:"True or False: The Coussey Constitution gave the British total control over the Gold Coast.",options:[{id:"a",text:"True",is_correct:false},{id:"b",text:"False",is_correct:true}]},
-        {id:"15",prompt:"True or False: Kwame Nkrumah was a member of the UGCC before forming the CPP.",options:[{id:"a",text:"True",is_correct:true},{id:"b",text:"False",is_correct:false}]},
-        {id:"16",prompt:"What did the Watson Commission recommend about the 'Big Six'?",options:[{id:"a",text:"They should be punished",is_correct:false},{id:"b",text:"They should be released from detention",is_correct:true},{id:"c",text:"They should be exiled",is_correct:false},{id:"d",text:"They should be made governors",is_correct:false}]},
-        {id:"17",prompt:"Which constitution came immediately after the Burns Constitution of 1946?",options:[{id:"a",text:"The 1992 Constitution",is_correct:false},{id:"b",text:"The Coussey Constitution",is_correct:true},{id:"c",text:"The 1969 Constitution",is_correct:false},{id:"d",text:"The Clifford Constitution",is_correct:false}]},
-        {id:"18",prompt:"What type of movement did the CPP become?",options:[{id:"a",text:"A small, exclusive club",is_correct:false},{id:"b",text:"A mass movement involving ordinary people",is_correct:true},{id:"c",text:"A British military group",is_correct:false},{id:"d",text:"A religious organization",is_correct:false}]},
-        {id:"19",prompt:"Why was the Coussey Constitution considered a major step forward?",options:[{id:"a",text:"It allowed Africans to vote and participate more in government",is_correct:true},{id:"b",text:"It gave all power to the chiefs",is_correct:false},{id:"c",text:"It ended all political parties",is_correct:false},{id:"d",text:"It made English the only language",is_correct:false}]},
-        {id:"20",prompt:"What was the main reason for the split between Nkrumah and the UGCC?",options:[{id:"a",text:"The speed at which they wanted independence",is_correct:true},{id:"b",text:"They disagreed on the national flag",is_correct:false},{id:"c",text:"Nkrumah wanted to be a British citizen",is_correct:false},{id:"d",text:"The UGCC wanted to start a war",is_correct:false}]}
+        {id:"1",prompt:"What was the Watson Commission?",options:[{id:"a",text:"A group of soldiers who fought in World War II",is_correct:false},{id:"b",text:"A team of investigators sent to find out the causes of the 1948 riots",is_correct:true},{id:"c",text:"A political party in the Gold Coast",is_correct:false},{id:"d",text:"A school for training teachers",is_correct:false}]},
+        {id:"2",prompt:"In what year was the Watson Commission sent to the Gold Coast?",options:[{id:"a",text:"1945",is_correct:false},{id:"b",text:"1947",is_correct:false},{id:"c",text:"1948",is_correct:true},{id:"d",text:"1957",is_correct:false}]},
+        {id:"3",prompt:"Why was the Watson Commission established?",options:[{id:"a",text:"To build new schools in the Gold Coast",is_correct:false},{id:"b",text:"To investigate the causes of the 1948 riots and make recommendations",is_correct:true},{id:"c",text:"To arrest the Big Six leaders",is_correct:false},{id:"d",text:"To start a new trading company",is_correct:false}]},
+        {id:"4",prompt:"Who was the chairman of the Watson Commission?",options:[{id:"a",text:"Dr. Kwame Nkrumah",is_correct:false},{id:"b",text:"Mr. A. C. Watson",is_correct:true},{id:"c",text:"J. B. Danquah",is_correct:false},{id:"d",text:"Mr. Coussey",is_correct:false}]},
+        {id:"5",prompt:"Which of these was a finding of the Watson Commission?",options:[{id:"a",text:"The Gold Coast was the richest country in Africa",is_correct:false},{id:"b",text:"Broken promises to ex-servicemen contributed to the riots",is_correct:true},{id:"c",text:"All Africans were happy with British rule",is_correct:false},{id:"d",text:"Foreign companies were helping Africans become rich",is_correct:false}]},
+        {id:"6",prompt:"What did the Watson Commission find about prices of goods?",options:[{id:"a",text:"Prices had gone down significantly",is_correct:false},{id:"b",text:"Prices had increased, making life hard for ordinary people",is_correct:true},{id:"c",text:"Prices were the same as before the war",is_correct:false},{id:"d",text:"There were no problems with prices",is_correct:false}]},
+        {id:"7",prompt:"What did the Watson Commission find about jobs in the Gold Coast?",options:[{id:"a",text:"There were too many jobs for everyone",is_correct:false},{id:"b",text:"Returning soldiers and young people could not find work",is_correct:true},{id:"c",text:"Everyone had a good job",is_correct:false},{id:"d",text:"Only foreigners were looking for jobs",is_correct:false}]},
+        {id:"8",prompt:"What was one of the main recommendations of the Watson Commission?",options:[{id:"a",text:"That the British should leave immediately",is_correct:false},{id:"b",text:"That local people should be allowed to draft their own constitution",is_correct:true},{id:"c",text:"That all foreign companies should close down",is_correct:false},{id:"d",text:"That the Gold Coast should join another country",is_correct:false}]},
+        {id:"9",prompt:"What did the Watson Commission recommend about African participation in government?",options:[{id:"a",text:"Africans should have no role in government",is_correct:false},{id:"b",text:"More Africans should be included in government",is_correct:true},{id:"c",text:"Only chiefs should be in government",is_correct:false},{id:"d",text:"Only educated people should be in government",is_correct:false}]},
+        {id:"10",prompt:"Which committee was set up after the Watson Commission?",options:[{id:"a",text:"The Coussey Committee",is_correct:true},{id:"b",text:"The Nkrumah Committee",is_correct:false},{id:"c",text:"The Danquah Committee",is_correct:false},{id:"d",text:"The Big Six Committee",is_correct:false}]},
+        {id:"11",prompt:"What was the job of the Coussey Committee?",options:[{id:"a",text:"To arrest more people",is_correct:false},{id:"b",text:"To draft a new constitution based on Watson's recommendations",is_correct:true},{id:"c",text:"To start a new war",is_correct:false},{id:"d",text:"To build new schools",is_correct:false}]},
+        {id:"12",prompt:"Why was the Watson Commission a turning point in Ghana's history?",options:[{id:"a",text:"It gave Ghana immediate independence",is_correct:false},{id:"b",text:"It was the first time the British admitted there were serious problems with colonial rule",is_correct:true},{id:"c",text:"It made Ghana the richest country in Africa",is_correct:false},{id:"d",text:"It ended all protests in the Gold Coast",is_correct:false}]},
+        {id:"13",prompt:"What event led to the establishment of the Watson Commission?",options:[{id:"a",text:"The formation of the ARPS in 1897",is_correct:false},{id:"b",text:"The 1948 riots after the shooting of ex-servicemen",is_correct:true},{id:"c",text:"The end of World War I",is_correct:false},{id:"d",text:"The discovery of gold in the Gold Coast",is_correct:false}]},
+        {id:"14",prompt:"Which of these was NOT a finding of the Watson Commission?",options:[{id:"a",text:"Foreign control of the economy",is_correct:false},{id:"b",text:"Lack of African representation in government",is_correct:false},{id:"c",text:"Ghana had the best education system in Africa",is_correct:true},{id:"d",text:"Broken promises to ex-servicemen",is_correct:false}]},
+        {id:"15",prompt:"What does the word 'recommendation' mean in the context of the Watson Commission?",options:[{id:"a",text:"A punishment for wrong-doing",is_correct:false},{id:"b",text:"A suggestion or advice given after investigation",is_correct:true},{id:"c",text:"A type of law that must be obeyed",is_correct:false},{id:"d",text:"A celebration or festival",is_correct:false}]},
+        {id:"16",prompt:"What did the Watson Commission recommend about the relationship between government and people?",options:[{id:"a",text:"The government should ignore the people",is_correct:false},{id:"b",text:"The government should listen to the complaints and needs of ordinary citizens",is_correct:true},{id:"c",text:"The people should not complain at all",is_correct:false},{id:"d",text:"Only chiefs should talk to the government",is_correct:false}]},
+        {id:"17",prompt:"How did the Watson Commission's recommendations connect to Ghana's independence?",options:[{id:"a",text:"They had no connection at all",is_correct:false},{id:"b",text:"They led to constitutional reforms that gave Africans more power, paving the way to independence",is_correct:true},{id:"c",text:"They delayed independence by many years",is_correct:false},{id:"d",text:"They made independence impossible",is_correct:false}]},
+        {id:"18",prompt:"What was the correct sequence of events?",options:[{id:"a",text:"Watson Commission → 1948 riots → Coussey Committee",is_correct:false},{id:"b",text:"1948 riots → Watson Commission → Coussey Committee",is_correct:true},{id:"c",text:"Coussey Committee → 1948 riots → Watson Commission",is_correct:false},{id:"d",text:"1948 riots → Coussey Committee → Watson Commission",is_correct:false}]},
+        {id:"19",prompt:"Why did the Watson Commission recommend political education for the public?",options:[{id:"a",text:"So people could become teachers",is_correct:false},{id:"b",text:"So people could understand political matters and participate in their own governance",is_correct:true},{id:"c",text:"So people could learn foreign languages",is_correct:false},{id:"d",text:"So people could forget about politics",is_correct:false}]},
+        {id:"20",prompt:"Which core competency is developed when learners study the Watson Commission and its impact?",options:[{id:"a",text:"Physical Coordination",is_correct:false},{id:"b",text:"Critical Thinking and Problem Solving",is_correct:true},{id:"c",text:"Financial Literacy",is_correct:false},{id:"d",text:"Digital Literacy",is_correct:false}]}
       ];
 
       // === RENDER QUIZ ===
@@ -673,7 +766,7 @@
         localStorage.setItem(`quiz_attempts_${currentChapter}`, attempts);
         localStorage.setItem(`mastery_${currentChapter}`, mastery ? '1' : '0');
 
-        let report = `*Mini OpenStax — The Coussey Constitution and the Birth of the CPP*\nStudent: ${userName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
+        let report = `*Mini OpenStax — The Watson Commission (Week ${currentChapter + 1})*\nStudent: ${userName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
         if (correctList.length) {
           report += `✅ CORRECT ANSWERS (${correctList.length}):\n`;
           correctList.forEach(q => report += `${q.id}. ${q.prompt}\n   → ${q.correctText}\n\n`);
@@ -717,7 +810,7 @@
           const student = (lines.find(l => l.startsWith('Student:')) || '').replace('Student: ', '').trim() || 'Unknown';
           const score = (lines.find(l => l.startsWith('Score:')) || 'Score unknown');
           const date = new Date(rep.timestamp).toLocaleString();
-          return `<div class="report-card"><div class="report-header"><span>Coussey Constitution & CPP</span><span>${date}</span></div><div class="report-meta">Student: ${student} • ${score}</div><div class="report-detail" id="detail-${rep.timestamp}"></div><div class="report-actions"><button class="btn" onclick="toggleDetail(${rep.timestamp})">Details</button><button class="btn" onclick="viewReportAsPDF('${rep.key}')">PDF</button><button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">WhatsApp</button></div></div>`;
+          return `<div class="report-card"><div class="report-header"><span>The Watson Commission</span><span>${date}</span></div><div class="report-meta">Student: ${student} • ${score}</div><div class="report-detail" id="detail-${rep.timestamp}"></div><div class="report-actions"><button class="btn" onclick="toggleDetail(${rep.timestamp})">Details</button><button class="btn" onclick="viewReportAsPDF('${rep.key}')">PDF</button><button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">WhatsApp</button></div></div>`;
         }).join('');
         window.reportContents = {};
         reports.forEach(r => window.reportContents[r.timestamp] = r.content);
@@ -736,7 +829,7 @@
         document.getElementById('stat-mastered').textContent = mastered;
         document.getElementById('stat-total').textContent = 1;
         document.getElementById('stat-percent').textContent = `${mastered * 100}%`;
-        document.getElementById('recent-lessons').innerHTML = `<div class="lesson-item"><div><span class="mastery-indicator ${mastered ? 'mastery-yes' : 'mastery-partial'}"></span>Lesson ${currentChapter + 1}</div><span>${mastered ? 'Mastered' : 'In Progress'}</span></div>`;
+        document.getElementById('recent-lessons').innerHTML = `<div class="lesson-item"><div><span class="mastery-indicator ${mastered ? 'mastery-yes' : 'mastery-partial'}"></span>Week ${currentChapter + 1}: The Watson Commission</div><span>${mastered ? 'Mastered' : 'In Progress'}</span></div>`;
       }
       document.getElementById('btn-send-all').addEventListener('click', () => {
         let msg = `*📚 Mini OpenStax — All Quiz Reports*\nStudent: ${userName}\n\n`; let count = 0;
@@ -782,7 +875,7 @@
         let tabsHtml = '';
         for (let i = Math.max(0, currentChapter - 1); i <= Math.min(MAX_CHAPTERS, currentChapter + 2); i++) {
           const isActive = i === currentChapter;
-          tabsHtml += `<a href="${getChapterUrl(i)}" class="chapter-btn ${isActive ? 'active' : ''}">Lesson ${i + 1}</a>`;
+          tabsHtml += `<a href="${getChapterUrl(i)}" class="chapter-btn ${isActive ? 'active' : ''}">Week ${i + 1}</a>`;
         }
         tabsContainer.innerHTML = tabsHtml;
         if (currentChapter > 0) { prevBtn.style.display = 'inline-block'; prevBtn.onclick = () => window.location.href = getChapterUrl(currentChapter - 1); }
@@ -794,11 +887,6 @@
       // === INIT ===
       document.getElementById('year').textContent = new Date().getFullYear();
       renderQuiz(); updateChapterNavigation();
-      document.getElementById('send-analytics')?.addEventListener('click', (e) => { e.preventDefault(); alert("Usage data collection is handled globally."); });
-    })();
-  </script>
-</body>
-</html> updateChapterNavigation();
       document.getElementById('send-analytics')?.addEventListener('click', (e) => { e.preventDefault(); alert("Usage data collection is handled globally."); });
     })();
   </script>
