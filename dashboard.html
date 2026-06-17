@@ -1,1257 +1,2513 @@
 <!DOCTYPE html>
+
 <html lang="en" dir="ltr">
+
 <head>
+
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
   <meta name="description" content="Mini OpenStax Dashboard: Class 5 History Term 3 — Track your progress through Ghana's journey to independence" />
+
   <meta name="theme-color" content="#006b3d" />
+
   <title>Mini OpenStax — Class 5 History Dashboard</title>
+
   
+
   <!-- Fonts & Icons -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   
+
   <style>
+
     /* === MINI OPENSTAX DESIGN TOKENS === */
+
     :root {
+
       --green: #006b3d;
+
       --green-dark: #00502e;
+
       --green-light: #e8f5ee;
+
       --gold: #cead00;
+
       --gold-light: #fdf6d8;
+
       --red: #ce1126;
+
       --red-light: #fde8ea;
+
       --light: #f9f9f9;
+
       --dark: #2d2d2d;
+
       --surface: #ffffff;
+
       --border: #e2e8f0;
+
       --text: #1a202c;
+
       --text-muted: #64748b;
+
       --focus-ring: 0 0 0 3px rgb(0 107 61 / 0.4);
+
       --radius-sm: 0.375rem;
+
       --radius-md: 0.75rem;
+
       --radius-lg: 1rem;
+
       --radius-xl: 1.5rem;
+
       --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+
       --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+
       --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+
       --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+
       --space-xs: clamp(0.5rem, 0.8vw, 0.75rem);
+
       --space-sm: clamp(0.75rem, 1.2vw, 1rem);
+
       --space-md: clamp(1rem, 2vw, 1.5rem);
+
       --space-lg: clamp(1.5rem, 3vw, 2.5rem);
+
       --space-xl: clamp(2rem, 5vw, 4rem);
+
       --max-w: 1200px;
+
       --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+
     }
+
+
 
     @media (prefers-color-scheme: dark) {
+
       :root {
+
         --light: #0f1419;
+
         --dark: #f5f5f5;
+
         --surface: #1a202c;
+
         --border: #2d3748;
+
         --text: #f1f5f9;
+
         --text-muted: #94a3b8;
+
         --green-light: #0a2e1d;
+
         --gold-light: #3d3400;
+
         --red-light: #3d0a10;
+
       }
+
     }
+
+
 
     /* === RESET & BASE === */
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; }
+
     body {
+
       font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+
       background: var(--light);
+
       color: var(--text);
+
       line-height: 1.6;
+
       min-height: 100dvh;
+
     }
+
     h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.2; color: var(--text); }
+
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
     .skip-link {
+
       position: absolute; top: -40px; left: 0; background: var(--green); color: white;
+
       padding: var(--space-xs) var(--space-sm); z-index: 1000; border-radius: var(--radius-sm);
+
       transition: top var(--transition); font-weight: 500;
+
     }
+
     .skip-link:focus { top: var(--space-xs); }
 
+
+
     /* === CONTAINER === */
+
     .container {
+
       max-width: var(--max-w);
+
       margin: 0 auto;
+
       padding: var(--space-md);
+
       padding-top: calc(var(--space-md) + 72px);
+
     }
+
+
 
     /* === PROFESSIONAL HEADER === */
+
     .header {
+
       position: sticky; top: 0; z-index: 100;
+
       background: color-mix(in srgb, var(--surface) 95%, transparent);
+
       backdrop-filter: blur(12px) saturate(180%);
+
       border-bottom: 1px solid var(--border);
+
     }
+
     .nav {
+
       display: flex; align-items: center; justify-content: space-between;
+
       padding: var(--space-sm) var(--space-md);
+
       max-width: var(--max-w);
+
       margin: 0 auto;
+
     }
+
     .nav__brand {
+
       font-size: 1.25rem; font-weight: 700; color: var(--green);
+
       display: flex; align-items: center; gap: var(--space-xs);
+
       text-decoration: none;
+
     }
+
     .nav__brand svg { width: 1.5rem; height: 1.5rem; stroke: var(--green); }
+
     .nav__list {
+
       display: none; flex-direction: column;
+
       position: absolute; top: 100%; left: 0; right: 0;
+
       background: var(--surface); padding: var(--space-sm);
+
       border-bottom: 1px solid var(--border);
+
       box-shadow: var(--shadow-md); gap: var(--space-xs);
+
     }
+
     .nav__list.is-open { display: flex; }
+
     .nav__link {
+
       padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm);
+
       font-weight: 500; color: var(--text); transition: background var(--transition), color var(--transition);
+
       text-decoration: none;
+
     }
+
     .nav__link:hover, .nav__link:focus-visible { background: var(--green-light); color: var(--green); }
+
     .nav__link[aria-current="page"] { color: var(--green); font-weight: 700; background: var(--green-light); }
+
     .nav__toggle {
+
       display: grid; place-items: center; width: 2.5rem; height: 2.5rem;
+
       border-radius: var(--radius-sm); transition: background var(--transition);
+
       background: none; border: none; cursor: pointer;
+
     }
+
     .nav__toggle:hover, .nav__toggle:focus-visible { background: var(--green-light); }
+
     .nav__toggle svg { width: 1.5rem; height: 1.5rem; stroke: var(--text); }
+
     @media (min-width: 768px) {
+
       .nav__toggle { display: none; }
+
       .nav__list {
+
         position: static; flex-direction: row; box-shadow: none; border: none; padding: 0;
+
         background: transparent; display: flex; align-items: center;
+
       }
+
     }
+
+
 
     /* === HERO === */
+
     .hero {
+
       background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+
       color: white;
+
       padding: var(--space-xl) var(--space-md);
+
       text-align: center;
+
       border-radius: var(--radius-xl);
+
       margin-bottom: var(--space-lg);
+
       position: relative;
+
       overflow: hidden;
+
     }
+
     .hero::before {
+
       content: '';
+
       position: absolute;
+
       inset: 0;
+
       background-image: radial-gradient(circle at 20% 50%, rgba(206, 173, 0, 0.15) 0%, transparent 50%),
+
                         radial-gradient(circle at 80% 80%, rgba(206, 17, 38, 0.1) 0%, transparent 50%);
+
       pointer-events: none;
+
     }
+
     .hero-inner { position: relative; z-index: 1; }
+
     .hero h1 {
+
       color: white;
+
       font-size: clamp(1.75rem, 4vw, 2.5rem);
+
       margin-bottom: var(--space-sm);
+
       font-weight: 700;
+
     }
+
     .hero .subtitle {
+
       font-size: clamp(1rem, 2vw, 1.25rem);
+
       opacity: 0.95;
+
       margin-bottom: var(--space-md);
+
       font-weight: 500;
+
     }
+
     .hero .indicator {
+
       display: inline-block;
+
       background: var(--gold);
+
       color: var(--dark);
+
       padding: var(--space-xs) var(--space-lg);
+
       border-radius: var(--radius-xl);
+
       font-weight: 700;
+
       font-size: 0.9rem;
+
       letter-spacing: 0.5px;
+
       box-shadow: var(--shadow-md);
+
     }
+
+
 
     /* === APP HEADER === */
+
     .app-header {
+
       display: flex; justify-content: space-between; align-items: center;
+
       margin-bottom: var(--space-md); flex-wrap: wrap; gap: var(--space-xs);
+
       padding-bottom: var(--space-sm); border-bottom: 1px solid var(--border);
+
     }
+
     .app-header h2 { font-size: clamp(1.25rem, 3vw, 1.5rem); margin: 0; }
+
     .role-badge {
+
       background: var(--green-light); padding: 0.25rem 0.75rem; border-radius: var(--radius-sm);
+
       font-size: 0.85rem; font-weight: 600; color: var(--green);
+
     }
+
     .settings-btn {
+
       background: none; border: none; font-size: 1.2rem; color: var(--green);
+
       cursor: pointer; padding: 0.25rem; border-radius: var(--radius-sm);
+
       transition: background var(--transition);
+
     }
+
     .settings-btn:hover { background: var(--green-light); }
 
+
+
     /* === TABS === */
+
     .tabs { display: flex; gap: var(--space-sm); margin: var(--space-md) 0; flex-wrap: wrap; justify-content: center; }
+
     .tab-btn {
+
       padding: 0.6rem 1.25rem; background: var(--surface); border: 2px solid var(--border); border-radius: var(--radius-md);
+
       cursor: pointer; font-weight: 600; transition: all var(--transition);
+
       color: var(--text);
+
     }
+
     .tab-btn:hover, .tab-btn:focus-visible { background: var(--green); color: white; border-color: var(--green); }
+
     .tab-btn.active { background: var(--green); color: white; border-color: var(--green); }
+
     .tab-btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 
+
+
     /* === STAT CARDS === */
+
     .stat-grid {
+
       display: grid;
+
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
       gap: var(--space-md);
+
       margin-bottom: var(--space-lg);
+
     }
+
     .stat-card {
+
       background: var(--surface);
+
       border: 1px solid var(--border);
+
       border-radius: var(--radius-lg);
+
       padding: var(--space-lg);
+
       text-align: center;
+
       box-shadow: var(--shadow-sm);
+
       transition: all var(--transition);
+
       position: relative;
+
       overflow: hidden;
+
     }
+
     .stat-card::before {
+
       content: '';
+
       position: absolute;
+
       top: 0; left: 0; right: 0;
+
       height: 4px;
+
       background: linear-gradient(90deg, var(--green), var(--gold));
+
     }
+
     .stat-card:hover {
+
       transform: translateY(-4px);
+
       box-shadow: var(--shadow-lg);
+
     }
+
     .stat-icon {
+
       font-size: 2rem;
+
       color: var(--green);
+
       margin-bottom: var(--space-sm);
+
     }
+
     .stat-value {
+
       font-size: 2.5rem;
+
       font-weight: 800;
+
       color: var(--green);
+
       font-family: 'Playfair Display', serif;
+
       line-height: 1;
+
       margin-bottom: var(--space-xs);
+
     }
+
     .stat-label {
+
       font-size: 0.9rem;
+
       color: var(--text-muted);
+
       font-weight: 600;
+
       text-transform: uppercase;
+
       letter-spacing: 0.5px;
+
     }
+
+
 
     /* === WEEK CARDS === */
+
     .weeks-grid {
+
       display: grid;
+
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+
       gap: var(--space-md);
+
       margin-bottom: var(--space-lg);
+
     }
+
     .week-card {
+
       background: var(--surface);
+
       border: 1px solid var(--border);
+
       border-radius: var(--radius-lg);
+
       padding: var(--space-lg);
+
       text-decoration: none;
+
       color: var(--text);
+
       transition: all var(--transition);
+
       position: relative;
+
       overflow: hidden;
+
       display: flex;
+
       flex-direction: column;
+
     }
+
     .week-card::before {
+
       content: '';
+
       position: absolute;
+
       top: 0; left: 0; right: 0;
+
       height: 4px;
+
       background: linear-gradient(90deg, var(--green), var(--gold));
+
       transition: height var(--transition);
+
     }
+
     .week-card:hover {
+
       transform: translateY(-4px);
+
       box-shadow: var(--shadow-lg);
+
       border-color: var(--green);
+
     }
+
     .week-card:hover::before {
+
       height: 6px;
+
     }
+
     .week-card-header {
+
       display: flex;
+
       justify-content: space-between;
+
       align-items: flex-start;
+
       margin-bottom: var(--space-sm);
+
     }
+
     .week-num {
+
       background: var(--green-light);
+
       color: var(--green-dark);
+
       padding: 0.25rem 0.75rem;
+
       border-radius: var(--radius-sm);
+
       font-weight: 700;
+
       font-size: 0.8rem;
+
     }
+
     .mastery-badge {
+
       display: inline-flex;
+
       align-items: center;
+
       gap: 0.25rem;
+
       padding: 0.25rem 0.5rem;
+
       border-radius: var(--radius-sm);
+
       font-size: 0.75rem;
+
       font-weight: 600;
+
     }
+
     .mastery-badge.mastered {
+
       background: var(--green-light);
+
       color: var(--green);
+
     }
+
     .mastery-badge.partial {
+
       background: var(--gold-light);
+
       color: #8b6f00;
+
     }
+
     .mastery-badge.not-started {
+
       background: var(--light);
+
       color: var(--text-muted);
+
     }
+
     .week-card h3 {
+
       font-size: 1.1rem;
+
       margin-bottom: var(--space-xs);
+
       color: var(--green-dark);
+
     }
+
     .week-card .strand {
+
       font-size: 0.8rem;
+
       color: var(--text-muted);
+
       margin-bottom: var(--space-sm);
+
     }
+
     .week-card .indicators {
+
       font-size: 0.75rem;
+
       color: var(--text-muted);
+
       font-family: monospace;
+
       margin-top: auto;
+
       padding-top: var(--space-sm);
+
       border-top: 1px dashed var(--border);
+
     }
+
+
 
     /* === CARD === */
+
     .card {
+
       background: var(--surface);
+
       padding: var(--space-lg);
+
       border-radius: var(--radius-lg);
+
       margin-bottom: var(--space-lg);
+
       box-shadow: var(--shadow-sm);
+
       border: 1px solid var(--border);
+
     }
+
     .card h2 {
+
       font-size: 1.25rem;
+
       margin-bottom: var(--space-md);
+
       color: var(--green-dark);
+
       display: flex;
+
       align-items: center;
+
       gap: var(--space-sm);
+
     }
+
     .card h2 i {
+
       color: var(--gold);
+
     }
+
+
 
     /* === REPORT LIST === */
+
     .report-card {
+
       background: var(--light);
+
       border-left: 4px solid var(--green);
+
       padding: var(--space-md);
+
       margin-bottom: var(--space-md);
+
       border-radius: 0 var(--radius-md) var(--radius-md) 0;
+
       position: relative;
+
     }
+
     .report-header {
+
       display: flex;
+
       justify-content: space-between;
+
       margin-bottom: var(--space-xs);
+
       font-weight: bold;
+
       flex-wrap: wrap;
+
       gap: var(--space-xs);
+
     }
+
     .report-meta {
+
       font-size: 0.85rem;
+
       color: var(--text-muted);
+
       margin-bottom: var(--space-xs);
+
     }
+
     .report-actions {
+
       margin-top: var(--space-sm);
+
       display: flex;
+
       gap: var(--space-xs);
+
       flex-wrap: wrap;
+
     }
+
     .report-detail {
+
       margin-top: var(--space-sm);
+
       padding-top: var(--space-sm);
+
       border-top: 1px dashed var(--border);
+
       font-size: 0.9rem;
+
       white-space: pre-wrap;
+
       max-height: 0;
+
       overflow: hidden;
+
       transition: max-height 0.3s ease;
+
     }
+
     .report-detail.show {
+
       max-height: 500px;
+
     }
+
+
 
     /* === BUTTONS === */
+
     .btn {
+
       background: var(--green);
+
       color: white;
+
       border: none;
+
       padding: 0.6rem 1.2rem;
+
       border-radius: var(--radius-md);
+
       font-weight: 600;
+
       cursor: pointer;
+
       transition: all var(--transition);
+
       text-decoration: none;
+
       display: inline-block;
+
       font-size: 0.9rem;
+
     }
+
     .btn:hover, .btn:focus-visible {
+
       background: var(--green-dark);
+
       transform: translateY(-2px);
+
       box-shadow: var(--shadow-md);
+
     }
+
     .btn:focus-visible {
+
       outline: none;
+
       box-shadow: var(--focus-ring);
+
     }
+
     .btn-sm {
+
       padding: 0.4rem 0.8rem;
+
       font-size: 0.85rem;
+
     }
+
     .btn-whatsapp {
+
       background: #25D366;
+
     }
+
     .btn-whatsapp:hover {
+
       background: #128C7E;
+
     }
+
     .btn-outline {
+
       background: transparent;
+
       border: 2px solid var(--green);
+
       color: var(--green);
+
     }
+
     .btn-outline:hover {
+
       background: var(--green);
+
       color: white;
+
     }
+
+
 
     /* === MODAL === */
+
     .modal {
+
       position: fixed;
+
       top: 0;
+
       left: 0;
+
       width: 100%;
+
       height: 100%;
+
       background: rgba(0,0,0,0.5);
+
       display: flex;
+
       justify-content: center;
+
       align-items: center;
+
       z-index: 1000;
+
       display: none;
+
     }
+
     .modal-content {
+
       background: var(--surface);
+
       padding: var(--space-lg);
+
       border-radius: var(--radius-lg);
+
       width: 90%;
+
       max-width: 400px;
+
       box-shadow: var(--shadow-xl);
+
       position: relative;
+
     }
+
     .modal h3 {
+
       margin-top: 0;
+
       color: var(--green);
+
       margin-bottom: var(--space-md);
+
     }
+
     .modal-close {
+
       position: absolute;
+
       top: var(--space-sm);
+
       right: var(--space-sm);
+
       background: none;
+
       border: none;
+
       font-size: 1.5rem;
+
       cursor: pointer;
+
       color: var(--text-muted);
+
       transition: color var(--transition);
+
     }
+
     .modal-close:hover {
+
       color: var(--red);
+
     }
+
     .input-group {
+
       margin-bottom: var(--space-md);
+
     }
+
     .input-group label {
+
       display: block;
+
       margin-bottom: var(--space-xs);
+
       font-weight: 600;
+
       color: var(--text);
+
     }
+
     .input-group input[type="text"] {
+
       width: 100%;
+
       padding: 0.6rem;
+
       border: 1px solid var(--border);
+
       border-radius: var(--radius-md);
+
       font-size: 1rem;
+
       background: var(--surface);
+
       color: var(--text);
+
     }
+
     .input-group input[type="checkbox"] {
+
       width: auto;
+
       margin-right: 0.5rem;
+
     }
+
+
 
     /* === ANALYTICS === */
+
     .analytics-grid {
+
       display: grid;
+
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
       gap: var(--space-md);
+
       margin-bottom: var(--space-lg);
+
     }
+
     .analytics-card {
+
       background: var(--surface);
+
       border: 1px solid var(--border);
+
       border-radius: var(--radius-lg);
+
       padding: var(--space-lg);
+
       box-shadow: var(--shadow-sm);
+
     }
+
     .analytics-card h3 {
+
       font-size: 1rem;
+
       margin-bottom: var(--space-sm);
+
       color: var(--green-dark);
+
     }
+
     .analytics-value {
+
       font-size: 2rem;
+
       font-weight: 800;
+
       color: var(--green);
+
       font-family: 'Playfair Display', serif;
+
     }
+
     .analytics-label {
+
       font-size: 0.85rem;
+
       color: var(--text-muted);
+
     }
+
+
 
     /* === PROGRESS BAR === */
+
     .progress-bar {
+
       width: 100%;
+
       height: 8px;
+
       background: var(--border);
+
       border-radius: var(--radius-sm);
+
       overflow: hidden;
+
       margin: var(--space-sm) 0;
+
     }
+
     .progress-fill {
+
       height: 100%;
+
       background: linear-gradient(90deg, var(--green), var(--gold));
+
       transition: width 0.5s ease;
+
       border-radius: var(--radius-sm);
+
     }
+
+
 
     /* === FOOTER === */
+
     .footer {
+
       background: var(--dark);
+
       color: #cbd5e1;
+
       padding-block: var(--space-xl);
+
       margin-top: var(--space-xl);
+
     }
+
     .footer__grid {
+
       display: grid;
+
       gap: var(--space-lg);
+
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
       max-width: var(--max-w);
+
       margin: 0 auto;
+
       padding: 0 var(--space-md);
+
     }
+
     .footer__title {
+
       color: white;
+
       margin-bottom: var(--space-sm);
+
       font-size: 1.1rem;
+
     }
+
     .footer__link {
+
       color: #94a3b8;
+
       transition: color var(--transition);
+
       display: inline-block;
+
       margin-bottom: var(--space-xs);
+
       text-decoration: none;
+
     }
+
     .footer__link:hover {
+
       color: white;
+
       text-decoration: underline;
+
     }
+
     .footer__bottom {
+
       text-align: center;
+
       margin-top: var(--space-lg);
+
       padding-top: var(--space-sm);
+
       border-top: 1px solid #334155;
+
       max-width: var(--max-w);
+
       margin-inline: auto;
+
       padding-inline: var(--space-md);
+
     }
+
+
 
     /* === EMPTY STATE === */
+
     .empty-state {
+
       text-align: center;
+
       padding: var(--space-xl);
+
       color: var(--text-muted);
+
     }
+
     .empty-state i {
+
       font-size: 3rem;
+
       margin-bottom: var(--space-md);
+
       opacity: 0.5;
+
     }
+
+
 
     /* === PRINT STYLES === */
+
     @media print {
+
       .header, .footer, .nav__toggle, .btn:not(.btn-whatsapp), .tabs, .settings-btn { display: none !important; }
+
       body { background: white; color: black; }
+
       .container { padding-top: 0; }
+
       #print-report, #print-report * { visibility: visible; }
+
       #print-report {
+
         position: absolute; left: 0; top: 0; width: 100%; font-family: monospace;
+
         white-space: pre-wrap; padding: 20px; box-sizing: border-box; font-size: 12pt;
+
       }
+
     }
+
+
 
     /* === ACCESSIBILITY === */
+
     @media (prefers-reduced-motion: reduce) {
+
       *, *::before, *::after {
+
         animation-duration: 0.01ms !important;
+
         transition-duration: 0.01ms !important;
+
         scroll-behavior: auto !important;
+
       }
+
     }
+
+
 
     /* === RESPONSIVE === */
+
     @media (max-width: 640px) {
+
       .weeks-grid {
+
         grid-template-columns: 1fr;
+
       }
+
       .stat-grid {
+
         grid-template-columns: repeat(2, 1fr);
+
       }
+
     }
+
   </style>
+
 </head>
+
 <body>
+
   <!-- Skip Link -->
+
   <a href="#main" class="skip-link">Skip to main content</a>
 
+
+
   <!-- Professional Header -->
+
   <header class="header" role="banner">
+
     <div class="nav">
-      <a href="../index.html" class="nav__brand" aria-label="Mini OpenStax Home">
+
+      <a href="index.html" class="nav__brand" aria-label="Mini OpenStax Home">
+
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+
         Mini OpenStax
+
       </a>
+
       <button class="nav__toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-nav">
+
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+
       </button>
+
       <nav id="main-nav" class="nav__list" role="navigation">
-        <a href="../index.html" class="nav__link">Home</a>
-        <a href="../dashboard.html" class="nav__link" aria-current="page">Dashboard</a>
-        <a href="../historyChapter-0.html" class="nav__link">History</a>
-        <a href="../contact.html" class="nav__link">Contact</a>
+
+        <a href="index.html" class="nav__link">Home</a>
+
+        <a href="dashboard.html" class="nav__link" aria-current="page">Dashboard</a>
+
+        <a href="historyChapter-0.html" class="nav__link">History</a>
+
+        <a href="contact.html" class="nav__link">Contact</a>
+
       </nav>
+
     </div>
+
   </header>
 
+
+
   <div class="container" id="main">
+
     <!-- Hero Section -->
+
     <div class="hero">
+
       <div class="hero-inner">
+
         <h1>🏛️ Class 5 History Dashboard</h1>
+
         <p class="subtitle">Term 3 — Journey to Independence</p>
+
         <span class="indicator">NaCCA Standards-Based Curriculum</span>
+
       </div>
+
     </div>
+
+
 
     <!-- App Header -->
+
     <div class="app-header">
+
       <div>
+
         <h2>Welcome, <span id="dashboard-name">Learner</span>!</h2>
+
       </div>
+
       <div style="display:flex;gap:0.5rem;align-items:center;">
+
         <div class="role-badge" id="current-role">Student View</div>
+
         <button class="settings-btn" id="open-settings" title="Change name or role">
+
           <i class="fas fa-cog"></i>
+
         </button>
+
       </div>
+
     </div>
+
+
 
     <!-- Main Tabs -->
+
     <div class="tabs">
+
       <button class="tab-btn active" data-tab="overview">Overview</button>
+
       <button class="tab-btn" data-tab="weeks">All Weeks</button>
+
       <button class="tab-btn" data-tab="reports">Quiz Reports</button>
+
       <button class="tab-btn" data-tab="analytics" id="analytics-tab" style="display:none;">Analytics</button>
+
     </div>
+
+
 
     <!-- OVERVIEW TAB -->
+
     <div id="tab-overview" class="tab-content">
+
       <!-- Stats Grid -->
+
       <div class="stat-grid">
+
         <div class="stat-card">
+
           <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+
           <div class="stat-value" id="stat-mastered">0</div>
+
           <div class="stat-label">Weeks Mastered</div>
+
         </div>
+
         <div class="stat-card">
+
           <div class="stat-icon"><i class="fas fa-book"></i></div>
+
           <div class="stat-value" id="stat-total">12</div>
+
           <div class="stat-label">Total Weeks</div>
+
         </div>
+
         <div class="stat-card">
+
           <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+
           <div class="stat-value" id="stat-percent">0%</div>
+
           <div class="stat-label">Progress</div>
+
           <div class="progress-bar">
+
             <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+
           </div>
+
         </div>
+
         <div class="stat-card">
+
           <div class="stat-icon"><i class="fas fa-clock"></i></div>
+
           <div class="stat-value" id="stat-time">0m</div>
+
           <div class="stat-label">Time Spent</div>
+
         </div>
+
       </div>
+
+
 
       <!-- Recent Activity -->
+
       <div class="card">
+
         <h2><i class="fas fa-history"></i> Recent Activity</h2>
+
         <div id="recent-lessons">
+
           <div class="empty-state">
+
             <i class="fas fa-book-reader"></i>
+
             <p>No activity yet. Start your first lesson!</p>
+
           </div>
+
         </div>
+
       </div>
+
+
 
       <!-- Quick Actions -->
+
       <div class="card">
+
         <h2><i class="fas fa-rocket"></i> Quick Actions</h2>
+
         <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
-          <a href="../historyChapter-0.html" class="btn">Start Week 1</a>
+
+          <a href="historyChapter-0.html" class="btn">Start Week 1</a>
+
           <button class="btn btn-outline" id="btn-continue">Continue Where You Left Off</button>
+
           <button class="btn btn-whatsapp" id="btn-send-all-overview">
+
             <i class="fab fa-whatsapp"></i> Send All Reports
+
           </button>
+
         </div>
+
       </div>
+
     </div>
+
+
 
     <!-- WEEKS TAB -->
+
     <div id="tab-weeks" class="tab-content" style="display:none;">
+
       <div class="card">
+
         <h2><i class="fas fa-calendar-alt"></i> All 12 Weeks</h2>
+
         <p style="color: var(--text-muted); margin-bottom: var(--space-md);">Click on any week to start learning. Track your mastery as you progress through Ghana's journey to independence.</p>
+
       </div>
+
       <div class="weeks-grid" id="weeks-grid"></div>
+
     </div>
+
+
 
     <!-- REPORTS TAB -->
+
     <div id="tab-reports" class="tab-content" style="display:none;">
+
       <div class="card">
+
         <h2><i class="fas fa-file-alt"></i> Quiz Reports</h2>
+
         <p style="color: var(--text-muted); margin-bottom: var(--space-md);">View your quiz attempts, download reports as PDF, or share them via WhatsApp.</p>
+
         <div id="reports-list">
+
           <div class="empty-state">
+
             <i class="fas fa-clipboard-list"></i>
+
             <p>No quiz reports yet. Complete a quiz to see your results here.</p>
+
           </div>
+
         </div>
+
         <button class="btn btn-whatsapp" id="btn-send-all" style="margin-top:1rem;">
+
           <i class="fab fa-whatsapp"></i> Send All Reports via WhatsApp
+
         </button>
+
       </div>
+
     </div>
+
+
 
     <!-- ANALYTICS TAB -->
+
     <div id="tab-analytics" class="tab-content" style="display:none;">
+
       <div class="card">
+
         <h2><i class="fas fa-chart-bar"></i> Class Analytics</h2>
+
         <p style="color: var(--text-muted); margin-bottom: var(--space-md);">Instructor view: Track overall class performance and identify areas for improvement.</p>
+
       </div>
+
       <div class="analytics-grid" id="analytics-content">
+
         <div class="analytics-card">
+
           <h3>Total Attempts</h3>
+
           <div class="analytics-value" id="analytics-attempts">0</div>
+
           <div class="analytics-label">Across all weeks</div>
+
         </div>
+
         <div class="analytics-card">
+
           <h3>Average Score</h3>
+
           <div class="analytics-value" id="analytics-avg">0/20</div>
+
           <div class="analytics-label">Per quiz</div>
+
         </div>
+
         <div class="analytics-card">
+
           <h3>Mastery Rate</h3>
+
           <div class="analytics-value" id="analytics-mastery">0%</div>
+
           <div class="analytics-label">≥75% score</div>
+
         </div>
+
         <div class="analytics-card">
+
           <h3>Most Active Week</h3>
+
           <div class="analytics-value" id="analytics-active">—</div>
+
           <div class="analytics-label">By attempts</div>
+
         </div>
+
       </div>
+
       <div class="card">
+
         <h2><i class="fas fa-users"></i> Weekly Breakdown</h2>
+
         <div id="weekly-breakdown">
+
           <div class="empty-state">
+
             <i class="fas fa-chart-pie"></i>
+
             <p>No data available yet.</p>
+
           </div>
+
         </div>
+
       </div>
+
     </div>
+
   </div>
+
+
 
   <!-- Settings Modal -->
+
   <div id="settings-modal" class="modal">
+
     <div class="modal-content">
+
       <button class="modal-close" id="close-settings">&times;</button>
+
       <h3>👤 Account Settings</h3>
+
       <div class="input-group">
+
         <label for="edit-name">Your Name</label>
+
         <input type="text" id="edit-name" maxlength="30" placeholder="e.g., Kwame">
+
       </div>
+
       <div class="input-group">
+
         <label><input type="checkbox" id="edit-role"> Switch to Instructor Mode</label>
+
       </div>
+
       <button class="btn" id="save-settings">Save Changes</button>
+
     </div>
+
   </div>
 
+
+
   <!-- Footer -->
+
   <footer class="footer" role="contentinfo">
+
     <div class="footer__grid">
+
       <div>
+
         <h4 class="footer__title">Mini OpenStax</h4>
+
         <p style="max-width: 30ch; opacity: 0.9;">Free, accessible educational content for Ghanaian learners. Built with ❤️ for Primary students.</p>
+
       </div>
+
       <div>
+
         <h4 class="footer__title">Quick Links</h4>
+
         <nav aria-label="Footer navigation">
-          <a href="../index.html" class="footer__link">Home</a><br>
-          <a href="../dashboard.html" class="footer__link">Dashboard</a><br>
-          <a href="../historyChapter-0.html" class="footer__link">History Lessons</a><br>
-          <a href="../contact.html" class="footer__link">Contact Support</a>
+
+          <a href="index.html" class="footer__link">Home</a><br>
+
+          <a href="dashboard.html" class="footer__link">Dashboard</a><br>
+
+          <a href="historyChapter-0.html" class="footer__link">History Lessons</a><br>
+
+          <a href="contact.html" class="footer__link">Contact Support</a>
+
         </nav>
+
       </div>
+
       <div>
+
         <h4 class="footer__title">Contact</h4>
+
         <address style="font-style: normal; opacity: 0.9;">
+
           <a href="tel:+233257320201" class="footer__link">+233 25 732 0201</a><br>
+
           <a href="mailto:learn@miniopenstax.edu.gh" class="footer__link">learn@miniopenstax.edu.gh</a><br>
+
           Accra, Ghana
+
         </address>
+
       </div>
+
     </div>
+
     <div class="footer__bottom">
-      <p>&copy; <span id="year"></span> Mini OpenStax. Content aligned with NaCCA curriculum. <a href="../privacy.html" class="footer__link">Privacy</a></p>
+
+      <p>&copy; <span id="year"></span> Mini OpenStax. Content aligned with NaCCA curriculum. <a href="privacy.html" class="footer__link">Privacy</a></p>
+
     </div>
+
   </footer>
 
+
+
   <script>
+
     (function () {
+
       'use strict';
+
       const WHATSAPP_NUMBER = "233257320201";
+
       const TOTAL_WEEKS = 12;
 
+
+
       // === WEEK DATA ===
+
       const weeksData = [
+
         { num: 1, title: "Introduction to Early Protest Movements", strand: "Journey to Independence", indicators: "B5.5.1.1.1" },
+
         { num: 2, title: "Joseph Mensah Sarbah & ARPS", strand: "Journey to Independence", indicators: "B5.5.1.1.2" },
+
         { num: 3, title: "Casely Hayford & NCBWA", strand: "Journey to Independence", indicators: "B5.5.1.1.3" },
+
         { num: 4, title: "Dr. J.B. Danquah & GCYC", strand: "Journey to Independence", indicators: "B5.5.1.1.4" },
+
         { num: 5, title: "Post-WWII Unhappiness", strand: "Journey to Independence", indicators: "B5.5.3.1.1" },
+
         { num: 6, title: "The Boycott of European Goods", strand: "Journey to Independence", indicators: "B5.5.3.1.1" },
+
         { num: 7, title: "The Shooting of Ex-Servicemen", strand: "Journey to Independence", indicators: "B5.5.3.1.1" },
+
         { num: 8, title: "The 1948 Riots", strand: "Journey to Independence", indicators: "B5.5.3.1.2" },
+
         { num: 9, title: "The Watson Commission", strand: "Journey to Independence", indicators: "B5.5.3.1.2" },
+
         { num: 10, title: "The Coussey Committee", strand: "Journey to Independence", indicators: "B5.5.3.1.3" },
+
         { num: 11, title: "Revision & Assessment", strand: "Journey to Independence", indicators: "B5.5.1.1 - B5.5.3.1" },
+
         { num: 12, title: "End of Term Assessment", strand: "Journey to Independence", indicators: "B5.5.1.1 - B5.5.3.1" }
+
       ];
 
+
+
       let userName = localStorage.getItem('student_name') || 'Learner';
+
       let userRole = localStorage.getItem('user_role') || 'student';
 
+
+
       localStorage.setItem('student_name', userName);
+
       localStorage.setItem('user_role', userRole);
 
+
+
       document.getElementById('dashboard-name').textContent = userName;
+
       document.getElementById('current-role').textContent = userRole === 'instructor' ? 'Instructor View' : 'Student View';
 
+
+
       const analyticsTab = document.getElementById('analytics-tab');
+
       analyticsTab.style.display = userRole === 'instructor' ? 'block' : 'none';
 
+
+
       // === NAV TOGGLE ===
+
       const navToggle = document.querySelector('.nav__toggle');
+
       const navList = document.querySelector('.nav__list');
+
       if (navToggle && navList) {
+
         navToggle.addEventListener('click', () => {
+
           const isOpen = navList.classList.toggle('is-open');
+
           navToggle.setAttribute('aria-expanded', isOpen);
+
           navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+
         });
+
         document.addEventListener('click', (e) => {
+
           if (navList.classList.contains('is-open') && !navList.contains(e.target) && !navToggle.contains(e.target)) {
+
             navList.classList.remove('is-open');
+
             navToggle.setAttribute('aria-expanded', 'false');
+
           }
+
         });
+
         document.addEventListener('keydown', (e) => {
+
           if (e.key === 'Escape' && navList.classList.contains('is-open')) {
+
             navList.classList.remove('is-open');
+
             navToggle.setAttribute('aria-expanded', 'false');
+
             navToggle.focus();
+
           }
+
         });
+
       }
+
+
 
       // === SETTINGS MODAL ===
+
       const modal = document.getElementById('settings-modal');
+
       document.getElementById('open-settings').onclick = () => {
+
         document.getElementById('edit-name').value = userName;
+
         document.getElementById('edit-role').checked = (userRole === 'instructor');
+
         modal.style.display = 'flex';
+
       };
+
       document.getElementById('close-settings').onclick = () => modal.style.display = 'none';
+
       document.getElementById('save-settings').onclick = () => {
+
         const newName = document.getElementById('edit-name').value.trim();
+
         if (!newName) { alert("Please enter a name."); return; }
+
         const newRole = document.getElementById('edit-role').checked ? 'instructor' : 'student';
+
         userName = newName; userRole = newRole;
+
         localStorage.setItem('student_name', userName);
+
         localStorage.setItem('user_role', userRole);
+
         document.getElementById('dashboard-name').textContent = userName;
+
         document.getElementById('current-role').textContent = newRole === 'instructor' ? 'Instructor View' : 'Student View';
+
         analyticsTab.style.display = newRole === 'instructor' ? 'block' : 'none';
+
         modal.style.display = 'none';
+
         updateDashboard();
+
         loadReports();
+
         loadAnalytics();
+
       };
+
       window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
 
+
+
       // === RENDER WEEKS GRID ===
+
       function renderWeeksGrid() {
+
         const container = document.getElementById('weeks-grid');
+
         container.innerHTML = weeksData.map(week => {
+
           const mastery = localStorage.getItem(`mastery_${week.num - 1}`);
+
           const attempts = parseInt(localStorage.getItem(`quiz_attempts_${week.num - 1}`)) || 0;
+
           let masteryBadge = '';
+
           if (mastery === '1') {
+
             masteryBadge = '<span class="mastery-badge mastered"><i class="fas fa-check"></i> Mastered</span>';
+
           } else if (attempts > 0) {
+
             masteryBadge = '<span class="mastery-badge partial"><i class="fas fa-hourglass-half"></i> In Progress</span>';
+
           } else {
+
             masteryBadge = '<span class="mastery-badge not-started"><i class="fas fa-circle"></i> Not Started</span>';
+
           }
+
           return `
-            <a href="../historyChapter-${week.num - 1}.html" class="week-card">
+
+            <a href="historyChapter-${week.num - 1}.html" class="week-card">
+
               <div class="week-card-header">
+
                 <span class="week-num">Week ${week.num}</span>
+
                 ${masteryBadge}
+
               </div>
+
               <h3>${week.title}</h3>
+
               <div class="strand">${week.strand}</div>
+
               <div class="indicators">${week.indicators}</div>
+
             </a>
+
           `;
+
         }).join('');
+
       }
+
+
 
       // === UPDATE DASHBOARD ===
+
       function updateDashboard() {
+
         let mastered = 0;
+
         let totalTime = 0;
+
         const activities = [];
 
+
+
         for (let i = 0; i < TOTAL_WEEKS; i++) {
+
           const mastery = localStorage.getItem(`mastery_${i}`);
+
           const attempts = parseInt(localStorage.getItem(`quiz_attempts_${i}`)) || 0;
+
           if (mastery === '1') mastered++;
+
           
+
           // Find most recent report for time calculation
+
           for (const key in localStorage) {
+
             if (key.startsWith(`saved_report_${i}_`)) {
+
               const content = localStorage.getItem(key);
+
               const timeMatch = content.match(/Time: (\d+)s/);
+
               if (timeMatch) totalTime += parseInt(timeMatch[1]);
+
               
+
               const dateMatch = key.match(/_(\d+)$/);
+
               if (dateMatch) {
+
                 activities.push({
+
                   week: i + 1,
+
                   title: weeksData[i].title,
+
                   timestamp: parseInt(dateMatch[1]),
+
                   mastered: mastery === '1'
+
                 });
+
               }
+
             }
+
           }
+
         }
+
+
 
         document.getElementById('stat-mastered').textContent = mastered;
+
         document.getElementById('stat-total').textContent = TOTAL_WEEKS;
+
         const percent = Math.round((mastered / TOTAL_WEEKS) * 100);
+
         document.getElementById('stat-percent').textContent = `${percent}%`;
+
         document.getElementById('progress-fill').style.width = `${percent}%`;
+
         
+
         const minutes = Math.floor(totalTime / 60);
+
         document.getElementById('stat-time').textContent = minutes > 0 ? `${minutes}m` : '0m';
 
+
+
         // Recent activity
+
         const recentContainer = document.getElementById('recent-lessons');
+
         if (activities.length === 0) {
+
           recentContainer.innerHTML = `
+
             <div class="empty-state">
+
               <i class="fas fa-book-reader"></i>
+
               <p>No activity yet. Start your first lesson!</p>
+
             </div>
+
           `;
+
         } else {
+
           activities.sort((a, b) => b.timestamp - a.timestamp);
+
           const recent = activities.slice(0, 5);
+
           recentContainer.innerHTML = recent.map(act => {
+
             const date = new Date(act.timestamp).toLocaleDateString();
+
             const icon = act.mastered ? 'mastery-yes' : 'mastery-partial';
+
             return `
+
               <div style="display: flex; justify-content: space-between; padding: 0.6rem 0; border-bottom: 1px solid var(--border);">
+
                 <div>
+
                   <span class="mastery-indicator ${icon}" style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; background: ${act.mastered ? 'var(--green)' : '#ffc107'}"></span>
+
                   Week ${act.week}: ${act.title}
+
                 </div>
+
                 <span style="color: var(--text-muted); font-size: 0.85rem;">${date}</span>
+
               </div>
+
             `;
+
           }).join('');
+
         }
+
+
 
         // Continue button
+
         const continueBtn = document.getElementById('btn-continue');
+
         const lastAttempt = activities[0];
+
         if (lastAttempt) {
+
           continueBtn.onclick = () => {
-            window.location.href = `../historyChapter-${lastAttempt.week - 1}.html`;
+
+            window.location.href = `historyChapter-${lastAttempt.week - 1}.html`;
+
           };
+
         } else {
+
           continueBtn.onclick = () => {
-            window.location.href = '../historyChapter-0.html';
+
+            window.location.href = 'historyChapter-0.html';
+
           };
+
         }
+
       }
+
+
 
       // === LOAD REPORTS ===
+
       function loadReports() {
+
         const container = document.getElementById('reports-list');
+
         const reports = [];
 
+
+
         for (const key in localStorage) {
+
           if (key.startsWith('saved_report_')) {
+
             const content = localStorage.getItem(key);
+
             const parts = key.split('_');
+
             const weekNum = parseInt(parts[2]);
+
             const timestamp = parseInt(parts[3]);
+
             reports.push({ key, content, weekNum, timestamp });
+
           }
+
         }
 
+
+
         if (reports.length === 0) {
+
           container.innerHTML = `
+
             <div class="empty-state">
+
               <i class="fas fa-clipboard-list"></i>
+
               <p>No quiz reports yet. Complete a quiz to see your results here.</p>
+
             </div>
+
           `;
+
           return;
+
         }
+
+
 
         reports.sort((a, b) => b.timestamp - a.timestamp);
+
         container.innerHTML = reports.map(rep => {
+
           const lines = rep.content.split('\n');
+
           const student = (lines.find(l => l.startsWith('Student:')) || '').replace('Student: ', '').trim() || 'Unknown';
+
           const score = (lines.find(l => l.startsWith('Score:')) || 'Score unknown');
+
           const date = new Date(rep.timestamp).toLocaleString();
+
           const weekTitle = weeksData[rep.weekNum] ? weeksData[rep.weekNum].title : `Week ${rep.weekNum + 1}`;
+
           return `
+
             <div class="report-card">
+
               <div class="report-header">
+
                 <span>${weekTitle}</span>
+
                 <span>${date}</span>
+
               </div>
+
               <div class="report-meta">Student: ${student} • ${score}</div>
+
               <div class="report-detail" id="detail-${rep.timestamp}"></div>
+
               <div class="report-actions">
+
                 <button class="btn btn-sm" onclick="toggleDetail(${rep.timestamp})">Details</button>
+
                 <button class="btn btn-sm btn-outline" onclick="viewReportAsPDF('${rep.key}')">PDF</button>
+
                 <button class="btn btn-sm btn-whatsapp" onclick="sendReport('${rep.key}')">WhatsApp</button>
+
               </div>
+
             </div>
+
           `;
+
         }).join('');
+
+
 
         window.reportContents = {};
+
         reports.forEach(r => window.reportContents[r.timestamp] = r.content);
+
       }
+
+
 
       window.toggleDetail = (ts) => {
+
         const el = document.getElementById(`detail-${ts}`);
+
         if (el.classList.contains('show')) {
+
           el.classList.remove('show');
+
         } else {
+
           el.textContent = window.reportContents[ts] || '';
+
           el.classList.add('show');
+
         }
+
       };
+
+
 
       window.sendReport = (key) => {
+
         const content = localStorage.getItem(key);
+
         if (content) window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(content)}`, '_blank');
+
       };
+
+
 
       window.viewReportAsPDF = (key) => {
+
         const content = localStorage.getItem(key);
+
         if (!content) return alert("Report not found.");
+
         const printDiv = document.createElement('div');
+
         printDiv.id = 'print-report';
+
         printDiv.textContent = content;
+
         document.body.appendChild(printDiv);
+
         window.print();
+
         setTimeout(() => document.body.removeChild(printDiv), 1000);
+
       };
 
+
+
       // === SEND ALL REPORTS ===
+
       function sendAllReports() {
+
         let msg = `*📚 Mini OpenStax — All Quiz Reports*\nStudent: ${userName}\n\n`;
+
         let count = 0;
+
         for (const key in localStorage) {
+
           if (key.startsWith('saved_report_')) {
+
             msg += `\n---\n${localStorage.getItem(key)}\n`;
+
             count++;
+
           }
+
         }
+
         if (count === 0) return alert("No reports to send.");
+
         msg += "\n\nCALL OR WHATSAPP TO REGISTER FOR A CLASS @ +233257320201";
+
         if (msg.length > 3800) msg = msg.substring(0, 3800) + "\n\n... (truncated)";
+
         window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+
       }
+
+
 
       document.getElementById('btn-send-all').addEventListener('click', sendAllReports);
+
       document.getElementById('btn-send-all-overview').addEventListener('click', sendAllReports);
 
+
+
       // === LOAD ANALYTICS ===
+
       function loadAnalytics() {
+
         if (userRole !== 'instructor') return;
 
+
+
         const reports = [];
+
         const weekAttempts = {};
 
+
+
         for (const key in localStorage) {
+
           if (key.startsWith('saved_report_')) {
+
             const v = localStorage.getItem(key);
+
             const scoreMatch = v.match(/Score: (\d+)\//);
+
             const weekMatch = key.match(/saved_report_(\d+)_/);
+
             if (scoreMatch && weekMatch) {
+
               const score = parseInt(scoreMatch[1], 10);
+
               const weekNum = parseInt(weekMatch[1]);
+
               reports.push({ score, mastery: score >= 15, weekNum });
+
               weekAttempts[weekNum] = (weekAttempts[weekNum] || 0) + 1;
+
             }
+
           }
+
         }
+
+
 
         if (reports.length === 0) {
+
           document.getElementById('analytics-attempts').textContent = '0';
+
           document.getElementById('analytics-avg').textContent = '0/20';
+
           document.getElementById('analytics-mastery').textContent = '0%';
+
           document.getElementById('analytics-active').textContent = '—';
+
           document.getElementById('weekly-breakdown').innerHTML = '<div class="empty-state"><i class="fas fa-chart-pie"></i><p>No data available yet.</p></div>';
+
           return;
+
         }
+
+
 
         const total = reports.length;
+
         const mastered = reports.filter(r => r.mastery).length;
+
         const avg = (reports.reduce((s, r) => s + r.score, 0) / total).toFixed(1);
 
+
+
         document.getElementById('analytics-attempts').textContent = total;
+
         document.getElementById('analytics-avg').textContent = `${avg}/20`;
+
         document.getElementById('analytics-mastery').textContent = `${((mastered/total)*100).toFixed(1)}%`;
 
+
+
         // Find most active week
+
         let maxWeek = 0, maxAttempts = 0;
+
         for (const week in weekAttempts) {
+
           if (weekAttempts[week] > maxAttempts) {
+
             maxAttempts = weekAttempts[week];
+
             maxWeek = parseInt(week);
+
           }
+
         }
+
         document.getElementById('analytics-active').textContent = maxWeek > 0 ? `Week ${maxWeek + 1}` : '—';
 
+
+
         // Weekly breakdown
+
         const breakdown = document.getElementById('weekly-breakdown');
+
         breakdown.innerHTML = weeksData.map((week, idx) => {
+
           const attempts = weekAttempts[idx] || 0;
+
           const weekReports = reports.filter(r => r.weekNum === idx);
+
           const weekMastered = weekReports.filter(r => r.mastery).length;
+
           const weekAvg = weekReports.length > 0 ? (weekReports.reduce((s, r) => s + r.score, 0) / weekReports.length).toFixed(1) : '—';
+
           return `
+
             <div style="display: flex; justify-content: space-between; padding: 0.6rem 0; border-bottom: 1px solid var(--border);">
+
               <div>
+
                 <strong>Week ${week.num}:</strong> ${week.title}
+
               </div>
+
               <div style="text-align: right; font-size: 0.85rem; color: var(--text-muted);">
+
                 <div>${attempts} attempts</div>
+
                 <div>Avg: ${weekAvg}/20 | Mastered: ${weekMastered}</div>
+
               </div>
+
             </div>
+
           `;
+
         }).join('');
+
       }
 
+
+
       // === TAB SWITCHING ===
+
       document.querySelectorAll('.tab-btn').forEach(btn => {
+
         btn.addEventListener('click', () => {
+
           document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+
           document.querySelectorAll('.tab-content').forEach(t => t.style.display = 'none');
+
           btn.classList.add('active');
+
           const tab = btn.dataset.tab;
+
           document.getElementById(`tab-${tab}`).style.display = 'block';
+
           if (tab === 'overview') updateDashboard();
+
           if (tab === 'weeks') renderWeeksGrid();
+
           if (tab === 'reports') loadReports();
+
           if (tab === 'analytics') loadAnalytics();
+
         });
+
       });
 
+
+
       // === INIT ===
+
       document.getElementById('year').textContent = new Date().getFullYear();
+
       renderWeeksGrid();
+
       updateDashboard();
+
       loadReports();
+
       loadAnalytics();
+
     })();
+
   </script>
+
 </body>
+
 </html>
