@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Mini OpenStax: Explain the events leading to Ghana's independence — Class 5 History Chapter 10" />
+  <meta name="description" content="Mini OpenStax: Revision & Formative Assessment — Class 5 History Week 11" />
   <meta name="theme-color" content="#006b3d" />
-  <title>Mini OpenStax — The Final Steps to Independence (1951–1957)</title>
+  <title>Mini OpenStax — Revision & Formative Assessment (Week 11)</title>
   
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -30,6 +30,7 @@
       --radius-lg: 1rem;
       --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
       --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
       --space-xs: clamp(0.5rem, 0.8vw, 0.75rem);
       --space-sm: clamp(0.75rem, 1.2vw, 1rem);
       --space-md: clamp(1rem, 2vw, 1.5rem);
@@ -93,6 +94,7 @@
     .nav__link {
       padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm);
       font-weight: 500; color: var(--dark); transition: background var(--transition), color var(--transition);
+      text-decoration: none;
     }
     .nav__link:hover, .nav__link:focus-visible { background: var(--light); color: var(--green); }
     .nav__link[aria-current="page"] { color: var(--green); font-weight: 700; background: var(--light); }
@@ -163,6 +165,7 @@
       background: var(--green); color: white; border: none; padding: 0.6rem 1.2rem;
       border-radius: var(--radius-md); font-weight: 600; cursor: pointer; margin-top: 0.5rem;
       transition: background var(--transition), transform var(--transition);
+      text-decoration: none; display: inline-block;
     }
     .btn:hover, .btn:focus-visible { background: var(--green-dark); transform: translateY(-2px); }
     .btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
@@ -183,6 +186,29 @@
     .checkpoint {
       background: #f8f9fa; padding: var(--space-md); border-left: 4px solid var(--gold);
       margin: var(--space-lg) 0; border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+    .review-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-md); margin: var(--space-md) 0;
+    }
+    .review-card {
+      background: var(--light); padding: var(--space-md); border-radius: var(--radius-md);
+      border-left: 4px solid var(--green);
+    }
+    .review-card h4 {
+      color: var(--green-dark); margin-bottom: var(--space-xs);
+      font-size: 1rem; font-weight: 700;
+    }
+    .review-card ul {
+      list-style: none; padding-left: 0;
+    }
+    .review-card ul li {
+      padding: 0.3rem 0; padding-left: 1.25rem; position: relative;
+      font-size: 0.9rem;
+    }
+    .review-card ul li::before {
+      content: '▸'; position: absolute; left: 0;
+      color: var(--gold); font-weight: 700;
     }
 
     /* === QUIZ === */
@@ -249,7 +275,7 @@
       max-width: var(--max-w); margin: 0 auto; padding: 0 var(--space-md);
     }
     .footer__title { color: white; margin-bottom: var(--space-sm); font-size: 1.1rem; }
-    .footer__link { color: #94a3b8; transition: color var(--transition); display: inline-block; margin-bottom: var(--space-xs); }
+    .footer__link { color: #94a3b8; transition: color var(--transition); display: inline-block; margin-bottom: var(--space-xs); text-decoration: none; }
     .footer__link:hover { color: white; text-decoration: underline; }
     .footer__bottom {
       text-align: center; margin-top: var(--space-lg); padding-top: var(--space-sm);
@@ -278,6 +304,8 @@
       }
       .card, .modal-content, .report-card { background: #1e293b; }
       .feedback details[open] { background: #064e3b; }
+      th { background-color: #1e3a2a; }
+      .review-card { background: #1e293b; }
     }
   </style>
 </head>
@@ -297,8 +325,8 @@
       </button>
       <nav id="main-nav" class="nav__list" role="navigation">
         <a href="index.html" class="nav__link">Home</a>
-        <a href="index.html" class="nav__link">Class 5</a>
-        <a href="index.html" class="nav__link" aria-current="page">History</a>
+        <a href="dashboard.html" class="nav__link">Class 5</a>
+        <a href="historyChapter-10.html" class="nav__link" aria-current="page">History</a>
         <a href="dashboard.html" class="nav__link">Dashboard</a>
         <a href="contact.html" class="nav__link">Contact</a>
       </nav>
@@ -309,8 +337,8 @@
     <!-- Mini OpenStax App Header -->
     <div class="app-header">
       <div>
-        <h1 id="page-title">The Final Steps to Independence (1951–1957)</h1>
-        <div class="lo-tags">B5.5.3.1.5</div>
+        <h1 id="page-title">Revision & Formative Assessment</h1>
+        <div class="lo-tags">B5.5.1.1 - B5.5.3.1 • Complete Term 3 Review</div>
       </div>
       <div style="display:flex;gap:0.5rem;align-items:center;">
         <div class="role-badge" id="current-role">Student View</div>
@@ -332,75 +360,191 @@
       <div class="section">
         <h2>🎯 What You'll Learn</h2>
         <ul id="objectives">
-          <li>Understand the role of Kwame Nkrumah as the Leader of Government Business.</li>
-          <li>Explain the significance of the 1954 and 1956 elections.</li>
-          <li>Describe the historic events of the midnight declaration on March 6, 1957.</li>
-          <li>Identify the meaning behind the name "Ghana" and the colors of the national flag.</li>
-          <li>Recall the famous words spoken by Dr. Kwame Nkrumah at independence.</li>
+          <li>Recall key events and personalities from early protest movements (Weeks 1-4).</li>
+          <li>Explain the sequence of events leading to the 1948 riots (Weeks 5-8).</li>
+          <li>Describe the Watson and Coussey Commissions and their impact (Weeks 9-10).</li>
+          <li>Demonstrate comprehensive understanding of Ghana's journey to independence through Term 3 assessment.</li>
         </ul>
       </div>
 
       <div class="section">
         <h2>🔤 Important Words</h2>
-        <p>Key terms for this lesson:</p>
+        <p>Comprehensive vocabulary from all Term 3 lessons:</p>
         <div class="word-list" id="word-list">
-          <span class="word-item">Leader of Government Business</span>
-          <span class="word-item">Plebiscite</span>
-          <span class="word-item">Old Polo Grounds</span>
-          <span class="word-item">Emancipation</span>
-          <span class="word-item">Sovereignty</span>
-          <span class="word-item">Black Star</span>
+          <span class="word-item">Protest Movement</span>
+          <span class="word-item">ARPS</span>
+          <span class="word-item">NCBWA</span>
+          <span class="word-item">GCYC</span>
+          <span class="word-item">Joseph Mensah Sarbah</span>
+          <span class="word-item">Casely Hayford</span>
+          <span class="word-item">J.B. Danquah</span>
+          <span class="word-item">Land Bill</span>
+          <span class="word-item">Legislative Council</span>
+          <span class="word-item">Boycott</span>
+          <span class="word-item">Ex-Servicemen</span>
+          <span class="word-item">Big Six</span>
+          <span class="word-item">Watson Commission</span>
+          <span class="word-item">Coussey Committee</span>
+          <span class="word-item">Constitution</span>
+          <span class="word-item">Independence</span>
         </div>
       </div>
 
       <div class="section" id="lesson-content">
-        <h2>📘 The Road to Midnight: March 6, 1957</h2>
+        <h2>📘 Complete Term 3 Revision</h2>
         
-        <h3>🏛️ Working Towards Freedom (1951–1954)</h3>
-        <p>After the CPP's massive victory in 1951, Kwame Nkrumah was released from prison and made the <strong>Leader of Government Business</strong>. Instead of fighting the British from the outside, he now worked from the inside. He focused on building new schools, roads, and hospitals, and preparing the country's civil service so that Ghanaians could successfully run the country when full independence came.</p>
-        
-        <h3>🗳️ The 1954 and 1956 Elections</h3>
-        <p>In <strong>1954</strong>, a new constitution was introduced. It stated that all members of the Legislative Assembly would now be directly elected by the people. The CPP won again, proving their massive support.</p>
-        <p>Because the people wanted total independence without further delay, a final election was held in <strong>1956</strong>. This election was essentially a plebiscite (a direct vote by the people) on the issue of independence. The CPP won a massive majority, giving Nkrumah the clear mandate to demand immediate independence from the British.</p>
-        
-        <h3>🇬🇭 The Midnight Declaration</h3>
-        <p>The historic moment finally arrived. On the eve of <strong>March 6, 1957</strong>, massive crowds gathered at the <strong>Old Polo Grounds</strong> in Accra. At the stroke of midnight, the British Union Jack was lowered, and the new national flag of Ghana was raised for the first time.</p>
-        <p>Dr. Kwame Nkrumah stood before the ecstatic crowd and delivered his famous speech:</p>
+        <h3>📚 Weeks 1-4: Early Protest Movements</h3>
+        <div class="review-grid">
+          <div class="review-card">
+            <h4>ARPS (1897)</h4>
+            <ul>
+              <li>First major protest movement</li>
+              <li>Led by Joseph Mensah Sarbah</li>
+              <li>Fought against Land Bills</li>
+              <li>Got Africans on Legislative Council</li>
+            </ul>
+          </div>
+          <div class="review-card">
+            <h4>NCBWA (1917)</h4>
+            <ul>
+              <li>Led by Casely Hayford</li>
+              <li>Brought 4 colonies together</li>
+              <li>Represented in London (1920)</li>
+              <li>Established political parties</li>
+            </ul>
+          </div>
+          <div class="review-card">
+            <h4>GCYC (1929)</h4>
+            <ul>
+              <li>Led by Dr. J.B. Danquah</li>
+              <li>Young educated elites</li>
+              <li>Constitutional reforms</li>
+              <li>University development</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>🔥 Weeks 5-8: Post-WWII Unrest & 1948 Riots</h3>
+        <div class="review-grid">
+          <div class="review-card">
+            <h4>Post-WWII Conditions</h4>
+            <ul>
+              <li>Broken promises to soldiers</li>
+              <li>No pensions, jobs, or housing</li>
+              <li>High prices, unemployment</li>
+              <li>Foreign control of economy</li>
+            </ul>
+          </div>
+          <div class="review-card">
+            <h4>The Boycott (Jan 1948)</h4>
+            <ul>
+              <li>Led by Nii Kwabena Bonne III</li>
+              <li>Against European goods</li>
+              <li>Cotton, tinned meat, flour</li>
+              <li>Showed power of united action</li>
+            </ul>
+          </div>
+          <div class="review-card">
+            <h4>28th February 1948</h4>
+            <ul>
+              <li>Ex-servicemen marched to Osu</li>
+              <li>Shot by police at Christiansborg</li>
+              <li>Sgt. Adjetey, Cpl. Attipoe, Pte. Lamptey</li>
+              <li>Triggered nationwide riots</li>
+            </ul>
+          </div>
+          <div class="review-card">
+            <h4>The Big Six Arrested</h4>
+            <ul>
+              <li>Edward Akufo-Addo</li>
+              <li>Emmanuel Obetsebi-Lamptey</li>
+              <li>Dr. J.B. Danquah</li>
+              <li>Dr. Ebenezer Ako-Adjei</li>
+              <li>William Ofori Atta</li>
+              <li>Dr. Kwame Nkrumah</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>⚖️ Weeks 9-10: Commissions & Constitutional Reform</h3>
+        <div class="review-grid">
+          <div class="review-card">
+            <h4>Watson Commission</h4>
+            <ul>
+              <li>Sent by British government</li>
+              <li>Investigated causes of riots</li>
+              <li>Found: broken promises, high prices</li>
+              <li>Recommended: locals draft Constitution</li>
+            </ul>
+          </div>
+          <div class="review-card">
+            <h4>Coussey Committee</h4>
+            <ul>
+              <li>Established after Watson Commission</li>
+              <li>Reviewed Gold Coast Constitution</li>
+              <li>More elected African members</li>
+              <li>Greater African participation</li>
+            </ul>
+          </div>
+        </div>
+
         <blockquote>
-          "At long last, the battle has ended! And thus, Ghana, our beloved country is free forever!"
+          💭 <strong>Think About It</strong>: How did the early protest movements (ARPS, NCBWA, GCYC) lay the groundwork for the 1948 riots and eventual independence? What connections can you see between these events?
         </blockquote>
-        
-        <h3>🌟 The Name "Ghana" and the Flag</h3>
-        <p>The country was renamed from the <strong>Gold Coast</strong> to <strong>Ghana</strong>. This name was chosen to honor the ancient Ghana Empire of West Africa, which was known for its immense wealth, trade, and the bravery of its warriors.</p>
-        <p>The new flag was designed by Theodosia Okoh, with each color and symbol holding deep meaning:</p>
-        <ul>
-          <li><strong>Red:</strong> Represents the blood of the martyrs and ancestors who fought for our freedom.</li>
-          <li><strong>Gold (Yellow):</strong> Represents the mineral wealth of the country.</li>
-          <li><strong>Green:</strong> Represents the rich forests and natural wealth of the land.</li>
-          <li><strong>The Black Star:</strong> A symbol of African emancipation, freedom, and unity.</li>
+
+        <h3>📊 Self-Assessment Checklist</h3>
+        <p>Before taking the quiz, check if you can:</p>
+        <ul style="list-style: none; padding-left: 0;">
+          <li style="padding: 0.5rem 0; padding-left: 2rem; position: relative;">
+            <input type="checkbox" style="position: absolute; left: 0; top: 0.7rem; width: auto; margin: 0;">
+            Name the three early protest movements and their dates
+          </li>
+          <li style="padding: 0.5rem 0; padding-left: 2rem; position: relative;">
+            <input type="checkbox" style="position: absolute; left: 0; top: 0.7rem; width: auto; margin: 0;">
+            Explain the role of Joseph Mensah Sarbah, Casely Hayford, and J.B. Danquah
+          </li>
+          <li style="padding: 0.5rem 0; padding-left: 2rem; position: relative;">
+            <input type="checkbox" style="position: absolute; left: 0; top: 0.7rem; width: auto; margin: 0;">
+            Describe why people were unhappy after WWII
+          </li>
+          <li style="padding: 0.5rem 0; padding-left: 2rem; position: relative;">
+            <input type="checkbox" style="position: absolute; left: 0; top: 0.7rem; width: auto; margin: 0;">
+            Explain what happened on 28th February 1948
+          </li>
+          <li style="padding: 0.5rem 0; padding-left: 2rem; position: relative;">
+            <input type="checkbox" style="position: absolute; left: 0; top: 0.7rem; width: auto; margin: 0;">
+            Name the Big Six and explain why they were arrested
+          </li>
+          <li style="padding: 0.5rem 0; padding-left: 2rem; position: relative;">
+            <input type="checkbox" style="position: absolute; left: 0; top: 0.7rem; width: auto; margin: 0;">
+            Describe the Watson Commission's findings and recommendations
+          </li>
+          <li style="padding: 0.5rem 0; padding-left: 2rem; position: relative;">
+            <input type="checkbox" style="position: absolute; left: 0; top: 0.7rem; width: auto; margin: 0;">
+            Explain the Coussey Committee's role in constitutional reform
+          </li>
         </ul>
-        
-        <blockquote>
-          💭 <strong>Thought Experiment</strong>: Imagine you are standing in the crowd at the Old Polo Grounds on March 5, 1957. It is 11:59 PM. You are watching the British flag come down. How do you feel as the clock strikes midnight and the Red, Gold, and Green flag goes up? What does it mean for your future?
-        </blockquote>
       </div>
 
       <div class="section">
         <h2>✅ Check Your Understanding</h2>
         <div class="checkpoint">
           <ol>
-            <li>What did Nkrumah focus on as the Leader of Government Business between 1951 and 1954?</li>
-            <li>Why was the 1956 election considered a mandate for independence?</li>
-            <li>Where did the historic independence declaration take place on March 6, 1957?</li>
-            <li>What famous words did Dr. Kwame Nkrumah say at midnight?</li>
-            <li>What do the Red, Gold, Green, and the Black Star on the Ghanaian flag represent?</li>
+            <li>Name the three early protest movements in chronological order.</li>
+            <li>Who was the leader of the ARPS?</li>
+            <li>What date did the shooting of ex-servicemen occur?</li>
+            <li>Name two of the Big Six.</li>
+            <li>What did the Watson Commission recommend?</li>
+            <li>Why was the Coussey Committee established?</li>
+            <li>What was the main cause of the boycott in January 1948?</li>
+            <li>Which movement brought together four British West African colonies?</li>
           </ol>
-          <p><em>Confirm your understanding before moving on.</em></p>
+          <p><em>Confirm your understanding before taking the comprehensive quiz.</em></p>
         </div>
       </div>
 
       <div class="section">
-        <h2>📝 Quick Quiz (20 Questions)</h2>
+        <h2>📝 Comprehensive Term 3 Quiz (20 Questions)</h2>
         <form id="quiz-form"></form>
         <button type="button" class="btn" id="submit-quiz">Check Answers</button>
       </div>
@@ -409,8 +553,8 @@
       <div class="chapter-nav" id="chapter-navigation">
         <div class="chapter-tabs" id="chapter-tabs"></div>
         <div>
-          <button id="prev-btn" class="btn" style="margin-right: 0.5rem; display: none;">← Previous Lesson</button>
-          <button id="next-btn" class="btn" style="display: none;">Next Lesson →</button>
+          <button id="prev-btn" class="btn" style="margin-right: 0.5rem; display: none;">← Previous Week</button>
+          <button id="next-btn" class="btn" style="display: none;">Next Week →</button>
         </div>
       </div>
 
@@ -427,8 +571,8 @@
             <div class="stat-label">Mastered</div>
           </div>
           <div class="stat-item">
-            <div class="stat-value" id="stat-total">1</div>
-            <div class="stat-label">Total Lessons</div>
+            <div class="stat-value" id="stat-total">11</div>
+            <div class="stat-label">Total Weeks</div>
           </div>
           <div class="stat-item">
             <div class="stat-value" id="stat-percent">0%</div>
@@ -483,8 +627,8 @@
         <h4 class="footer__title">Quick Links</h4>
         <nav aria-label="Footer navigation">
           <a href="index.html" class="footer__link">Home</a><br>
-          <a href="index.html" class="footer__link">Class 5</a><br>
-          <a href="index.html" class="footer__link">History Lessons</a><br>
+          <a href="dashboard.html" class="footer__link">Class 5</a><br>
+          <a href="historyChapter-10.html" class="footer__link">History Lessons</a><br>
           <a href="contact.html" class="footer__link">Contact Support</a>
         </nav>
       </div>
@@ -511,8 +655,8 @@
       // === AUTO-DETECT CHAPTER NUMBER FROM URL ===
       const path = window.location.pathname;
       const match = path.match(/historyChapter-(\d+)\.html/);
-      const currentChapter = match ? parseInt(match[1], 10) : 0;
-      const MAX_CHAPTERS = 300;
+      const currentChapter = match ? parseInt(match[1], 10) : 10;
+      const MAX_CHAPTERS = 11; // 12 weeks total (0 to 11)
 
       function getChapterUrl(n) {
         return `historyChapter-${n}.html`;
@@ -592,28 +736,28 @@
       };
       window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
 
-      // === QUIZ DATA (20 Questions - Final Steps to Independence) ===
+      // === QUIZ DATA (20 Questions - Comprehensive Term 3 Review) ===
       const assessmentItems = [
-        {id:"1",prompt:"What title was Kwame Nkrumah given after the CPP won the 1951 elections?",options:[{id:"a",text:"President",is_correct:false},{id:"b",text:"Leader of Government Business",is_correct:true},{id:"c",text:"Governor-General",is_correct:false},{id:"d",text:"Prime Minister",is_correct:false}]},
-        {id:"2",prompt:"What did Nkrumah focus on between 1951 and 1954 as Leader of Government Business?",options:[{id:"a",text:"Starting a war with Britain",is_correct:false},{id:"b",text:"Building schools, roads, and preparing the country for self-rule",is_correct:true},{id:"c",text:"Leaving the country",is_correct:false},{id:"d",text:"Stopping all elections",is_correct:false}]},
-        {id:"3",prompt:"In what year was the new constitution introduced after the Coussey Constitution?",options:[{id:"a",text:"1950",is_correct:false},{id:"b",text:"1951",is_correct:false},{id:"c",text:"1954",is_correct:true},{id:"d",text:"1957",is_correct:false}]},
-        {id:"4",prompt:"What major change did the 1954 Constitution bring?",options:[{id:"a",text:"All African members of the Legislative Assembly were now directly elected",is_correct:true},{id:"b",text:"The British Governor had total control",is_correct:false},{id:"c",text:"Elections were banned",is_correct:false},{id:"d",text:"The CPP was dissolved",is_correct:false}]},
-        {id:"5",prompt:"Which party won the 1954 elections?",options:[{id:"a",text:"UGCC",is_correct:false},{id:"b",text:"CPP",is_correct:true},{id:"c",text:"NLM",is_correct:false},{id:"d",text:"NDC",is_correct:false}]},
-        {id:"6",prompt:"In what year was the final election held to decide on immediate independence?",options:[{id:"a",text:"1954",is_correct:false},{id:"b",text:"1955",is_correct:false},{id:"c",text:"1956",is_correct:true},{id:"d",text:"1957",is_correct:false}]},
-        {id:"7",prompt:"What was the result of the 1956 elections?",options:[{id:"a",text:"The UGCC won",is_correct:false},{id:"b",text:"The CPP won a massive majority, giving a mandate for independence",is_correct:true},{id:"c",text:"The British decided to stay",is_correct:false},{id:"d",text:"No one voted",is_correct:false}]},
-        {id:"8",prompt:"On what exact date did Ghana gain its independence?",options:[{id:"a",text:"28th February 1948",is_correct:false},{id:"b",text:"1st January 1957",is_correct:false},{id:"c",text:"6th March 1957",is_correct:true},{id:"d",text:"6th March 1960",is_correct:false}]},
-        {id:"9",prompt:"Where did the historic independence declaration take place?",options:[{id:"a",text:"Christiansborg Castle",is_correct:false},{id:"b",text:"Old Polo Grounds in Accra",is_correct:true},{id:"c",text:"Kwame Nkrumah Circle",is_correct:false},{id:"d",text:"The University of Ghana",is_correct:false}]},
-        {id:"10",prompt:"What famous words did Dr. Kwame Nkrumah declare at midnight?",options:[{id:"a",text:"We will fight forever",is_correct:false},{id:"b",text:"At long last, the battle has ended! And thus, Ghana, our beloved country is free forever!",is_correct:true},{id:"c",text:"The British will return soon",is_correct:false},{id:"d",text:"We are now a British colony",is_correct:false}]},
-        {id:"11",prompt:"What was the name of the country changed from upon independence?",options:[{id:"a",text:"Asante to Ghana",is_correct:false},{id:"b",text:"Gold Coast to Ghana",is_correct:true},{id:"c",text:"British West Africa to Ghana",is_correct:false},{id:"d",text:"Cape Coast to Ghana",is_correct:false}]},
-        {id:"12",prompt:"Why was the name 'Ghana' chosen for the new country?",options:[{id:"a",text:"It was the name of the British Governor",is_correct:false},{id:"b",text:"To honor the ancient Ghana Empire known for its wealth and bravery",is_correct:true},{id:"c",text:"It was a random choice",is_correct:false},{id:"d",text:"It means 'free people' in English",is_correct:false}]},
-        {id:"13",prompt:"Who designed the national flag of Ghana?",options:[{id:"a",text:"Kwame Nkrumah",is_correct:false},{id:"b",text:"Theodosia Okoh",is_correct:true},{id:"c",text:"J.B. Danquah",is_correct:false},{id:"d",text:"Yaa Asantewaa",is_correct:false}]},
-        {id:"14",prompt:"What is at the center of the Ghanaian flag?",options:[{id:"a",text:"A Golden Eagle",is_correct:false},{id:"b",text:"A Black Star",is_correct:true},{id:"c",text:"A White Dove",is_correct:false},{id:"d",text:"A Red Lion",is_correct:false}]},
-        {id:"15",prompt:"What does the Black Star on the flag represent?",options:[{id:"a",text:"The night sky",is_correct:false},{id:"b",text:"African emancipation, freedom, and unity",is_correct:true},{id:"c",text:"The mineral wealth",is_correct:false},{id:"d",text:"The blood of the ancestors",is_correct:false}]},
-        {id:"16",prompt:"What color on the flag represents the blood of the martyrs who fought for freedom?",options:[{id:"a",text:"Red",is_correct:true},{id:"b",text:"Gold",is_correct:false},{id:"c",text:"Green",is_correct:false},{id:"d",text:"Black",is_correct:false}]},
-        {id:"17",prompt:"What color on the flag represents the mineral wealth of the country?",options:[{id:"a",text:"Red",is_correct:false},{id:"b",text:"Gold (Yellow)",is_correct:true},{id:"c",text:"Green",is_correct:false},{id:"d",text:"White",is_correct:false}]},
-        {id:"18",prompt:"What color on the flag represents the rich forests and natural wealth of the land?",options:[{id:"a",text:"Red",is_correct:false},{id:"b",text:"Gold",is_correct:false},{id:"c",text:"Green",is_correct:true},{id:"d",text:"Black",is_correct:false}]},
-        {id:"19",prompt:"True or False: Ghana was the first country in sub-Saharan Africa to gain independence from colonial rule.",options:[{id:"a",text:"True",is_correct:true},{id:"b",text:"False",is_correct:false}]},
-        {id:"20",prompt:"What did Nkrumah mean when he said 'the battle has ended'?",options:[{id:"a",text:"World War II was over",is_correct:false},{id:"b",text:"The long struggle against British colonial rule was finally over",is_correct:true},{id:"c",text:"The 1948 riots were finished",is_correct:false},{id:"d",text:"The elections were canceled",is_correct:false}]}
+        {id:"1",prompt:"Which protest movement was formed FIRST in the Gold Coast?",options:[{id:"a",text:"NCBWA (1917)",is_correct:false},{id:"b",text:"GCYC (1929)",is_correct:false},{id:"c",text:"ARPS (1897)",is_correct:true},{id:"d",text:"UGCC (1947)",is_correct:false}]},
+        {id:"2",prompt:"Who was the leader of the Aborigines' Rights Protection Society (ARPS)?",options:[{id:"a",text:"Dr. J.B. Danquah",is_correct:false},{id:"b",text:"Joseph Mensah Sarbah",is_correct:true},{id:"c",text:"Casely Hayford",is_correct:false},{id:"d",text:"Kwame Nkrumah",is_correct:false}]},
+        {id:"3",prompt:"What was the main reason the ARPS was formed?",options:[{id:"a",text:"To build schools",is_correct:false},{id:"b",text:"To protect African land rights against Land Bills",is_correct:true},{id:"c",text:"To start a political party",is_correct:false},{id:"d",text:"To trade with Europe",is_correct:false}]},
+        {id:"4",prompt:"Which movement brought together leaders from four British West African colonies?",options:[{id:"a",text:"ARPS",is_correct:false},{id:"b",text:"NCBWA",is_correct:true},{id:"c",text:"GCYC",is_correct:false},{id:"d",text:"UGCC",is_correct:false}]},
+        {id:"5",prompt:"Who wrote 'Ethiopia Unbound', the first novel by an African in English?",options:[{id:"a",text:"Joseph Mensah Sarbah",is_correct:false},{id:"b",text:"Dr. J.B. Danquah",is_correct:false},{id:"c",text:"Joseph Ephraim Casely Hayford",is_correct:true},{id:"d",text:"Kwame Nkrumah",is_correct:false}]},
+        {id:"6",prompt:"When was the Gold Coast Youth Conference (GCYC) formed?",options:[{id:"a",text:"1897",is_correct:false},{id:"b",text:"1917",is_correct:false},{id:"c",text:"1929",is_correct:true},{id:"d",text:"1948",is_correct:false}]},
+        {id:"7",prompt:"What happened on 28th February 1948?",options:[{id:"a",text:"Ghana gained independence",is_correct:false},{id:"b",text:"Unarmed ex-servicemen were shot by police",is_correct:true},{id:"c",text:"The Big Six were released from prison",is_correct:false},{id:"d",text:"The Watson Commission was established",is_correct:false}]},
+        {id:"8",prompt:"Who led the boycott of European goods in January 1948?",options:[{id:"a",text:"Dr. J.B. Danquah",is_correct:false},{id:"b",text:"Kwame Nkrumah",is_correct:false},{id:"c",text:"Chief Nii Kwabena Bonne III",is_correct:true},{id:"d",text:"Casely Hayford",is_correct:false}]},
+        {id:"9",prompt:"Which three ex-servicemen were shot on 28th February 1948?",options:[{id:"a",text:"Sgt. Adjetey, Cpl. Attipoe, Pte. Odartey Lamptey",is_correct:true},{id:"b",text:"Sgt. Mensah, Cpl. Owusu, Pte. Asante",is_correct:false},{id:"c",text:"Sgt. Boateng, Cpl. Agyeman, Pte. Darkwa",is_correct:false},{id:"d",text:"Sgt. Osei, Cpl. Bonsu, Pte. Yeboah",is_correct:false}]},
+        {id:"10",prompt:"Where were the ex-servicemen marching to on 28th February 1948?",options:[{id:"a",text:"The airport",is_correct:false},{id:"b",text:"Christiansborg Castle at Osu",is_correct:true},{id:"c",text:"The market",is_correct:false},{id:"d",text:"The university",is_correct:false}]},
+        {id:"11",prompt:"Why were the Big Six arrested?",options:[{id:"a",text:"They stole money from the government",is_correct:false},{id:"b",text:"The colonial governor blamed them for the 1948 riots",is_correct:true},{id:"c",text:"They refused to pay taxes",is_correct:false},{id:"d",text:"They started a war",is_correct:false}]},
+        {id:"12",prompt:"Which of these was NOT one of the Big Six?",options:[{id:"a",text:"Dr. Kwame Nkrumah",is_correct:false},{id:"b",text:"Dr. J.B. Danquah",is_correct:false},{id:"c",text:"Joseph Mensah Sarbah",is_correct:true},{id:"d",text:"William Ofori Atta",is_correct:false}]},
+        {id:"13",prompt:"What was the Watson Commission?",options:[{id:"a",text:"A group that built schools",is_correct:false},{id:"b",text:"A team sent by Britain to investigate the 1948 riots",is_correct:true},{id:"c",text:"A political party",is_correct:false},{id:"d",text:"A traditional council of chiefs",is_correct:false}]},
+        {id:"14",prompt:"What did the Watson Commission recommend?",options:[{id:"a",text:"That Ghana should remain a colony forever",is_correct:false},{id:"b",text:"That local people should draft their own Constitution",is_correct:true},{id:"c",text:"That all Africans should leave the country",is_correct:false},{id:"d",text:"That the British should increase taxes",is_correct:false}]},
+        {id:"15",prompt:"Why was the Coussey Committee established?",options:[{id:"a",text:"To plan a war",is_correct:false},{id:"b",text:"To review the Constitution following Watson Commission recommendations",is_correct:true},{id:"c",text:"To build new roads",is_correct:false},{id:"d",text:"To collect taxes",is_correct:false}]},
+        {id:"16",prompt:"What was a major cause of unhappiness after World War II?",options:[{id:"a",text:"Too many schools were built",is_correct:false},{id:"b",text:"Broken promises to ex-servicemen and high prices",is_correct:true},{id:"c",text:"Ghana had too much money",is_correct:false},{id:"d",text:"Everyone had good jobs",is_correct:false}]},
+        {id:"17",prompt:"What goods were boycotted in January 1948?",options:[{id:"a",text:"Local fruits and vegetables",is_correct:false},{id:"b",text:"Cotton prints, tinned meat, and flour biscuits",is_correct:true},{id:"c",text:"Gold and diamonds",is_correct:false},{id:"d",text:"Cocoa and timber",is_correct:false}]},
+        {id:"18",prompt:"What was the Legislative Council?",options:[{id:"a",text:"A group of dancers",is_correct:false},{id:"b",text:"A body that made laws for the Gold Coast under British rule",is_correct:true},{id:"c",text:"A school for teachers",is_correct:false},{id:"d",text:"A market",is_correct:false}]},
+        {id:"19",prompt:"Which core competency is most developed when studying Ghana's journey to independence?",options:[{id:"a",text:"Financial Literacy",is_correct:false},{id:"b",text:"Cultural Identity and Global Citizenship",is_correct:true},{id:"c",text:"Physical Coordination",is_correct:false},{id:"d",text:"Digital Literacy",is_correct:false}]},
+        {id:"20",prompt:"What is the correct chronological order of these events?",options:[{id:"a",text:"1948 Riots → ARPS formed → Watson Commission",is_correct:false},{id:"b",text:"ARPS formed (1897) → NCBWA formed (1917) → 1948 Riots",is_correct:true},{id:"c",text:"NCBWA formed → ARPS formed → 1948 Riots",is_correct:false},{id:"d",text:"1948 Riots → NCBWA formed → ARPS formed",is_correct:false}]}
       ];
 
       // === RENDER QUIZ ===
@@ -665,7 +809,7 @@
         localStorage.setItem(`quiz_attempts_${currentChapter}`, attempts);
         localStorage.setItem(`mastery_${currentChapter}`, mastery ? '1' : '0');
 
-        let report = `*Mini OpenStax — The Final Steps to Independence (1951–1957)*\nStudent: ${userName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
+        let report = `*Mini OpenStax — Revision & Formative Assessment (Week ${currentChapter + 1})*\nStudent: ${userName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
         if (correctList.length) {
           report += `✅ CORRECT ANSWERS (${correctList.length}):\n`;
           correctList.forEach(q => report += `${q.id}. ${q.prompt}\n   → ${q.correctText}\n\n`);
@@ -679,7 +823,7 @@
         const timestamp = Date.now();
         localStorage.setItem(`saved_report_${currentChapter}_${timestamp}`, report);
 
-        let feedbackHTML = `<div class="feedback"><h3>📊 Results: ${score}/${total}</h3><p><strong>${mastery ? '🎉 Excellent!' : score >= total/2 ? 'Good!' : 'Keep practicing.'}</strong></p><p><strong>Time:</strong> ${timeOnTask}s | <strong>Attempts:</strong> ${attempts}</p>`;
+        let feedbackHTML = `<div class="feedback"><h3>📊 Results: ${score}/${total}</h3><p><strong>${mastery ? '🎉 Excellent! You have mastered Term 3!' : score >= total/2 ? 'Good effort! Review the incorrect answers.' : 'Keep practicing. Review all lessons.'}</strong></p><p><strong>Time:</strong> ${timeOnTask}s | <strong>Attempts:</strong> ${attempts}</p>`;
         if (correctList.length) {
           feedbackHTML += `<details style="margin-top:1rem; background:#e8f5e9; padding:0.8rem; border-radius:6px;"><summary><strong>✅ Correct Answers (${correctList.length})</strong></summary><ul style="margin-top:0.5rem; padding-left:1.2rem;">${correctList.map(q => `<li>${q.id}. ${q.prompt}<br><em>→ ${q.correctText}</em></li>`).join('')}</ul></details>`;
         }
@@ -709,7 +853,7 @@
           const student = (lines.find(l => l.startsWith('Student:')) || '').replace('Student: ', '').trim() || 'Unknown';
           const score = (lines.find(l => l.startsWith('Score:')) || 'Score unknown');
           const date = new Date(rep.timestamp).toLocaleString();
-          return `<div class="report-card"><div class="report-header"><span>Final Steps to Independence</span><span>${date}</span></div><div class="report-meta">Student: ${student} • ${score}</div><div class="report-detail" id="detail-${rep.timestamp}"></div><div class="report-actions"><button class="btn" onclick="toggleDetail(${rep.timestamp})">Details</button><button class="btn" onclick="viewReportAsPDF('${rep.key}')">PDF</button><button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">WhatsApp</button></div></div>`;
+          return `<div class="report-card"><div class="report-header"><span>Revision & Assessment</span><span>${date}</span></div><div class="report-meta">Student: ${student} • ${score}</div><div class="report-detail" id="detail-${rep.timestamp}"></div><div class="report-actions"><button class="btn" onclick="toggleDetail(${rep.timestamp})">Details</button><button class="btn" onclick="viewReportAsPDF('${rep.key}')">PDF</button><button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">WhatsApp</button></div></div>`;
         }).join('');
         window.reportContents = {};
         reports.forEach(r => window.reportContents[r.timestamp] = r.content);
@@ -724,11 +868,24 @@
 
       // === DASHBOARD ===
       function updateDashboard() {
+        let masteredCount = 0;
+        for (let i = 0; i <= 10; i++) {
+          if (localStorage.getItem(`mastery_${i}`) === '1') masteredCount++;
+        }
         const mastered = localStorage.getItem(`mastery_${currentChapter}`) === '1' ? 1 : 0;
-        document.getElementById('stat-mastered').textContent = mastered;
-        document.getElementById('stat-total').textContent = 1;
-        document.getElementById('stat-percent').textContent = `${mastered * 100}%`;
-        document.getElementById('recent-lessons').innerHTML = `<div class="lesson-item"><div><span class="mastery-indicator ${mastered ? 'mastery-yes' : 'mastery-partial'}"></span>Lesson ${currentChapter + 1}</div><span>${mastered ? 'Mastered' : 'In Progress'}</span></div>`;
+        masteredCount += mastered;
+        document.getElementById('stat-mastered').textContent = masteredCount;
+        document.getElementById('stat-total').textContent = 11;
+        document.getElementById('stat-percent').textContent = `${Math.round((masteredCount / 11) * 100)}%`;
+        
+        let recentHTML = '';
+        for (let i = 10; i >= Math.max(0, 10 - 4); i--) {
+          const isMastered = localStorage.getItem(`mastery_${i}`) === '1';
+          const weekNum = i + 1;
+          const topic = i === 0 ? 'Early Protest Movements' : i === 1 ? 'Joseph Mensah Sarbah & ARPS' : i === 2 ? 'Casely Hayford & NCBWA' : i === 3 ? 'Dr. J.B. Danquah & GCYC' : i === 4 ? 'Post-WWII Unhappiness' : i === 5 ? 'The Boycott' : i === 6 ? 'Shooting of Ex-Servicemen' : i === 7 ? 'The 1948 Riots' : i === 8 ? 'Watson Commission' : i === 9 ? 'Coussey Committee' : 'Revision & Assessment';
+          recentHTML += `<div class="lesson-item"><div><span class="mastery-indicator ${isMastered ? 'mastery-yes' : 'mastery-partial'}"></span>Week ${weekNum}: ${topic}</div><span>${isMastered ? 'Mastered' : 'In Progress'}</span></div>`;
+        }
+        document.getElementById('recent-lessons').innerHTML = recentHTML || '<p>No activity yet.</p>';
       }
       document.getElementById('btn-send-all').addEventListener('click', () => {
         let msg = `*📚 Mini OpenStax — All Quiz Reports*\nStudent: ${userName}\n\n`; let count = 0;
@@ -772,9 +929,9 @@
         const tabsContainer = document.getElementById('chapter-tabs');
         const prevBtn = document.getElementById('prev-btn'); const nextBtn = document.getElementById('next-btn');
         let tabsHtml = '';
-        for (let i = Math.max(0, currentChapter - 1); i <= Math.min(MAX_CHAPTERS, currentChapter + 2); i++) {
+        for (let i = Math.max(0, currentChapter - 2); i <= Math.min(MAX_CHAPTERS, currentChapter + 1); i++) {
           const isActive = i === currentChapter;
-          tabsHtml += `<a href="${getChapterUrl(i)}" class="chapter-btn ${isActive ? 'active' : ''}">Lesson ${i + 1}</a>`;
+          tabsHtml += `<a href="${getChapterUrl(i)}" class="chapter-btn ${isActive ? 'active' : ''}">Week ${i + 1}</a>`;
         }
         tabsContainer.innerHTML = tabsHtml;
         if (currentChapter > 0) { prevBtn.style.display = 'inline-block'; prevBtn.onclick = () => window.location.href = getChapterUrl(currentChapter - 1); }
@@ -786,11 +943,6 @@
       // === INIT ===
       document.getElementById('year').textContent = new Date().getFullYear();
       renderQuiz(); updateChapterNavigation();
-      document.getElementById('send-analytics')?.addEventListener('click', (e) => { e.preventDefault(); alert("Usage data collection is handled globally."); });
-    })();
-  </script>
-</body>
-</html> updateChapterNavigation();
       document.getElementById('send-analytics')?.addEventListener('click', (e) => { e.preventDefault(); alert("Usage data collection is handled globally."); });
     })();
   </script>
