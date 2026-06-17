@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Mini OpenStax: Examine the events that led to the 1948 riots — Class 5 History Chapter 5" />
+  <meta name="description" content="Mini OpenStax: Post-WWII Unhappiness — Class 5 History Week 5" />
   <meta name="theme-color" content="#006b3d" />
-  <title>Mini OpenStax — The Events that Led to the 1948 Riots</title>
+  <title>Mini OpenStax — Post-WWII Unhappiness (Week 5)</title>
   
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -30,6 +30,7 @@
       --radius-lg: 1rem;
       --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
       --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
       --space-xs: clamp(0.5rem, 0.8vw, 0.75rem);
       --space-sm: clamp(0.75rem, 1.2vw, 1rem);
       --space-md: clamp(1rem, 2vw, 1.5rem);
@@ -93,6 +94,7 @@
     .nav__link {
       padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm);
       font-weight: 500; color: var(--dark); transition: background var(--transition), color var(--transition);
+      text-decoration: none;
     }
     .nav__link:hover, .nav__link:focus-visible { background: var(--light); color: var(--green); }
     .nav__link[aria-current="page"] { color: var(--green); font-weight: 700; background: var(--light); }
@@ -163,6 +165,7 @@
       background: var(--green); color: white; border: none; padding: 0.6rem 1.2rem;
       border-radius: var(--radius-md); font-weight: 600; cursor: pointer; margin-top: 0.5rem;
       transition: background var(--transition), transform var(--transition);
+      text-decoration: none; display: inline-block;
     }
     .btn:hover, .btn:focus-visible { background: var(--green-dark); transform: translateY(-2px); }
     .btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
@@ -183,6 +186,49 @@
     .checkpoint {
       background: #f8f9fa; padding: var(--space-md); border-left: 4px solid var(--gold);
       margin: var(--space-lg) 0; border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+    .timeline {
+      display: flex; flex-direction: column; gap: var(--space-sm); margin: var(--space-md) 0;
+    }
+    .timeline-item {
+      display: flex; gap: var(--space-sm); padding: var(--space-sm);
+      background: var(--light); border-radius: var(--radius-md);
+      border-left: 4px solid var(--gold);
+    }
+    .timeline-year {
+      font-weight: 700; color: var(--green-dark); min-width: 80px;
+      font-family: monospace; font-size: 1rem;
+    }
+    .timeline-content { flex: 1; font-size: 0.95rem; }
+    .promise-list {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-sm); margin: var(--space-md) 0;
+    }
+    .promise-card {
+      background: linear-gradient(135deg, var(--green-light, #e8f5ee), var(--surface));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--green);
+      padding: var(--space-md);
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+    .promise-card.broken {
+      border-left-color: var(--red);
+      background: linear-gradient(135deg, #fde8ea, var(--surface));
+    }
+    .promise-card i {
+      font-size: 1.75rem; color: var(--green); margin-bottom: var(--space-xs);
+    }
+    .promise-card.broken i { color: var(--red); }
+    .promise-card h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+      color: var(--dark);
+    }
+    .promise-card p {
+      font-size: 0.85rem;
+      color: #64748b;
     }
 
     /* === QUIZ === */
@@ -249,7 +295,7 @@
       max-width: var(--max-w); margin: 0 auto; padding: 0 var(--space-md);
     }
     .footer__title { color: white; margin-bottom: var(--space-sm); font-size: 1.1rem; }
-    .footer__link { color: #94a3b8; transition: color var(--transition); display: inline-block; margin-bottom: var(--space-xs); }
+    .footer__link { color: #94a3b8; transition: color var(--transition); display: inline-block; margin-bottom: var(--space-xs); text-decoration: none; }
     .footer__link:hover { color: white; text-decoration: underline; }
     .footer__bottom {
       text-align: center; margin-top: var(--space-lg); padding-top: var(--space-sm);
@@ -278,6 +324,10 @@
       }
       .card, .modal-content, .report-card { background: #1e293b; }
       .feedback details[open] { background: #064e3b; }
+      th { background-color: #1e3a2a; }
+      .timeline-item { background: #1e293b; }
+      .promise-card { background: linear-gradient(135deg, #0a2e1d, #1e293b); }
+      .promise-card.broken { background: linear-gradient(135deg, #3d0a10, #1e293b); }
     }
   </style>
 </head>
@@ -297,8 +347,8 @@
       </button>
       <nav id="main-nav" class="nav__list" role="navigation">
         <a href="index.html" class="nav__link">Home</a>
-        <a href="index.html" class="nav__link">Class 5</a>
-        <a href="index.html" class="nav__link" aria-current="page">History</a>
+        <a href="dashboard.html" class="nav__link">Class 5</a>
+        <a href="historyChapter-4.html" class="nav__link" aria-current="page">History</a>
         <a href="dashboard.html" class="nav__link">Dashboard</a>
         <a href="contact.html" class="nav__link">Contact</a>
       </nav>
@@ -309,8 +359,8 @@
     <!-- Mini OpenStax App Header -->
     <div class="app-header">
       <div>
-        <h1 id="page-title">The Events that Led to the 1948 Riots</h1>
-        <div class="lo-tags">B5.5.3.1.2</div>
+        <h1 id="page-title">Post-WWII Unhappiness</h1>
+        <div class="lo-tags">B5.5.3.1.1 • The 1948 Riots</div>
       </div>
       <div style="display:flex;gap:0.5rem;align-items:center;">
         <div class="role-badge" id="current-role">Student View</div>
@@ -332,11 +382,10 @@
       <div class="section">
         <h2>🎯 What You'll Learn</h2>
         <ul id="objectives">
-          <li>Describe the peaceful march of the ex-servicemen on February 28, 1948.</li>
-          <li>Explain what happened at Christiansburg Crossroads.</li>
-          <li>Identify the three ex-servicemen who were killed during the march.</li>
-          <li>Understand how the tragedy sparked the 1948 riots across the Gold Coast.</li>
-          <li>Explain why the Big Six were arrested and the impact it had on the people.</li>
+          <li>Explain when the Second World War was fought and which side the Gold Coast supported.</li>
+          <li>Describe the promises made to Gold Coast soldiers who fought in the war.</li>
+          <li>Explain why people were unhappy in the country after the Second World War.</li>
+          <li>Discuss the general state of affairs that led to unrest and the demand for independence.</li>
         </ul>
       </div>
 
@@ -344,53 +393,127 @@
         <h2>🔤 Important Words</h2>
         <p>Key terms for this lesson:</p>
         <div class="word-list" id="word-list">
-          <span class="word-item">Ex-servicemen</span>
-          <span class="word-item">Christiansburg Crossroads</span>
+          <span class="word-item">Allies</span>
+          <span class="word-item">Axis</span>
+          <span class="word-item">Reinforcement</span>
+          <span class="word-item">Pensions</span>
+          <span class="word-item">Unemployment</span>
+          <span class="word-item">Unrest</span>
           <span class="word-item">Riots</span>
-          <span class="word-item">State of Emergency</span>
-          <span class="word-item">Looting</span>
-          <span class="word-item">Petition</span>
-          <span class="word-item">Unarmed</span>
+          <span class="word-item">Boycott</span>
+          <span class="word-item">Ex-Servicemen</span>
+          <span class="word-item">Swollen Shoot Disease</span>
+          <span class="word-item">Inflation</span>
+          <span class="word-item">Gold Coast Regiment</span>
         </div>
       </div>
 
       <div class="section" id="lesson-content">
-        <h2>📘 The Spark of the 1948 Riots</h2>
+        <h2>📘 Post-WWII Unhappiness</h2>
         
-        <h3>🔥 Rising Tensions</h3>
-        <p>Following the massive boycott of European goods, tensions in the Gold Coast were extremely high. The people were angry about high prices, unemployment, and the broken promises made to the soldiers. At the same time, the newly formed UGCC was mobilizing the people to demand self-government.</p>
-        
-        <h3>🚶‍♂️ The Peaceful March of February 28, 1948</h3>
-        <p>On <strong>February 28, 1948</strong>, unarmed ex-servicemen (soldiers who had fought in WWII) organized a peaceful march. They were walking from Accra to <strong>Christiansborg Castle</strong> (the Governor's residence) to present a petition about their unfulfilled promises, including pensions, jobs, and housing.</p>
-        
-        <h3>🩸 The Tragedy at Christiansburg Crossroads</h3>
-        <p>As the marching soldiers reached the <strong>Christiansburg Crossroads</strong>, they were stopped by the colonial police. The police officer in charge ordered the soldiers to stop. When they continued marching peacefully, the police opened fire on the unarmed soldiers.</p>
-        <p>Three soldiers were killed instantly:</p>
+        <h3>💡 Introduction: The Second World War (1939–1945)</h3>
+        <p>By 1939, most countries in the world were fighting in a big war called the <strong>Second World War (WWII)</strong>. The war was fought between two main groups:</p>
         <ul>
-          <li><strong>Sergeant Adjetey</strong></li>
-          <li><strong>Corporal Attipoe</strong></li>
-          <li><strong>Private Odartey Lamptey</strong></li>
+          <li><strong>The Allies</strong> — included Britain, France, USA, Soviet Union, and many other countries including the Gold Coast.</li>
+          <li><strong>The Axis</strong> — included Germany, Italy, and Japan.</li>
         </ul>
-        <p>Many others were wounded. This tragic event shocked the entire nation and turned their peaceful mourning into deep anger.</p>
-        
-        <h3>💥 The Outbreak of the Riots</h3>
-        <p>The news of the killing of the ex-servicemen spread quickly across Accra and the rest of the Gold Coast. The people were furious. Angry crowds attacked and <strong>looted</strong> European-owned shops and businesses. They burned down buildings and destroyed property belonging to foreigners, especially those of the European and Syrian traders who were accused of hoarding goods.</p>
-        <p>The riots quickly spread to other major towns like <strong>Kumasi, Sekondi, and Akim Oda</strong>.</p>
-        
-        <h3>⛓️ The Arrest of the Big Six</h3>
-        <p>The British colonial government was panicked by the widespread riots. They declared a <strong>State of Emergency</strong> and brought in the military to restore order. The government blamed the political leaders for inciting the riots. On <strong>March 12, 1948</strong>, they arrested six key political leaders, who became known as <strong>"The Big Six"</strong>:</p>
-        <ol>
-          <li>Ebenezer Ako-Adjei</li>
-          <li>Edward Akufo-Addo</li>
-          <li>J.B. Danquah</li>
-          <li>Kwame Nkrumah</li>
-          <li>Emmanuel Obetsebi-Lamptey</li>
-          <li>William Ofori Atta</li>
-        </ol>
-        <p>Instead of stopping the demand for independence, their arrest made them national heroes and united the people even more.</p>
-        
+        <p>The Gold Coast, being a British colony, fought on the side of the <strong>Allies</strong>. Many Gold Coast men joined the army and were sent to fight in different parts of the world.</p>
+
+        <h3>🎖️ Gold Coast Soldiers in the War</h3>
+        <p>Gold Coast soldiers fought in two main military units:</p>
+        <ul>
+          <li><strong>The Gold Coast Regiment</strong> — the local army unit of the Gold Coast.</li>
+          <li><strong>The Royal West African Frontier Force (RWAFF)</strong> — a bigger British army group that included soldiers from Gold Coast, Nigeria, Sierra Leone, and Gambia.</li>
+        </ul>
+        <p>These soldiers were sent to fight in places like Burma (now Myanmar), Ethiopia, and other parts of Africa and Asia. They risked their lives for the British Empire.</p>
+
+        <h3>🤝 Promises Made to the Soldiers</h3>
+        <p>Before the soldiers went to war, the British government made many promises to encourage them to fight. They were told they would receive:</p>
+
+        <div class="promise-list">
+          <div class="promise-card">
+            <i class="fas fa-money-bill-wave"></i>
+            <h4>Pensions</h4>
+            <p>Regular money after the war</p>
+          </div>
+          <div class="promise-card">
+            <i class="fas fa-house"></i>
+            <h4>Houses</h4>
+            <p>Places to live with their families</p>
+          </div>
+          <div class="promise-card">
+            <i class="fas fa-briefcase"></i>
+            <h4>Jobs</h4>
+            <p>Good employment opportunities</p>
+          </div>
+          <div class="promise-card">
+            <i class="fas fa-hand-holding-heart"></i>
+            <h4>Other Benefits</h4>
+            <p>Education, health, and welfare</p>
+          </div>
+        </div>
+
+        <h3>💔 Broken Promises After the War</h3>
+        <p>When the war ended in 1945, the soldiers returned home expecting to receive all these benefits. But to their disappointment, the British government <strong>did NOT keep these promises</strong>. The soldiers found:</p>
+        <ul>
+          <li>No jobs waiting for them</li>
+          <li>No pensions being paid</li>
+          <li>No houses built for them</li>
+          <li>No help to start businesses or continue education</li>
+        </ul>
+
         <blockquote>
-          💭 <strong>Thought Experiment</strong>: Imagine you are a citizen of Accra in 1948. You hear that the British police have shot three unarmed soldiers who were just asking for their promised jobs. How would this news make you feel, and what actions might you take in response?
+          💭 <strong>Think About It</strong>: Imagine you fought in a war for your country, risking your life, and when you returned home, all the promises were broken. How would you feel? What would you do?
+        </blockquote>
+
+        <h3>🌍 The General State of Affairs After WWII</h3>
+        <p>The unhappiness was not only among the soldiers. Many other people in the Gold Coast were also suffering. Here is what was happening:</p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">🌱 Cocoa</div>
+            <div class="timeline-content">
+              <strong>Swollen Shoot Disease</strong> — A disease was attacking cocoa trees, which was the main source of income for many Ghanaians. The British ordered farmers to cut down their cocoa trees to stop the disease from spreading. Farmers were very angry because this destroyed their livelihood.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">📉 Shortages</div>
+            <div class="timeline-content">
+              <strong>Shortage of Goods</strong> — After the war, there were very few goods in the shops. Basic things like sugar, cloth, and tinned food were hard to find because the war had disrupted trade.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">💰 Prices</div>
+            <div class="timeline-content">
+              <strong>High Prices (Inflation)</strong> — Because goods were scarce, their prices went up very high. Only the wealthy could afford to buy things. Ordinary people could not afford basic necessities.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">👷 Jobs</div>
+            <div class="timeline-content">
+              <strong>Unemployment</strong> — Returning soldiers and young educated people could not find jobs. The foreign companies controlled most of the good jobs, leaving Africans with few opportunities.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">🔥 Unrest</div>
+            <div class="timeline-content">
+              <strong>Growing Unrest</strong> — People began to protest and riot against the colonial government. The demand for independence grew stronger every day.
+            </div>
+          </div>
+        </div>
+
+        <h3>⚔️ Foreign Control of the Economy</h3>
+        <p>Another big problem was that <strong>foreign companies controlled the Gold Coast economy</strong>. European businesses owned the big trading companies, the mines, and most of the import-export businesses. Africans were left with very little control over their own resources. This made people feel that even after the war, they were still being treated like second-class citizens in their own country.</p>
+
+        <h3>📢 The Demand for Independence</h3>
+        <p>All these problems together — broken promises to soldiers, high prices, unemployment, cut cocoa trees, and foreign control — made the people of the Gold Coast very angry. They began to ask:</p>
+        <blockquote>
+          "If we fought and died for freedom in the war, why can't we have freedom in our own country?"
+        </blockquote>
+        <p>This is how the demand for <strong>independence</strong> grew stronger and stronger. The people realised that only by governing themselves could they solve their own problems. This unhappiness would soon lead to the <strong>boycott of European goods</strong>, the <strong>shooting of ex-servicemen on 28th February 1948</strong>, and the famous <strong>1948 riots</strong> that changed Ghana's history forever.</p>
+
+        <blockquote>
+          💭 <strong>Think About It</strong>: Which of the problems after WWII do you think was the most serious? Why? Can you connect any of these problems to issues we still face in Ghana today?
         </blockquote>
       </div>
 
@@ -398,11 +521,14 @@
         <h2>✅ Check Your Understanding</h2>
         <div class="checkpoint">
           <ol>
-            <li>What was the purpose of the ex-servicemen's march on February 28, 1948?</li>
-            <li>Where were the soldiers heading when they were stopped by the police?</li>
-            <li>Name the three soldiers who were killed at Christiansburg Crossroads.</li>
-            <li>What did the angry crowds do during the riots that followed?</li>
-            <li>Why did the British government arrest the Big Six, and how did the people react to their arrest?</li>
+            <li>When was the Second World War fought?</li>
+            <li>Which side did the Gold Coast fight on — the Allies or the Axis?</li>
+            <li>Name the two military units that Gold Coast soldiers fought in.</li>
+            <li>List three promises the British made to the soldiers before the war.</li>
+            <li>What happened when the soldiers returned home after the war?</li>
+            <li>What was the swollen shoot disease, and how did it affect farmers?</li>
+            <li>Why did the prices of goods go up after the war?</li>
+            <li>Name two reasons why people demanded independence after WWII.</li>
           </ol>
           <p><em>Confirm your understanding before moving on.</em></p>
         </div>
@@ -418,8 +544,8 @@
       <div class="chapter-nav" id="chapter-navigation">
         <div class="chapter-tabs" id="chapter-tabs"></div>
         <div>
-          <button id="prev-btn" class="btn" style="margin-right: 0.5rem; display: none;">← Previous Lesson</button>
-          <button id="next-btn" class="btn" style="display: none;">Next Lesson →</button>
+          <button id="prev-btn" class="btn" style="margin-right: 0.5rem;">← Previous Week</button>
+          <button id="next-btn" class="btn" style="margin-left: 0.5rem;">Next Week →</button>
         </div>
       </div>
 
@@ -437,7 +563,7 @@
           </div>
           <div class="stat-item">
             <div class="stat-value" id="stat-total">1</div>
-            <div class="stat-label">Total Lessons</div>
+            <div class="stat-label">Total Weeks</div>
           </div>
           <div class="stat-item">
             <div class="stat-value" id="stat-percent">0%</div>
@@ -492,8 +618,8 @@
         <h4 class="footer__title">Quick Links</h4>
         <nav aria-label="Footer navigation">
           <a href="index.html" class="footer__link">Home</a><br>
-          <a href="index.html" class="footer__link">Class 5</a><br>
-          <a href="index.html" class="footer__link">History Lessons</a><br>
+          <a href="dashboard.html" class="footer__link">Class 5</a><br>
+          <a href="historyChapter-4.html" class="footer__link">History Lessons</a><br>
           <a href="contact.html" class="footer__link">Contact Support</a>
         </nav>
       </div>
@@ -520,8 +646,8 @@
       // === AUTO-DETECT CHAPTER NUMBER FROM URL ===
       const path = window.location.pathname;
       const match = path.match(/historyChapter-(\d+)\.html/);
-      const currentChapter = match ? parseInt(match[1], 10) : 0;
-      const MAX_CHAPTERS = 300;
+      const currentChapter = match ? parseInt(match[1], 10) : 4;
+      const MAX_CHAPTERS = 11; // 12 weeks total (0 to 11)
 
       function getChapterUrl(n) {
         return `historyChapter-${n}.html`;
@@ -601,28 +727,28 @@
       };
       window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
 
-      // === QUIZ DATA (20 Questions - The Events of the 1948 Riots) ===
+      // === QUIZ DATA (20 Questions - Post-WWII Unhappiness) ===
       const assessmentItems = [
-        {id:"1",prompt:"On what date did the ex-servicemen organize their peaceful march?",options:[{id:"a",text:"February 28, 1948",is_correct:true},{id:"b",text:"March 12, 1948",is_correct:false},{id:"c",text:"March 6, 1957",is_correct:false},{id:"d",text:"July 1, 1948",is_correct:false}]},
-        {id:"2",prompt:"Where were the ex-servicemen marching to?",options:[{id:"a",text:"The University of Ghana",is_correct:false},{id:"b",text:"Christiansborg Castle (the Governor's residence)",is_correct:true},{id:"c",text:"Kwame Nkrumah Circle",is_correct:false},{id:"d",text:"The British Parliament",is_correct:false}]},
-        {id:"3",prompt:"What was the purpose of the ex-servicemen's march?",options:[{id:"a",text:"To start a war",is_correct:false},{id:"b",text:"To present a petition about their unfulfilled promises",is_correct:true},{id:"c",text:"To celebrate the end of the war",is_correct:false},{id:"d",text:"To ask for more weapons",is_correct:false}]},
-        {id:"4",prompt:"Were the ex-servicemen armed during their march?",options:[{id:"a",text:"Yes, they had guns",is_correct:false},{id:"b",text:"No, they were unarmed",is_correct:true},{id:"c",text:"They had swords",is_correct:false},{id:"d",text:"They had traditional weapons",is_correct:false}]},
-        {id:"5",prompt:"Where were the soldiers stopped by the colonial police?",options:[{id:"a",text:"Makola Market",is_correct:false},{id:"b",text:"Independence Square",is_correct:false},{id:"c",text:"Christiansburg Crossroads",is_correct:true},{id:"d",text:"Kumasi Central Market",is_correct:false}]},
-        {id:"6",prompt:"What did the police do when the soldiers continued marching peacefully?",options:[{id:"a",text:"They joined the march",is_correct:false},{id:"b",text:"They opened fire on the unarmed soldiers",is_correct:true},{id:"c",text:"They gave them water",is_correct:false},{id:"d",text:"They arrested them immediately",is_correct:false}]},
-        {id:"7",prompt:"How many unarmed ex-servicemen were killed instantly at Christiansburg Crossroads?",options:[{id:"a",text:"One",is_correct:false},{id:"b",text:"Two",is_correct:false},{id:"c",text:"Three",is_correct:true},{id:"d",text:"Six",is_correct:false}]},
-        {id:"8",prompt:"Which of the following was one of the soldiers killed at Christiansburg Crossroads?",options:[{id:"a",text:"Sergeant Adjetey",is_correct:true},{id:"b",text:"Kwame Nkrumah",is_correct:false},{id:"c",text:"J.B. Danquah",is_correct:false},{id:"d",text:"Jerry Rawlings",is_correct:false}]},
-        {id:"9",prompt:"Which of the following was NOT one of the three soldiers killed?",options:[{id:"a",text:"Corporal Attipoe",is_correct:false},{id:"b",text:"Private Odartey Lamptey",is_correct:false},{id:"c",text:"Sergeant Adjetey",is_correct:false},{id:"d",text:"Captain Mensah",is_correct:true}]},
-        {id:"10",prompt:"How did the people react to the news of the killed soldiers?",options:[{id:"a",text:"They ignored it",is_correct:false},{id:"b",text:"They were furious and riots broke out",is_correct:true},{id:"c",text:"They celebrated",is_correct:false},{id:"d",text:"They moved to another country",is_correct:false}]},
-        {id:"11",prompt:"What did the angry crowds do during the riots?",options:[{id:"a",text:"They built new schools",is_correct:false},{id:"b",text:"They attacked and looted European-owned shops",is_correct:true},{id:"c",text:"They planted more cocoa",is_correct:false},{id:"d",text:"They voted in an election",is_correct:false}]},
-        {id:"12",prompt:"Whose businesses were mainly targeted during the riots?",options:[{id:"a",text:"Local Ghanaian farmers",is_correct:false},{id:"b",text:"European and Syrian traders",is_correct:true},{id:"c",text:"The traditional chiefs",is_correct:false},{id:"d",text:"The ex-servicemen",is_correct:false}]},
-        {id:"13",prompt:"To which other towns did the riots spread?",options:[{id:"a",text:"Kumasi, Sekondi, and Akim Oda",is_correct:true},{id:"b",text:"London, Paris, and New York",is_correct:false},{id:"c",text:"Lagos, Abuja, and Kano",is_correct:false},{id:"d",text:"Cape Coast, Elmina, and Axim",is_correct:false}]},
-        {id:"14",prompt:"What did the British colonial government declare to stop the riots?",options:[{id:"a",text:"A national holiday",is_correct:false},{id:"b",text:"A State of Emergency",is_correct:true},{id:"c",text:"A new constitution",is_correct:false},{id:"d",text:"A boycott",is_correct:false}]},
-        {id:"15",prompt:"Who did the British government blame for the riots?",options:[{id:"a",text:"The cocoa farmers",is_correct:false},{id:"b",text:"The ex-servicemen",is_correct:false},{id:"c",text:"The political leaders",is_correct:true},{id:"d",text:"The traditional chiefs",is_correct:false}]},
-        {id:"16",prompt:"On what date were the Big Six arrested?",options:[{id:"a",text:"February 28, 1948",is_correct:false},{id:"b",text:"March 12, 1948",is_correct:true},{id:"c",text:"March 6, 1957",is_correct:false},{id:"d",text:"July 1, 1948",is_correct:false}]},
-        {id:"17",prompt:"How many political leaders were arrested and became known as the Big Six?",options:[{id:"a",text:"Four",is_correct:false},{id:"b",text:"Six",is_correct:true},{id:"c",text:"Eight",is_correct:false},{id:"d",text:"Ten",is_correct:false}]},
-        {id:"18",prompt:"Which of the following is one of the Big Six?",options:[{id:"a",text:"Kwame Nkrumah",is_correct:true},{id:"b",text:"Jerry Rawlings",is_correct:false},{id:"c",text:"John Kufuor",is_correct:false},{id:"d",text:"John Evans Atta Mills",is_correct:false}]},
-        {id:"19",prompt:"How did the arrest of the Big Six affect the people?",options:[{id:"a",text:"It stopped the demand for independence",is_correct:false},{id:"b",text:"It made them national heroes and united the people even more",is_correct:true},{id:"c",text:"People were angry at them for causing trouble",is_correct:false},{id:"d",text:"It had no effect on the people",is_correct:false}]},
-        {id:"20",prompt:"What does 'looting' mean in the context of the riots?",options:[{id:"a",text:"Buying goods at a lower price",is_correct:false},{id:"b",text:"Stealing goods from shops during the unrest",is_correct:true},{id:"c",text:"Donating money to the poor",is_correct:false},{id:"d",text:"Paying taxes to the government",is_correct:false}]}
+        {id:"1",prompt:"When was the Second World War fought?",options:[{id:"a",text:"1914 to 1918",is_correct:false},{id:"b",text:"1939 to 1945",is_correct:true},{id:"c",text:"1945 to 1950",is_correct:false},{id:"d",text:"1929 to 1935",is_correct:false}]},
+        {id:"2",prompt:"Which side did the Gold Coast fight on during the Second World War?",options:[{id:"a",text:"The Axis powers",is_correct:false},{id:"b",text:"The Allied powers",is_correct:true},{id:"c",text:"They remained neutral",is_correct:false},{id:"d",text:"They fought against both sides",is_correct:false}]},
+        {id:"3",prompt:"Which of these countries was part of the Axis powers?",options:[{id:"a",text:"Britain",is_correct:false},{id:"b",text:"France",is_correct:false},{id:"c",text:"Germany",is_correct:true},{id:"d",text:"United States",is_correct:false}]},
+        {id:"4",prompt:"Which military unit was made up of soldiers from the Gold Coast?",options:[{id:"a",text:"The Royal African Army",is_correct:false},{id:"b",text:"The Gold Coast Regiment",is_correct:true},{id:"c",text:"The British Legion",is_correct:false},{id:"d",text:"The West African Navy",is_correct:false}]},
+        {id:"5",prompt:"What was the Royal West African Frontier Force (RWAFF)?",options:[{id:"a",text:"A group of traders",is_correct:false},{id:"b",text:"A British army group including soldiers from Gold Coast, Nigeria, Sierra Leone, and Gambia",is_correct:true},{id:"c",text:"A political party",is_correct:false},{id:"d",text:"A farming cooperative",is_correct:false}]},
+        {id:"6",prompt:"Which of these was NOT a promise made to Gold Coast soldiers before the war?",options:[{id:"a",text:"Pensions",is_correct:false},{id:"b",text:"Houses",is_correct:false},{id:"c",text:"Jobs",is_correct:false},{id:"d",text:"Free trips to Europe for holidays",is_correct:true}]},
+        {id:"7",prompt:"What happened when the soldiers returned home after the war?",options:[{id:"a",text:"They received all the promised benefits",is_correct:false},{id:"b",text:"The British government did NOT keep the promises",is_correct:true},{id:"c",text:"They were given more money than promised",is_correct:false},{id:"d",text:"They were asked to fight another war",is_correct:false}]},
+        {id:"8",prompt:"What was the swollen shoot disease?",options:[{id:"a",text:"A disease that attacked cocoa trees",is_correct:true},{id:"b",text:"A disease that affected soldiers",is_correct:false},{id:"c",text:"A disease that affected gold miners",is_correct:false},{id:"d",text:"A disease that affected fishing boats",is_correct:false}]},
+        {id:"9",prompt:"Why were farmers angry about the swollen shoot disease?",options:[{id:"a",text:"The British ordered them to cut down their cocoa trees",is_correct:true},{id:"b",text:"The British gave them new seeds",is_correct:false},{id:"c",text:"The British built new farms for them",is_correct:false},{id:"d",text:"The British paid them extra money",is_correct:false}]},
+        {id:"10",prompt:"What happened to the prices of goods after the Second World War?",options:[{id:"a",text:"They went down",is_correct:false},{id:"b",text:"They stayed the same",is_correct:false},{id:"c",text:"They went up very high (inflation)",is_correct:true},{id:"d",text:"Goods became free",is_correct:false}]},
+        {id:"11",prompt:"Why were goods scarce (hard to find) after the war?",options:[{id:"a",text:"Because there were too many shops",is_correct:false},{id:"b",text:"Because the war had disrupted trade",is_correct:true},{id:"c",text:"Because people stopped buying things",is_correct:false},{id:"d",text:"Because the British gave all goods to the soldiers",is_correct:false}]},
+        {id:"12",prompt:"What does 'inflation' mean?",options:[{id:"a",text:"When prices go down",is_correct:false},{id:"b",text:"When prices go up and money loses value",is_correct:true},{id:"c",text:"When goods are free",is_correct:false},{id:"d",text:"When there are too many jobs",is_correct:false}]},
+        {id:"13",prompt:"Who controlled most of the big trading companies in the Gold Coast after the war?",options:[{id:"a",text:"African businessmen",is_correct:false},{id:"b",text:"The Gold Coast government",is_correct:false},{id:"c",text:"Foreign (European) companies",is_correct:true},{id:"d",text:"Traditional chiefs",is_correct:false}]},
+        {id:"14",prompt:"Why were returning soldiers unhappy when they came back home?",options:[{id:"a",text:"They had too much money",is_correct:false},{id:"b",text:"They found no jobs, no pensions, and no houses",is_correct:true},{id:"c",text:"They were given too many benefits",is_correct:false},{id:"d",text:"They were asked to go back to war",is_correct:false}]},
+        {id:"15",prompt:"What was one of the main reasons people began to demand independence after WWII?",options:[{id:"a",text:"They wanted to leave Ghana",is_correct:false},{id:"b",text:"They realised they could only solve their problems by governing themselves",is_correct:true},{id:"c",text:"They wanted to join another country",is_correct:false},{id:"d",text:"They wanted to stop trading with other countries",is_correct:false}]},
+        {id:"16",prompt:"Which of these was NOT a problem faced by people in the Gold Coast after WWII?",options:[{id:"a",text:"High prices of goods",is_correct:false},{id:"b",text:"Lack of jobs",is_correct:false},{id:"c",text:"Cutting down of cocoa trees",is_correct:false},{id:"d",text:"Too many houses being built for everyone",is_correct:true}]},
+        {id:"17",prompt:"What question did the people of the Gold Coast begin to ask after the war?",options:[{id:"a",text:"Why did we fight for freedom abroad but not have it at home?",is_correct:true},{id:"b",text:"Why don't we join the British Empire?",is_correct:false},{id:"c",text:"Why should we stop trading with Africa?",is_correct:false},{id:"d",text:"Why should we build more churches?",is_correct:false}]},
+        {id:"18",prompt:"What important event happened on 28th February 1948 as a result of this unhappiness?",options:[{id:"a",text:"Ghana became independent",is_correct:false},{id:"b",text:"Unarmed ex-servicemen were shot by police",is_correct:true},{id:"c",text:"A new king was crowned",is_correct:false},{id:"d",text:"A big festival was held",is_correct:false}]},
+        {id:"19",prompt:"Which core competency is developed when learners study the causes of post-WWII unhappiness in Ghana?",options:[{id:"a",text:"Digital Literacy",is_correct:false},{id:"b",text:"Critical Thinking and Problem Solving",is_correct:true},{id:"c",text:"Physical Coordination",is_correct:false},{id:"d",text:"Financial Literacy",is_correct:false}]},
+        {id:"20",prompt:"What did the broken promises to soldiers teach the people of the Gold Coast?",options:[{id:"a",text:"That they should trust the British more",is_correct:false},{id:"b",text:"That they needed to fight for their own rights and independence",is_correct:true},{id:"c",text:"That they should leave the country",is_correct:false},{id:"d",text:"That war is always good",is_correct:false}]}
       ];
 
       // === RENDER QUIZ ===
@@ -674,7 +800,7 @@
         localStorage.setItem(`quiz_attempts_${currentChapter}`, attempts);
         localStorage.setItem(`mastery_${currentChapter}`, mastery ? '1' : '0');
 
-        let report = `*Mini OpenStax — The Events that Led to the 1948 Riots*\nStudent: ${userName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
+        let report = `*Mini OpenStax — Post-WWII Unhappiness (Week ${currentChapter + 1})*\nStudent: ${userName}\nScore: ${score}/${total} (${Math.round(score/total*100)}%) — ${mastery ? '✅ MASTERED' : '❌ Needs Review'}\nTime: ${timeOnTask}s | Attempts: ${attempts}\n\n`;
         if (correctList.length) {
           report += `✅ CORRECT ANSWERS (${correctList.length}):\n`;
           correctList.forEach(q => report += `${q.id}. ${q.prompt}\n   → ${q.correctText}\n\n`);
@@ -718,7 +844,7 @@
           const student = (lines.find(l => l.startsWith('Student:')) || '').replace('Student: ', '').trim() || 'Unknown';
           const score = (lines.find(l => l.startsWith('Score:')) || 'Score unknown');
           const date = new Date(rep.timestamp).toLocaleString();
-          return `<div class="report-card"><div class="report-header"><span>The Events of the 1948 Riots</span><span>${date}</span></div><div class="report-meta">Student: ${student} • ${score}</div><div class="report-detail" id="detail-${rep.timestamp}"></div><div class="report-actions"><button class="btn" onclick="toggleDetail(${rep.timestamp})">Details</button><button class="btn" onclick="viewReportAsPDF('${rep.key}')">PDF</button><button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">WhatsApp</button></div></div>`;
+          return `<div class="report-card"><div class="report-header"><span>Post-WWII Unhappiness</span><span>${date}</span></div><div class="report-meta">Student: ${student} • ${score}</div><div class="report-detail" id="detail-${rep.timestamp}"></div><div class="report-actions"><button class="btn" onclick="toggleDetail(${rep.timestamp})">Details</button><button class="btn" onclick="viewReportAsPDF('${rep.key}')">PDF</button><button class="btn btn-whatsapp" onclick="sendReport('${rep.key}')">WhatsApp</button></div></div>`;
         }).join('');
         window.reportContents = {};
         reports.forEach(r => window.reportContents[r.timestamp] = r.content);
@@ -737,7 +863,7 @@
         document.getElementById('stat-mastered').textContent = mastered;
         document.getElementById('stat-total').textContent = 1;
         document.getElementById('stat-percent').textContent = `${mastered * 100}%`;
-        document.getElementById('recent-lessons').innerHTML = `<div class="lesson-item"><div><span class="mastery-indicator ${mastered ? 'mastery-yes' : 'mastery-partial'}"></span>Lesson ${currentChapter + 1}</div><span>${mastered ? 'Mastered' : 'In Progress'}</span></div>`;
+        document.getElementById('recent-lessons').innerHTML = `<div class="lesson-item"><div><span class="mastery-indicator ${mastered ? 'mastery-yes' : 'mastery-partial'}"></span>Week ${currentChapter + 1}: Post-WWII Unhappiness</div><span>${mastered ? 'Mastered' : 'In Progress'}</span></div>`;
       }
       document.getElementById('btn-send-all').addEventListener('click', () => {
         let msg = `*📚 Mini OpenStax — All Quiz Reports*\nStudent: ${userName}\n\n`; let count = 0;
@@ -783,7 +909,7 @@
         let tabsHtml = '';
         for (let i = Math.max(0, currentChapter - 1); i <= Math.min(MAX_CHAPTERS, currentChapter + 2); i++) {
           const isActive = i === currentChapter;
-          tabsHtml += `<a href="${getChapterUrl(i)}" class="chapter-btn ${isActive ? 'active' : ''}">Lesson ${i + 1}</a>`;
+          tabsHtml += `<a href="${getChapterUrl(i)}" class="chapter-btn ${isActive ? 'active' : ''}">Week ${i + 1}</a>`;
         }
         tabsContainer.innerHTML = tabsHtml;
         if (currentChapter > 0) { prevBtn.style.display = 'inline-block'; prevBtn.onclick = () => window.location.href = getChapterUrl(currentChapter - 1); }
@@ -795,11 +921,6 @@
       // === INIT ===
       document.getElementById('year').textContent = new Date().getFullYear();
       renderQuiz(); updateChapterNavigation();
-      document.getElementById('send-analytics')?.addEventListener('click', (e) => { e.preventDefault(); alert("Usage data collection is handled globally."); });
-    })();
-  </script>
-</body>
-</html> updateChapterNavigation();
       document.getElementById('send-analytics')?.addEventListener('click', (e) => { e.preventDefault(); alert("Usage data collection is handled globally."); });
     })();
   </script>
